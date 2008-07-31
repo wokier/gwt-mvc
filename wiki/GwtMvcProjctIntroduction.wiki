@@ -1,0 +1,26 @@
+#summary One-sentence summary of this page.
+#labels Featured,Phase-Requirements
+
+= Introduction =
+GWT is a wonderful tool, but does not structure your code.
+
+It is open, as you can structure your code as you want, in a good way, or in a bad way.
+
+Model View Controler is a design pattern with many variant, which establishes a separation of concerns in Graphical User Interfaces.
+
+This project was created to offer a framework which provides a simple way to structure your gwt project.
+
+
+= Details =
+
+Nothing is available for the moment, Still in Work!
+
+The exact features are not yet defined.
+
+If you are interested in this subject, i recommend you this articles :
+
+[http://en.wikipedia.org/wiki/Model-view-controller]
+
+[http://www.ongwt.com/post/2008/04/05/MVC-TDD-et-GWT]
+
+[http://robvanmaris.jteam.nl/2008/03/09/test-driven-development-for-gwt-ui-code/]
