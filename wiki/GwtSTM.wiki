@@ -7,7 +7,7 @@ GWT STM project shows a simple MVC implementation.
 = Details =
 TODO
 
-= Instructions to run=
- * Checkout from svn [[http://gwt-mvc.googlecode.com/svn/branches/stm/]]
- * execute mvn jetty:run
- * browse to http://localhost:8080
+= Instructions to run =
+ * Checkout from svn [http://gwt-mvc.googlecode.com/svn/branches/stm/]
+ * execute: {{{mvn jetty:run}}}
+ * browse to [http://localhost:8080/gwt-mvc]
