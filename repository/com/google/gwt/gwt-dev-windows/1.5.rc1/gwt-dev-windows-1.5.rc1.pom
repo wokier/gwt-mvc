@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.google.gwt</groupId>
+  <artifactId>gwt-dev-windows</artifactId>
+  <version>1.5.rc1</version>
+</project>
