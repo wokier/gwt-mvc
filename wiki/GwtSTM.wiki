@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Trivial example of MVC pattern
 #labels Featured
 
 = Introduction =
