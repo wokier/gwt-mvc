@@ -1,0 +1,10 @@
+<module>
+	<!-- Inherit the core Web Toolkit stuff. -->
+	<inherits name='com.google.gwt.user.User' />
+
+	<!-- GWT MVC -->
+	<inherits name="com.googlecode.gwtmvc.GwtMvc" />
+
+	<entry-point class="com.googlecode.gwtmvc.poc.client.PocEntryPoint" />
+
+</module>
