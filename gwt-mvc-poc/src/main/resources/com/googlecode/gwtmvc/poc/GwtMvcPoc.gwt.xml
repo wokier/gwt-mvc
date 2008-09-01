@@ -7,4 +7,6 @@
 
 	<entry-point class="com.googlecode.gwtmvc.poc.client.PocEntryPoint" />
 
+	<servlet path="/PocPlusRPC" class="com.googlecode.gwtmvc.poc.server.PocPlusRPCImpl"  />
+	<servlet path="/PocMinusRPC" class="com.googlecode.gwtmvc.poc.server.PocMinusRPCImpl"  />
 </module>
