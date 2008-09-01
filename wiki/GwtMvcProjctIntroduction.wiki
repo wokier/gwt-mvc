@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary GWT MVC Project Introduction and links to similar projects.
 #labels Featured,Phase-Requirements
 
 = Introduction =
@@ -24,3 +24,7 @@ If you are interested in this subject, i recommend you this articles :
 [http://www.ongwt.com/post/2008/04/05/MVC-TDD-et-GWT]
 
 [http://robvanmaris.jteam.nl/2008/03/09/test-driven-development-for-gwt-ui-code/]
+
+
+There is also an implementation existing in the middle of the ext gwt framework.
+[http://extjs.com/deploy/gxtdocs/com/extjs/gxt/ui/client/mvc/package-summary.html]
