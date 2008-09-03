@@ -2,9 +2,9 @@ package com.googlecode.gwtmvc.poc.client;
 
 import com.google.gwt.user.client.ui.Label;
 
-public class PocComponent extends Label {
+public class PocIntegerLabel extends Label {
 
-	public PocComponent() {
+	public PocIntegerLabel() {
 		super("waiting for initialization by PocModel");
 	}
 
