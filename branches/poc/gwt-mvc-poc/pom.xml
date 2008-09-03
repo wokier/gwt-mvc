@@ -22,7 +22,6 @@
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-user</artifactId>
 			<version>${gwt.version}</version>
-			<!-- <scope>provided</scope> -->
 		</dependency>
 		<!-- <dependency>
 			<groupId>com.google.gwt</groupId>
@@ -41,9 +40,16 @@
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-servlet</artifactId>
 			<version>${gwt.version}</version>
-			<!-- <scope>runtime</scope> -->
+			<scope>runtime</scope>
 		</dependency>
-  </dependencies>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.4</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 	<repositories>
 		<repository>
 			<id>gwt-maven</id>
@@ -107,9 +113,7 @@
 					</webResources>
 					<webappDirectory>webapp</webappDirectory>
 					<warSourceExcludes>**/.svn/</warSourceExcludes>
-					<warSourceExcludes>
-						WEB-INF/lib/m6.test-${socle.version}.jar
-					</warSourceExcludes>
+					<warSourceExcludes></warSourceExcludes>
 				</configuration>
 			</plugin>
 
@@ -192,27 +196,6 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
-
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>cobertura-maven-plugin</artifactId>
-				<configuration>
-					<instrumentation>
-						<ignores>
-							<ignore>m6.oat.ui.client.view.*</ignore>
-							<ignore>
-								m6.oat.ui.client.coordination.*
-							</ignore>
-						</ignores>
-						<!--
-							<excludes>
-							<exclude>com/example/dullcode/**/*.class</exclude>
-							<exclude>com/example/**/*Test.class</exclude>
-							</excludes>
-						-->
-					</instrumentation>
-				</configuration>
 			</plugin>
 
 		</plugins>

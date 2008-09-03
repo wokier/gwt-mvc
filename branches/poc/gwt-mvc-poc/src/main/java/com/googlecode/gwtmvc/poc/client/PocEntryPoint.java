@@ -8,8 +8,12 @@ public class PocEntryPoint implements EntryPoint {
 		super();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see com.google.gwt.core.client.EntryPoint#onModuleLoad()
+	 */
 	public void onModuleLoad() {
-		new PocController().init();
+		new PocMenuController().init();
 	}
 
 }

@@ -8,69 +8,81 @@ import com.googlecode.gwtmvc.client.View;
 public class PocController extends Controller {
 
 	public enum PocAction {
-
-		PLUS, MINUS, REINIT
+		SHOW_SIMPLE_1, SHOW_COMPLEX_2,
+		DO_PLUS_A, DO_MINUS_A, DO_REINIT_A,
+		DO_PLUS_B, DO_MINUS_B, DO_REINIT_B
 	}
 
 	private PocModel modelA, modelB;
 
 	public PocController() {
 		super();
+		
 		modelA = new PocModel();
 		modelB = new PocModel();
-		add(new PocNumericView("numericA", this, modelA));
-		add(new PocNumericView("numericB", this, modelB));
 		
-		add(new PocGraphicalView(this, modelA, modelB));
+		addView(new PocViewNumeric("numericA", this, modelA));
+		addView(new PocViewNumericB("numericB", this, modelB));
+		addView(new PocViewGraphical(this, modelA, modelB));
+		
 	}
-
+	
 	@Override
 	public void init() {
-		View nviewa = views.get("numericA");
-		nviewa.init();
-		RootPanel.get().add(nviewa);
 
-		View nviewb = views.get("numericB");
-		nviewb.init();
-		RootPanel.get().add(nviewb);
-
-		View gview = views.get("graphical");
-		gview.init();
-		RootPanel.get().add(gview);
-
-		initModel(modelA);
-		initModel(modelB);
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.googlecode.gwtmvc.client.Controller#onUserGesture(com.googlecode.gwtmvc.client.Event)
-	 */
-	public void onUserGesture(Event event) {
+	
+	@Override
+	public void handleUserGesture(Event event) {
 
 		PocAction action = (PocAction) event.getAction();
 		switch (action) {
-		case PLUS:
-			if (event.getSender().getKey().equals("numericA")) {
-				modelA.plus((Integer) event.getValue());
-			} else {
-				modelB.plus((Integer) event.getValue());
-			}
+		case SHOW_SIMPLE_1:
+			View nview = views.get("numericA");
+			nview.init();
+			RootPanel.get("content").clear();
+			RootPanel.get("content").add(nview);
+			
+			initModel(modelA);
 			break;
-		case MINUS:
-			if (event.getSender().getKey().equals("numericA")) {
-				modelA.minus((Integer) event.getValue());
-			} else {
-				modelB.minus((Integer) event.getValue());
-			}
+		case SHOW_COMPLEX_2:
+			RootPanel.get("content").clear();
+			
+			View nviewa =views.get("numericA");
+			nviewa.init();
+			addView(nviewa);			
+			RootPanel.get("content").add(nviewa);
+
+			View nviewb = views.get("numericB");
+			nviewb.init();
+			addView(nviewb);
+			RootPanel.get("content").add(nviewb);
+
+			View gview =views.get("graphical");
+			gview.init();
+			addView(gview);
+			RootPanel.get("content").add(gview);
+			
+			initModel(modelA);
+			initModel(modelB);
 			break;
-		case REINIT:
-			if (event.getSender().getKey().equals("numericA")) {
-				updateModel(modelA, 0);
-			} else {
-				updateModel(modelB, 0);
-			}
+		case DO_PLUS_A:
+			modelA.plus((Integer) event.getValue());
+			break;
+		case DO_PLUS_B:
+			modelB.plus((Integer) event.getValue());
+			break;
+		case DO_MINUS_A:
+			modelA.minus((Integer) event.getValue());
+			break;
+		case DO_MINUS_B:
+			modelB.minus((Integer) event.getValue());
+			break;
+		case DO_REINIT_A:
+			updateModel(modelA, 0);
+			break;
+		case DO_REINIT_B:
+			updateModel(modelB, 0);
 			break;
 		}
 	}
