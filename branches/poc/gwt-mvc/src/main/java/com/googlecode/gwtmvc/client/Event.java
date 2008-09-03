@@ -8,8 +8,6 @@ package com.googlecode.gwtmvc.client;
  * @param <T>
  */
 public class Event<T, V extends Enum> {
-
-	private View sender;
 	
 	private V action;
 
@@ -20,8 +18,7 @@ public class Event<T, V extends Enum> {
 	 * 
 	 * @param action
 	 */
-	public Event(View sender, V action) {
-		this.sender = sender;
+	public Event(V action) {
 		this.action = action;
 	}
 
@@ -31,18 +28,11 @@ public class Event<T, V extends Enum> {
 	 * @param action
 	 * @param value
 	 */
-	public Event(View sender, V action, T value) {
-		this(sender,action);
+	public Event(V action, T value) {
+		this(action);
 		this.value = value;
 	}
-	
-	/**
-	 * @return the origin of the event
-	 */
-	public View getSender() {
-		return sender;
-	}
-	
+
 	/**
 	 * @return the event action
 	 */

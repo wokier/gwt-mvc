@@ -29,31 +29,45 @@ public abstract class Controller {
 	 * 
 	 * @param event
 	 */
-	public abstract void onUserGesture(Event event);
+	public abstract void handleUserGesture(Event event);
 
 	/**
 	 * Adds a view managed by this controller
 	 * 
 	 * @param view
 	 */
-	protected void add(View view) {
+	protected void addView(View view) {
 		views.put(view.getKey(), view);
 	}
 
+	/**
+	 * call the update method on the model, as the method update can only be
+	 * called by a controller.
+	 * 
+	 * @param model
+	 * @param value
+	 */
 	protected void updateModel(Model model, Object value) {
 		model.update(value);
 	}
-	
+
+	/**
+	 * call the init method on the model, as the method init can only be called
+	 * by a controller.
+	 * 
+	 * @param model
+	 */
 	protected void initModel(Model model) {
 		model.init();
 	}
 
-	// /**
-	// * Removes this view from views managed by this controller
-	// *
-	// * @param view
-	// */
-	// public void remove(View view) {
-	// views.remove(view.getKey());
-	// }
+	/**
+	 * Removes this view from views managed by this controller
+	 * 
+	 * @param view
+	 */
+	public void remove(View view) {
+		views.remove(view.getKey());
+	}
+
 }
