@@ -6,7 +6,8 @@ import com.google.gwt.user.client.ui.Composite;
  * The view is the graphical part of the application get datas from model use
  * controler to action on the system
  * 
- * USAGE: The view coul be implemented by a component or a group of components
+ * USAGE: The view could be implemented by a component or a group of components
+ * The contructor must be call by the controller of the view.
  */
 public abstract class View extends Composite {
 
@@ -22,12 +23,14 @@ public abstract class View extends Composite {
 	 *            Unique id for this view
 	 * @param controller
 	 *            the controler which manage the view
+	 * @param models The different models on which the view could get the value. 
+	 * USAGE: pass Model instance, not ModelForView Instance.
 	 */
-	public View(String key, Controller controller, ModelForView... views) {
+	public View(String key, Controller controller, ModelForView... models) {
 		this.key = key;
 		this.controller = controller;
-		controller.add(this);
-		for (ModelForView modelForView : views) {
+		controller.addView(this);
+		for (ModelForView modelForView : models) {
 			((Model) modelForView).addListener(this);
 		}
 	}
