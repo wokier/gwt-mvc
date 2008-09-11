@@ -11,9 +11,9 @@ public class PocViewGraphical extends View {
 	Label bar;
 
 	ModelForView<Integer> modelA, modelB;
-	
+
 	boolean inited;
-	
+
 	public PocViewGraphical(Controller controller, PocModel modelA, PocModel modelB) {
 		super("graphical", controller, modelA, modelB);
 		this.modelA = modelA;
@@ -22,15 +22,17 @@ public class PocViewGraphical extends View {
 
 	@Override
 	public void init() {
-		inited = true;
-		
-		bar = new Label("");
-		initWidget(bar);
+		if (!inited) {
+			inited = true;
+
+			bar = new Label("");
+			initWidget(bar);// call only once
+		}
 	}
 
 	@Override
 	public void onModelChange(ModelForView model) {
-		if(inited){
+		if (inited) {
 			int value = modelA.getValue() + (modelB.getValue() == null ? 0 : modelB.getValue());
 			if (value >= 0) {
 				bar.setWidth(value * 10 + "px");

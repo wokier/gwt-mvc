@@ -1,19 +1,12 @@
 package com.googlecode.gwtmvc.poc.client;
 
-import com.google.gwt.core.client.EntryPoint;
+import com.googlecode.gwtmvc.client.MvcEntryPoint;
 
-public class PocEntryPoint implements EntryPoint {
+
+public class PocEntryPoint extends MvcEntryPoint {
 
 	public PocEntryPoint() {
-		super();
+		super(new PocMenuController());
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * @see com.google.gwt.core.client.EntryPoint#onModuleLoad()
-	 */
-	public void onModuleLoad() {
-		new PocMenuController().init();
-	}
-
+	
 }

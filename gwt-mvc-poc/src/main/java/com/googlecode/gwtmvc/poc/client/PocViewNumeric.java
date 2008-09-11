@@ -30,7 +30,7 @@ public class PocViewNumeric extends View {
 			
 			VerticalPanel panel = new VerticalPanel();
 			DOM.setStyleAttribute(panel.getElement(), "border", "solid thin green");
-			initWidget(panel);// only call once
+			initWidget(panel);// call only once
 			
 			component = new PocIntegerLabel();
 			panel.add(component);
@@ -63,17 +63,17 @@ public class PocViewNumeric extends View {
 	}
 
 	protected void plusAction() {
-		controller.handleUserGesture(new Event<Integer, PocAction>(
+		controller.handleUserEvent(new Event<Integer, PocAction>(
 				PocAction.DO_PLUS_A, component.getValue()));
 	}
 
 	protected void minusAction() {
-		controller.handleUserGesture(new Event<Integer, PocAction>(
+		controller.handleUserEvent(new Event<Integer, PocAction>(
 				PocAction.DO_MINUS_A, component.getValue()));
 	}
 
 	protected void reinitAction() {
-		controller.handleUserGesture(new Event<Integer, PocAction>(
+		controller.handleUserEvent(new Event<Integer, PocAction>(
 				PocAction.DO_REINIT_A, 0));
 	}
 
