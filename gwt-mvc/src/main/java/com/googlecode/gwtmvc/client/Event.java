@@ -12,7 +12,9 @@ public class Event<T, V extends Enum> {
 	private V action;
 
 	private T value;
-
+	
+	protected enum BROWSER_ACTION { BROWSER_ACTION};
+	
 	/**
 	 * Builds an event
 	 * 
@@ -45,5 +47,10 @@ public class Event<T, V extends Enum> {
 	 */
 	public T getValue() {
 		return value;
+	}
+	
+	@Override
+	public String toString() {
+		return action +"-"+ value;
 	}
 }

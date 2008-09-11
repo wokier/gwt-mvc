@@ -1,6 +1,8 @@
 package com.googlecode.gwtmvc.client;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -11,6 +13,8 @@ import java.util.Map;
 public abstract class Controller {
 
 	protected Map<String, View> views = new HashMap<String, View>();
+
+	private List<Controller> childs = new ArrayList<Controller>();
 
 	/**
 	 * Empty Constructor
@@ -29,7 +33,7 @@ public abstract class Controller {
 	 * 
 	 * @param event
 	 */
-	public abstract void handleUserGesture(Event event);
+	public abstract void handleUserEvent(Event event);
 
 	/**
 	 * Adds a view managed by this controller
@@ -70,4 +74,73 @@ public abstract class Controller {
 		views.remove(view.getKey());
 	}
 
+	/**
+	 * Add a child
+	 * 
+	 * @param child
+	 */
+	protected void addChild(Controller child) {
+		childs.add(child);
+	}
+
+	/**
+	 * The action enumeration available for this controller
+	 * 
+	 * @return
+	 */
+	protected abstract Enum[] getActionEnumValues();
+
+	/**
+	 * Try to convert the event
+	 * 
+	 * @param browserEvent
+	 * @return a new event if the controller coul handle it, null otherwise
+	 * @throws IllegalArgumentException
+	 *             if the browser Event token dont match with any action
+	 */
+	protected abstract Event tryConvertBrowserEventToControllerEvent(BrowserEvent browserEvent)
+			throws IllegalArgumentException;
+
+	/**
+	 * Manages history. use the controller itself or his childs to handle the
+	 * browser event
+	 * 
+	 * @param browserEvent
+	 */
+	public void handleBrowserEvent(BrowserEvent browserEvent) {
+		if (!handleBrowserEventMyself(browserEvent)) {
+			if (!handleBrowserEventByChilds(browserEvent)) {
+				throw404Error();
+			}
+		}
+	}
+
+	private boolean handleBrowserEventByChilds(BrowserEvent browserEvent) {
+		for (Controller child : childs) {
+			try {
+				Event event = child.tryConvertBrowserEventToControllerEvent(browserEvent);
+				child.handleUserEvent(event);
+				return true;
+			} catch (IllegalArgumentException e) {
+				// next
+			}
+		}
+		return false;
+	}
+
+	private boolean handleBrowserEventMyself(BrowserEvent browserEvent) {
+		try {
+			Event event = tryConvertBrowserEventToControllerEvent(browserEvent);
+			handleUserEvent(event);
+			return true;
+		} catch (IllegalArgumentException e) {
+			return false;
+		}
+
+	}
+	
+	private void throw404Error() {
+		// TODO : redirect to NotFound page in gwt
+		throw new RuntimeException("404");
+	}
 }
