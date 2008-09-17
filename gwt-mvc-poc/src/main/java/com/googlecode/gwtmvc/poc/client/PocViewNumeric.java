@@ -9,17 +9,24 @@ import com.googlecode.gwtmvc.client.Event;
 import com.googlecode.gwtmvc.client.ModelForView;
 import com.googlecode.gwtmvc.client.View;
 import com.googlecode.gwtmvc.poc.client.PocController.PocAction;
+import com.googlecode.gwtmvc.poc.client.components.PocIntegerLabel;
 
 public class PocViewNumeric extends View {
+
+	protected static final String KEY = "numericA";
 
 	PocIntegerLabel component;
 
 	boolean inited;
 
+	public PocViewNumeric(PocController controller,
+			ModelForView model) {
+		super(KEY, controller, model);
+	}
+	
 	public PocViewNumeric(String key, PocController controller,
 			ModelForView model) {
 		super(key, controller, model);
-		
 	}
 
 	@Override

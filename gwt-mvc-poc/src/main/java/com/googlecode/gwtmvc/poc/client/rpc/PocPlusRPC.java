@@ -6,7 +6,7 @@ import com.google.gwt.user.client.rpc.ServiceDefTarget;
 
 public interface PocPlusRPC extends RemoteService {
 
-	public static class Util {
+	public static class Factory {
 		private static PocPlusRPCAsync instance;
 
 		public static PocPlusRPCAsync getInstance() {

@@ -1,4 +1,4 @@
-package com.googlecode.gwtmvc.poc.client;
+package com.googlecode.gwtmvc.poc.client.components;
 
 import com.google.gwt.user.client.ui.Label;
 

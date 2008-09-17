@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>gwt-mvc</groupId>
 	<artifactId>gwt-mvc-poc</artifactId>
 	<packaging>war</packaging>
 	<name>GWT MVC POC</name>
 	<version>0.0.1-SNAPSHOT</version>
-	<description/>
-	
+	<description />
+
 	<properties>
-		<gwt.version>1.5-RC1</gwt.version>
+		<gwt.version>1.5.2</gwt.version>
 	</properties>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>gwt-mvc</groupId>
@@ -28,13 +30,15 @@
 			<artifactId>gwt-dev</artifactId>
 			<classifier>windows</classifier>
 			<version>${gwt.version}</version>
-		</dependency> -->
+			</dependency> -->
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-dev</artifactId>
 			<version>${gwt.version}</version>
 			<scope>system</scope>
-			<systemPath>C:/JTBox/apps/gwt-windows-1.5.0/gwt-dev-windows.jar</systemPath>
+			<systemPath>
+				C:/gwt-windows-1.5.2/gwt-dev-windows.jar
+			</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.google.gwt</groupId>
@@ -49,6 +53,18 @@
 			<version>4.4</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.jmock</groupId>
+			<artifactId>jmock</artifactId>
+			<version>2.5.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jmock</groupId>
+			<artifactId>jmock-legacy</artifactId>
+			<version>2.5.0</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	<repositories>
 		<repository>
@@ -59,6 +75,9 @@
 		</repository>
 	</repositories>
 	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+
 		<resources>
 			<resource>
 				<directory>src/main/java</directory>
@@ -74,6 +93,15 @@
 				</includes>
 			</resource>
 		</resources>
+
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<includes>
+					<include>**/*.*</include>
+				</includes>
+			</testResource>
+		</testResources>
 
 		<plugins>
 			<plugin>
@@ -199,6 +227,6 @@
 			</plugin>
 
 		</plugins>
-		</build>
+	</build>
 
 </project>

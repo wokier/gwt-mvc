@@ -4,6 +4,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.googlecode.gwtmvc.client.BrowserEvent;
 import com.googlecode.gwtmvc.client.Controller;
 import com.googlecode.gwtmvc.client.Event;
+import com.googlecode.gwtmvc.client.IView;
 import com.googlecode.gwtmvc.client.View;
 
 public class PocController extends Controller {
@@ -12,22 +13,24 @@ public class PocController extends Controller {
 		SHOW_SIMPLE_1, SHOW_COMPLEX_2, DO_PLUS_A, DO_MINUS_A, DO_REINIT_A, DO_PLUS_B, DO_MINUS_B, DO_REINIT_B
 	}
 
-	private PocModel modelA, modelB;
+	protected PocModel modelA, modelB;
 
 	public PocController() {
 		super();
-
-		modelA = new PocModel();
-		modelB = new PocModel();
-
-		addView(new PocViewNumeric("numericA", this, modelA));
-		addView(new PocViewNumericB("numericB", this, modelB));
-		addView(new PocViewGraphical(this, modelA, modelB));
-
 	}
 
 	@Override
 	public void init() {
+		modelA = new PocModel();
+		modelB = new PocModel();
+
+		addView(new PocViewNumeric(this, modelA));
+		addView(new PocViewNumericB(this, modelB));
+		addView(new PocViewGraphical(this, modelA, modelB));
+	}
+
+	@Override
+	public void showHomeView() {
 
 	}
 
@@ -37,30 +40,26 @@ public class PocController extends Controller {
 		PocAction action = (PocAction) event.getAction();
 		switch (action) {
 		case SHOW_SIMPLE_1:
-			View nview = views.get("numericA");
+			IView nview = views.get(PocViewNumeric.KEY);
 			nview.init();
-			RootPanel.get("content").clear();
-			RootPanel.get("content").add(nview);
-
+			renderView(nview);
 			initModel(modelA);
 			break;
 		case SHOW_COMPLEX_2:
-			RootPanel.get("content").clear();
-
-			View nviewa = views.get("numericA");
+			IView nviewa = views.get(PocViewNumeric.KEY);
 			nviewa.init();
-			addView(nviewa);
-			RootPanel.get("content").add(nviewa);
+			if (nviewa instanceof View) {
+				RootPanel.get("content").clear();
+			}
+			renderView(nviewa);
 
-			View nviewb = views.get("numericB");
+			IView nviewb = views.get(PocViewNumericB.KEY);
 			nviewb.init();
-			addView(nviewb);
-			RootPanel.get("content").add(nviewb);
+			renderView(nviewb);
 
-			View gview = views.get("graphical");
+			IView gview = views.get(PocViewGraphical.KEY);
 			gview.init();
-			addView(gview);
-			RootPanel.get("content").add(gview);
+			renderView(gview);
 
 			initModel(modelA);
 			initModel(modelB);
@@ -87,18 +86,20 @@ public class PocController extends Controller {
 	}
 
 	@Override
+	protected void renderView(IView view) {
+		if (view instanceof View) {// Enable testing without GWT.create() error
+			RootPanel.get("content").add((View) view);
+		}
+	}
+
+	@Override
 	protected Enum[] getActionEnumValues() {
 		return PocAction.values();
 	}
 
 	@Override
 	protected Event tryConvertBrowserEventToControllerEvent(BrowserEvent browserEvent) {
-		try {
-			PocAction action = Enum.valueOf(PocAction.class, browserEvent.getHistoryToken());
-			return new Event<String, PocAction>(action);
-		} catch (IllegalArgumentException e) {
-			return null;
-		}
+		PocAction action = Enum.valueOf(PocAction.class, browserEvent.getHistoryToken());
+		return new Event<String, PocAction>(action);
 	}
-
 }
