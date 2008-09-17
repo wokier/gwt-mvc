@@ -6,13 +6,14 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * The controller responds to user gestures, and select the correct view.<br>
+ * The controller acts as a coordinator. 
+ * It responds to user gestures, call the model and select the correct view.<br>
  * 
  * USAGE: The controller knows its models and can call their methods.
  */
 public abstract class Controller {
 
-	protected Map<String, View> views = new HashMap<String, View>();
+	protected Map<String, IView> views = new HashMap<String, IView>();
 
 	private List<Controller> childs = new ArrayList<Controller>();
 
@@ -23,10 +24,15 @@ public abstract class Controller {
 	}
 
 	/**
-	 * Initialise the controller by rendering the initial view
+	 * Initialise the controller
 	 * 
 	 */
 	public abstract void init();
+	
+	/**
+	 * Show the default view of the controler
+	 */
+	public abstract void showHomeView();
 
 	/**
 	 * Manages user gestures
@@ -40,10 +46,17 @@ public abstract class Controller {
 	 * 
 	 * @param view
 	 */
-	protected void addView(View view) {
+	public void addView(IView view) {
 		views.put(view.getKey(), view);
 	}
 
+	/**
+	 * Place the view on the dom tree
+	 * 
+	 * @param view
+	 */
+	protected abstract void renderView(IView view) ;
+	
 	/**
 	 * call the update method on the model, as the method update can only be
 	 * called by a controller.
@@ -70,7 +83,7 @@ public abstract class Controller {
 	 * 
 	 * @param view
 	 */
-	public void remove(View view) {
+	public void remove(IView view) {
 		views.remove(view.getKey());
 	}
 
@@ -81,6 +94,7 @@ public abstract class Controller {
 	 */
 	protected void addChild(Controller child) {
 		childs.add(child);
+		child.init();
 	}
 
 	/**
@@ -96,7 +110,8 @@ public abstract class Controller {
 	 * @param browserEvent
 	 * @return a new event if the controller coul handle it, null otherwise
 	 * @throws IllegalArgumentException
-	 *             if the browser Event token dont match with any action
+	 *             if the browser Event token dont match with any action.
+	 *             It is the normal way to signal that this controller conldnt handle this token
 	 */
 	protected abstract Event tryConvertBrowserEventToControllerEvent(BrowserEvent browserEvent)
 			throws IllegalArgumentException;

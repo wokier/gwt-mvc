@@ -15,7 +15,7 @@ public abstract class Model<T> implements ModelForView<T> {
 
 	protected T value;
 
-	private List<View> listeners = new ArrayList<View>();
+	private List<IView> listeners = new ArrayList<IView>();
 
 	/**
 	 * Constructor
@@ -27,7 +27,7 @@ public abstract class Model<T> implements ModelForView<T> {
 	 * Notify a change to all listening views
 	 */
 	public void onChange() {
-		for (View view : listeners) {
+		for (IView view : listeners) {
 			view.onModelChange(this);
 		}
 	}
@@ -46,7 +46,7 @@ public abstract class Model<T> implements ModelForView<T> {
 	 * 
 	 * @param view
 	 */
-	public void addListener(View view) {
+	public void addListener(IView view) {
 		listeners.add(view);
 	}
 
@@ -55,7 +55,7 @@ public abstract class Model<T> implements ModelForView<T> {
 	 * 
 	 * @param view
 	 */
-	public void removeListener(View view) {
+	public void removeListener(IView view) {
 		listeners.remove(view);
 	}
 

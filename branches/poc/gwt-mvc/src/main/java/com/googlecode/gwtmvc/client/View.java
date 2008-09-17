@@ -9,9 +9,9 @@ import com.google.gwt.user.client.ui.Composite;
  * USAGE: The view could be implemented by a component or a group of components
  * The contructor must be call by the controller of the view.
  */
-public abstract class View extends Composite {
+public abstract class View extends Composite implements IView {
 
-	private String key;
+	protected String key;
 
 	protected Controller controller;
 
@@ -23,7 +23,8 @@ public abstract class View extends Composite {
 	 *            Unique id for this view
 	 * @param controller
 	 *            the controler which manage the view
-	 * @param models The different models on which the view could get the value. 
+	 * @param models The different models on which the view could get the value.
+	 * 
 	 * USAGE: pass Model instance, not ModelForView Instance.
 	 */
 	public View(String key, Controller controller, ModelForView... models) {
@@ -35,32 +36,21 @@ public abstract class View extends Composite {
 		}
 	}
 
-	/**
-	 * Enable to initialise the view elsewhere than in the constructor. It could
-	 * be used to REinitialise the view.
-	 * 
+	/* (non-Javadoc)
+	 * @see com.googlecode.gwtmvc.client.IView#init()
 	 */
 	public abstract void init();
 
-	/**
-	 * Refresh the view with new datas from model
-	 * 
-	 * @param model
+	/* (non-Javadoc)
+	 * @see com.googlecode.gwtmvc.client.IView#onModelChange(com.googlecode.gwtmvc.client.ModelForView)
 	 */
 	public abstract void onModelChange(ModelForView model);
 
-	/**
-	 * @return key of this view
+	/* (non-Javadoc)
+	 * @see com.googlecode.gwtmvc.client.IView#getKey()
 	 */
 	public String getKey() {
 		return key;
-	}
-
-	/**
-	 * @return the controller
-	 */
-	public Controller getController() {
-		return controller;
 	}
 
 }
