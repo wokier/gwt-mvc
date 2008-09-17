@@ -42,6 +42,9 @@ public class PocController extends Controller {
 		case SHOW_SIMPLE_1:
 			IView nview = views.get(PocViewNumeric.KEY);
 			nview.init();
+			if (nview instanceof View) {
+				RootPanel.get("content").clear();
+			}
 			renderView(nview);
 			initModel(modelA);
 			break;
