@@ -26,6 +26,8 @@ public class MvcEntryPoint implements com.google.gwt.core.client.EntryPoint, His
 		String historyToken = History.getToken();
 		if (historyToken != null && !historyToken.equals("")) {
 			onHistoryChanged(historyToken);
+		} else {
+			rootController.showHomeView();
 		}
 	}
 
