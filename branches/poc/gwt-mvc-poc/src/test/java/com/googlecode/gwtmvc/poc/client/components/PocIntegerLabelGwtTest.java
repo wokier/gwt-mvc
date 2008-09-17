@@ -1,9 +1,9 @@
-package com.googlecode.gwtmvc.poc.client;
+package com.googlecode.gwtmvc.poc.client.components;
 
 import com.google.gwt.junit.client.GWTTestCase;
 
 //add src/test/java to class path to run the test, as gwt could find the sources
-public class PocIntegerLabelTest extends GWTTestCase {
+public class PocIntegerLabelGwtTest extends GWTTestCase {
 
 	@Override
 	public String getModuleName() {

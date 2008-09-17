@@ -8,6 +8,8 @@ import com.googlecode.gwtmvc.client.View;
 
 public class PocViewGraphical extends View {
 
+	protected static final String KEY = "graphical";
+
 	Label bar;
 
 	ModelForView<Integer> modelA, modelB;
@@ -15,7 +17,7 @@ public class PocViewGraphical extends View {
 	boolean inited;
 
 	public PocViewGraphical(Controller controller, PocModel modelA, PocModel modelB) {
-		super("graphical", controller, modelA, modelB);
+		super(KEY, controller, modelA, modelB);
 		this.modelA = modelA;
 		this.modelB = modelB;
 	}

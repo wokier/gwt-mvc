@@ -8,13 +8,15 @@ import com.googlecode.gwtmvc.poc.client.rpc.PocPlusRPC;
 
 public class PocModel extends Model<Integer> {
 
+	protected static final int INITIAL_VALUE_10 = 10;
+
 	public PocModel() {
 		super();
 	}
 
 	@Override
 	protected void init() {
-		update(10);
+		update(INITIAL_VALUE_10);
 	}
 	
 	public void plus(Integer integer) {
@@ -27,7 +29,7 @@ public class PocModel extends Model<Integer> {
 				update(result);
 			}
 		};
-		PocPlusRPC.Util.getInstance().plus(integer, callback);
+		PocPlusRPC.Factory.getInstance().plus(integer, callback);
 	}
 
 	public void minus(Integer integer) {

@@ -6,8 +6,10 @@ import com.googlecode.gwtmvc.poc.client.PocController.PocAction;
 
 public class PocViewNumericB extends PocViewNumeric {
 
-	public PocViewNumericB(String key, PocController controller, ModelForView model) {
-		super(key, controller, model);
+	protected static final String KEY = "numericB";
+
+	public PocViewNumericB(PocController controller, ModelForView model) {
+		super(KEY, controller, model);
 	}
 	
 	protected void plusAction() {

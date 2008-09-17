@@ -6,7 +6,7 @@ import com.googlecode.gwtmvc.client.MvcEntryPoint;
 public class PocEntryPoint extends MvcEntryPoint {
 
 	public PocEntryPoint() {
-		super(new PocMenuController());
+		super(new PocControllerMenu());
 	}
 	
 }
