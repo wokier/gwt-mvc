@@ -1,9 +1,13 @@
 package com.googlecode.gwtmvc.client;
 
+import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.HistoryListener;
-
-public class MvcEntryPoint implements com.google.gwt.core.client.EntryPoint, HistoryListener {
+/**
+ * implements GWT entry point
+ * USAGE : configure your module with a concrete class extending this one 
+ */
+public abstract class MvcEntryPoint implements EntryPoint, HistoryListener {
 
 	Controller rootController;
 
@@ -16,8 +20,7 @@ public class MvcEntryPoint implements com.google.gwt.core.client.EntryPoint, His
 		this.rootController = rootController;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
 	 * @see com.google.gwt.core.client.EntryPoint#onModuleLoad()
 	 */
 	public void onModuleLoad() {
@@ -31,8 +34,7 @@ public class MvcEntryPoint implements com.google.gwt.core.client.EntryPoint, His
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
 	 * @see com.google.gwt.user.client.HistoryListener#onHistoryChanged(java.lang.String)
 	 */
 	public void onHistoryChanged(String historyToken) {

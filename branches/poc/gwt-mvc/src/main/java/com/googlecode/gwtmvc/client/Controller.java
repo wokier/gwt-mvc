@@ -100,7 +100,7 @@ public abstract class Controller {
 	/**
 	 * The action enumeration available for this controller
 	 * 
-	 * @return
+	 * @return the possible values od the enumeration
 	 */
 	protected abstract Enum[] getActionEnumValues();
 
