@@ -32,9 +32,7 @@ public abstract class Model<T> implements ModelForView<T> {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/**
 	 * @see com.googlecode.gwtmvc.client.ModelForView#getValue()
 	 */
 	public T getValue() {

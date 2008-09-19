@@ -36,17 +36,17 @@ public abstract class View extends Composite implements IView {
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see com.googlecode.gwtmvc.client.IView#init()
 	 */
 	public abstract void init();
 
-	/* (non-Javadoc)
+	/**
 	 * @see com.googlecode.gwtmvc.client.IView#onModelChange(com.googlecode.gwtmvc.client.ModelForView)
 	 */
 	public abstract void onModelChange(ModelForView model);
 
-	/* (non-Javadoc)
+	/**
 	 * @see com.googlecode.gwtmvc.client.IView#getKey()
 	 */
 	public String getKey() {

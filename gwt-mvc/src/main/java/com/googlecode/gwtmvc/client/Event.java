@@ -13,6 +13,9 @@ public class Event<T, V extends Enum> {
 
 	private T value;
 	
+	/**
+	 * Specify an action which comes from the browser 
+	 */
 	protected enum BROWSER_ACTION { BROWSER_ACTION};
 	
 	/**

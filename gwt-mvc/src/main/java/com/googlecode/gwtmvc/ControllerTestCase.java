@@ -24,11 +24,17 @@ public abstract class ControllerTestCase extends TestCase {
 		super(name);
 	}
 
+	/**
+	 * @see junit.framework.TestCase#setUp()
+	 */
 	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
 	}
 	
+	/**
+	 * @see junit.framework.TestCase#tearDown()
+	 */
 	@Override
 	protected void tearDown() throws Exception {
 		super.tearDown();
