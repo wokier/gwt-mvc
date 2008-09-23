@@ -9,11 +9,15 @@ public interface PocMinusRPC extends RemoteService {
 	public static class Util {
 		private static PocMinusRPCAsync instance;
 
-		public static PocMinusRPCAsync getInstance() {
+		public static PocMinusRPCAsync getInstance(boolean useServer) {
 			if (instance == null) {
-				instance = (PocMinusRPCAsync) GWT.create(PocMinusRPC.class);
-				ServiceDefTarget endpoint = (ServiceDefTarget) instance;
-				endpoint.setServiceEntryPoint(GWT.getModuleBaseURL() + "PocMinusRPC");
+				if(useServer){
+					instance = (PocMinusRPCAsync) GWT.create(PocMinusRPC.class);
+					ServiceDefTarget endpoint = (ServiceDefTarget) instance;
+					endpoint.setServiceEntryPoint(GWT.getModuleBaseURL() + "PocMinusRPC");
+				} else {
+					instance = new PocMinusRPCAsyncMock();
+				}
 			}
 			return instance;
 		}

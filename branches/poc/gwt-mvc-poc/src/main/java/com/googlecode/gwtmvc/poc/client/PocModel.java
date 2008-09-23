@@ -10,6 +10,8 @@ public class PocModel extends Model<Integer> {
 
 	protected static final int INITIAL_VALUE_10 = 10;
 
+	private boolean useServerRPCCall = false;
+	
 	public PocModel() {
 		super();
 	}
@@ -29,7 +31,7 @@ public class PocModel extends Model<Integer> {
 				update(result);
 			}
 		};
-		PocPlusRPC.Factory.getInstance().plus(integer, callback);
+		PocPlusRPC.Factory.getInstance(useServerRPCCall).plus(integer, callback);
 	}
 
 	public void minus(Integer integer) {
@@ -42,7 +44,7 @@ public class PocModel extends Model<Integer> {
 				update(result);
 			}
 		};
-		PocMinusRPC.Util.getInstance().minus(integer, callback);
+		PocMinusRPC.Util.getInstance(useServerRPCCall).minus(integer, callback);
 	}
 
 }
