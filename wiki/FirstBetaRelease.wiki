@@ -1,0 +1,50 @@
+#summary Project
+#labels Featured,Phase-Design
+
+= Intro =
+This v0.0.1SNAPSHOT version is released.
+http://code.google.com/p/gwt-mvc/source/browse/branches/poc/gwt-mvc/builds/gwt-mvc-0.0.1-SNAPSHOT.jar
+It is more about testing and have some feddback.
+It could change before the first real release
+
+= Poc =
+
+In the early start, we'd like to show a real example of how this could work.
+So we have two projects: gwt-mvc and gwt-mvc-poc (Proof Of Concept).
+You could checkout the result here:
+http://code.google.com/p/gwt-mvc/source/browse/#svn/branches/poc/gwt-mvc-poc/demo
+(This demo dont need a server to run).
+
+= gwt mvc =
+
+You'll find the javadoc here
+http://francois.wauquier.fr/gwt-mvc/
+
+The main advantages i would like to expose are:
+ * The controllers are testables.
+ * A controler defines its action by an enum.
+ * I recommand to call the action with a prefix SHOW_ , DO_ or GET_, but it is not required.
+ * The model updates the views listening him in respect of the asynchronous call.
+ * As a view is only a composite (container), it could be a unique componant, or multiple componant(a form for example)
+
+= Project backlog =
+
+Here is our backlog. (It is a google doc indeed)
+Yes, we use a backlog to choose the feature we will implement!
+We have some ideas of what is possible to do, but the users will choose what they need.
+
+|| Description || Status || Version ||
+|| create initial project || Done || 0.1 ||
+|| create poc project || Done || 0.1 ||
+|| define simple example poc || Done || 0.1 ||
+|| add complexity to poc (many views) || Done || 0.1 ||
+|| add complexity to poc (many rpcs) || Done || 0.1 ||
+|| add complexity to poc (many models) || Done || 0.1 ||
+|| add complexity to poc (menu and hierachical controller) || Done || 0.1 ||
+|| manage history and urls || Done || 0.1 ||
+|| enhance controller testability || Done || 0.1 ||
+|| add standard 404 page when historyToken is unknown || TODO|| 0.1 ||
+|| add normalized url arguments || TODO|| 0.1 ||
+|| enable block user for loading (optionnal on each action) || TODO|| 0.1 ||
+|| manage form validation || TODO|| ? ||
+|| enable decorator pattern || TODO|| ? ||
