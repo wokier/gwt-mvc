@@ -27,7 +27,8 @@ public class PocViewGraphical extends View {
 		if (!inited) {
 			inited = true;
 
-			bar = new Label("");
+			bar = new Label(" ");
+			bar.setHeight("20px");
 			initWidget(bar);// call only once
 		}
 	}

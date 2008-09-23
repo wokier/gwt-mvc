@@ -9,11 +9,15 @@ public interface PocPlusRPC extends RemoteService {
 	public static class Factory {
 		private static PocPlusRPCAsync instance;
 
-		public static PocPlusRPCAsync getInstance() {
+		public static PocPlusRPCAsync getInstance(boolean useServer) {
 			if (instance == null) {
-				instance = (PocPlusRPCAsync) GWT.create(PocPlusRPC.class);
-				ServiceDefTarget endpoint = (ServiceDefTarget) instance;
-				endpoint.setServiceEntryPoint(GWT.getModuleBaseURL() + "PocPlusRPC");
+				if(useServer) {
+					instance = (PocPlusRPCAsync) GWT.create(PocPlusRPC.class);
+					ServiceDefTarget endpoint = (ServiceDefTarget) instance;
+					endpoint.setServiceEntryPoint(GWT.getModuleBaseURL() + "PocPlusRPC");
+				} else {
+					instance = new PocPlusRPCAsyncMock();
+				}
 			}
 			return instance;
 		}
