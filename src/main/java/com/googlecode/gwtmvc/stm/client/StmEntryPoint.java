@@ -9,7 +9,7 @@ import com.google.gwt.user.client.ui.RadioButton;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
-import com.googlecode.gwtmvc.stm.client.controller.Validator;
+import com.googlecode.gwtmvc.stm.client.controller.StringValidator;
 import com.googlecode.gwtmvc.stm.client.model.BooleanModel;
 import com.googlecode.gwtmvc.stm.client.model.Model;
 import com.googlecode.gwtmvc.stm.client.model.StringModel;
@@ -56,7 +56,7 @@ public class StmEntryPoint implements EntryPoint {
 		verticalPanel.add(new CheckBoxView(enabled));
 		verticalPanel.add(new RadioButtonView(enabled, new RadioButton("")));
 
-		Validator validator = new Validator(valid, text, "\\d{1,4}");
+		StringValidator validator = new StringValidator(valid, text, "\\d{1,4}");
 		rootPanel.add(validator);
 		HorizontalSplitPanel splitPannel = new HorizontalSplitPanel();
 		rootPanel.add(splitPannel);
