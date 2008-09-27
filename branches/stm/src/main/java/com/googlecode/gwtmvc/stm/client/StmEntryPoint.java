@@ -56,7 +56,7 @@ public class StmEntryPoint implements EntryPoint {
 		verticalPanel.add(new CheckBoxView(enabled));
 		verticalPanel.add(new RadioButtonView(enabled, new RadioButton("")));
 
-		Validator validator = new Validator(valid, text, "\\d{1,3}");
+		Validator validator = new Validator(valid, text, "\\d{1,4}");
 		rootPanel.add(validator);
 		HorizontalSplitPanel splitPannel = new HorizontalSplitPanel();
 		rootPanel.add(splitPannel);
