@@ -1,0 +1,8 @@
+#summary One-sentence summary of this page.
+
+= Example compilation =
+==Requirements==
+* Java SE (http://java.sun.com/)
+* Maven 2.0.9 (http://maven.apache.org)
+
+Checkout source code from projects SVN repository and execute `mvn jetty:run`
