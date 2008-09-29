@@ -3,8 +3,8 @@
 
 =Demo=
 ==Requirements==
-* Java SE (http://java.sun.com/)
-* Maven 2.0.9 (http://maven.apache.org)
+  * Java SE (http://java.sun.com/)
+  * Maven 2.0.9 (http://maven.apache.org)
 
 ==Startup==
-Checkout source code from projects SVN repository and execute `mvn jetty:run`
+Checkout source code from projects SVN repository and execute: `mvn jetty:run`
