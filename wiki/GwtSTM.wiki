@@ -1,5 +1,4 @@
 #summary Trivial example of MVC pattern
-#labels Featured
 
 = Introduction =
 GWT STM project shows a simple MVC implementation. 
