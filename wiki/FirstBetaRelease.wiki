@@ -1,5 +1,5 @@
 #summary Project
-#labels Featured,Phase-Design
+#labels Phase-Design
 
 = Intro =
 This v0.0.1SNAPSHOT version is released.
