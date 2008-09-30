@@ -1,7 +1,7 @@
 package com.googlecode.gwtmvc.stm.client.controller;
 
 import com.googlecode.gwtmvc.stm.client.model.BBoolean;
-import com.googlecode.gwtmvc.stm.client.model.ModelAdapter;
+import com.googlecode.gwtmvc.stm.client.model.DomModelAdapter;
 import com.googlecode.gwtmvc.stm.client.model.BString;
 import com.googlecode.gwtmvc.stm.client.model.Model.Listener;
 
@@ -16,7 +16,7 @@ import com.googlecode.gwtmvc.stm.client.model.Model.Listener;
  * @author Igor
  * 
  */
-public class RegExpEvaluatingModel extends ModelAdapter<Boolean> implements
+public class RegExpEvaluatingModel extends DomModelAdapter<Boolean> implements
 		Listener<String> {
 
 	private final BString text;
