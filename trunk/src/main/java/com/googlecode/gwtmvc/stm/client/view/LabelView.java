@@ -1,30 +1,28 @@
 package com.googlecode.gwtmvc.stm.client.view;
 
-import com.google.gwt.user.client.ui.TextArea;
+import com.google.gwt.user.client.ui.Label;
 import com.googlecode.gwtmvc.stm.client.model.BString;
 import com.googlecode.gwtmvc.stm.client.model.Model.Event;
 
-public class TextAreaView extends ViewAdapter<String, TextArea> {
+public class LabelView extends ViewAdapter<String, Label> {
 
-	public TextAreaView() {
-		this(new TextArea());
+	public LabelView(Label textBox) {
+		super(new BString(textBox.getText()), textBox);
 	}
 
-	public TextAreaView(BString string) {
-		super(string, new TextArea());
+	public LabelView() {
+		this(new Label());
 	}
 
-	public TextAreaView(TextArea textArea) {
-		super(new BString(textArea.getText()), textArea);
+	public LabelView(BString text) {
+		super(text, new Label());
 	}
 
-	public TextAreaView(BString text, TextArea textArea) {
-		super(text, textArea);
+	public LabelView(String string) {
+		this(new BString(string));
 	}
 
 	protected void createControllerRole() {
-		widget.addClickListener(this);
-		widget.addKeyboardListener(this);
 	}
 
 	protected void updateModel() {
@@ -39,6 +37,5 @@ public class TextAreaView extends ViewAdapter<String, TextArea> {
 
 	@Override
 	protected void enable(Boolean value) {
-		widget.setEnabled(value);
 	}
 }

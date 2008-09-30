@@ -1,25 +1,25 @@
 package com.googlecode.gwtmvc.stm.client.view;
 
 import com.google.gwt.user.client.ui.TextBox;
-import com.googlecode.gwtmvc.stm.client.model.StringModel;
+import com.googlecode.gwtmvc.stm.client.model.BString;
 import com.googlecode.gwtmvc.stm.client.model.Model.Event;
 
 public class TextBoxView extends ViewAdapter<String, TextBox> {
 
     public TextBoxView(TextBox textBox) {
-        super(new StringModel(textBox.getText()), textBox);
+        super(new BString(textBox.getText()), textBox);
     }
 
     public TextBoxView() {
         this(new TextBox());
     }
 
-    public TextBoxView(StringModel text) {
+    public TextBoxView(BString text) {
         super(text, new TextBox());
     }
 
     public TextBoxView(String string) {
-        this(new StringModel(string));
+        this(new BString(string));
     }
 
     protected void createControllerRole() {

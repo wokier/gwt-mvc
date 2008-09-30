@@ -5,7 +5,7 @@ import com.google.gwt.user.client.ui.ClickListener;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.KeyboardListener;
 import com.google.gwt.user.client.ui.Widget;
-import com.googlecode.gwtmvc.stm.client.model.BooleanModel;
+import com.googlecode.gwtmvc.stm.client.model.BBoolean;
 import com.googlecode.gwtmvc.stm.client.model.Model;
 import com.googlecode.gwtmvc.stm.client.model.Model.Event;
 
@@ -15,8 +15,8 @@ abstract class ViewAdapter<T, E extends Widget> extends Composite implements
 
 	protected E widget = null;
 
-	private BooleanModel enabled = new BooleanModel(Boolean.TRUE);
-	private BooleanModel visible = new BooleanModel(Boolean.TRUE);
+	private Model<Boolean> enabled = new BBoolean(Boolean.TRUE);
+	private Model<Boolean> visible = new BBoolean(Boolean.TRUE);
 
 	private Model.Listener<Boolean> enabledListener = new Model.Listener<Boolean>() {
 		public void onChange(Event<Boolean> event) {
@@ -47,13 +47,15 @@ abstract class ViewAdapter<T, E extends Widget> extends Composite implements
 
 	@Override
 	protected void onLoad() {
-		model.addModelListener(this);
+		if (model != null)
+			model.addModelListener(this);
 		enabled.addModelListener(enabledListener);
 	}
 
 	@Override
 	protected void onUnload() {
-		model.removeModelListener(this);
+		if (model != null)
+			model.removeModelListener(this);
 		enabled.removeModelListener(enabledListener);
 	}
 
@@ -63,13 +65,13 @@ abstract class ViewAdapter<T, E extends Widget> extends Composite implements
 		this.model.addModelListener(this);
 	}
 
-	public void setEnabled(BooleanModel enabled) {
+	public void setEnabled(Model<Boolean> enabled) {
 		this.enabled.removeModelListener(enabledListener);
 		this.enabled = enabled;
 		this.enabled.addModelListener(enabledListener);
 	}
 
-	public void setVisible(BooleanModel visible) {
+	public void setVisible(Model<Boolean> visible) {
 		this.visible.removeModelListener(visibleListener);
 		this.visible = visible;
 		this.visible.addModelListener(visibleListener);

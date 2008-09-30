@@ -4,8 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.google.gwt.user.client.ui.SimplePanel;
-import com.googlecode.gwtmvc.stm.client.model.BooleanModel;
-import com.googlecode.gwtmvc.stm.client.model.Model.Event;
+import com.googlecode.gwtmvc.stm.client.model.BBoolean;
+import com.googlecode.gwtmvc.stm.client.model.Model;
 import com.googlecode.gwtmvc.stm.client.model.Model.Listener;
 
 /**
@@ -17,34 +17,34 @@ import com.googlecode.gwtmvc.stm.client.model.Model.Listener;
  * 
  */
 public class ConjunctionValidator extends SimplePanel implements
-		Listener<Boolean>, Validator {
+		Listener<Boolean>, Model<Boolean> {
 
-	private Set<BooleanModel> vals;
-	private final BooleanModel result;
+	private Set<BBoolean> vals;
+	private final BBoolean result;
 
-	public ConjunctionValidator(BooleanModel... booleanModels) {
-		this(new BooleanModel(), booleanModels);
+	public ConjunctionValidator(BBoolean... booleanModels) {
+		this(new BBoolean(), booleanModels);
 	}
 
-	public ConjunctionValidator(BooleanModel result,
-			BooleanModel... booleanModels) {
+	public ConjunctionValidator(BBoolean result,
+			BBoolean... booleanModels) {
 		this.result = result;
-		vals = new HashSet<BooleanModel>();
+		vals = new HashSet<BBoolean>();
 		if (booleanModels != null)
-			for (BooleanModel validator : booleanModels)
+			for (BBoolean validator : booleanModels)
 				vals.add(validator);
 	}
 
 	@Override
 	protected void onLoad() {
-		for (BooleanModel val : vals)
+		for (BBoolean val : vals)
 			val.addModelListener(this);
 		updateResult();
 	}
 
 	@Override
 	protected void onUnload() {
-		for (BooleanModel val : vals) {
+		for (BBoolean val : vals) {
 			val.removeModelListener(this);
 		}
 	}
@@ -55,13 +55,31 @@ public class ConjunctionValidator extends SimplePanel implements
 
 	private void updateResult() {
 		boolean res = true;
-		for (BooleanModel val : vals)
+		for (BBoolean val : vals)
 			if (val.getValue())
 				res = false;
 		result.setValue(res);
 	}
 
-	public BooleanModel getValid() {
+	public BBoolean getValid() {
 		return result;
+	}
+
+	public void addModelListener(Listener<Boolean> listener) {
+		result.addModelListener(listener);
+
+	}
+
+	public Boolean getValue() {
+		return result.getValue();
+	}
+
+	public void removeModelListener(Listener<Boolean> listener) {
+		result.removeModelListener(listener);
+	}
+
+	public void setValue(Boolean value) {
+		// TODO Auto-generated method stub
+
 	}
 }
