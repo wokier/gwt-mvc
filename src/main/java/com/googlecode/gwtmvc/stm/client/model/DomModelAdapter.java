@@ -5,11 +5,11 @@ import java.util.List;
 
 import com.google.gwt.user.client.ui.SimplePanel;
 
-public abstract class ModelAdapter<T> extends SimplePanel implements Model<T> {
+public abstract class DomModelAdapter<T> extends SimplePanel implements Model<T> {
 	protected List<Model.Listener<T>> listeners = new ArrayList<Listener<T>>();
 	private T value;
 
-	public ModelAdapter(T initValue) {
+	public DomModelAdapter(T initValue) {
 		value = initValue;
 	}
 
@@ -44,7 +44,7 @@ public abstract class ModelAdapter<T> extends SimplePanel implements Model<T> {
 	protected Event<T> createEvent() {
 		return (Event<T>) new Event<T>() {
 			public Model<T> getSource() {
-				return ModelAdapter.this;
+				return DomModelAdapter.this;
 			}
 		};
 	}

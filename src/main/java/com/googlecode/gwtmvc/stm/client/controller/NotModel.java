@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.googlecode.gwtmvc.stm.client.model.BBoolean;
 import com.googlecode.gwtmvc.stm.client.model.Model;
-import com.googlecode.gwtmvc.stm.client.model.ModelAdapter;
+import com.googlecode.gwtmvc.stm.client.model.DomModelAdapter;
 import com.googlecode.gwtmvc.stm.client.model.Model.Listener;
 
 /**
@@ -18,12 +18,12 @@ import com.googlecode.gwtmvc.stm.client.model.Model.Listener;
  * @author Igor
  * 
  */
-public class NotModel extends ModelAdapter<Boolean> implements
+public class NotModel extends DomModelAdapter<Boolean> implements
 		Listener<Boolean> {
 
 	private final Model<Boolean> text;
 
-	public NotModel(ModelAdapter<Boolean> text) {
+	public NotModel(DomModelAdapter<Boolean> text) {
 		super(false);
 		this.text = text;
 		setWidget(text);
