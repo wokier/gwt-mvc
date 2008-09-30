@@ -3,7 +3,9 @@ package com.googlecode.gwtmvc.stm.client.model;
 import java.util.ArrayList;
 import java.util.List;
 
-abstract class ModelAdapter<T> implements Model<T> {
+import com.google.gwt.user.client.ui.SimplePanel;
+
+public abstract class ModelAdapter<T> extends SimplePanel implements Model<T> {
 	protected List<Model.Listener<T>> listeners = new ArrayList<Listener<T>>();
 	private T value;
 
@@ -16,8 +18,6 @@ abstract class ModelAdapter<T> implements Model<T> {
 		Event<T> event = createEvent();
 		listener.onChange(event);
 	}
-
-	// protected abstract Event<T> createEvent();
 
 	public void removeModelListener(Model.Listener<T> listener) {
 		listeners.remove(listener);

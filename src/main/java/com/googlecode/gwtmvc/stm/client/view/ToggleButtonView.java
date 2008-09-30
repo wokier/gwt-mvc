@@ -1,17 +1,22 @@
 package com.googlecode.gwtmvc.stm.client.view;
 
-import com.google.gwt.user.client.ui.RadioButton;
+import com.google.gwt.user.client.ui.ToggleButton;
 import com.googlecode.gwtmvc.stm.client.model.BBoolean;
+import com.googlecode.gwtmvc.stm.client.model.Model;
 import com.googlecode.gwtmvc.stm.client.model.Model.Event;
 
-public class RadioButtonView extends ViewAdapter<Boolean, RadioButton> {
+public class ToggleButtonView extends ViewAdapter<Boolean, ToggleButton> {
 
-	public RadioButtonView(RadioButton radioButton) {
+	public ToggleButtonView(ToggleButton radioButton) {
 		super(new BBoolean(), radioButton);
 	}
 
-	public RadioButtonView(BBoolean model, RadioButton radioButton) {
+	public ToggleButtonView(Model<Boolean> model, ToggleButton radioButton) {
 		super(model, radioButton);
+	}
+
+	public ToggleButtonView(Model<Boolean> model) {
+		super(model, new ToggleButton());
 	}
 
 	@Override
@@ -22,12 +27,12 @@ public class RadioButtonView extends ViewAdapter<Boolean, RadioButton> {
 
 	@Override
 	protected void updateModel() {
-		model.setValue(widget.isChecked());
+		model.setValue(widget.isDown());
 	}
 
 	@Override
 	protected void updateView(Event<Boolean> event) {
-		widget.setChecked(model.getValue());
+		widget.setDown(model.getValue());
 	}
 
 	@Override

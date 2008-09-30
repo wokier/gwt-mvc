@@ -1,7 +1,7 @@
 package com.googlecode.gwtmvc.stm.client.view;
 
 import com.google.gwt.user.client.ui.CheckBox;
-import com.googlecode.gwtmvc.stm.client.model.BooleanModel;
+import com.googlecode.gwtmvc.stm.client.model.BBoolean;
 import com.googlecode.gwtmvc.stm.client.model.Model.Event;
 
 public class CheckBoxView extends ViewAdapter<Boolean, CheckBox> {
@@ -11,10 +11,10 @@ public class CheckBoxView extends ViewAdapter<Boolean, CheckBox> {
 	}
 
 	public CheckBoxView(CheckBox checkBox) {
-		super(new BooleanModel(), checkBox);
+		super(new BBoolean(), checkBox);
 	}
 
-	public CheckBoxView(BooleanModel model) {
+	public CheckBoxView(BBoolean model) {
 		super(model, new CheckBox());
 	}
 
