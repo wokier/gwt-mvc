@@ -1,8 +1,10 @@
 package com.googlecode.gwtmvc.stm.client.controller;
 
 import com.googlecode.gwtmvc.stm.client.model.BBoolean;
-import com.googlecode.gwtmvc.stm.client.model.DomModelAdapter;
 import com.googlecode.gwtmvc.stm.client.model.BString;
+import com.googlecode.gwtmvc.stm.client.model.Disposable;
+import com.googlecode.gwtmvc.stm.client.model.Model;
+import com.googlecode.gwtmvc.stm.client.model.ModelAdapter;
 import com.googlecode.gwtmvc.stm.client.model.Model.Listener;
 
 /**
@@ -16,8 +18,8 @@ import com.googlecode.gwtmvc.stm.client.model.Model.Listener;
  * @author Igor
  * 
  */
-public class RegExpEvaluatingModel extends DomModelAdapter<Boolean> implements
-		Listener<String> {
+public class RegExpEvaluatingModel extends ModelAdapter<Boolean> implements
+		Listener<String>, Disposable {
 
 	private final BString text;
 	private final String regex;
@@ -26,23 +28,18 @@ public class RegExpEvaluatingModel extends DomModelAdapter<Boolean> implements
 		super(false);
 		this.text = text;
 		this.regex = regex;
-	}
-
-	public void onChange(Event<String> event) {
-		super.setValue(event.getSource().getValue().matches(regex));
-	}
-
-	@Override
-	protected void onLoad() {
 		this.text.addModelListener(this);
 	}
 
-	@Override
-	protected void onUnload() {
-		this.text.removeModelListener(this);
+	public void onChange(Model.Event<String> event) {
+		super.setValue(event.getSource().getValue().matches(regex));
 	}
 
 	public void setValue(Boolean value) {
 		throw new UnsupportedOperationException();
+	}
+
+	public void dispose() {
+		this.text.removeModelListener(this);
 	}
 }

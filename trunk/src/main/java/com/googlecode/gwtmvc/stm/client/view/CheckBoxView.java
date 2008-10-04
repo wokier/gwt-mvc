@@ -37,4 +37,6 @@ public class CheckBoxView extends ViewAdapter<Boolean, CheckBox> {
 		widget.setEnabled(value);
 	}
 
+	
+
 }

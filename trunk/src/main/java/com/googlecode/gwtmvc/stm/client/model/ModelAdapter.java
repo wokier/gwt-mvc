@@ -3,13 +3,11 @@ package com.googlecode.gwtmvc.stm.client.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gwt.user.client.ui.SimplePanel;
-
-public abstract class DomModelAdapter<T> extends SimplePanel implements Model<T> {
+public abstract class ModelAdapter<T> implements Model<T> {
 	protected List<Model.Listener<T>> listeners = new ArrayList<Listener<T>>();
 	private T value;
 
-	public DomModelAdapter(T initValue) {
+	public ModelAdapter(T initValue) {
 		value = initValue;
 	}
 
@@ -44,9 +42,8 @@ public abstract class DomModelAdapter<T> extends SimplePanel implements Model<T>
 	protected Event<T> createEvent() {
 		return (Event<T>) new Event<T>() {
 			public Model<T> getSource() {
-				return DomModelAdapter.this;
+				return ModelAdapter.this;
 			}
 		};
 	}
-
 }
