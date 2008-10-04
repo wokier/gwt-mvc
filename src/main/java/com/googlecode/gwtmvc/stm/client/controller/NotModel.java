@@ -3,8 +3,9 @@ package com.googlecode.gwtmvc.stm.client.controller;
 import java.util.ArrayList;
 
 import com.googlecode.gwtmvc.stm.client.model.BBoolean;
+import com.googlecode.gwtmvc.stm.client.model.Disposable;
 import com.googlecode.gwtmvc.stm.client.model.Model;
-import com.googlecode.gwtmvc.stm.client.model.DomModelAdapter;
+import com.googlecode.gwtmvc.stm.client.model.ModelAdapter;
 import com.googlecode.gwtmvc.stm.client.model.Model.Listener;
 
 /**
@@ -18,39 +19,33 @@ import com.googlecode.gwtmvc.stm.client.model.Model.Listener;
  * @author Igor
  * 
  */
-public class NotModel extends DomModelAdapter<Boolean> implements
-		Listener<Boolean> {
+public class NotModel extends ModelAdapter<Boolean> implements
+		Listener<Boolean>, Disposable {
 
 	private final Model<Boolean> text;
 
-	public NotModel(DomModelAdapter<Boolean> text) {
+	public NotModel(Model<Boolean> text) {
 		super(false);
 		this.text = text;
-		setWidget(text);
+		this.text.addModelListener(this);
 	}
 
-	public void onChange(Event<Boolean> event) {
+	public void onChange(Model.Event<Boolean> event) {
 		super.setValue(!event.getSource().getValue());
 	}
 
 	protected void fireChangeEvent() {
-		Event<Boolean> event = createEvent();
+		Model.Event<Boolean> event = createEvent();
 		for (Model.Listener<Boolean> listener : new ArrayList<Model.Listener<Boolean>>(
 				listeners))
 			listener.onChange(event);
 	}
 
-	@Override
-	protected void onLoad() {
-		this.text.addModelListener(this);
-	}
-
-	@Override
-	protected void onUnload() {
-		this.text.removeModelListener(this);
-	}
-
 	public void setValue(Boolean value) {
 		throw new UnsupportedOperationException();
+	}
+
+	public void dispose() {
+		this.text.removeModelListener(this);
 	}
 }

@@ -3,8 +3,8 @@ package com.googlecode.gwtmvc.stm.client.controller;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.google.gwt.user.client.ui.SimplePanel;
 import com.googlecode.gwtmvc.stm.client.model.BBoolean;
+import com.googlecode.gwtmvc.stm.client.model.Disposable;
 import com.googlecode.gwtmvc.stm.client.model.Model;
 import com.googlecode.gwtmvc.stm.client.model.Model.Listener;
 
@@ -16,18 +16,18 @@ import com.googlecode.gwtmvc.stm.client.model.Model.Listener;
  * @author Igor Mihalik
  * 
  */
-public class ConjunctionValidator extends SimplePanel implements
-		Listener<Boolean>, Model<Boolean> {
+public class ConjunctionValidator implements Listener<Boolean>, Model<Boolean>,
+		Disposable {
 
 	private Set<BBoolean> vals;
 	private final BBoolean result;
 
 	public ConjunctionValidator(BBoolean... booleanModels) {
 		this(new BBoolean(), booleanModels);
+		subscribe();
 	}
 
-	public ConjunctionValidator(BBoolean result,
-			BBoolean... booleanModels) {
+	public ConjunctionValidator(BBoolean result, BBoolean... booleanModels) {
 		this.result = result;
 		vals = new HashSet<BBoolean>();
 		if (booleanModels != null)
@@ -35,18 +35,15 @@ public class ConjunctionValidator extends SimplePanel implements
 				vals.add(validator);
 	}
 
-	@Override
-	protected void onLoad() {
+	private void subscribe() {
 		for (BBoolean val : vals)
 			val.addModelListener(this);
 		updateResult();
 	}
 
-	@Override
-	protected void onUnload() {
-		for (BBoolean val : vals) {
+	public void dispose() {
+		for (BBoolean val : vals)
 			val.removeModelListener(this);
-		}
 	}
 
 	public void onChange(Event<Boolean> event) {

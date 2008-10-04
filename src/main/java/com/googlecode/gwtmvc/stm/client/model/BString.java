@@ -7,7 +7,7 @@ package com.googlecode.gwtmvc.stm.client.model;
  * @see Model
  * 
  */
-public class BString extends DomModelAdapter<String> {
+public class BString extends ModelAdapter<String> {
 	public BString() {
 		super("");
 	}
