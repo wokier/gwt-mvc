@@ -1,0 +1,10 @@
+#summary Goggle group for the project
+
+= Introduction =
+
+You'll find a brand new group here for questions and discussions
+
+http://groups.google.fr/group/gwt-mvc
+
+= Details =
+
