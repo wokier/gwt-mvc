@@ -1,5 +1,6 @@
 package com.googlecode.gwtmvc.poc.client.rpc;
 
+import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
 /**
@@ -7,8 +8,15 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
  */
 public class PocMinusRPCAsyncMock implements PocMinusRPCAsync {
 
-	public void minus(Integer integer, AsyncCallback<Integer> callback) {
-		callback.onSuccess(integer-1);
+	public void minus(final Integer integer,final AsyncCallback<Integer> callback) {
+		new Timer(){
+			@Override
+			public void run() {
+				callback.onSuccess(integer-1);
+			}
+		}
+		.schedule(200);
+		
 	}
 
 }

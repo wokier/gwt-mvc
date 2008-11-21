@@ -13,15 +13,15 @@ public class PocViewNumericB extends PocViewNumeric {
 	}
 	
 	protected void plusAction() {
-		controller.handleUserEvent(new Event<Integer, PocAction>(PocAction.DO_PLUS_B, component.getValue()));
+		controller.handleUserEvent(new Event<Integer, PocAction>(PocAction.DO_PLUS_B, component.getValue(), getElement()));
 	}
 	
 	protected void minusAction() {
-		controller.handleUserEvent(new Event<Integer, PocAction>(PocAction.DO_MINUS_B, component.getValue()));
+		controller.handleUserEvent(new Event<Integer, PocAction>(PocAction.DO_MINUS_B, component.getValue(), getElement()));
 	}
 	
 	protected void reinitAction() {
-		controller.handleUserEvent(new Event<Integer, PocAction>(PocAction.DO_REINIT_B, 0));
+		controller.handleUserEvent(new Event<Integer, PocAction>(PocAction.DO_REINIT_B, 0, getElement()));
 	}
 	
 }
