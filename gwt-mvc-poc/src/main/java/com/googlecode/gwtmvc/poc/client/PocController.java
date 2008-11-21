@@ -37,6 +37,10 @@ public class PocController extends Controller {
 	@Override
 	public void handleUserEvent(Event event) {
 
+		if(event.showWaitScreen()){
+			RootPanel.get("wait").setVisible(true);
+		}
+		
 		PocAction action = (PocAction) event.getAction();
 		switch (action) {
 		case SHOW_SIMPLE_1:
