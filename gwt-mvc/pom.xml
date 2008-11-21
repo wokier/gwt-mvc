@@ -6,7 +6,7 @@
 	<groupId>gwt-mvc</groupId>
 	<artifactId>gwt-mvc</artifactId>
 	<name>gwt-mvc</name>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<description>gwt-mvc</description>
 
 	<repositories>
@@ -17,8 +17,6 @@
 			</url>
 		</repository>
 	</repositories>
-
-
 
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
@@ -66,8 +64,8 @@
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-user</artifactId>
-			<version>1.5.2</version>
-			<!-- <scope>provided</scope> -->
+			<version>1.5.3</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
@@ -89,12 +87,6 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.9</version>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
 
 </project>
