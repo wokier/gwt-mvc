@@ -20,6 +20,7 @@ If you are interested in this subject, i recommend you this articles :
 
 [http://robvanmaris.jteam.nl/2008/03/09/test-driven-development-for-gwt-ui-code/]
 
+[http://danielwellman.com/publications/GWT-Test_First-Nov2008.pdf]
 
 There is also an implementation existing in the middle of the ext gwt framework.
 [http://extjs.com/deploy/gxtdocs/com/extjs/gxt/ui/client/mvc/package-summary.html]
