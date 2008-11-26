@@ -16,6 +16,8 @@ If you are interested in this subject, i recommend you this articles :
 
 [http://en.wikipedia.org/wiki/Model-view-controller]
 
+[http://martinfowler.com/eaaDev/uiArchs.html]
+
 [http://www.ongwt.com/post/2008/04/05/MVC-TDD-et-GWT]
 
 [http://robvanmaris.jteam.nl/2008/03/09/test-driven-development-for-gwt-ui-code/]
