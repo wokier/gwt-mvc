@@ -10,11 +10,7 @@ Model View Controler is a design pattern with many variant, which establishes a 
 This project was created to offer a framework which provides a simple way to structure your gwt project.
 
 
-= Details =
-
-Nothing is available for the moment, Still in Work!
-
-The exact features are not yet defined.
+= Documentation =
 
 If you are interested in this subject, i recommend you this articles :
 
