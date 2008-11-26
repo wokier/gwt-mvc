@@ -44,7 +44,7 @@ We have some ideas of what is possible to do, but the users will choose what the
 || manage history and urls || Done || 0.1 ||
 || enhance controller testability || Done || 0.1 ||
 || enable block user for loading (optionnal on each action) || Done || 0.2 ||
-|| add standard 404 page when historyToken is unknown || TODO|| 0.1 ||
-|| add normalized url arguments || TODO|| 0.1 ||
+|| add standard 404 page when historyToken is unknown || TODO|| 0.2 ||
+|| add normalized url arguments || TODO|| 0.2 ||
 || manage form validation || TODO|| ? ||
 || enable decorator pattern || TODO|| ? ||
