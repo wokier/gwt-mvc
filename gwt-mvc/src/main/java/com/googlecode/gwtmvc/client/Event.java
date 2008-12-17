@@ -1,6 +1,5 @@
 package com.googlecode.gwtmvc.client;
 
-import com.google.gwt.user.client.Element;
 
 /**
  * Represents an event on the gui
@@ -14,7 +13,7 @@ public class Event<T, V extends Enum> {
 
 	private T value;
 	
-	private Element elementToMask;
+	private Maskable maskable;
 	
 	/**
 	 * Specify an action which comes from the browser 
@@ -41,11 +40,25 @@ public class Event<T, V extends Enum> {
 		this.value = value;
 	}
 
+	/**
+	 * Builds an event with a value, and a maskable
+	 * @param action
+	 * @param maskable
+	 */
+	public Event(V action,Maskable maskable) {
+		this(action);
+		this.maskable = maskable;
+	}
 	
-	public Event(V action, T value, Element elementToMask) {
+	/**
+	 * Builds an event with a value, and a maskable
+	 * @param action
+	 * @param value
+	 * @param maskable
+	 */
+	public Event(V action, T value, Maskable maskable) {
 		this(action,value);
-		this.elementToMask = elementToMask;
-		
+		this.maskable = maskable;
 	}
 
 	/**
@@ -63,17 +76,10 @@ public class Event<T, V extends Enum> {
 	}
 	
 	/**
-	 * @return the showWaitScreen value
+	 * @return the maskable
 	 */
-	public boolean showWaitScreen() {
-		return elementToMask!=null;
-	}
-	
-	/**
-	 * @return the elementToMask value
-	 */
-	public Element getElementToMask() {
-		return elementToMask;
+	public Maskable getMaskable() {
+		return maskable;
 	}
 	
 	@Override

@@ -39,7 +39,23 @@ public abstract class Controller {
 	 * 
 	 * @param event
 	 */
-	public abstract void handleUserEvent(Event event);
+	public void call(Event event){
+		beginWait(event);
+		handleEvent(event);
+	}
+	
+	private void beginWait(Event event){
+		if(event.getMaskable() != null){
+			event.getMaskable().mask();
+		}
+	}
+	
+	/**
+	 * Manages user gestures
+	 * 
+	 * @param event
+	 */
+	protected abstract void handleEvent(Event event);
 
 	/**
 	 * Adds a view managed by this controller
@@ -66,6 +82,18 @@ public abstract class Controller {
 	 */
 	protected void updateModel(Model model, Object value) {
 		model.update(value);
+	}
+	
+	/**
+	 * call the update method on the model, as the method update can only be
+	 * called by a controller.
+	 * 
+	 * @param model
+	 * @param value
+	 * @param causeEvent
+	 */
+	protected void updateModel(Model model, Object value, Event causeEvent) {
+		model.update(value, causeEvent);
 	}
 
 	/**
@@ -134,7 +162,7 @@ public abstract class Controller {
 		for (Controller child : childs) {
 			try {
 				Event event = child.tryConvertBrowserEventToControllerEvent(browserEvent);
-				child.handleUserEvent(event);
+				child.call(event);
 				return true;
 			} catch (IllegalArgumentException e) {
 				// next
@@ -146,7 +174,7 @@ public abstract class Controller {
 	private boolean handleBrowserEventMyself(BrowserEvent browserEvent) {
 		try {
 			Event event = tryConvertBrowserEventToControllerEvent(browserEvent);
-			handleUserEvent(event);
+			call(event);
 			return true;
 		} catch (IllegalArgumentException e) {
 			return false;
