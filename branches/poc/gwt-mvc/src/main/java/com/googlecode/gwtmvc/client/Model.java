@@ -67,6 +67,25 @@ public abstract class Model<T> implements ModelForView<T> {
 		this.value = value;
 		onChange();
 	}
+	
+	/**
+	 * Update the model without calling the server. This action can only be done
+	 * by the controller
+	 * 
+	 * @param value
+	 * @param causeEvent
+	 */
+	protected void update(T value, Event causeEvent) {
+		this.value = value;
+		endWait(causeEvent);
+		onChange();
+	}
+	
+	private void endWait(Event causeEvent) {
+		if(causeEvent.getMaskable() != null){
+			causeEvent.getMaskable().unmask();
+		}
+	}
 
 	/**
 	 * Initialises the model
