@@ -3,10 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>gwt-mvc</groupId>
 	<artifactId>gwt-mvc-poc</artifactId>
+	<version>0.0.1</version>
 	<packaging>war</packaging>
 	<name>GWT MVC POC</name>
-	<version>0.0.1-SNAPSHOT</version>
-	<description/>
+	<description>GWT MVC POC</description>
 
 	<properties>
 		<gwt.version>1.5.3</gwt.version>
@@ -16,7 +16,7 @@
 		<dependency>
 			<groupId>gwt-mvc</groupId>
 			<artifactId>gwt-mvc</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.gwt</groupId>
