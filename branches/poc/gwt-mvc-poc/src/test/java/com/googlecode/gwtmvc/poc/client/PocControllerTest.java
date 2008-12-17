@@ -51,7 +51,7 @@ public class PocControllerTest extends ControllerTestCase {
 			}
 		});
 		controller.addView(numericViewAmock);
-		controller.handleUserEvent(new Event<String, PocAction>(PocAction.SHOW_SIMPLE_1));
+		controller.handleEvent(new Event<String, PocAction>(PocAction.SHOW_SIMPLE_1));
 	}
 	
 	@Test
@@ -79,51 +79,55 @@ public class PocControllerTest extends ControllerTestCase {
 		controller.addView(numericViewBmock);
 		controller.addView(graphicalViewmock);
 		
-		controller.handleUserEvent(new Event<String, PocAction>(PocAction.SHOW_COMPLEX_2));
+		controller.handleEvent(new Event<String, PocAction>(PocAction.SHOW_COMPLEX_2));
 	}
 	
 	@Test
 	public void testHandleUserEventDO_PLUS_A() {
 		final int currentValue = 1;
+		final Event<Integer, PocAction> event = new Event<Integer, PocAction>(PocAction.DO_PLUS_A, currentValue);
 		mockery.checking(new Expectations() {
 			{
-				one(controller.modelA).plus(currentValue);
+				one(controller.modelA).plus(currentValue, event);
 			}
 		});
-		controller.handleUserEvent(new Event<Integer, PocAction>(PocAction.DO_PLUS_A, currentValue));
+		controller.handleEvent(event);
 	}
 	
 	@Test
 	public void testHandleUserEventDO_MINUS_A() {
 		final int currentValue = 2;
+		final Event<Integer, PocAction> event = new Event<Integer, PocAction>(PocAction.DO_MINUS_A, currentValue);
 		mockery.checking(new Expectations() {
 			{
-				one(controller.modelA).minus(currentValue);
+				one(controller.modelA).minus(currentValue, event);
 			}
 		});
-		controller.handleUserEvent(new Event<Integer, PocAction>(PocAction.DO_MINUS_A, currentValue));
+		controller.handleEvent(event);
 	}
 	
 	@Test
 	public void testHandleUserEventDO_PLUS_B() {
 		final int currentValue = 3;
+		final Event<Integer, PocAction> event = new Event<Integer, PocAction>(PocAction.DO_PLUS_B, currentValue);
 		mockery.checking(new Expectations() {
 			{
-				one(controller.modelB).plus(currentValue);
+				one(controller.modelB).plus(currentValue, event);
 			}
 		});
-		controller.handleUserEvent(new Event<Integer, PocAction>(PocAction.DO_PLUS_B, currentValue));
+		controller.handleEvent(event);
 	}
 	
 	@Test
 	public void testHandleUserEventDO_MINUS_B() {
 		final int currentValue = 4;
+		final Event<Integer, PocAction> event = new Event<Integer, PocAction>(PocAction.DO_MINUS_B, currentValue);
 		mockery.checking(new Expectations() {
 			{
-				one(controller.modelB).minus(currentValue);
+				one(controller.modelB).minus(currentValue, event);
 			}
 		});
-		controller.handleUserEvent(new Event<Integer, PocAction>(PocAction.DO_MINUS_B, currentValue));
+		controller.handleEvent(event);
 	}
 	
 
@@ -142,7 +146,7 @@ public class PocControllerTest extends ControllerTestCase {
 		controller.tryConvertBrowserEventToControllerEvent(new BrowserEvent("SHOW_COMPLEX_2"));
 	}
 
-	@Test
+	@Test(expected=IllegalArgumentException.class)
 	public void testTryConvertBrowserEventToControllerEvent404() {
 		try {
 			controller.tryConvertBrowserEventToControllerEvent(new BrowserEvent("404"));
