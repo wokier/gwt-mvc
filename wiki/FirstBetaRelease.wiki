@@ -2,10 +2,7 @@
 #labels Phase-Design
 
 = Intro =
-This v0.0.1SNAPSHOT version is released.
-http://code.google.com/p/gwt-mvc/source/browse/branches/poc/gwt-mvc/builds/gwt-mvc-0.0.1-SNAPSHOT.jar
-It is more about testing and have some feddback.
-It could change before the first real release
+This v0.0.1 version is released.
 
 = Poc =
 
@@ -16,9 +13,6 @@ You could checkout the result here:
 (This demo dont need a server to run).
 
 = gwt mvc =
-
-You'll find the javadoc here
-http://francois.wauquier.fr/gwt-mvc/
 
 The main advantages i would like to expose are:
  * The controllers are testables.
@@ -43,7 +37,7 @@ We have some ideas of what is possible to do, but the users will choose what the
 || add complexity to poc (menu and hierachical controller) || Done || 0.1 ||
 || manage history and urls || Done || 0.1 ||
 || enhance controller testability || Done || 0.1 ||
-|| enable block user for loading (optionnal on each action) || Done || 0.2 ||
+|| enable block user for loading (optionnal on each action) || Done || 0.1 ||
 || add the sender to events || TODO|| 0.2 ||
 || add standard 404 page when historyToken is unknown || TODO|| 0.2 ||
 || add normalized url arguments || TODO|| 0.2 ||
