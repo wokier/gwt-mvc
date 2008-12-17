@@ -35,7 +35,7 @@ public class PocControllerMenu extends Controller {
 	}
 
 	@Override
-	public void handleUserEvent(Event event) {
+	public void handleEvent(Event event) {
 
 		PocMenuAction action = (PocMenuAction) event.getAction();
 		switch (action) {

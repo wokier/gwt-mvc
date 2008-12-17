@@ -71,17 +71,17 @@ public class PocViewNumeric extends View {
 	}
 
 	protected void plusAction() {
-		controller.handleUserEvent(new Event<Integer, PocAction>(
+		controller.call(new Event<Integer, PocAction>(
 				PocAction.DO_PLUS_A, component.getValue()));
 	}
 
 	protected void minusAction() {
-		controller.handleUserEvent(new Event<Integer, PocAction>(
+		controller.call(new Event<Integer, PocAction>(
 				PocAction.DO_MINUS_A, component.getValue()));
 	}
 
 	protected void reinitAction() {
-		controller.handleUserEvent(new Event<Integer, PocAction>(
+		controller.call(new Event<Integer, PocAction>(
 				PocAction.DO_REINIT_A, 0));
 	}
 

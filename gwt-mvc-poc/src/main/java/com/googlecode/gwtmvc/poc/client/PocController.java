@@ -35,12 +35,7 @@ public class PocController extends Controller {
 	}
 
 	@Override
-	public void handleUserEvent(Event event) {
-
-		if(event.showWaitScreen()){
-			RootPanel.get("wait").setVisible(true);
-		}
-		
+	public void handleEvent(Event event) {
 		PocAction action = (PocAction) event.getAction();
 		switch (action) {
 		case SHOW_SIMPLE_1:
@@ -72,16 +67,16 @@ public class PocController extends Controller {
 			initModel(modelB);
 			break;
 		case DO_PLUS_A:
-			modelA.plus((Integer) event.getValue());
+			modelA.plus((Integer) event.getValue(), event);
 			break;
 		case DO_PLUS_B:
-			modelB.plus((Integer) event.getValue());
+			modelB.plus((Integer) event.getValue(), event);
 			break;
 		case DO_MINUS_A:
-			modelA.minus((Integer) event.getValue());
+			modelA.minus((Integer) event.getValue(), event);
 			break;
 		case DO_MINUS_B:
-			modelB.minus((Integer) event.getValue());
+			modelB.minus((Integer) event.getValue(), event);
 			break;
 		case DO_REINIT_A:
 			updateModel(modelA, 0);
