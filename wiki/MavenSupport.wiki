@@ -10,15 +10,19 @@ How add maven2 gwt-mvc dependency
 Change your pom.xml as follow
 
 Add the gwt-mvc repository in the repositories part
-{{{<repository>
+{{{
+<repository>
 	<id>gwt-mvc</id>
 	<name>GWT MVC repository at googlecode</name>
 	<url>https://gwt-mvc.googlecode.com/svn/repository</url>
-</repository>}}}
+</repository>
+}}}
 
 Add the gwt-mvc dependency in the dependencies part
-{{{<dependency>
+{{{
+<dependency>
 	<groupId>gwt-mvc</groupId>
 	<artifactId>gwt-mvc</artifactId>
 	<version>0.0.1</version>
-</dependency>}}}
+</dependency>
+}}}
