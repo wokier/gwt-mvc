@@ -1,0 +1,33 @@
+#summary How to include the gwt-mvc module in your gwt project
+
+= Introduction =
+
+How to include the gwt-mvc module in your gwt project
+
+= Details =
+
+Follow this :
+  * Download the library
+  * Add it to the project classpath
+  * Add the module to your '.gwt.xml' module file
+  * Enjoy
+
+Exemple (from gwt-mvc-poc project):
+
+<module>
+	<!-- Inherit the core Web Toolkit stuff. -->
+	<inherits name='com.google.gwt.user.User' />
+
+	<!-- GWT MVC -->
+	<inherits name="com.googlecode.gwtmvc.GwtMvc" />
+
+	<entry-point class="com.googlecode.gwtmvc.poc.client.PocEntryPoint" />
+
+	<servlet path="/PocPlusRPC" class="com.googlecode.gwtmvc.poc.server.PocPlusRPCImpl"  />
+	<servlet path="/PocMinusRPC" class="com.googlecode.gwtmvc.poc.server.PocMinusRPCImpl"  />
+</module>
+
+
+As in any gwt module:
+The client part of the module will be available in your gwt client code.
+The server part of the module will be available in your server code (Here is just for controller testing).
