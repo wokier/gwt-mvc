@@ -13,7 +13,7 @@ Follow this :
   * Enjoy
 
 Exemple (from gwt-mvc-poc project):
-
+{{{
 <module>
 	<!-- Inherit the core Web Toolkit stuff. -->
 	<inherits name='com.google.gwt.user.User' />
@@ -26,7 +26,7 @@ Exemple (from gwt-mvc-poc project):
 	<servlet path="/PocPlusRPC" class="com.googlecode.gwtmvc.poc.server.PocPlusRPCImpl"  />
 	<servlet path="/PocMinusRPC" class="com.googlecode.gwtmvc.poc.server.PocMinusRPCImpl"  />
 </module>
-
+}}}
 
 As in any gwt module:
 The client part of the module will be available in your gwt client code.
