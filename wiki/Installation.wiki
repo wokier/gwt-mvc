@@ -1,4 +1,4 @@
-#summary How to include the gwt-mvc module in your gwt project
+#summary How-to include the gwt-mvc module in your gwt project
 
 = Introduction =
 
