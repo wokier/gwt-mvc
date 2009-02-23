@@ -4,8 +4,9 @@ package com.googlecode.gwtmvc.client;
  * controler to action on the system.
  * 
  * This interface dont use any GWT class, but View did.
+ * @param <D> type
  */
-public interface IView {
+public interface IView<D> extends IModelListener<D> {
 
 	/**
 	 * Enable to initialise the view elsewhere than in the constructor. It could
@@ -14,12 +15,6 @@ public interface IView {
 	 */
 	public abstract void init();
 
-	/**
-	 * Refresh the view with new datas from model
-	 * 
-	 * @param model
-	 */
-	public abstract void onModelChange(ModelForView model);
 
 	/**
 	 * @return key of this view

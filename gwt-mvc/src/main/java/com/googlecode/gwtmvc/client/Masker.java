@@ -5,7 +5,7 @@ import com.google.gwt.user.client.Element;
 
 /**
  * Allow to externally mask an element.
- * For exemple during a loading action
+ * A masker will generally mask the entire application and block any user action
  */
 public abstract class Masker implements Maskable {
 
@@ -27,5 +27,13 @@ public abstract class Masker implements Maskable {
 		super();
 		this.elementToMask = elementToMask;
 	}
-		
+	
+	/**
+	 * Give the element to mask
+	 * @return
+	 */
+	public Element getElementToMask() {
+		return elementToMask;
+	}
+	
 }

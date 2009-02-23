@@ -186,4 +186,9 @@ public abstract class Controller {
 		// TODO : redirect to NotFound page in gwt
 		throw new RuntimeException("404");
 	}
+	
+	@Override
+	public String toString() {
+		return views+" + "+childs;
+	}
 }
