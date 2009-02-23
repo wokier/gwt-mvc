@@ -6,7 +6,7 @@ import com.googlecode.gwtmvc.client.Controller;
 import com.googlecode.gwtmvc.client.ModelForView;
 import com.googlecode.gwtmvc.client.View;
 
-public class PocViewGraphical extends View {
+public class PocViewGraphical extends View<Integer> {
 
 	protected static final String KEY = "graphical";
 
@@ -33,7 +33,6 @@ public class PocViewGraphical extends View {
 		}
 	}
 
-	@Override
 	public void onModelChange(ModelForView model) {
 		if (inited) {
 			int value = modelA.getValue() + (modelB.getValue() == null ? 0 : modelB.getValue());
@@ -46,5 +45,7 @@ public class PocViewGraphical extends View {
 			}
 		}
 	}
+	
+
 
 }
