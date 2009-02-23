@@ -7,6 +7,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.gwtmvc.client.Event;
+import com.googlecode.gwtmvc.client.Model;
 import com.googlecode.gwtmvc.client.ModelForView;
 import com.googlecode.gwtmvc.client.View;
 import com.googlecode.gwtmvc.poc.client.PocController.PocAction;
@@ -21,12 +22,12 @@ public class PocViewNumeric extends View {
 	boolean inited;
 
 	public PocViewNumeric(PocController controller,
-			ModelForView model) {
+			Model model) {
 		super(KEY, controller, model);
 	}
 	
 	public PocViewNumeric(String key, PocController controller,
-			ModelForView model) {
+			Model model) {
 		super(key, controller, model);
 	}
 

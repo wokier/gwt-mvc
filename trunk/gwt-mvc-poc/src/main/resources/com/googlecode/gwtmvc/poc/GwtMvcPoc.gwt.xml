@@ -2,9 +2,6 @@
 	<!-- Inherit the core Web Toolkit stuff. -->
 	<inherits name='com.google.gwt.user.User' />
 
-	<!-- gxt = ext gwt -->
-	<!-- <inherits name='com.extjs.gxt.ui.GXT'/> -->  
-
 	<!-- GWT MVC -->
 	<inherits name="com.googlecode.gwtmvc.GwtMvc" />
 

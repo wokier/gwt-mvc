@@ -24,9 +24,9 @@ public class PocController extends Controller {
 		modelA = new PocModel();
 		modelB = new PocModel();
 
-		addView(new PocViewNumeric(this, modelA));
-		addView(new PocViewNumericB(this, modelB));
-		addView(new PocViewGraphical(this, modelA, modelB));
+		new PocViewNumeric(this, modelA);
+		new PocViewNumericB(this, modelB);
+		new PocViewGraphical(this, modelA, modelB);
 	}
 
 	@Override

@@ -1,14 +1,14 @@
 package com.googlecode.gwtmvc.poc.client;
 
 import com.googlecode.gwtmvc.client.Event;
-import com.googlecode.gwtmvc.client.ModelForView;
+import com.googlecode.gwtmvc.client.Model;
 import com.googlecode.gwtmvc.poc.client.PocController.PocAction;
 
 public class PocViewNumericB extends PocViewNumeric {
 
 	protected static final String KEY = "numericB";
 
-	public PocViewNumericB(PocController controller, ModelForView model) {
+	public PocViewNumericB(PocController controller, Model model) {
 		super(KEY, controller, model);
 	}
 	
