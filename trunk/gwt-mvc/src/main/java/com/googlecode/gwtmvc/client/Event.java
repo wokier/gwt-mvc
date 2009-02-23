@@ -5,13 +5,14 @@ package com.googlecode.gwtmvc.client;
  * Represents an event on the gui
  * 
  * USAGE: create an event to notify a user gesture to the controller
- * @param <T>
+ * @param <V> action
+ * @param <A> value
  */
-public class Event<T, V extends Enum> {
+public class Event<V, A extends Enum> {
 	
-	private V action;
+	private V value;
+	private A action;
 
-	private T value;
 	
 	private Maskable maskable;
 	
@@ -25,7 +26,7 @@ public class Event<T, V extends Enum> {
 	 * 
 	 * @param action
 	 */
-	public Event(V action) {
+	public Event(A action) {
 		this.action = action;
 	}
 
@@ -35,7 +36,7 @@ public class Event<T, V extends Enum> {
 	 * @param action
 	 * @param value
 	 */
-	public Event(V action, T value) {
+	public Event(A action, V value) {
 		this(action);
 		this.value = value;
 	}
@@ -45,7 +46,7 @@ public class Event<T, V extends Enum> {
 	 * @param action
 	 * @param maskable
 	 */
-	public Event(V action,Maskable maskable) {
+	public Event(A action,Maskable maskable) {
 		this(action);
 		this.maskable = maskable;
 	}
@@ -56,27 +57,30 @@ public class Event<T, V extends Enum> {
 	 * @param value
 	 * @param maskable
 	 */
-	public Event(V action, T value, Maskable maskable) {
+	public Event(A action, V value, Maskable maskable) {
 		this(action,value);
 		this.maskable = maskable;
 	}
 
 	/**
-	 * @return the event action
+	 * Give the event action
+	 * @return 
 	 */
-	public V getAction() {
+	public A getAction() {
 		return action;
 	}
 
 	/**
-	 * @return the event value
+	 * Give the event value
+	 * @return 
 	 */
-	public T getValue() {
+	public V getValue() {
 		return value;
 	}
 	
 	/**
-	 * @return the maskable
+	 * Give the optional maskable
+	 * @return
 	 */
 	public Maskable getMaskable() {
 		return maskable;

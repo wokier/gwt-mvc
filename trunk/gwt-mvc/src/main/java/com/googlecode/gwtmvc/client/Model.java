@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represent a data on the system.
+ * Represent a data (or a collection of data) on the client side.
  * 
  * USAGE: Your model should have methods to load his datas by a RPC call, and
  * call update method
  * 
- * @param <T>
+ * @param <T> data
  */
 public abstract class Model<T> implements ModelForView<T> {
 
 	protected T value;
 
-	private List<IView> listeners = new ArrayList<IView>();
+	private List<IModelListener<T>> listeners = new ArrayList<IModelListener<T>>();
 
 	/**
 	 * Constructor
@@ -24,11 +24,16 @@ public abstract class Model<T> implements ModelForView<T> {
 	}
 
 	/**
+	 * Initialises the model
+	 */
+	protected abstract void init();
+	
+	/**
 	 * Notify a change to all listening views
 	 */
 	public void onChange() {
-		for (IView view : listeners) {
-			view.onModelChange(this);
+		for (IModelListener<T> modelListener : listeners) {
+			modelListener.onModelChange(this);
 		}
 	}
 
@@ -44,7 +49,7 @@ public abstract class Model<T> implements ModelForView<T> {
 	 * 
 	 * @param view
 	 */
-	public void addListener(IView view) {
+	public void addListener(IModelListener<T> view) {
 		listeners.add(view);
 	}
 
@@ -53,7 +58,7 @@ public abstract class Model<T> implements ModelForView<T> {
 	 * 
 	 * @param view
 	 */
-	public void removeListener(IView view) {
+	public void removeListener(IModelListener<T> view) {
 		listeners.remove(view);
 	}
 
@@ -86,10 +91,10 @@ public abstract class Model<T> implements ModelForView<T> {
 			causeEvent.getMaskable().unmask();
 		}
 	}
-
-	/**
-	 * Initialises the model
-	 */
-	protected abstract void init();
+	
+	@Override
+	public String toString() {
+		return value.toString();
+	}
 
 }

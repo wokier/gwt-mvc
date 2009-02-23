@@ -16,6 +16,10 @@ public class BrowserEvent {
 		this.historyToken = historyToken;
 	}
 	
+	/**
+	 * Give the history token 
+	 * @return
+	 */
 	public String getHistoryToken() {
 		return historyToken.toUpperCase();
 	}
