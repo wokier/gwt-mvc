@@ -21,8 +21,8 @@ public class PocControllerMenu extends Controller {
 		RootPanel.get("wait").setVisible(false);// remove loading...
 
 		View menu = new PocViewMenu(this);
-		menu.init();
 		RootPanel.get("menu").add(menu);
+		menu.setVisible(true);
 		
 		addView(new PocViewIntro(this));
 		
@@ -41,7 +41,6 @@ public class PocControllerMenu extends Controller {
 		switch (action) {
 		case SHOW_INTRO:
 			IView view = views.get(PocViewIntro.KEY);
-			view.init();
 			renderView(view);
 			break;
 		default:
@@ -54,6 +53,7 @@ public class PocControllerMenu extends Controller {
 		if(view instanceof View){
 			RootPanel.get("content").clear();
 			RootPanel.get("content").add((View)view);
+			((View)view).setVisible(true);
 		}
 	}
 

@@ -44,8 +44,6 @@ public class PocControllerTest extends ControllerTestCase {
 				one(numericViewAmock).getKey();
 				will(returnValue(PocViewNumeric.KEY));
 				
-				one(numericViewAmock).init();
-				
 				one(controller.modelA).init();
 
 			}
@@ -67,9 +65,6 @@ public class PocControllerTest extends ControllerTestCase {
 				one(graphicalViewmock).getKey();
 				will(returnValue(PocViewGraphical.KEY));
 				
-				one(numericViewAmock).init();
-				one(numericViewBmock).init();
-				one(graphicalViewmock).init();
 				one(controller.modelA).init();
 				one(controller.modelB).init();
 
