@@ -51,7 +51,7 @@ public abstract class View<T, W extends Widget> extends LazyPanel<W> implements 
 	 * @see com.googlecode.gwtmvc.client.IView#init()
 	 * @deprecated replaced by lazyPanel
 	 */
-	public abstract void init();
+	public void init(){};
 	
 	/**
 	 * @see com.google.gwt.widgetideas.client.LazyPanel#createWidget()
@@ -60,6 +60,8 @@ public abstract class View<T, W extends Widget> extends LazyPanel<W> implements 
 	public abstract W createWidget() ;
 	
 	/**
+	 * Update the view with one of the models it listen.<br />
+	 * use ensureWidget to force the lazy panel to build up 
 	 * @see com.googlecode.gwtmvc.client.IModelListener#onModelChange(com.googlecode.gwtmvc.client.ModelForView)
 	 */
 	public abstract void onModelChange(ModelForView<T> model) ;
