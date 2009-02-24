@@ -27,6 +27,7 @@ public class Event<V, A extends Enum> {
 	 * @param action
 	 */
 	public Event(A action) {
+		super();
 		this.action = action;
 	}
 

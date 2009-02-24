@@ -21,6 +21,7 @@ public abstract class Model<T> implements ModelForView<T> {
 	 * Constructor
 	 */
 	public Model() {
+		super();
 	}
 
 	/**

@@ -5,7 +5,7 @@ package com.googlecode.gwtmvc.client;
  */
 public class BrowserEvent {
 
-	String historyToken;
+	private String historyToken;
 	
 	/**
 	 * Build a browser event

@@ -21,6 +21,7 @@ public abstract class Controller {
 	 * Empty Constructor
 	 */
 	public Controller() {
+		super();
 	}
 
 	/**
