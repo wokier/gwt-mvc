@@ -8,7 +8,8 @@ package com.googlecode.gwtmvc.client;
 public interface ModelForView<D> {
 
 	/**
-	 * @return value of this model
+	 * Give the value of this model
+	 * @return 
 	 */
 	public abstract D getValue();
 

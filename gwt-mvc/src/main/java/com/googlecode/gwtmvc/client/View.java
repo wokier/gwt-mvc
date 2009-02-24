@@ -29,6 +29,7 @@ public abstract class View<T> extends Composite implements IView<T> {
 	 * USAGE: just pass Model instance
 	 */
 	public View(String key, Controller controller, Model... models) {
+		super();
 		this.key = key;
 		this.controller = controller;
 		controller.addView(this);
