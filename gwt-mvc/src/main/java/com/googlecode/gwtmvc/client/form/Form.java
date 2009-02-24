@@ -1,14 +1,16 @@
 package com.googlecode.gwtmvc.client.form;
 
+import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.gwtmvc.client.Controller;
 import com.googlecode.gwtmvc.client.Model;
 import com.googlecode.gwtmvc.client.View;
 /**
  * a form
- * @param <T> 
+ * @param <T> type
+ * @param <W> content widget
  * 
  */
-public abstract class Form<T> extends View<T> {
+public abstract class Form<T, W extends Widget> extends View<T,W> {
 
 	/**
 	 * Build a form
