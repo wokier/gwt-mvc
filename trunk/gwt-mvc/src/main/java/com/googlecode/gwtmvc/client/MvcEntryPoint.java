@@ -3,13 +3,14 @@ package com.googlecode.gwtmvc.client;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.HistoryListener;
+import com.google.gwt.user.client.Window;
 /**
  * implements GWT entry point
  * USAGE : configure your module with a concrete class extending this one 
  */
 public abstract class MvcEntryPoint implements EntryPoint, HistoryListener {
 
-	Controller rootController;
+	protected Controller rootController;
 
 	/**
 	 * Build an EntryPoint with the specified controller as entry
@@ -38,7 +39,19 @@ public abstract class MvcEntryPoint implements EntryPoint, HistoryListener {
 	 * @see com.google.gwt.user.client.HistoryListener#onHistoryChanged(java.lang.String)
 	 */
 	public void onHistoryChanged(String historyToken) {
-		rootController.handleBrowserEvent(new BrowserEvent(historyToken));
+		if(!rootController.handleBrowserEvent(new BrowserEvent(historyToken))){
+			handle404Error(historyToken);
+		}
+	}
+	
+	/**
+	 * Alert the user about a mistake in the url.<br />
+	 * This behavior could be overriden
+	 * @param historyToken
+	 */
+	protected void handle404Error(String historyToken) {
+		Window.alert("404 This history token "+ historyToken +" is unknown");
+		rootController.showHomeView();
 	}
 
 }

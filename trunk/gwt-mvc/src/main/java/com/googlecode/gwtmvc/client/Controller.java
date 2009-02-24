@@ -150,13 +150,12 @@ public abstract class Controller {
 	 * browser event
 	 * 
 	 * @param browserEvent
+	 * @return true if the historyToken match to an action on any controller
 	 */
-	public void handleBrowserEvent(BrowserEvent browserEvent) {
-		if (!handleBrowserEventMyself(browserEvent)) {
-			if (!handleBrowserEventByChilds(browserEvent)) {
-				throw404Error();
-			}
-		}
+	public boolean handleBrowserEvent(BrowserEvent browserEvent) {
+		if (handleBrowserEventMyself(browserEvent))
+			return true;
+		return handleBrowserEventByChilds(browserEvent);
 	}
 
 	private boolean handleBrowserEventByChilds(BrowserEvent browserEvent) {
@@ -182,11 +181,7 @@ public abstract class Controller {
 		}
 
 	}
-	
-	private void throw404Error() {
-		// TODO : redirect to NotFound page in gwt
-		throw new RuntimeException("404");
-	}
+
 	
 	@Override
 	public String toString() {
