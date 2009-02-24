@@ -36,7 +36,6 @@ public class PocMenuControllerTest extends ControllerTestCase {
 			one(pocViewIntroMock).getKey();
 			will(returnValue(PocViewIntro.KEY));
 			
-			one(pocViewIntroMock).init();
 		}});
 		controller.addView(pocViewIntroMock);
 		controller.handleEvent(new Event<String, PocMenuAction>(PocMenuAction.SHOW_INTRO));

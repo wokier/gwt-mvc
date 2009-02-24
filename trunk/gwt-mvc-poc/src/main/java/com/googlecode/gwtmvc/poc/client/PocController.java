@@ -40,7 +40,6 @@ public class PocController extends Controller {
 		switch (action) {
 		case SHOW_SIMPLE_1:
 			IView nview = views.get(PocViewNumeric.KEY);
-			nview.init();
 			if (nview instanceof View) {
 				RootPanel.get("content").clear();
 			}
@@ -49,18 +48,15 @@ public class PocController extends Controller {
 			break;
 		case SHOW_COMPLEX_2:
 			IView nviewa = views.get(PocViewNumeric.KEY);
-			nviewa.init();
 			if (nviewa instanceof View) {
 				RootPanel.get("content").clear();
 			}
 			renderView(nviewa);
 
 			IView nviewb = views.get(PocViewNumericB.KEY);
-			nviewb.init();
 			renderView(nviewb);
 
 			IView gview = views.get(PocViewGraphical.KEY);
-			gview.init();
 			renderView(gview);
 
 			initModel(modelA);
@@ -91,6 +87,7 @@ public class PocController extends Controller {
 	protected void renderView(IView view) {
 		if (view instanceof View) {// Enable testing without GWT.create() error
 			RootPanel.get("content").add((View) view);
+			((View)view).setVisible(true);
 		}
 	}
 

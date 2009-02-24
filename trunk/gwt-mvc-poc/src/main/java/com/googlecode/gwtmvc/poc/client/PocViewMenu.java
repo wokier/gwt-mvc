@@ -8,14 +8,14 @@ import com.googlecode.gwtmvc.client.View;
 import com.googlecode.gwtmvc.poc.client.PocController.PocAction;
 import com.googlecode.gwtmvc.poc.client.PocControllerMenu.PocMenuAction;
 
-public class PocViewMenu extends View {
+public class PocViewMenu extends View<Object,VerticalPanel> {
 
 	PocViewMenu(Controller controller){
 		super("menu", controller);
 	}
 	
 	@Override
-	public void init() {
+	public VerticalPanel createWidget() {
 		VerticalPanel pan = new VerticalPanel();
 		Hyperlink hIntro =new Hyperlink("Introduction",PocMenuAction.SHOW_INTRO.name());
 		pan.add(hIntro);
@@ -23,9 +23,9 @@ public class PocViewMenu extends View {
 		pan.add(h1);
 		Hyperlink h2 = new Hyperlink("More Complex Example #2",PocAction.SHOW_COMPLEX_2.name());
 		pan.add(h2);
-		initWidget(pan);	
+		return pan;
 	}
-
+	
 	@Override
 	public void onModelChange(ModelForView model) {
 		
