@@ -37,9 +37,9 @@ Please start a topic on the google group for new features, or start an issue on 
 || manage history and urls || Done || 0.1 ||
 || enhance controller testability || Done || 0.1 ||
 || enable block user for loading (optionnal on each action) || Done || 0.1 ||
-|| add the sender to events || TODO|| 0.2 ||
 || add standard 404 page when historyToken is unknown || TODO|| 0.2 ||
-|| add normalized url arguments || TODO|| 0.2 ||
 || manage simple form validation || TODO|| 0.2 ||
 || base the view on a lazy Panel instead of Composite || TODO|| 0.2 ||
+|| add the sender to events || TODO|| ? ||
+|| add normalized url arguments || TODO|| ? ||
 || enable decorator pattern to structure multi-view screens|| TODO|| ? ||
