@@ -31,10 +31,28 @@ public abstract class Form<T, W extends Widget> extends View<T,W> {
 	public abstract void initForm(T value) ;
 
 	/**
-	 * Validate each field element of the form and (re)populate the value.<br />
+	 * Validate each field element of the form<br />
 	 * Errors are displayed at each field element, or at a top level with an alert.  
 	 * @return
 	 */
-	public abstract FormValidationResult<T> validateForm();
+	protected abstract boolean validateForm();
+	
+	/**
+	 * (re)populate the value.
+	 * @return
+	 */
+	protected abstract T getFormValue();
+	
+	/**
+	 * Validate the form.
+	 * the value is (re)populate only if the form is valid
+	 * @return
+	 */
+	public FormValidationResult<T> getValidationResult(){
+		if(validateForm()){
+			return new FormValidationResult<T>(getFormValue());
+		}
+		return new FormValidationResult<T>();
+	}
 	
 }
