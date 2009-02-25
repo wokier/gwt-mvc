@@ -6,17 +6,18 @@ package com.googlecode.gwtmvc.client.form;
  */
 public class FormValidationResult<T> {
 
-	private boolean isValid = true;
+	private boolean isValid;
 	private T value;
 		
-	protected FormValidationResult(T value) {
+	protected FormValidationResult() {
 		super();
-		this.value = value;
+		this.isValid = false;
+		this.value = null;
 	}
 
-	protected FormValidationResult(boolean isValid, T value) {
+	protected FormValidationResult(T value) {
 		super();
-		this.isValid = isValid;
+		this.isValid = true;
 		this.value = value;
 	}
 
