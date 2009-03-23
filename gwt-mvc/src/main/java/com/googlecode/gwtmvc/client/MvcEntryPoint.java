@@ -1,6 +1,7 @@
 package com.googlecode.gwtmvc.client;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.HistoryListener;
 import com.google.gwt.user.client.Window;
@@ -50,7 +51,7 @@ public abstract class MvcEntryPoint implements EntryPoint, HistoryListener {
 	 * @param historyToken
 	 */
 	protected void handle404Error(String historyToken) {
-		Window.alert("404 This history token "+ historyToken +" is unknown");
+		Window.alert("404 This history token "+ historyToken +" is unknown. This is the home page.");
 		rootController.showHomeView();
 	}
 
