@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.googlecode.gwt-mvc</groupId>
@@ -13,6 +15,42 @@
 		<gwt.version>1.5.3</gwt.version>
 	</properties>
 
+	<profiles>
+		<profile>
+			<id>gwt-dev-windows</id>
+			<properties>
+				<platform>windows</platform>
+			</properties>
+			<activation>
+				<os>
+					<family>windows</family>
+				</os>
+			</activation>
+		</profile>
+		<profile>
+			<id>gwt-dev-mac</id>
+			<properties>
+				<platform>mac</platform>
+			</properties>
+			<activation>
+				<os>
+					<family>mac</family>
+				</os>
+			</activation>
+		</profile>
+		<profile>
+			<id>gwt-dev-linux</id>
+			<properties>
+				<platform>linux</platform>
+			</properties>
+			<activation>
+				<os>
+					<name>linux</name>
+				</os>
+			</activation>
+		</profile>
+	</profiles>
+
 	<dependencies>
 		<dependency>
 			<groupId>com.googlecode.gwt-mvc</groupId>
@@ -24,34 +62,26 @@
 			<artifactId>gwt-user</artifactId>
 			<version>${gwt.version}</version>
 		</dependency>
-		<!-- <dependency>
-			<groupId>com.google.gwt</groupId>
-			<artifactId>gwt-dev</artifactId>
-			<classifier>windows</classifier>
-			<version>${gwt.version}</version>
-			</dependency> -->
-		<dependency>
-			<groupId>com.google.gwt</groupId>
-			<artifactId>gwt-dev</artifactId>
-			<version>${gwt.version}</version>
-			<scope>system</scope>
-			<systemPath>
-				C:/gwt-windows-1.5.3/gwt-dev-windows.jar
-			</systemPath>
-		</dependency>
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-servlet</artifactId>
 			<version>${gwt.version}</version>
 			<scope>runtime</scope>
 		</dependency>
- 
- 		<!-- <dependency>
+
+		<dependency>
+			<groupId>com.google.code.gwt-log</groupId>
+			<artifactId>gwt-log</artifactId>
+			<version>2.5.3</version>
+		</dependency>
+
+
+		<!-- <dependency>
 			<groupId>gwt.gxt</groupId>
 			<artifactId>gxt</artifactId>
 			<version>1.1.3</version>
-		</dependency> -->
- 
+			</dependency> -->
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -71,7 +101,7 @@
 			<scope>test</scope>
 		</dependency>
 
-  </dependencies>
+	</dependencies>
 	<repositories>
 		<repository>
 			<id>gwt-maven</id>
@@ -147,7 +177,7 @@
 					</webResources>
 					<webappDirectory>webapp</webappDirectory>
 					<warSourceExcludes>**/.svn/</warSourceExcludes>
-					<warSourceExcludes/>
+					<warSourceExcludes />
 				</configuration>
 			</plugin>
 

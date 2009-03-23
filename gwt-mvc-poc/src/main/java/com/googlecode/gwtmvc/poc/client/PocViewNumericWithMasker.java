@@ -3,6 +3,7 @@ package com.googlecode.gwtmvc.poc.client;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.ClickListener;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.gwtmvc.client.Event;
@@ -12,13 +13,13 @@ import com.googlecode.gwtmvc.client.View;
 import com.googlecode.gwtmvc.poc.client.PocController.PocAction;
 import com.googlecode.gwtmvc.poc.client.components.PocIntegerLabel;
 
-public class PocViewNumericB extends View<Integer, VerticalPanel> {
+public class PocViewNumericWithMasker extends View<Integer, VerticalPanel> {
 
-	protected static final String KEY = "numericB";
+	protected static final String KEY = "masker";
 
 	PocIntegerLabel component;
 
-	public PocViewNumericB(PocController controller, Model model) {
+	public PocViewNumericWithMasker(PocController controller, Model model) {
 		super(KEY, controller, model);
 	}
 
@@ -56,22 +57,22 @@ public class PocViewNumericB extends View<Integer, VerticalPanel> {
 		return panel;
 	}
 
+	protected void plusAction() {
+		controller.call(new Event<Integer, PocAction>(PocAction.DO_PLUS_A, component.getValue(), new PocMasker()));
+	}
+
+	protected void minusAction() {
+		controller.call(new Event<Integer, PocAction>(PocAction.DO_MINUS_A, component.getValue(), new PocMasker()));
+	}
+
+	protected void reinitAction() {
+		controller.call(new Event<Integer, PocAction>(PocAction.DO_REINIT_A, 0, new PocMasker()));
+	}
+
 	@Override
 	public void onModelChange(ModelForView model) {
 		ensureWidget();
 		component.setValue((Integer) model.getValue());
 	}
-	
-	protected void plusAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_PLUS_B, component.getValue()));
-	}
-	
-	protected void minusAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_MINUS_B, component.getValue()));
-	}
-	
-	protected void reinitAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_REINIT_B, 0));
-	}
-	
+
 }

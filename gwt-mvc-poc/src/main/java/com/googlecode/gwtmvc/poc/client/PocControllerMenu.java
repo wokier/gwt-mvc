@@ -1,5 +1,6 @@
 package com.googlecode.gwtmvc.poc.client;
 
+import com.allen_sauer.gwt.log.client.Log;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.googlecode.gwtmvc.client.BrowserEvent;
@@ -18,6 +19,8 @@ public class PocControllerMenu extends Controller {
 
 	@Override
 	public void init() {
+		Log.debug("Menu controller init");
+
 		RootPanel.get("wait").setVisible(false);// remove loading...
 
 		View menu = new PocViewMenu(this);
@@ -31,12 +34,14 @@ public class PocControllerMenu extends Controller {
 
 	@Override
 	public void showHomeView() {
+		RootPanel.get("content").clear();
 		RootPanel.get("content").add(new Label("Welcome..."));
 	}
 
 	@Override
 	public void handleEvent(Event event) {
-
+		Log.debug("Menu controller handleEvent " + event);
+		
 		PocMenuAction action = (PocMenuAction) event.getAction();
 		switch (action) {
 		case SHOW_INTRO:

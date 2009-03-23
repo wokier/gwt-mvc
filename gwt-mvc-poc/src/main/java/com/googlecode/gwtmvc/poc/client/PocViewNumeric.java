@@ -23,10 +23,6 @@ public class PocViewNumeric extends View<Integer, VerticalPanel> {
 		super(KEY, controller, model);
 	}
 
-	public PocViewNumeric(String key, PocController controller, Model model) {
-		super(key, controller, model);
-	}
-
 	@Override
 	public VerticalPanel createWidget() {
 		VerticalPanel panel = new VerticalPanel();
@@ -76,7 +72,6 @@ public class PocViewNumeric extends View<Integer, VerticalPanel> {
 	@Override
 	public void onModelChange(ModelForView model) {
 		ensureWidget();
-		RootPanel.get("wait").setVisible(false);
 		component.setValue((Integer) model.getValue());
 	}
 

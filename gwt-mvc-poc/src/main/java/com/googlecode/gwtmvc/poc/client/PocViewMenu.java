@@ -17,12 +17,12 @@ public class PocViewMenu extends View<Object,VerticalPanel> {
 	@Override
 	public VerticalPanel createWidget() {
 		VerticalPanel pan = new VerticalPanel();
-		Hyperlink hIntro =new Hyperlink("Introduction",PocMenuAction.SHOW_INTRO.name());
-		pan.add(hIntro);
-		Hyperlink h1 = new Hyperlink("Simple Example #1",PocAction.SHOW_SIMPLE_1.name());
-		pan.add(h1);
-		Hyperlink h2 = new Hyperlink("More Complex Example #2",PocAction.SHOW_COMPLEX_2.name());
-		pan.add(h2);
+		pan.add(new Hyperlink("Introduction",PocMenuAction.SHOW_INTRO.name()));
+		pan.add(new Hyperlink("Simple Example #1",PocAction.SHOW_SIMPLE_1.name()));
+		pan.add(new Hyperlink("More Complex Example #2",PocAction.SHOW_COMPLEX_2.name()));
+		pan.add(new Hyperlink("Masker",PocAction.SHOW_MASKER.name()));
+		pan.add(new Hyperlink("Maskable",PocAction.SHOW_MASKABLE.name()));
+		pan.add(new Hyperlink("404 Error (Unknown history token)","invalidToken"));
 		return pan;
 	}
 	
@@ -31,3 +31,4 @@ public class PocViewMenu extends View<Object,VerticalPanel> {
 		
 	}
 }
+
