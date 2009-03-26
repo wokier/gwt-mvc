@@ -7,16 +7,16 @@ We have some ideas of what is possible to do, but you can tell us what you need 
 Please start a topic on the google group for new features, or start an issue on this site.
 
 || Feature|| Status || Version ||
-|| create initial project || Done || 0.1 ||
-|| create poc project || Done || 0.1 ||
-|| define simple example poc || Done || 0.1 ||
-|| add complexity to poc (many views) || Done || 0.1 ||
-|| add complexity to poc (many rpcs) || Done || 0.1 ||
-|| add complexity to poc (many models) || Done || 0.1 ||
-|| add complexity to poc (menu and hierachical controller) || Done || 0.1 ||
-|| manage history and urls || Done || 0.1 ||
-|| enhance controller testability || Done || 0.1 ||
-|| enable block user for loading (optionnal on each action) || Done || 0.1 ||
+|| create initial project || Done || 0.0.1 ||
+|| create poc project || Done || 0.0.1 ||
+|| define simple example poc || Done || 0.0.1 ||
+|| add complexity to poc (many views) || Done || 0.0.1 ||
+|| add complexity to poc (many rpcs) || Done || 0.0.1 ||
+|| add complexity to poc (many models) || Done || 0.0.1 ||
+|| add complexity to poc (menu and hierachical controller) || Done || 0.0.1 ||
+|| manage history and urls || Done || 0.0.1 ||
+|| enhance controller testability || Done || 0.0.1||
+|| enable block user for loading (optionnal on each action) || Done || 0.0.1 ||
 || --> You are here <-- ||  ||  ||
 || add standard 404 page when historyToken is unknown || Done|| 0.2 ||
 || manage simple form validation || Done|| 0.2 ||
