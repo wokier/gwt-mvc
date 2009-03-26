@@ -1,8 +1,12 @@
 package com.googlecode.gwtmvc.client;
+
 /**
  * Model listener
- *
+ * 
+ * @see Model
+ * 
  * @param <D>
+ *            data
  */
 public interface IModelListener<D> {
 
@@ -12,5 +16,5 @@ public interface IModelListener<D> {
 	 * @param model
 	 */
 	public abstract void onModelChange(ModelForView<D> model);
-	
+
 }
