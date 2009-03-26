@@ -1,9 +1,5 @@
 #summary How-to use the gwt-mvc module in your gwt project
 
-= Introduction =
-
-How to use the gwt-mvc module in your gwt project
-
 = Steps =
 
 Follow this :
@@ -35,4 +31,3 @@ The client part of the module will be available in your gwt client code.
 The server part of the module will be available in your server code (Here is just for controller testing).
 
 == Use the API ==
-
