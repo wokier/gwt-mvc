@@ -1,4 +1,4 @@
-#summary GWT MVC Project Introduction and links to docs and similar projects.
+#summary gwt-mvc Project Introduction and links to docs and similar projects.
 
 = Introduction =
 GWT is a wonderful tool, but does not structure your code.
