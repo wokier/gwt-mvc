@@ -9,13 +9,16 @@ import java.util.List;
  * USAGE: Your model should have methods to load his datas by a RPC call, and
  * call update method
  * 
- * @param <T> data
+ * @param <T>
+ *            data type
  */
 public abstract class Model<T> implements ModelForView<T> {
 
 	protected T value;
 
 	private List<IModelListener<T>> listeners = new ArrayList<IModelListener<T>>();
+
+	protected boolean initialised;
 
 	/**
 	 * Constructor
@@ -25,10 +28,10 @@ public abstract class Model<T> implements ModelForView<T> {
 	}
 
 	/**
-	 * Initialises the model
+	 * Initialises the model. This initialisation must be made by a controller
 	 */
 	protected abstract void init();
-	
+
 	/**
 	 * Notify a change to all listening views
 	 */
@@ -73,7 +76,7 @@ public abstract class Model<T> implements ModelForView<T> {
 		this.value = value;
 		onChange();
 	}
-	
+
 	/**
 	 * Update the model without calling the server. This action can only be done
 	 * by the controller
@@ -86,13 +89,25 @@ public abstract class Model<T> implements ModelForView<T> {
 		endWait(causeEvent);
 		onChange();
 	}
-	
+
 	private void endWait(Event causeEvent) {
-		if(causeEvent.getMaskable() != null){
+		if (causeEvent.getMaskable() != null) {
 			causeEvent.getMaskable().unmask();
 		}
 	}
-	
+
+	/**
+	 * Give wether the controller has been initialised or not
+	 * 
+	 * @return true if it had been initialised
+	 */
+	public boolean isInitialised() {
+		return initialised;
+	}
+
+	/**
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return value.toString();

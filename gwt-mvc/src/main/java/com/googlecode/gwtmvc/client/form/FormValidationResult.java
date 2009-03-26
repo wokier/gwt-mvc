@@ -1,14 +1,16 @@
 package com.googlecode.gwtmvc.client.form;
+
 /**
  * Result of a form validation
- *
+ * 
  * @param <T>
+ *            type
  */
 public class FormValidationResult<T> {
 
 	private boolean isValid;
 	private T value;
-		
+
 	protected FormValidationResult() {
 		super();
 		this.isValid = false;
@@ -23,18 +25,20 @@ public class FormValidationResult<T> {
 
 	/**
 	 * Give the final form validation result
+	 * 
 	 * @return
 	 */
 	public boolean isValid() {
 		return isValid;
 	}
-	
+
 	/**
 	 * Give the value (re)populated by the form
+	 * 
 	 * @return
 	 */
 	public T getValue() {
 		return value;
 	}
-	
+
 }

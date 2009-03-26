@@ -1,26 +1,33 @@
 package com.googlecode.gwtmvc.client;
 
-
 /**
- * Represents an event on the gui
+ * Represents an event on the gui.
+ * 
+ * Note for lexical definition: It is different from the gwt 1.6 handler/event
+ * system, But a gwt-mvc Event will generally be created by a listener/handler
+ * of user gestures
  * 
  * USAGE: create an event to notify a user gesture to the controller
- * @param <V> action
- * @param <A> value
+ * 
+ * @param <V>
+ *            action
+ * @param <A>
+ *            value
  */
 public class Event<V, A extends Enum> {
-	
+
 	private V value;
 	private A action;
 
-	
 	private Maskable maskable;
-	
+
 	/**
-	 * Specify an action which comes from the browser 
+	 * Specify an action which comes from the browser
 	 */
-	protected enum BROWSER_ACTION { BROWSER_ACTION};
-	
+	protected enum BROWSER_ACTION {
+		BROWSER_ACTION
+	};
+
 	/**
 	 * Builds an event
 	 * 
@@ -44,28 +51,31 @@ public class Event<V, A extends Enum> {
 
 	/**
 	 * Builds an event with a value, and a maskable
+	 * 
 	 * @param action
 	 * @param maskable
 	 */
-	public Event(A action,Maskable maskable) {
+	public Event(A action, Maskable maskable) {
 		this(action);
 		this.maskable = maskable;
 	}
-	
+
 	/**
 	 * Builds an event with a value, and a maskable
+	 * 
 	 * @param action
 	 * @param value
 	 * @param maskable
 	 */
 	public Event(A action, V value, Maskable maskable) {
-		this(action,value);
+		this(action, value);
 		this.maskable = maskable;
 	}
 
 	/**
 	 * Give the event action
-	 * @return 
+	 * 
+	 * @return
 	 */
 	public A getAction() {
 		return action;
@@ -73,22 +83,24 @@ public class Event<V, A extends Enum> {
 
 	/**
 	 * Give the event value
-	 * @return 
+	 * 
+	 * @return
 	 */
 	public V getValue() {
 		return value;
 	}
-	
+
 	/**
 	 * Give the optional maskable
+	 * 
 	 * @return
 	 */
 	public Maskable getMaskable() {
 		return maskable;
 	}
-	
+
 	@Override
 	public String toString() {
-		return action +"-"+ value;
+		return action + "-" + value;
 	}
 }
