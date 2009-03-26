@@ -1,16 +1,18 @@
-#summary How-to include the gwt-mvc module in your gwt project
+#summary How-to use the gwt-mvc module in your gwt project
 
 = Introduction =
 
-How to include the gwt-mvc module in your gwt project
+How to use the gwt-mvc module in your gwt project
 
-= Details =
+= Steps =
 
 Follow this :
   * Download the library
   * Add it to the project classpath
   * Add the module to your '.gwt.xml' module file
   * Enjoy
+
+== Add the module ==
 
 Exemple (from gwt-mvc-poc project):
 {{{
@@ -31,3 +33,6 @@ Exemple (from gwt-mvc-poc project):
 As in any gwt module:
 The client part of the module will be available in your gwt client code.
 The server part of the module will be available in your server code (Here is just for controller testing).
+
+== Use the API ==
+
