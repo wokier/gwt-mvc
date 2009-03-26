@@ -3,9 +3,11 @@
 = Steps =
 
 Follow this :
+  * Have a look at the demo
   * Download the library
   * Add it to the project classpath
   * Add the module to your '.gwt.xml' module file
+  * Have a look at the demo source
   * Enjoy
 
 == Add the module ==
