@@ -1,26 +1,6 @@
 #summary First Beta anoncment and Product Backlog
 #labels Phase-Design
 
-= Intro =
-This v0.0.1 version is released.
-
-= Poc =
-
-In the early start, we'd like to show a real example of how this could work.
-So we have two projects: gwt-mvc and gwt-mvc-poc (Proof Of Concept).
-You could checkout the result here:
-[http://gwt-mvc.googlecode.com/svn/branches/poc/gwt-mvc-poc/demo/GwtMvcPoc.html]
-(This demo dont need a server to run).
-
-= gwt mvc =
-
-The main advantages i would like to expose are:
- * The controllers are testables.
- * A controler defines its action by an enum.
- * I recommand to call the action with a prefix SHOW_ , DO_ or GET_, but it is not required.
- * The model updates the views listening him in respect of the asynchronous call.
- * As a view is only a composite (container), it could be a unique componant, or multiple componant(a form for example)
-
 = Project Roadmap =
 
 We have some ideas of what is possible to do, but the users will choose what they need.
