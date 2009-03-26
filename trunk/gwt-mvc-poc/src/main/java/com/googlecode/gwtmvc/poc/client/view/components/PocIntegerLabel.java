@@ -1,4 +1,4 @@
-package com.googlecode.gwtmvc.poc.client.components;
+package com.googlecode.gwtmvc.poc.client.view.components;
 
 import com.allen_sauer.gwt.log.client.Log;
 import com.google.gwt.user.client.ui.Label;

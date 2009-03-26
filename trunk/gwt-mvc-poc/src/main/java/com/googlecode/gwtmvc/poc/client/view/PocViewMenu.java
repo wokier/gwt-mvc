@@ -1,16 +1,16 @@
-package com.googlecode.gwtmvc.poc.client;
+package com.googlecode.gwtmvc.poc.client.view;
 
 import com.google.gwt.user.client.ui.Hyperlink;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.googlecode.gwtmvc.client.Controller;
 import com.googlecode.gwtmvc.client.ModelForView;
 import com.googlecode.gwtmvc.client.View;
-import com.googlecode.gwtmvc.poc.client.PocController.PocAction;
-import com.googlecode.gwtmvc.poc.client.PocControllerMenu.PocMenuAction;
+import com.googlecode.gwtmvc.poc.client.controller.PocController.PocAction;
+import com.googlecode.gwtmvc.poc.client.controller.PocControllerMenu.PocMenuAction;
 
 public class PocViewMenu extends View<Object,VerticalPanel> {
 
-	PocViewMenu(Controller controller){
+	public PocViewMenu(Controller controller){
 		super("menu", controller);
 	}
 	

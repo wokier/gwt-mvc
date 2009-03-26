@@ -1,14 +1,15 @@
-package com.googlecode.gwtmvc.poc.client;
+package com.googlecode.gwtmvc.poc.client.view;
 
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.Label;
 import com.googlecode.gwtmvc.client.Controller;
 import com.googlecode.gwtmvc.client.ModelForView;
 import com.googlecode.gwtmvc.client.View;
+import com.googlecode.gwtmvc.poc.client.model.PocModel;
 
 public class PocViewGraphical extends View<Integer, Label> {
 
-	protected static final String KEY = "graphical";
+	public static final String KEY = "graphical";
 
 	Label bar;
 
