@@ -1,4 +1,4 @@
-#summary Differents version release Notes
+#summary Different versions release Notes
 
 = v0.0.1 for GWT 1.5.3 =
 
