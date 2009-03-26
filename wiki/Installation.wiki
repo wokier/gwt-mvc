@@ -3,7 +3,7 @@
 = Steps =
 
 Follow this :
-  * Have a look at the demo
+  * Have a look at the [demo http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc-poc/demo/0.0.1/com.googlecode.gwtmvc.poc.GwtMvcPoc/GwtMvcPoc.html]
   * Download the library
   * Add it to the project classpath
   * Add the module to your '.gwt.xml' module file
