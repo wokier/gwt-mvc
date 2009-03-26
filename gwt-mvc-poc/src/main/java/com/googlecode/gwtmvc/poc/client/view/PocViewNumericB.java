@@ -1,25 +1,25 @@
-package com.googlecode.gwtmvc.poc.client;
+package com.googlecode.gwtmvc.poc.client.view;
 
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.ClickListener;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.gwtmvc.client.Event;
 import com.googlecode.gwtmvc.client.Model;
 import com.googlecode.gwtmvc.client.ModelForView;
 import com.googlecode.gwtmvc.client.View;
-import com.googlecode.gwtmvc.poc.client.PocController.PocAction;
-import com.googlecode.gwtmvc.poc.client.components.PocIntegerLabel;
+import com.googlecode.gwtmvc.poc.client.controller.PocController;
+import com.googlecode.gwtmvc.poc.client.controller.PocController.PocAction;
+import com.googlecode.gwtmvc.poc.client.view.components.PocIntegerLabel;
 
-public class PocViewNumeric extends View<Integer, VerticalPanel> {
+public class PocViewNumericB extends View<Integer, VerticalPanel> {
 
-	protected static final String KEY = "numericA";
+	public static final String KEY = "numericB";
 
 	PocIntegerLabel component;
 
-	public PocViewNumeric(PocController controller, Model model) {
+	public PocViewNumericB(PocController controller, Model model) {
 		super(KEY, controller, model);
 	}
 
@@ -57,22 +57,22 @@ public class PocViewNumeric extends View<Integer, VerticalPanel> {
 		return panel;
 	}
 
-	protected void plusAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_PLUS_A, component.getValue()));
-	}
-
-	protected void minusAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_MINUS_A, component.getValue()));
-	}
-
-	protected void reinitAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_REINIT_A, 0));
-	}
-
 	@Override
 	public void onModelChange(ModelForView model) {
 		ensureWidget();
 		component.setValue((Integer) model.getValue());
 	}
-
+	
+	protected void plusAction() {
+		controller.call(new Event<Integer, PocAction>(PocAction.DO_PLUS_B, component.getValue()));
+	}
+	
+	protected void minusAction() {
+		controller.call(new Event<Integer, PocAction>(PocAction.DO_MINUS_B, component.getValue()));
+	}
+	
+	protected void reinitAction() {
+		controller.call(new Event<Integer, PocAction>(PocAction.DO_REINIT_B, 0));
+	}
+	
 }

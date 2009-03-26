@@ -1,6 +1,8 @@
-package com.googlecode.gwtmvc.poc.client;
+package com.googlecode.gwtmvc.poc.client.controller;
 
 import com.allen_sauer.gwt.log.client.Log;
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.googlecode.gwtmvc.client.BrowserEvent;
@@ -8,6 +10,8 @@ import com.googlecode.gwtmvc.client.Controller;
 import com.googlecode.gwtmvc.client.Event;
 import com.googlecode.gwtmvc.client.IView;
 import com.googlecode.gwtmvc.client.View;
+import com.googlecode.gwtmvc.poc.client.view.PocViewIntro;
+import com.googlecode.gwtmvc.poc.client.view.PocViewMenu;
 
 public class PocControllerMenu extends Controller {
 
@@ -16,37 +20,47 @@ public class PocControllerMenu extends Controller {
 		SHOW_INTRO;
 
 	}
+	IView pocViewMenu;
+	IView pocViewIntro;
+
+	public PocControllerMenu() {
+		super(new PocController());
+		
+
+	}
 
 	@Override
 	public void init() {
-		Log.debug("Menu controller init");
-
-		RootPanel.get("wait").setVisible(false);// remove loading...
-
-		View menu = new PocViewMenu(this);
-		RootPanel.get("menu").add(menu);
-		menu.setVisible(true);
+		Log.debug("Root controller init");
 		
-		addView(new PocViewIntro(this));
+		if (pocViewIntro == null) {
+			pocViewIntro = new PocViewIntro(this);
+			RootPanel.get("wait").setVisible(false);// remove loading...
+			
+			pocViewMenu = new PocViewMenu(this);
+			RootPanel.get("menu").clear();
+			RootPanel.get("menu").add((View)pocViewMenu);
+		}
+		pocViewMenu.render();
 		
-		addChild(new PocController());
 	}
 
 	@Override
 	public void showHomeView() {
-		RootPanel.get("content").clear();
-		RootPanel.get("content").add(new Label("Welcome..."));
+		if (pocViewIntro instanceof View) {
+			RootPanel.get("content").clear();
+			RootPanel.get("content").add(new Label("Welcome..."));
+		}
 	}
 
 	@Override
 	public void handleEvent(Event event) {
 		Log.debug("Menu controller handleEvent " + event);
-		
+
 		PocMenuAction action = (PocMenuAction) event.getAction();
 		switch (action) {
 		case SHOW_INTRO:
-			IView view = views.get(PocViewIntro.KEY);
-			renderView(view);
+			renderView(pocViewIntro);
 			break;
 		default:
 			break;
@@ -55,11 +69,11 @@ public class PocControllerMenu extends Controller {
 
 	@Override
 	protected void renderView(IView view) {
-		if(view instanceof View){
+		if (view instanceof View) {
 			RootPanel.get("content").clear();
-			RootPanel.get("content").add((View)view);
-			((View)view).setVisible(true);
+			RootPanel.get("content").add((View) view);
 		}
+		view.render();
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package com.googlecode.gwtmvc.poc.client;
+package com.googlecode.gwtmvc.poc.client.view;
 
 import com.google.gwt.user.client.ui.HTML;
 import com.googlecode.gwtmvc.client.Controller;

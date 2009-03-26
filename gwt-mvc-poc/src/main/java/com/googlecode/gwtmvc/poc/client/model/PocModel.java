@@ -1,4 +1,4 @@
-package com.googlecode.gwtmvc.poc.client;
+package com.googlecode.gwtmvc.poc.client.model;
 
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
@@ -18,7 +18,7 @@ public class PocModel extends Model<Integer> {
 	}
 
 	@Override
-	protected void init() {
+	public void init() {//public visibility for test
 		update(INITIAL_VALUE_10);
 	}
 	

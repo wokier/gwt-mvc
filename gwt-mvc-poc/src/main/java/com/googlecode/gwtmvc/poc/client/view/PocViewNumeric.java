@@ -1,25 +1,25 @@
-package com.googlecode.gwtmvc.poc.client;
+package com.googlecode.gwtmvc.poc.client.view;
 
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.ClickListener;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.gwtmvc.client.Event;
 import com.googlecode.gwtmvc.client.Model;
 import com.googlecode.gwtmvc.client.ModelForView;
 import com.googlecode.gwtmvc.client.View;
-import com.googlecode.gwtmvc.poc.client.PocController.PocAction;
-import com.googlecode.gwtmvc.poc.client.components.PocIntegerLabel;
+import com.googlecode.gwtmvc.poc.client.controller.PocController;
+import com.googlecode.gwtmvc.poc.client.controller.PocController.PocAction;
+import com.googlecode.gwtmvc.poc.client.view.components.PocIntegerLabel;
 
-public class PocViewNumericWithMaskable extends View<Integer, VerticalPanel> {
+public class PocViewNumeric extends View<Integer, VerticalPanel> {
 
-	protected static final String KEY = "maskable";
+	public static final String KEY = "numericA";
 
 	PocIntegerLabel component;
 
-	public PocViewNumericWithMaskable(PocController controller, Model model) {
+	public PocViewNumeric(PocController controller, Model model) {
 		super(KEY, controller, model);
 	}
 
@@ -58,15 +58,15 @@ public class PocViewNumericWithMaskable extends View<Integer, VerticalPanel> {
 	}
 
 	protected void plusAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_PLUS_A, component.getValue(),component));
+		controller.call(new Event<Integer, PocAction>(PocAction.DO_PLUS_A, component.getValue()));
 	}
 
 	protected void minusAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_MINUS_A, component.getValue(),component));
+		controller.call(new Event<Integer, PocAction>(PocAction.DO_MINUS_A, component.getValue()));
 	}
 
 	protected void reinitAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_REINIT_A, 0, component));
+		controller.call(new Event<Integer, PocAction>(PocAction.DO_REINIT_A, 0));
 	}
 
 	@Override
