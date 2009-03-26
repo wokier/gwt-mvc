@@ -7,7 +7,7 @@ Follow this :
   * Download the library
   * Add it to the project classpath
   * Add the module to your '.gwt.xml' module file
-  * Have a look at the demo source
+  * Have a look at the [http://code.google.com/p/gwt-mvc/source/browse/#svn/tags/0.0.1/gwt-mvc-poc/src/main/java/com/googlecode/gwtmvc/poc/client demo source]
   * Enjoy
 
 == Add the module ==
