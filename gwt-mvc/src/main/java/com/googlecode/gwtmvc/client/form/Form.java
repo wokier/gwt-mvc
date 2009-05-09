@@ -19,12 +19,12 @@ public abstract class Form<T, W extends Widget> extends View<T, W> {
 	/**
 	 * Build a form
 	 * 
-	 * @param key
+	 * @param id
 	 * @param controller
 	 * @param models
 	 */
-	public Form(String key, Controller controller, Model... models) {
-		super(key, controller, models);
+	public Form(String id, Controller controller, Model... models) {
+		super(id, controller, models);
 	}
 
 	/**
