@@ -47,5 +47,10 @@ public class PocModel extends Model<Integer> {
 		};
 		PocMinusRPC.Util.getInstance(useServerRPCCall).minus(integer, callback);
 	}
+	
+	@Override
+	public void update(Integer value, Event causeEvent) {
+		super.update(value, causeEvent);
+	}
 
 }

@@ -1,8 +1,6 @@
 package com.googlecode.gwtmvc.poc.client.controller;
 
 import com.allen_sauer.gwt.log.client.Log;
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.googlecode.gwtmvc.client.BrowserEvent;
@@ -24,7 +22,7 @@ public class PocControllerMenu extends Controller {
 	IView pocViewIntro;
 
 	public PocControllerMenu() {
-		super(new PocController());
+		super(new PocController(), new PocControllerForm());
 		
 
 	}
@@ -35,7 +33,7 @@ public class PocControllerMenu extends Controller {
 		
 		if (pocViewIntro == null) {
 			pocViewIntro = new PocViewIntro(this);
-			RootPanel.get("wait").setVisible(false);// remove loading...
+			RootPanel.get("loading").setVisible(false);
 			
 			pocViewMenu = new PocViewMenu(this);
 			RootPanel.get("menu").clear();

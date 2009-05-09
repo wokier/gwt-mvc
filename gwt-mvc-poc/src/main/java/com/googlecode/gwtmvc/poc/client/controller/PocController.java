@@ -117,7 +117,7 @@ public class PocController extends Controller {
 	protected void renderView(IView view) {
 		Log.debug("Controller renderView " + view);
 		if (view instanceof View) {// Enable testing without GWT.create() error
-			RootPanel.get("wait").setVisible(false);// remove loading...
+			RootPanel.get("loading").setVisible(false);
 			RootPanel.get("content").add((View) view);
 		}
 		view.render();

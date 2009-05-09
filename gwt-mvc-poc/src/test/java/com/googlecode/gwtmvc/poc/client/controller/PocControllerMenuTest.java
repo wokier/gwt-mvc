@@ -13,7 +13,7 @@ import com.googlecode.gwtmvc.poc.client.controller.PocControllerMenu;
 import com.googlecode.gwtmvc.poc.client.controller.PocControllerMenu.PocMenuAction;
 import com.googlecode.gwtmvc.poc.client.view.PocViewIntro;
 
-public class PocMenuControllerTest extends ControllerTestCase {
+public class PocControllerMenuTest extends ControllerTestCase {
 
 	PocControllerMenu controller;
 

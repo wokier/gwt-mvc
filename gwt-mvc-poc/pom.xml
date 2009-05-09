@@ -70,7 +70,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.googlecode.gwt-log</groupId>
+			<groupId>gwt-log</groupId>
 			<artifactId>gwt-log</artifactId>
 			<version>2.5.3</version>
 		</dependency>
@@ -97,9 +97,9 @@
 	</dependencies>
 	<repositories>
 		<repository>
-			<id>gwt-maven</id>
+			<id>gwt-mvc-repository</id>
 			<url>
-				http://gwt-maven.googlecode.com/svn/trunk/mavenrepo
+				http://gwt-mvc.googlecode.com/svn/repository/gwt-mvc/
 			</url>
 		</repository>
 	</repositories>
