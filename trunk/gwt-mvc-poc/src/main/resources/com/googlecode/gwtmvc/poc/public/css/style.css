@@ -1,5 +1,4 @@
 #container {
-	height: 100%;
 	width: 100%;
 	margin: 0px;	
 }
@@ -30,4 +29,8 @@
 .mask {
 	background: url(../img/loader-indicator.gif) right no-repeat;
 	cursor: wait;
+}
+
+.error {
+	border: 1px solid #FF0000;
 }
