@@ -22,13 +22,6 @@ public class Event<V, A extends Enum> {
 	private Maskable maskable;
 
 	/**
-	 * Specify an action which comes from the browser
-	 */
-	protected enum BROWSER_ACTION {
-		BROWSER_ACTION
-	};
-
-	/**
 	 * Builds an event
 	 * 
 	 * @param action

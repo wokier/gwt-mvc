@@ -21,6 +21,8 @@ public abstract class Controller {
 
 	private boolean initialised;
 
+	private Enum[] actionEnumValues;
+
 	@Deprecated
 	protected Map<String, IView> views = new HashMap<String, IView>();
 
@@ -32,8 +34,19 @@ public abstract class Controller {
 	}
 
 	/**
-	 * Empty Constructor
-	 * @param children  
+	 * Constructor with action values
+	 * 
+	 * @param actionEnumValues
+	 */
+	public Controller(Enum[] actionEnumValues) {
+		super();
+
+	}
+
+	/**
+	 * Constructor with children
+	 * 
+	 * @param children
 	 */
 	public Controller(Controller... children) {
 		super();
@@ -41,7 +54,20 @@ public abstract class Controller {
 			addChild(child);
 		}
 	}
-	
+
+	/**
+	 * Constructor with values and children
+	 * 
+	 * @param actionValues
+	 * @param children
+	 */
+	public Controller(Enum[] actionEnumValues, Controller... children) {
+		super();
+		for (Controller child : children) {
+			addChild(child);
+		}
+	}
+
 	/**
 	 * Initialise the controller This method is called at the first time the
 	 * controller handle an event
@@ -167,14 +193,18 @@ public abstract class Controller {
 	 * The action enumeration available for this controller
 	 * 
 	 * @return the possible values od the enumeration
+	 * @deprecated actions are passed via the constructor instead
 	 */
-	protected abstract Enum[] getActionEnumValues();
+	@Deprecated
+	protected Enum[] getActionEnumValues() {
+		return null;
+	}
 
 	/**
 	 * Try to convert the event
 	 * 
 	 * @param browserEvent
-	 * @return a new event if the controller coul handle it, null otherwise
+	 * @return a new event if the controller could handle it, null otherwise
 	 * @throws IllegalArgumentException
 	 *             if the browser Event token dont match with any action. It is
 	 *             the normal way to signal that this controller conldnt handle

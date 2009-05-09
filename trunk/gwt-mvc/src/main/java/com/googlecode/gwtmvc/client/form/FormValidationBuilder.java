@@ -18,7 +18,7 @@ public class FormValidationBuilder {
 	}
 
 	/**
-	 * Build a builder and specify if the validation of sub elements bust stop
+	 * Build a builder and specify if the validation of sub elements must stop
 	 * at the first validation returning false
 	 * 
 	 * @param stopAtFirstError
@@ -31,7 +31,7 @@ public class FormValidationBuilder {
 
 	protected FormValidationBuilder(boolean isValid, boolean stopAtFirstError) {
 		super();
-		result = isValid;
+		this.result = isValid;
 		this.stopAtFirstError = stopAtFirstError;
 	}
 
@@ -43,13 +43,14 @@ public class FormValidationBuilder {
 	 */
 	public FormValidationBuilder append(FormValidationElement formValidationElement) {
 		if (stopAtFirstError && !result) {
+			//no more validation is necessary
 			return this;
 		}
-		boolean isValid = false;
+		boolean isValid;
 		if (stopAtFirstError) {
-			isValid = isValid && formValidationElement.validate();
+			isValid = result && formValidationElement.validate();
 		} else {
-			isValid = formValidationElement.validate() && isValid;
+			isValid = formValidationElement.validate() && result;
 		}
 		return new FormValidationBuilder(isValid, stopAtFirstError);
 	}
