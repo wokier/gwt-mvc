@@ -14,7 +14,7 @@ Add the gwt-mvc repository in the repositories part
 <repository>
 	<id>gwt-mvc</id>
 	<name>GWT MVC repository at googlecode</name>
-	<url>https://gwt-mvc.googlecode.com/svn/repository</url>
+	<url>http://gwt-mvc.googlecode.com/svn/repository</url>
 </repository>
 }}}
 
