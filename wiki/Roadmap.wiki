@@ -23,6 +23,6 @@ Please start a topic on the google group for new features, or start an issue on 
 || base the view on a lazy Panel instead of Composite || Done|| 0.2 ||
 || add normalized url arguments || TODO|| 0.3 ||
 || enable decorator/layout pattern to structure multi-view screens|| TODO || 0.3 ||
-|| replace the swith(event) in controllers by annotation like @Command(handleEvent=MyEvents.DO) || TODO || 0.3 || 
+|| replace the swith(event) in controllers by annotation like @Command(handleEvent=Actions.DO) || ? || ? || 
 || Use GWT 1.6 event System || ? || ? ||
 || ... || ?|| ? ||
