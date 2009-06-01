@@ -28,7 +28,7 @@ public class PocViewNumericB extends View<Integer, VerticalPanel> {
 		VerticalPanel panel = new VerticalPanel();
 		DOM.setStyleAttribute(panel.getElement(), "border", "solid thin green");
 
-		component = new PocIntegerLabel();
+		component = new PocIntegerLabel("labelB");
 		panel.add(component);
 
 		Button plusButton = new Button("+1");

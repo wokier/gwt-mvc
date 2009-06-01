@@ -13,6 +13,11 @@ public class PocIntegerLabel extends Label implements Maskable {
 		addStyleName("maskable");
 	}
 	
+	public PocIntegerLabel(String id) {
+		this();
+		getElement().setId(id);
+	}
+	
 
 	public void setValue(Integer integer) {
 		setText(String.valueOf(integer));

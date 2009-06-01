@@ -18,8 +18,8 @@ import com.googlecode.gwtmvc.poc.client.view.components.PocIntegerTextBox;
 
 public class PocViewForm extends Form<Integer, VerticalPanel> {
 
-	private PocIntegerTextBox textBox= new PocIntegerTextBox();
-	private PocIntegerListBox listBox= new PocIntegerListBox(5,10);
+	private PocIntegerTextBox textBox= new PocIntegerTextBox("text");
+	private PocIntegerListBox listBox= new PocIntegerListBox("list",5,10);
 
 	public PocViewForm(Controller controller, PocModel model) {
 		super("form", controller, model);
