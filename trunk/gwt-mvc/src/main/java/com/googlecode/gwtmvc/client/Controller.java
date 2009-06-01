@@ -223,10 +223,10 @@ public abstract class Controller {
 	protected boolean handleBrowserEvent(BrowserEvent browserEvent) {
 		if (handleBrowserEventMyself(browserEvent))
 			return true;
-		return handleBrowserEventByChilds(browserEvent);
+		return handleBrowserEventByChildren(browserEvent);
 	}
 
-	private boolean handleBrowserEventByChilds(BrowserEvent browserEvent) {
+	private boolean handleBrowserEventByChildren(BrowserEvent browserEvent) {
 		for (Controller child : children) {
 			try {
 				Event event = child.tryConvertBrowserEventToControllerEvent(browserEvent);
