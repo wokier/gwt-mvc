@@ -29,7 +29,7 @@ public class PocViewNumericWithMasker extends View<Integer, VerticalPanel> {
 		VerticalPanel panel = new VerticalPanel();
 		DOM.setStyleAttribute(panel.getElement(), "border", "solid thin green");
 
-		component = new PocIntegerLabel();
+		component = new PocIntegerLabel("label");
 		panel.add(component);
 
 		Button plusButton = new Button("+1");

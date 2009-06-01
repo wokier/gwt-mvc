@@ -10,6 +10,16 @@ public class PocIntegerTextBox extends TextBox implements FormValidationElement,
 	
 	private static final String ERROR_STYLENAME = "error";
 
+	public PocIntegerTextBox() {
+		super();
+	}
+	
+	public PocIntegerTextBox(String id) {
+		this();
+		getElement().setId(id);
+	}
+	
+	
 	public Integer getValue(){
 		return Integer.parseInt(getText());
 	}
@@ -21,11 +31,11 @@ public class PocIntegerTextBox extends TextBox implements FormValidationElement,
 	public boolean validate() {
 		try{
 			getValue();
-			addStyleName(ERROR_STYLENAME);
+			removeStyleName(ERROR_STYLENAME);
 			Log.debug("TextBox validation OK");
 			return true;
 		}catch (NumberFormatException e) {
-			removeStyleName(ERROR_STYLENAME);
+			addStyleName(ERROR_STYLENAME);
 			Log.debug("TextBox validation KO");
 			return false;
 		}

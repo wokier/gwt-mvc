@@ -19,12 +19,15 @@ public class PocIntegerListBox extends ListBox implements FormValidationElement,
 		super();
 		for (int i = begin; i <= end; i++) {
 			String value = String.valueOf(i);
-			
 			addItem("+ "+value,value);
 		}
 		clearSelection();
 	}
-
+	
+	public PocIntegerListBox(String id, Integer begin, Integer end) {
+		this(begin, end);
+		getElement().setId(id);
+	}
 
 	public void clearSelection() {
 		setSelectedIndex(NULL_INDEX);
