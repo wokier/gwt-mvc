@@ -29,7 +29,7 @@ public class PocController extends Controller {
 	protected PocModel modelA, modelB;
 
 	public PocController() {
-		super();
+		super(PocAction.values());
 		modelA = new PocModel();
 		modelB = new PocModel();
 	}
@@ -122,15 +122,10 @@ public class PocController extends Controller {
 		}
 		view.render();
 	}
-
-	@Override
-	protected Enum[] getActionEnumValues() {
-		return PocAction.values();
-	}
-
+	
 	@Override
 	protected Event tryConvertBrowserEventToControllerEvent(BrowserEvent browserEvent) {
-		PocAction action = Enum.valueOf(PocAction.class, browserEvent.getHistoryToken());
-		return new Event<String, PocAction>(action);
+		return super.tryConvertBrowserEventToControllerEvent(browserEvent);
 	}
+
 }

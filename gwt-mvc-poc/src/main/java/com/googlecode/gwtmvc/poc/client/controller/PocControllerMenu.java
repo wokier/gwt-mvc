@@ -18,13 +18,12 @@ public class PocControllerMenu extends Controller {
 		SHOW_INTRO;
 
 	}
+	
 	IView pocViewMenu;
 	IView pocViewIntro;
 
 	public PocControllerMenu() {
-		super(new PocController(), new PocControllerForm());
-		
-
+		super(PocMenuAction.values(),new PocController(), new PocControllerForm());
 	}
 
 	@Override
@@ -45,9 +44,12 @@ public class PocControllerMenu extends Controller {
 
 	@Override
 	public void showHomeView() {
+		Log.debug("showHomeView");
 		if (pocViewIntro instanceof View) {
 			RootPanel.get("content").clear();
 			RootPanel.get("content").add(new Label("Welcome..."));
+		
+			Log.getDivLogger().moveTo(10, 400);
 		}
 	}
 
@@ -67,22 +69,17 @@ public class PocControllerMenu extends Controller {
 
 	@Override
 	protected void renderView(IView view) {
+		Log.debug("Menu controller renderView " + view);
 		if (view instanceof View) {
 			RootPanel.get("content").clear();
 			RootPanel.get("content").add((View) view);
 		}
 		view.render();
 	}
-
-	@Override
-	protected Enum[] getActionEnumValues() {
-		return PocMenuAction.values();
-	}
-
+	
 	@Override
 	protected Event tryConvertBrowserEventToControllerEvent(BrowserEvent browserEvent) {
-		PocMenuAction action = Enum.valueOf(PocMenuAction.class, browserEvent.getHistoryToken());
-		return new Event<String, PocMenuAction>(action);
+		return super.tryConvertBrowserEventToControllerEvent(browserEvent);
 	}
 
 }

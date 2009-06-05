@@ -175,27 +175,22 @@ public class PocControllerTest extends ControllerTestCase {
 
 	@Test
 	public void testTryConvertBrowserEventToControllerEventSHOW_SIMPLE_1() {
-		controller.tryConvertBrowserEventToControllerEvent(new BrowserEvent("SHOW_SIMPLE_1"));
+		assertEquals(PocAction.SHOW_SIMPLE_1,controller.tryConvertBrowserEventToControllerEvent(new BrowserEvent("SHOW_SIMPLE_1")).getAction());
 	}
 
 	@Test
 	public void testTryConvertBrowserEventToControllerEventSHOW_SIMPLE_1_camelCase() {
-		controller.tryConvertBrowserEventToControllerEvent(new BrowserEvent("show_simple_1"));
+		assertEquals(PocAction.SHOW_SIMPLE_1,controller.tryConvertBrowserEventToControllerEvent(new BrowserEvent("show_simple_1")).getAction());
 	}
 
 	@Test
 	public void testTryConvertBrowserEventToControllerEventSHOW_COMPLEX_2() {
-		controller.tryConvertBrowserEventToControllerEvent(new BrowserEvent("SHOW_COMPLEX_2"));
+		assertEquals(PocAction.SHOW_COMPLEX_2,controller.tryConvertBrowserEventToControllerEvent(new BrowserEvent("SHOW_COMPLEX_2")).getAction());
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testTryConvertBrowserEventToControllerEvent404() {
-		try {
-			controller.tryConvertBrowserEventToControllerEvent(new BrowserEvent("404"));
-			fail();
-		} catch (IllegalArgumentException e) {
-			// success
-		}
+		assertNull(controller.tryConvertBrowserEventToControllerEvent(new BrowserEvent("404")));
 	}
 
 }
