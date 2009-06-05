@@ -13,7 +13,8 @@ import java.util.Map;
  * @see View
  * 
  * USAGE: The controller knows its models and can call their methods. The
- * controller knows its view and can render them
+ * controller knows its view and can render them.
+ * Create an inner Enum class of the possible actions, and pass it in the constructor to enable the event Handling
  */
 public abstract class Controller {
 
@@ -27,20 +28,13 @@ public abstract class Controller {
 	protected Map<String, IView> views = new HashMap<String, IView>();
 
 	/**
-	 * Empty Constructor
-	 */
-	public Controller() {
-		super();
-	}
-
-	/**
 	 * Constructor with action values
 	 * 
 	 * @param actionEnumValues
 	 */
 	public Controller(Enum[] actionEnumValues) {
 		super();
-
+		this.actionEnumValues = actionEnumValues;
 	}
 
 	/**
@@ -63,6 +57,7 @@ public abstract class Controller {
 	 */
 	public Controller(Enum[] actionEnumValues, Controller... children) {
 		super();
+		this.actionEnumValues = actionEnumValues;
 		for (Controller child : children) {
 			addChild(child);
 		}
@@ -204,14 +199,18 @@ public abstract class Controller {
 	 * Try to convert the event
 	 * 
 	 * @param browserEvent
-	 * @return a new event if the controller could handle it, null otherwise
-	 * @throws IllegalArgumentException
-	 *             if the browser Event token dont match with any action. It is
-	 *             the normal way to signal that this controller conldnt handle
-	 *             this token
+	 * @return a new event if the controller could handle it, null if the
+	 *         browser Event token dont match with any action.
 	 */
-	protected abstract Event tryConvertBrowserEventToControllerEvent(BrowserEvent browserEvent)
-			throws IllegalArgumentException;
+	protected Event tryConvertBrowserEventToControllerEvent(BrowserEvent browserEvent) {
+		for (int i = 0; i < actionEnumValues.length; i++) {
+			Enum actionEnumValue = actionEnumValues[i];
+			if (browserEvent.getHistoryToken().equals(actionEnumValue.name())) {
+				return new Event(actionEnumValue);
+			}
+		}
+		return null;
+	}
 
 	/**
 	 * Manages history. use the controller itself or his childs to handle the
@@ -228,26 +227,22 @@ public abstract class Controller {
 
 	private boolean handleBrowserEventByChildren(BrowserEvent browserEvent) {
 		for (Controller child : children) {
-			try {
-				Event event = child.tryConvertBrowserEventToControllerEvent(browserEvent);
+			Event event = child.tryConvertBrowserEventToControllerEvent(browserEvent);
+			if (event != null) {
 				child.call(event);
 				return true;
-			} catch (IllegalArgumentException e) {
-				// next
 			}
 		}
 		return false;
 	}
 
 	private boolean handleBrowserEventMyself(BrowserEvent browserEvent) {
-		try {
-			Event event = tryConvertBrowserEventToControllerEvent(browserEvent);
+		Event event = tryConvertBrowserEventToControllerEvent(browserEvent);
+		if (event != null) {
 			call(event);
 			return true;
-		} catch (IllegalArgumentException e) {
-			return false;
 		}
-
+		return false;
 	}
 
 	/**

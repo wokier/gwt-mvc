@@ -6,7 +6,6 @@ import org.jmock.Mockery;
 import org.jmock.lib.legacy.ClassImposteriser;
 
 import com.googlecode.gwtmvc.client.IView;
-import com.googlecode.gwtmvc.client.Model;
 
 /**
  * This a an abstract test which helps you to test your controllers. It can test
