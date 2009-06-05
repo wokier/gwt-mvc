@@ -2,21 +2,25 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	
+
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.googlecode.gwt-mvc</groupId>
 	<artifactId>gwt-mvc</artifactId>
-	<version>0.2.0-SNAPSHOT</version>
+	<version>0.2-gwt-1.5</version>
 	<packaging>jar</packaging>
 	<name>gwt-mvc</name>
 	<description>gwt-mvc</description>
 
 	<repositories>
 		<repository>
-			<id>gwt-maven</id>
+			<id>gwt-maven-repository</id>
 			<url>
 				http://gwt-maven.googlecode.com/svn/trunk/mavenrepo
 			</url>
+		</repository>
+		<repository>
+			<id>gwt-mvc-repository</id>
+			<url>http://gwt-mvc.googlecode.com/svn/repository/</url>
 		</repository>
 	</repositories>
 
@@ -41,7 +45,7 @@
 		</resources>
 
 		<testResources>
-		<testResource>
+			<testResource>
 				<directory>src/test/resources</directory>
 				<includes>
 					<include>**/*.*</include>
@@ -63,12 +67,14 @@
 	</build>
 
 	<dependencies>
+	
+		<!-- Necessary for LazyPanel on gwt 1.5 -->
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-incubator</artifactId>
 			<version>1.5-Dec_28</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-user</artifactId>

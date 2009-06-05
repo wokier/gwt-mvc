@@ -9,12 +9,12 @@ import java.util.Map;
  * The controller acts as a coordinator. It responds to user gestures, call the
  * model and select the correct view to render.<br>
  * 
- * @see Model
- * @see View
- * 
  * USAGE: The controller knows its models and can call their methods. The
  * controller knows its view and can render them.
  * Create an inner Enum class of the possible actions, and pass it in the constructor to enable the event Handling
+ * 
+ * @see Model
+ * @see View
  */
 public abstract class Controller {
 

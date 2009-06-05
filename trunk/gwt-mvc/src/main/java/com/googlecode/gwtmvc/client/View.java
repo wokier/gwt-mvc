@@ -9,11 +9,11 @@ import com.google.gwt.widgetideas.client.LazyPanel;
  * only when the view is rendered.
  * There could be multiple Vew on the same page.
  * 
- * @see LazyPanel
- * @see Controller
- * 
  * USAGE: The view is implemented by a widget.
  * The contructor must be call by the controller of the view.
+ * 
+ * @see LazyPanel
+ * @see Controller
  * 
  * @param <T>
  *            type

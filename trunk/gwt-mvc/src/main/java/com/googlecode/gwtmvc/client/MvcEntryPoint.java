@@ -8,9 +8,9 @@ import com.google.gwt.user.client.Window;
 /**
  * Implements GWT entry point
  * 
- * @see EntryPoint
- * 
  * USAGE : configure your module with a concrete class extending this one
+ * 
+ * @see EntryPoint
  */
 public abstract class MvcEntryPoint implements EntryPoint, HistoryListener {
 
