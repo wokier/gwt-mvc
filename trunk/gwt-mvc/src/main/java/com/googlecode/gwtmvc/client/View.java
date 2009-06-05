@@ -1,7 +1,7 @@
 package com.googlecode.gwtmvc.client;
 
+import com.google.gwt.user.client.ui.LazyPanel;
 import com.google.gwt.user.client.ui.Widget;
-import com.google.gwt.widgetideas.client.LazyPanel;
 
 /**
  * The view is the graphical part of the application get datas from model use
@@ -16,11 +16,11 @@ import com.google.gwt.widgetideas.client.LazyPanel;
  * @see Controller
  * 
  * @param <T>
- *            type
+ *            typex
  * @param <W>
  *            content widget
  */
-public abstract class View<T, W extends Widget> extends LazyPanel<W> implements IView<T> {
+public abstract class View<T, W extends Widget> extends LazyPanel implements IView<T> {
 
 	protected String id;
 
