@@ -10,6 +10,7 @@ import com.googlecode.gwtmvc.client.BrowserEvent;
 import com.googlecode.gwtmvc.client.Event;
 import com.googlecode.gwtmvc.client.IView;
 import com.googlecode.gwtmvc.poc.client.controller.PocControllerMenu;
+import com.googlecode.gwtmvc.poc.client.controller.PocController.PocAction;
 import com.googlecode.gwtmvc.poc.client.controller.PocControllerMenu.PocMenuAction;
 import com.googlecode.gwtmvc.poc.client.view.PocViewIntro;
 
@@ -67,22 +68,17 @@ public class PocControllerMenuTest extends ControllerTestCase {
 
 	@Test
 	public void testTryConvertBrowserEventToControllerEvent() {
-		controller.tryConvertBrowserEventToControllerEvent(new BrowserEvent("SHOW_INTRO"));
+		assertEquals(PocMenuAction.SHOW_INTRO,controller.tryConvertBrowserEventToControllerEvent(new BrowserEvent("SHOW_INTRO")).getAction());
 	}
 
 	@Test
 	public void testTryConvertBrowserEventToControllerEventCase() {
-		controller.tryConvertBrowserEventToControllerEvent(new BrowserEvent("show_intro"));
+		assertEquals(PocMenuAction.SHOW_INTRO,controller.tryConvertBrowserEventToControllerEvent(new BrowserEvent("show_intro")).getAction());
 	}
 
 	@Test
 	public void testTryConvertBrowserEventToControllerEventCase404() {
-		try {
-			controller.tryConvertBrowserEventToControllerEvent(new BrowserEvent("unknown"));
-			fail();
-		} catch (IllegalArgumentException e) {
-			// success
-		}
+		assertNull(controller.tryConvertBrowserEventToControllerEvent(new BrowserEvent("unknown")));
 	}
 
 }

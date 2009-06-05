@@ -26,11 +26,6 @@ public class PocControllerForm extends Controller {
 	}
 
 	@Override
-	protected Enum[] getActionEnumValues() {
-		return FormAction.values();
-	}
-
-	@Override
 	protected void handleEvent(Event event) {
 		Log.debug("Controller handleEvent " + event);
 		FormAction action = (FormAction) event.getAction();
@@ -57,6 +52,7 @@ public class PocControllerForm extends Controller {
 
 	@Override
 	protected void renderView(IView view) {
+		Log.debug("Form Controller renderView "+view);
 		if (view instanceof View) {
 			RootPanel.get("content").clear();
 			RootPanel.get("content").add((View) view);
@@ -67,12 +63,6 @@ public class PocControllerForm extends Controller {
 	@Override
 	public void showHomeView() {
 
-	}
-
-	@Override
-	protected Event tryConvertBrowserEventToControllerEvent(BrowserEvent browserEvent)
-			throws IllegalArgumentException {
-		return new Event<Object, FormAction>(FormAction.valueOf(browserEvent.getHistoryToken()));
 	}
 
 }
