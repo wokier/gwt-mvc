@@ -39,6 +39,7 @@ public interface IView<D> extends IModelListener<D> {
 	/**
 	 * Render the view. The positioning could be defined by the controller, or
 	 * the view itself. But the rendering is always defined by the view itself.
+	 * The default rendering is to just becoming visible.
 	 * 
 	 * @see Controller#renderView(IView)
 	 */

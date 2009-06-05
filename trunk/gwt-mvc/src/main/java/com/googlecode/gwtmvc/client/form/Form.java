@@ -6,7 +6,7 @@ import com.googlecode.gwtmvc.client.Model;
 import com.googlecode.gwtmvc.client.View;
 
 /**
- * a form
+ * a form view, which adds initialisation and validation mechanisms
  * 
  * @param <T>
  *            type
@@ -17,7 +17,7 @@ import com.googlecode.gwtmvc.client.View;
 public abstract class Form<T, W extends Widget> extends View<T, W> {
 
 	/**
-	 * Build a form
+	 * Builds a form
 	 * 
 	 * @param id
 	 * @param controller

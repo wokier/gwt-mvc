@@ -1,11 +1,12 @@
 package com.googlecode.gwtmvc.client;
 
-import com.google.gwt.user.client.HistoryListener;
+import com.google.gwt.user.client.History;
 
 /**
- * Event send by the browser to signal a new URL or historyToken
+ * Event sent by the browser to signal a new URL or historyToken.
+ * This GWT historyToken system allows to follow navigation history and to have bookmarkable pages
  * 
- * @see HistoryListener
+ * @see History
  */
 public class BrowserEvent {
 
