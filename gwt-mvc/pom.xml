@@ -6,7 +6,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.googlecode.gwt-mvc</groupId>
 	<artifactId>gwt-mvc</artifactId>
-	<version>0.2-gwt-1.5</version>
+	<version>0.2-gwt-1.6</version>
 	<packaging>jar</packaging>
 	<name>gwt-mvc</name>
 	<description>gwt-mvc</description>
@@ -67,18 +67,11 @@
 	</build>
 
 	<dependencies>
-	
-		<!-- Necessary for LazyPanel on gwt 1.5 -->
-		<dependency>
-			<groupId>com.google.gwt</groupId>
-			<artifactId>gwt-incubator</artifactId>
-			<version>1.5-Dec_28</version>
-		</dependency>
 
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-user</artifactId>
-			<version>1.5.3</version>
+			<version>1.6.4</version>
 			<scope>provided</scope>
 		</dependency>
 
