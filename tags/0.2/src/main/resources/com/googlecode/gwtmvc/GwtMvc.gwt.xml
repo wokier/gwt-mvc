@@ -1,6 +1,0 @@
-<module>
-
-	<!-- incubator for the LazyPanel -->
-	<inherits name='com.google.gwt.widgetideas.BasicWidget' />
-
-</module>
