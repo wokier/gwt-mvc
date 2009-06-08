@@ -5,9 +5,11 @@ GWT is a wonderful tool, but does not structure your code.
 
 It is open, as you can structure your code as you want, in a good way, or in a bad way.
 
+This project was created to offer a framework which provides a simple way to structure your gwt project.
+
 Model View Controler is a design pattern with many variant, which establishes a separation of concerns in Graphical User Interfaces.
 
-This project was created to offer a framework which provides a simple way to structure your gwt project.
+MVC can be decomposed into observer design pattern in case of relation between Model and View. The view observes (listens to) the model for changes and updates itself according to changes. View does not directly change model state but use the controllers. 
 
 
 = Documentation =
@@ -23,6 +25,8 @@ If you are interested in this subject, i recommend you this articles :
 [http://robvanmaris.jteam.nl/2008/03/09/test-driven-development-for-gwt-ui-code/]
 
 [http://danielwellman.com/publications/GWT-Test_First-Nov2008.pdf]
+
+= Other Projects =
 
 There is also an implementation existing in the middle of the ext gwt framework.
 [http://extjs.com/deploy/gxtdocs/com/extjs/gxt/ui/client/mvc/package-summary.html]
