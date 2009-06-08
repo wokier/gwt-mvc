@@ -48,7 +48,7 @@ public class PocController extends Controller {
 		if (pocViewNumericWithMaskable == null)
 			pocViewNumericWithMaskable = new PocViewNumericWithMaskable(this, modelA);
 		if (pocViewNumericWithMasker == null)
-			pocViewNumericWithMasker = new PocViewNumericWithMasker(this, modelB);
+			pocViewNumericWithMasker = new PocViewNumericWithMasker(this, modelA);
 
 		initModel(modelA);
 		initModel(modelB);
