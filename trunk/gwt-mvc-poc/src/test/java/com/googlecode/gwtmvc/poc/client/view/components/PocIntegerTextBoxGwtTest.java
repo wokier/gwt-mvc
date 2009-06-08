@@ -14,13 +14,13 @@ public class PocIntegerTextBoxGwtTest extends GWTTestCase {
 	public void testGetValueFromValue() {
 		PocIntegerTextBox textBox = new PocIntegerTextBox();
 		textBox.setValue(5);
-		assertEquals(5, textBox.getValue().intValue());
+		assertEquals(5, textBox.getIntegerValue().intValue());
 	}
 	
 	public void testGetValueFromText() {
 		PocIntegerTextBox textBox = new PocIntegerTextBox();
 		textBox.setText("5");
-		assertEquals(5, textBox.getValue().intValue());
+		assertEquals(5, textBox.getIntegerValue().intValue());
 	}
 	
 	public void testValidate() throws Exception {

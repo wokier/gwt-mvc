@@ -34,7 +34,7 @@ public class PocIntegerListBox extends ListBox implements FormValidationElement,
 	}
 
 	
-	public Integer getValue(){
+	public Integer getIntegerValue(){
 		return Integer.parseInt(getValue(getSelectedIndex()));
 	}
 	
