@@ -12,6 +12,7 @@ We choosed to have 2 release, for different gwt version, mainly because the Lazy
 
 == Demo ==
 
+ * gwt-log project allows us to show what appens
  * Maskable and maskable system was on project since 0.0.1 but not on the demo.
  * Simple Form Validation
  * 404 token exemple
