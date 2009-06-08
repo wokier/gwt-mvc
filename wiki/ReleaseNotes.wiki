@@ -1,6 +1,6 @@
 #summary Different versions release Notes
 
-= v0.2 =
+= v0.2 (2009-06-08)=
 
 == Features ==
  * Add 'standard' 404 page when historyToken is unknown, in the MvcEntryPoint 
