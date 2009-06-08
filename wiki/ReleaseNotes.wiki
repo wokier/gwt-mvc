@@ -1,14 +1,16 @@
 #summary Different versions release Notes
 
-= v0.2 (2009-06-08)=
+= v0.2=
+2009-06-08
 
 == Features ==
+
  * Add 'standard' 404 page when historyToken is unknown, in the MvcEntryPoint 
  * Manage simple form validation, with a Form and a FormValidationBuilder
  * Base the view on a LazyPanel instead of Composite
  * The action Enum in a controller is just passed in the constructor, avoiding getActionEnumValues and tryConvertBrowserEventToControllerEvent boring methods.
 
-We choosed to have 2 release, for different gwt version, mainly because the LazyPanel class  has been mooved from gwt-incubator project to gwt (regular) project, with a change of package. That is the only change between this 2 releases of the same gwt-mvc version.
+We choosed to have 2 release, for different gwt version, mainly because the LazyPanel class has been mooved from gwt-incubator project to gwt (regular) project, with a change of package. That is the only change between this 2 releases of the same gwt-mvc version.
 
 == Demo ==
 
