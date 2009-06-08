@@ -1,5 +1,5 @@
 #summary Some UML diagrams explaining gwt-mvc
-#labels Phase-Support
+#labels Phase-Design
 
 = Classes =
 
