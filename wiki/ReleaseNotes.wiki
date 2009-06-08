@@ -1,13 +1,24 @@
 #summary Different versions release Notes
 
-= v0.0.1 for GWT 1.5.3 =
+= v0.2 =
+
+== Features ==
+ * Add 'standard' 404 page when historyToken is unknown, in the MvcEntryPoint 
+ * Manage simple form validation, with a Form and a FormValidationBuilder
+ * Base the view on a LazyPanel instead of Composite
+ * The action Enum in a controller is just passed in the constructor, avoiding getActionEnumValues and tryConvertBrowserEventToControllerEvent boring methods.
+
+We choosed to have 2 release, for different gwt version, mainly because the LazyPanel class  has been mooved from gwt-incubator project to gwt (regular) project, with a change of package. That is the only change between this 2 releases of the same gwt-mvc version.
 
 == Demo ==
 
-In the early start, we'd like to show a real example of how this could work.
-So we have two projects: gwt-mvc and gwt-mvc-poc (Proof Of Concept).
+ * Maskable and maskable system was on project since 0.0.1 but not on the demo.
+ * Simple Form Validation
+ * 404 token exemple
 
-== Featuree ==
+= v0.0.1 for GWT 1.5.3 =
+
+== Features ==
 
 The main advantages we would like to expose are:
  * The controllers are testables.
@@ -19,3 +30,8 @@ The main advantages we would like to expose are:
   * OPEN_ to open a new popup or window
  * The model updates the views listening him in respect of the asynchronous call.
  * As a view is only a composite (container), it could be a unique componant, or multiple componant(a form for example)
+
+== Demo ==
+
+In the early start, we'd like to show a real example of how this could work.
+So we have two projects: gwt-mvc and gwt-mvc-poc (Proof Of Concept).
