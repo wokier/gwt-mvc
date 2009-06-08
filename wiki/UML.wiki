@@ -1,0 +1,16 @@
+#summary Some UML diagrams explaining gwt-mvc
+
+= Classes =
+
+http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/gwt-mvc.jpeg
+
+
+= Sequences =
+
+http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/gwt-mvc-sequence-home.jpeg
+
+http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/gwt-mvc-sequence-page.jpeg
+
+http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/gwt-mvc-sequence-menu.jpeg
+
+http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/gwt-mvc-sequence-rpc.jpeg
