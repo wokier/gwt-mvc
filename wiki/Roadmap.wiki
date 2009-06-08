@@ -17,12 +17,13 @@ Please start a topic on the google group for new features, or start an issue on 
 || manage history and urls || Done || 0.0.1 ||
 || enhance controller testability || Done || 0.0.1||
 || enable block user for loading (optionnal on each action) || Done || 0.0.1 ||
-|| --> You are here <-- ||  ||  ||
 || add standard 404 page when historyToken is unknown || Done|| 0.2 ||
 || manage simple form validation || Done|| 0.2 ||
 || base the view on a lazy Panel instead of Composite || Done|| 0.2 ||
+|| --> You are here <-- ||  ||  ||
 || add normalized url arguments || TODO|| 0.3 ||
 || enable decorator/layout pattern to structure multi-view screens|| TODO || 0.3 ||
-|| replace the swith(event) in controllers by annotation like @Command(handleEvent=Actions.DO) || ? || ? || 
+|| replace the swith(event) in controllers by annotation like @handle(event=Actions.DO) || ? || ? || 
 || Use GWT 1.6 event System || ? || ? ||
+|| Help for a simple CRUD || ? || ? ||
 || ... || ?|| ? ||
