@@ -63,7 +63,7 @@ public class PocViewForm extends Form<Integer, VerticalPanel> {
 
 	@Override
 	protected Integer getFormValue() {
-		int formValue = textBox.getValue() + listBox.getValue();
+		int formValue = textBox.getIntegerValue() + listBox.getIntegerValue();
 		Log.debug("form Value is "+formValue);
 		return formValue;
 	}

@@ -20,7 +20,7 @@ public class PocIntegerTextBox extends TextBox implements FormValidationElement,
 	}
 	
 	
-	public Integer getValue(){
+	public Integer getIntegerValue(){
 		return Integer.parseInt(getText());
 	}
 	

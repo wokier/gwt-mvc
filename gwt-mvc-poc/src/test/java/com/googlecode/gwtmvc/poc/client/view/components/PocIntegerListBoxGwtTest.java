@@ -21,7 +21,7 @@ public class PocIntegerListBoxGwtTest extends GWTTestCase {
 		PocIntegerListBox listBox = new PocIntegerListBox(5,10);
 		listBox.setValue(5);
 		assertEquals(0, listBox.getSelectedIndex());
-		assertEquals(5, listBox.getValue().intValue());
+		assertEquals(5, listBox.getIntegerValue().intValue());
 	}
 	
 	public void testValidate() throws Exception {
