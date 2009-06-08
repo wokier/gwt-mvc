@@ -2,7 +2,7 @@
 
 = 0.0.1 =
 
-[http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc-poc/demo/0.0.1/com.googlecode.gwtmvc.poc.GwtMvcPoc/GwtMvcPoc.html Demo]
-[http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/javadoc/0.0.1/index.html Javadoc]
-[http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/releases/gwt-mvc-0.0.1.jar Download]
-[http://code.google.com/p/gwt-mvc/source/browse/#svn/tags/0.0.1/gwt-mvc-poc/src/main/java/com/googlecode/gwtmvc/poc/client Demo Source]
+ * [http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc-poc/demo/0.0.1/com.googlecode.gwtmvc.poc.GwtMvcPoc/GwtMvcPoc.html Demo]
+ * [http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/javadoc/0.0.1/index.html Javadoc]
+ * [http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/releases/gwt-mvc-0.0.1.jar Download]
+ * [http://code.google.com/p/gwt-mvc/source/browse/#svn/tags/0.0.1/gwt-mvc-poc/src/main/java/com/googlecode/gwtmvc/poc/client Demo Source]
