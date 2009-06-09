@@ -1,7 +1,7 @@
 #summary Different versions release Notes
 #labels Featured
 
-= v0.2.1-gwt1.6 =
+== v0.2.1-gwt1.6 ==
 2009-06-09
 
 Just commented this line in GwtMvc.gwt.xml, as there is no dependency to incubator for gwt1.6 : 
@@ -27,7 +27,7 @@ We choosed to have 2 release, for different gwt version, mainly because the Lazy
  * Simple Form Validation
  * 404 token exemple
 
-= v0.0.1 for GWT 1.5.3 =
+== v0.0.1 for GWT 1.5.3 ==
 
 == Features ==
 
