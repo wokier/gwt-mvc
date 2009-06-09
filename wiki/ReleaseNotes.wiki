@@ -4,8 +4,8 @@
 = v0.2.1-gwt1.6 =
 2009-06-09
 
-Just commented a line in GwtMvc.gwt.xml, as there is no dependency to incubator for gwt1.6
-<!-- <inherits name='com.google.gwt.widgetideas.BasicWidget' />-->
+Just commented this line in GwtMvc.gwt.xml, as there is no dependency to incubator for gwt1.6
+{{{<!-- <inherits name='com.google.gwt.widgetideas.BasicWidget' />-->}}}
 
 = v0.2=
 2009-06-08
