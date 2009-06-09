@@ -30,7 +30,7 @@ public class PocIntegerTextBox extends TextBox implements FormValidationElement,
 	
 	public boolean validate() {
 		try{
-			getValue();
+			getIntegerValue();
 			removeStyleName(ERROR_STYLENAME);
 			Log.debug("TextBox validation OK");
 			return true;
