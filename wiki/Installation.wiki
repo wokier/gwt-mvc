@@ -36,7 +36,7 @@ The server part of the module will be available in your server code (Here is jus
 == Use the API ==
 Here is some code exemple from the demo.
 
-=== Write an EntryPoint ===
+=== Write an entryPoint ===
 {{{
 public class PocEntryPoint extends MvcEntryPoint {
 
@@ -92,7 +92,7 @@ public class PocViewNumeric extends View<Integer, VerticalPanel> {
 }}}
 
 === Test a controller ===
-a ControllerTestCase uses JMock to assert the controller behavior.
+ControllerTestCase uses JMock to assert the controller behavior.
 {{{
 public class PocControllerTest extends ControllerTestCase {
 
