@@ -48,7 +48,7 @@ public class PocEntryPoint extends MvcEntryPoint {
 }}}
 
 === Write a view ===
-A view is a specific widget or container(here is a VerticalPanle) that listen on or many models.
+A view is a specific widget or container(here is a VerticalPanle) that listen one or many models.
 {{{
 public class PocViewNumeric extends View<Integer, VerticalPanel> {
 
