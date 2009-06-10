@@ -3,7 +3,7 @@
 
 = Steps =
 
-Follow this :
+Follow this steps:
   * Have a look at the Demo
   * Download the library depending on your gwt version
   * Add it to the project classpath
@@ -34,3 +34,150 @@ The client part of the module will be available in your gwt client code.
 The server part of the module will be available in your server code (Here is just for controller testing).
 
 == Use the API ==
+Here is some exemple from the demo.
+
+=== Write a view ===
+public class PocViewNumeric extends View<Integer, VerticalPanel> {
+
+	public static final String ID = "numericA";
+
+	PocIntegerLabel component;
+
+	public PocViewNumeric(PocController controller, Model model) {
+		super(ID, controller, model);
+	}
+
+	@Override
+	public VerticalPanel createWidget() {
+		VerticalPanel panel = new VerticalPanel();
+		DOM.setStyleAttribute(panel.getElement(), "border", "solid thin green");
+
+		component = new PocIntegerLabel("labelA");
+		panel.add(component);
+
+		Button plusButton = new Button("+1");
+		plusButton.addClickListener(new ClickListener() {
+			public void onClick(Widget sender) {
+				plusAction();
+			}
+		});
+		panel.add(plusButton);
+
+		return panel;
+	}
+
+	protected void plusAction() {
+		controller.call(new Event<Integer, PocAction>(PocAction.DO_PLUS_A, component.getValue()));
+	}
+
+	@Override
+	public void onModelChange(ModelForView model) {
+		ensureWidget();
+		component.setValue((Integer) model.getValue());
+	}
+
+}
+
+
+=== Write a controller ===
+The main point is to create an inner enum class which will describe the controller possible actions
+{{{
+public class PocController extends Controller {
+
+	public enum PocAction {
+		SHOW_SIMPLE_1
+	}
+
+	protected IView<Integer> pocViewNumeric;
+	
+	protected PocModel modelA;
+
+	public PocController() {
+		super(PocAction.values());
+		modelA = new PocModel();
+	}
+
+	@Override
+	public void init() {
+		Log.debug("Controller init");
+		
+		if (pocViewNumeric == null)
+			pocViewNumeric = new PocViewNumeric(this, modelA);
+		
+		initModel(modelA);
+	}
+
+	@Override
+	public void showHomeView() {
+		Log.debug("Show Home View");
+	}
+
+	@Override
+	protected void handleEvent(Event event) {
+		Log.debug("Controller handleEvent " + event);
+
+		PocAction action = (PocAction) event.getAction();
+
+		switch (action) {
+		case SHOW_SIMPLE_1:
+			clearContent(pocViewNumeric instanceof View);
+			renderView(pocViewNumeric);
+			break;
+		default:
+			Log.debug("Unknown action");
+		}
+	}
+
+	private void clearContent(boolean isTestMode) {
+		if (isTestMode) {
+			RootPanel.get("content").clear();
+		}
+	}
+
+	@Override
+	protected void renderView(IView view) {
+		Log.debug("Controller renderView " + view);
+		if (view instanceof View) {// Enable testing without GWT.create() error
+			RootPanel.get("loading").setVisible(false);
+			RootPanel.get("content").add((View) view);
+		}
+		view.render();
+	}
+
+}
+}}}
+
+
+=== Write a model ===
+The main point is that you will write your OWN methods in a model.
+The model represents the client application state throught its value and the possible actions on it or the server throught its methods.
+{{{
+public class PocModel extends Model<Integer> {
+
+	protected static final int INITIAL_VALUE_10 = 10;
+
+	private boolean useServerRPCCall = false;
+	
+	public PocModel() {
+		super();
+	}
+
+	@Override
+	public void init() {//public visibility for test
+		update(INITIAL_VALUE_10);
+	}
+	
+	public void plus(Integer integer,final Event causeEvent) {
+		AsyncCallback<Integer> callback = new AsyncCallback<Integer>() {
+			public void onFailure(Throwable caught) {
+				Window.alert("plus failed : " + caught);
+			}
+
+			public void onSuccess(Integer result) {
+				update(result, causeEvent);
+			}
+		};
+		PocPlusRPC.Factory.getInstance(useServerRPCCall).plus(integer, callback);
+	}
+
+}
