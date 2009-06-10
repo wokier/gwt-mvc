@@ -1,4 +1,4 @@
-#summary How-to use the gwt-mvc module in your gwt project
+#summary How-to use gwt-mvc in your gwt project
 #labels Phase-Deploy
 
 = gwt-mvc 0.2=
