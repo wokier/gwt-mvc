@@ -36,6 +36,17 @@ The server part of the module will be available in your server code (Here is jus
 == Use the API ==
 Here is some code exemple from the demo.
 
+=== Write an EntryPoint ===
+{{{
+public class PocEntryPoint extends MvcEntryPoint {
+
+	public PocEntryPoint() {
+		super(new PocControllerMenu());
+	}
+	
+}
+}}}
+
 === Write a view ===
 A view is a specific widget or container(here is a VerticalPanle) that listen on or many models.
 {{{
