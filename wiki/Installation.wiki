@@ -37,6 +37,7 @@ The server part of the module will be available in your server code (Here is jus
 Here is some code exemple from the demo.
 
 === Write a view ===
+A view is a specific widget or container(here is a VerticalPanle) that listen on or many models.
 {{{
 public class PocViewNumeric extends View<Integer, VerticalPanel> {
 
