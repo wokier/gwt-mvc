@@ -80,6 +80,48 @@ public class PocViewNumeric extends View<Integer, VerticalPanel> {
 }
 }}}
 
+=== Test a controller ===
+
+{{{
+public class PocControllerTest extends ControllerTestCase {
+
+	PocController controller;
+
+	@Before
+	public void setUp() throws Exception {
+		super.setUp();
+		controller = new PocController();
+
+		controller.modelA = mockModel(PocModel.class,"modelAMock");
+
+		controller.pocViewNumeric = mockView("pocViewNumericMock");
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		super.tearDown();
+	}
+
+	@Test
+	public void testCallSHOW_SIMPLE_1() {
+		mockery.checking(new Expectations() {
+			{
+				oneOf(controller.modelA).init();
+
+				oneOf(controller.pocViewNumeric).render();
+			}
+		});
+		controller.call(new Event<String, PocAction>(PocAction.SHOW_SIMPLE_1));
+
+		assertTrue(controller.isInitialised());
+
+		mockery.assertIsSatisfied();
+	}
+
+}
+
+}}}
+
 === Write a controller ===
 The main point is to create an inner enum class which will describe the controller possible actions
 {{{
