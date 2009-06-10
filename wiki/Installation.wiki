@@ -1,5 +1,5 @@
 #summary How-to use gwt-mvc in your gwt project
-#labels Phase-Deploy
+#labels Phase-Deploy,Featured
 
 = gwt-mvc 0.2=
 
