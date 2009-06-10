@@ -81,7 +81,7 @@ public class PocViewNumeric extends View<Integer, VerticalPanel> {
 }}}
 
 === Test a controller ===
-
+a ControllerTestCase uses JMock to assert the controller behavior.
 {{{
 public class PocControllerTest extends ControllerTestCase {
 
