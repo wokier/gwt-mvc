@@ -1,0 +1,29 @@
+#summary How-to add maven2 gwt-mvc dependency
+#labels Phase-Implementation
+
+= Introduction =
+
+How add maven2 gwt-mvc dependency
+
+
+= Details =
+
+Change your pom.xml as follow
+
+Add the gwt-mvc repository in the repositories part
+{{{
+<repository>
+	<id>gwt-mvc</id>
+	<name>GWT MVC repository at googlecode</name>
+	<url>http://gwt-mvc.googlecode.com/svn/repository</url>
+</repository>
+}}}
+
+Add the gwt-mvc dependency in the dependencies part
+{{{
+<dependency>
+	<groupId>gwt-mvc</groupId>
+	<artifactId>gwt-mvc</artifactId>
+	<version>0.2.1-gwt-1.6</version>
+</dependency>
+}}}
