@@ -122,7 +122,7 @@ public class PocControllerTest extends ControllerTestCase {
 				oneOf(controller.pocViewNumeric).render();
 			}
 		});
-		controller.call(new Event<String, PocAction>(PocAction.SHOW_SIMPLE_1));
+		controller.call(new Event<String, PocAction>(PocAction.SHOW_SIMPLE_1), component);
 
 		assertTrue(controller.isInitialised());
 
