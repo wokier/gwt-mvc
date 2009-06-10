@@ -37,6 +37,7 @@ The server part of the module will be available in your server code (Here is jus
 Here is some exemple from the demo.
 
 === Write a view ===
+{{{
 public class PocViewNumeric extends View<Integer, VerticalPanel> {
 
 	public static final String ID = "numericA";
@@ -77,7 +78,7 @@ public class PocViewNumeric extends View<Integer, VerticalPanel> {
 	}
 
 }
-
+}}}
 
 === Write a controller ===
 The main point is to create an inner enum class which will describe the controller possible actions
