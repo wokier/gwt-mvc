@@ -13,6 +13,10 @@
 	height: 150px;
 }
 
+.numeric {
+	border: solid thin green;	
+}
+
 .masker {
 	background: url(../img/loader-indicator-big.gif) center no-repeat;
 	cursor: wait;
