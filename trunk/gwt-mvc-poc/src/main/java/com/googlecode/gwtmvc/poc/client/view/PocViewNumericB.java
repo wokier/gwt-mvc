@@ -15,18 +15,18 @@ import com.googlecode.gwtmvc.poc.client.view.components.PocIntegerLabel;
 
 public class PocViewNumericB extends View<Integer, VerticalPanel> {
 
-	public static final String KEY = "numericB";
+	public static final String ID = "numericB";
 
 	PocIntegerLabel component;
 
 	public PocViewNumericB(PocController controller, Model model) {
-		super(KEY, controller, model);
+		super(ID, controller, model);
 	}
 
 	@Override
 	public VerticalPanel createWidget() {
 		VerticalPanel panel = new VerticalPanel();
-		DOM.setStyleAttribute(panel.getElement(), "border", "solid thin green");
+		panel.addStyleName("numeric");
 
 		component = new PocIntegerLabel("labelB");
 		panel.add(component);

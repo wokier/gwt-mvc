@@ -9,14 +9,14 @@ import com.googlecode.gwtmvc.poc.client.model.PocModel;
 
 public class PocViewGraphical extends View<Integer, Label> {
 
-	public static final String KEY = "graphical";
+	public static final String ID = "graphical";
 
 	Label bar;
 
 	ModelForView<Integer> modelA, modelB;
 
 	public PocViewGraphical(Controller controller, PocModel modelA, PocModel modelB) {
-		super(KEY, controller, modelA, modelB);
+		super(ID, controller, modelA, modelB);
 		this.modelA = modelA;
 		this.modelB = modelB;
 	}

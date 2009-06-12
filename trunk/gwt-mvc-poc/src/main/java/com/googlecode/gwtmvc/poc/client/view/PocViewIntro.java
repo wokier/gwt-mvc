@@ -7,12 +7,12 @@ import com.googlecode.gwtmvc.client.View;
 
 public class PocViewIntro extends View<Object, HTML> {
 
-	public static final String KEY = "INTRO";
+	public static final String ID = "INTRO";
 
 	private boolean inited;
 
 	public PocViewIntro(Controller controller) {
-		super(KEY, controller);
+		super(ID, controller);
 	}
 
 	@Override
