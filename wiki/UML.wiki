@@ -1,6 +1,11 @@
 #summary Some UML diagrams explaining gwt-mvc
 #labels Phase-Design,Featured
 
+= Intro =
+
+The gwt-mvc is an mvc in a web client context with asynchronous calls.
+It cannot be compared with a 'web 1' mvc.
+
 = Classes =
 
 http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/gwt-mvc.jpeg
