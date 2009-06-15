@@ -7,11 +7,11 @@ import java.util.Map;
 
 /**
  * The controller acts as a coordinator. It responds to user gestures, call the
- * model and select the correct view to render.<br>
+ * model and select the correct view to render.<br />
  * 
  * USAGE: The controller knows its models and can call their methods. The
- * controller knows its view and can render them.
- * Create an inner Enum class of the possible actions, and pass it in the constructor to enable the event Handling
+ * controller knows its view and can render them.<br />
+ * Create an inner Enum class of the possible actions, and pass its values in the constructor to enable the event Handling.
  * 
  * @see Model
  * @see View
@@ -64,8 +64,8 @@ public abstract class Controller {
 	}
 
 	/**
-	 * Initialise the controller This method is called at the first time the
-	 * controller handle an event
+	 * Initialise the controller. This method is called at the first time the
+	 * controller handle an event.
 	 */
 	public abstract void init();
 
@@ -78,7 +78,7 @@ public abstract class Controller {
 	 * Manages user gestures and browser events. User gesture must
 	 * programatically be redirected to this method with corrects parameters.
 	 * Browser events are automatically redirected to this method, without
-	 * arguments. Auto-initalise the controller if necessary
+	 * arguments. Auto-initalise the controller if necessary.
 	 * 
 	 * @param event
 	 */

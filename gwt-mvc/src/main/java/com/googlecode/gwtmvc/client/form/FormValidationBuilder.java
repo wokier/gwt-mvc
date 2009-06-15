@@ -2,7 +2,7 @@ package com.googlecode.gwtmvc.client.form;
 
 /**
  * Convenient way to build a Validation result by appending different sub
- * results
+ * results.
  * 
  */
 public class FormValidationBuilder {

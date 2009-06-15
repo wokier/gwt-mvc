@@ -7,7 +7,7 @@ import java.util.List;
  * Represent a data (or a collection of data) on the client side.
  * 
  * USAGE: Your model should have methods to load his datas by a RPC call, and
- * call update method
+ * call update method.
  * 
  * @param <T>
  *            data type

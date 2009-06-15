@@ -10,7 +10,7 @@ import com.googlecode.gwtmvc.client.IView;
 /**
  * This a an abstract test which helps you to test your controllers. It can test
  * the controller behavior, but not the asynchronus update of the view by the
- * model. This Test Case currently use JMock
+ * model. This Test Case currently use JMock.
  */
 public abstract class ControllerTestCase extends TestCase {
 

@@ -1,7 +1,7 @@
 package com.googlecode.gwtmvc.client.form;
 
 /**
- * Result of a form validation
+ * Result of a form validation.
  * 
  * @param <T>
  *            type
