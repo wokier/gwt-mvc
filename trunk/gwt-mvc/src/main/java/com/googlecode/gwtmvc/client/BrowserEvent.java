@@ -3,8 +3,8 @@ package com.googlecode.gwtmvc.client;
 import com.google.gwt.user.client.History;
 
 /**
- * Event sent by the browser to signal a new URL or historyToken.
- * This GWT historyToken system allows to follow navigation history and to have bookmarkable pages
+ * Event sent by the browser to signal a new URL or historyToken.<br />
+ * The GWT historyToken system allows to follow navigation history and to have bookmarkable pages.
  * 
  * @see History
  */

@@ -1,7 +1,7 @@
 package com.googlecode.gwtmvc.client.form;
 
 /**
- * a sub element of a form which is part of the form validation
+ * A sub element of a form which is part of the form validation
  * 
  */
 public interface FormValidationElement {

@@ -5,7 +5,7 @@ import com.google.gwt.user.client.ui.Widget;
 
 /**
  * The view is the graphical part of the application get datas from model use
- * controler to action on the system. A LazyPanel allows to lazy-build the view
+ * controler to action on the system. <br />A LazyPanel allows to lazy-build the view
  * only when the view is rendered.
  * There could be multiple Vew on the same page.
  * 

@@ -1,7 +1,7 @@
 package com.googlecode.gwtmvc.client;
 
 /**
- * ModelForView allows view to call getValue and only getValue on a model
+ * ModelForView allows view to call getValue and only getValue on a model.
  * 
  * @param <D>
  *            data type

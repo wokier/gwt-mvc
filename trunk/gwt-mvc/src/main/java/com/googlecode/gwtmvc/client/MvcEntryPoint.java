@@ -6,7 +6,7 @@ import com.google.gwt.user.client.HistoryListener;
 import com.google.gwt.user.client.Window;
 
 /**
- * Implements GWT entry point
+ * Implements GWT entry point.<br />
  * 
  * USAGE : configure your module with a concrete class extending this one
  * 

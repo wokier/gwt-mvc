@@ -6,7 +6,7 @@ import com.googlecode.gwtmvc.client.Model;
 import com.googlecode.gwtmvc.client.View;
 
 /**
- * a form view, which adds initialisation and validation mechanisms
+ * A form view, which adds initialisation and validation mechanisms.
  * 
  * @param <T>
  *            type

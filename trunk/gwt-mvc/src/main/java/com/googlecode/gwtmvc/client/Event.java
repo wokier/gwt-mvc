@@ -3,11 +3,11 @@ package com.googlecode.gwtmvc.client;
 /**
  * Represents an event on the gui.
  * 
- * Note for lexical definition: It is different from the gwt 1.6 handler/event
+ * Lexical note: It is different from the gwt 1.6 handler/event
  * system, But a gwt-mvc Event will generally be created by a listener/handler
- * of user gestures
+ * of user gestures.
  * 
- * USAGE: create an event to notify a user gesture to the controller
+ * USAGE: create an event to notify a user gesture to the controller.
  * 
  * @param <V>
  *            action
