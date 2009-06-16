@@ -21,13 +21,14 @@ If you are interested in this subject, i recommend you this articles :
 
 [http://martinfowler.com/eaaDev/uiArchs.html]
 
-[http://www.ongwt.com/post/2008/04/05/MVC-TDD-et-GWT]
-
 [http://robvanmaris.jteam.nl/2008/03/09/test-driven-development-for-gwt-ui-code/]
 
 [http://danielwellman.com/publications/GWT-Test_First-Nov2008.pdf]
 
+[http://code.google.com/intl/fr-FR/events/io/sessions/GoogleWebToolkitBestPractices.html]
+
 = Other Projects =
 
 There is also an implementation existing in the middle of the ext gwt framework.
+
 [http://extjs.com/deploy/gxtdocs/com/extjs/gxt/ui/client/mvc/package-summary.html]
