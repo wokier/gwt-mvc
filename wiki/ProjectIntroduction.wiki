@@ -32,3 +32,7 @@ If you are interested in this subject, i recommend you this articles :
 There is also an implementation existing in the middle of the ext gwt framework.
 
 [http://extjs.com/deploy/gxtdocs/com/extjs/gxt/ui/client/mvc/package-summary.html]
+
+Pure MVC is a project with different implementations/languages.
+
+[http://trac.puremvc.org/PureMVC_Java_MultiCore]
