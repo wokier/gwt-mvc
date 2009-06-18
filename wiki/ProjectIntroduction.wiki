@@ -29,7 +29,7 @@ If you are interested in this subject, i recommend you this articles :
 
 = Other Projects =
 
-There is also an implementation existing in the middle of the ext gwt framework.
+There is also an implementation existing in the middle of the 'gxt' framework.
 
 [http://extjs.com/deploy/gxtdocs/com/extjs/gxt/ui/client/mvc/package-summary.html]
 
