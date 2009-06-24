@@ -44,19 +44,9 @@ public abstract class View<T, W extends Widget> extends LazyPanel implements IVi
 		this.id = id;
 		getElement().setId(id);
 		this.controller = controller;
-		controller.addView(this);
 		for (Model model : models) {
 			model.addListener(this);
 		}
-	}
-
-	/**
-	 * @see com.googlecode.gwtmvc.client.IView#getKey()
-	 * @deprecated a view is not associated to a key anymore, but an id
-	 */
-	@Deprecated
-	public String getKey() {
-		return id;
 	}
 
 	/**
@@ -65,23 +55,6 @@ public abstract class View<T, W extends Widget> extends LazyPanel implements IVi
 	public String getId() {
 		return id;
 	}
-
-	/**
-	 * @see com.googlecode.gwtmvc.client.IView#init()
-	 * @deprecated Composite replaced by LazyPanel
-	 */
-	@Deprecated
-	public void init() {
-	};
-
-	/**
-	 * @see com.google.gwt.user.client.ui.Composite#initWidget(com.google.gwt.user.client.ui.Widget)
-	 * @deprecated Composite replaced by LazyPanel. This method exists to ensure
-	 *             backward compilation, but no backward compatibility
-	 */
-	@Deprecated
-	protected void initWidget(Widget widget) {
-	};
 
 	/**
 	 * @see com.google.gwt.widgetideas.client.LazyPanel#createWidget()
