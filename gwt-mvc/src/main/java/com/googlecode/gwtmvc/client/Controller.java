@@ -11,7 +11,8 @@ import java.util.Map;
  * 
  * USAGE: The controller knows its models and can call their methods. The
  * controller knows its view and can render them.<br />
- * Create an inner Enum class of the possible actions, and pass its values in the constructor to enable the event Handling.
+ * Create an inner Enum class of the possible actions, and pass its values in
+ * the constructor to enable the event Handling.
  * 
  * @see Model
  * @see View
@@ -83,12 +84,20 @@ public abstract class Controller {
 	 * @param event
 	 */
 	public void call(Event event) {
-		if (!initialised) {
-			this.init();
-			initialised = true;
-		}
+		doInitIfNecessary();
 		beginWait(event);
 		handleEvent(event);
+	}
+
+	/**
+	 * Allow the controller to be initialised only once. The initialisation is
+	 * done at the first call of this controller.
+	 */
+	protected void doInitIfNecessary() {
+		if (!initialised) {
+			init();
+			initialised = true;
+		}
 	}
 
 	private void beginWait(Event event) {
@@ -98,7 +107,9 @@ public abstract class Controller {
 	}
 
 	/**
-	 * Manages user gestures
+	 * Manages user gestures.<br /> This method should not be called directly, Use
+	 * call instead, to allow the controller to be initialised and to allow the
+	 * maskable system.
 	 * 
 	 * @param event
 	 */
