@@ -14,21 +14,6 @@ import com.google.gwt.user.client.Element;
 public interface IView<D> extends IModelListener<D> {
 
 	/**
-	 * Enable to initialise the view elsewhere than in the constructor. It could
-	 * be used to REinitialise the view.
-	 * 
-	 * @deprecated replaced by lazyPanel in View
-	 */
-	public abstract void init();
-
-	/**
-	 * @return key of this view
-	 * @deprecated
-	 */
-	@Deprecated
-	public abstract String getKey();
-
-	/**
 	 * Give the Dom w3c Id of the view element
 	 * 
 	 * @see Element#getId()

@@ -1,9 +1,8 @@
 package com.googlecode.gwtmvc.client;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 /**
  * The controller acts as a coordinator. It responds to user gestures, call the
@@ -25,9 +24,6 @@ public abstract class Controller {
 
 	private Enum[] actionEnumValues;
 
-	@Deprecated
-	protected Map<String, IView> views = new HashMap<String, IView>();
-
 	/**
 	 * Constructor with action values
 	 * 
@@ -45,9 +41,7 @@ public abstract class Controller {
 	 */
 	public Controller(Controller... children) {
 		super();
-		for (Controller child : children) {
-			addChild(child);
-		}
+		this.children = Arrays.asList(children); 
 	}
 
 	/**
@@ -59,9 +53,7 @@ public abstract class Controller {
 	public Controller(Enum[] actionEnumValues, Controller... children) {
 		super();
 		this.actionEnumValues = actionEnumValues;
-		for (Controller child : children) {
-			addChild(child);
-		}
+		this.children = Arrays.asList(children); 
 	}
 
 	/**
@@ -116,17 +108,6 @@ public abstract class Controller {
 	protected abstract void handleEvent(Event event);
 
 	/**
-	 * Adds a view managed by this controller
-	 * 
-	 * @param view
-	 * @deprecated
-	 */
-	@Deprecated
-	public void addView(IView view) {
-		views.put(view.getKey(), view);
-	}
-
-	/**
 	 * Place the view on the dom tree, and 'render' it
 	 * 
 	 * @see IView#render()
@@ -171,39 +152,6 @@ public abstract class Controller {
 	protected void initModel(Model model) {
 		model.init();
 		model.initialised = true;
-	}
-
-	/**
-	 * Removes this view from views managed by this controller
-	 * 
-	 * @param view
-	 * @deprecated
-	 */
-	@Deprecated
-	public void remove(IView view) {
-		views.remove(view.getKey());
-	}
-
-	/**
-	 * Add a child
-	 * 
-	 * @param child
-	 * @deprecated pass children to the constructor instead
-	 */
-	@Deprecated
-	protected void addChild(Controller child) {
-		children.add(child);
-	}
-
-	/**
-	 * The action enumeration available for this controller
-	 * 
-	 * @return the possible values od the enumeration
-	 * @deprecated actions are passed via the constructor instead
-	 */
-	@Deprecated
-	protected Enum[] getActionEnumValues() {
-		return null;
 	}
 
 	/**
