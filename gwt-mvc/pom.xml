@@ -9,8 +9,16 @@
 	<version>0.3.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>gwt-mvc</name>
-	<description>gwt-mvc</description>
-
+	<description>gwt mvc module</description>
+	<url>http://code.google.com/p/gwt-mvc/</url>
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	
 	<repositories>
 		<repository>
 			<id>gwt-maven-repository</id>
