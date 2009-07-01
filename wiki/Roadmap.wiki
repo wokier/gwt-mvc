@@ -7,7 +7,7 @@ Here is our vision of the project.
 We have some ideas of what is possible to do, but you can tell us what you need inside.
 Please start a topic on the google group for new features, or start an issue on this site.
 
-|| Feature|| Status || Version ||
+|| * Feature * || * Status * || * Version * ||
 || Create a demo/poc (many views, many rpcs, many models, menu and hierachical controller) || Released || 0.0.1 ||
 || manage history and urls || Released || 0.0.1 ||
 || enhance controller testability : ControllerTestCase|| Released || 0.0.1||
@@ -19,7 +19,7 @@ Please start a topic on the google group for new features, or start an issue on 
 || add normalized url arguments || TODO|| 0.3 ||
 || enable decorator/layout pattern to structure multi-view screens|| TODO || 0.3 ||
 || replace the swith(event) in controllers by annotation like @handle(event=Actions.DO) || ? || ? || 
-|| Use GWT 1.6 [http://code.google.com/intl/fr-FR/webtoolkit/doc/1.6/DevGuideUserInterface.html#DevGuideEventsAndHandlers event System] || ? || ? ||
+|| Use GWT 1.6 [http://code.google.com/intl/fr-FR/webtoolkit/doc/1.6/DevGuideUserInterface.html#DevGuideEventsAndHandlers Event System] || ? || ? ||
 || Help for a simple CRUD || ? || ? ||
 || Use GWT 1.6 [http://code.google.com/p/google-web-toolkit/wiki/CodeSplitting Code Splitting] for controller or subTree of controller || ? || ? ||
 || ... || ?|| ? ||
