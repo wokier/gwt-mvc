@@ -8,7 +8,8 @@ We have some ideas of what is possible to do, but you can tell us what you need 
 Please start a topic on the google group for new features, or start an issue on this site.
 
 || * Feature * || * Status * || * Version * ||
-|| Create a demo/poc (many views, many rpcs, many models, menu and hierachical controller) || Released || 0.0.1 ||
+|| Create a demo/poc (many views, many rpcs, many models and menu) || Released || 0.0.1 ||
+|| Hierachical controller (for Browser Event) || Released || 0.0.1 ||
 || manage history and urls || Released || 0.0.1 ||
 || enhance controller testability : ControllerTestCase|| Released || 0.0.1||
 || enable block user for loading (optionnal on each action): Maskable || Released || 0.0.1 ||
@@ -16,6 +17,7 @@ Please start a topic on the google group for new features, or start an issue on 
 || manage simple form validation : form package || Released || 0.2 ||
 || base the view on a lazy Panel instead of Composite || Released || 0.2 ||
 || --> You are here <-- ||  ||  ||
+|| Hierachical controller (for all Events) || TODO || 0.3 ||
 || add normalized url arguments || TODO|| 0.3 ||
 || enable decorator/layout pattern to structure multi-view screens|| TODO || 0.3 ||
 || replace the swith(event) in controllers by annotation like @handle(event=Actions.DO) || ? || ? || 
