@@ -27,6 +27,8 @@ If you are interested in this subject, i recommend you this articles :
 
 [http://code.google.com/intl/fr-FR/events/io/sessions/GoogleWebToolkitBestPractices.html]
 
+[http://code.google.com/intl/fr-FR/webtoolkit/articles/testing_methodologies_using_gwt.html]
+
 = Other Projects =
 
 There is also an implementation existing in the middle of the 'gxt' framework.
