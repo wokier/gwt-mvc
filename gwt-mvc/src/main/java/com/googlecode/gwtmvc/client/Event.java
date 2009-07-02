@@ -10,9 +10,9 @@ package com.googlecode.gwtmvc.client;
  * USAGE: create an event to notify a user gesture to the controller.
  * 
  * @param <V>
- *            action
- * @param <A>
  *            value
+ * @param <A>
+ *            action
  */
 public class Event<V, A extends Enum> {
 

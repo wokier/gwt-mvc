@@ -67,8 +67,7 @@ public abstract class Model<T> implements ModelForView<T> {
 	}
 
 	/**
-	 * Update the model without calling the server. This action can only be done
-	 * by the controller
+	 * Update the model and notify the change to the views.
 	 * 
 	 * @param value
 	 */
@@ -78,8 +77,8 @@ public abstract class Model<T> implements ModelForView<T> {
 	}
 
 	/**
-	 * Update the model without calling the server. This action can only be done
-	 * by the controller
+	 * @see Model#update(Object) Update as the update method, plus notify the
+	 *      end of a asynchronous call by using the maskable in the causeEvent.
 	 * 
 	 * @param value
 	 * @param causeEvent

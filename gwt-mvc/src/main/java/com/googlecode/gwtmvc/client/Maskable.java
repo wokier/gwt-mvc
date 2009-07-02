@@ -9,12 +9,13 @@ package com.googlecode.gwtmvc.client;
 public interface Maskable {
 
 	/**
-	 * mask the element to indicate asynchronous loading
+	 * mask an element, or display an animation, to indicate the begin of an
+	 * asynchronous call
 	 */
 	public void mask();
 
 	/**
-	 * unmask hide the loading indicator
+	 * make the opposite action of mask, to indicate the end of the call
 	 */
 	public void unmask();
 
