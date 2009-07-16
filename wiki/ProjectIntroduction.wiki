@@ -24,9 +24,9 @@ If you are interested in this subject, i recommend you this articles :
 
 [http://ooerabegins.wordpress.com/2009/05/29/hmvc-pattern1/]
 
-[http://robvanmaris.jteam.nl/2008/03/09/test-driven-development-for-gwt-ui-code/]
-
 == GWT TDD ==
+
+[http://robvanmaris.jteam.nl/2008/03/09/test-driven-development-for-gwt-ui-code/]
 
 [http://danielwellman.com/publications/GWT-Test_First-Nov2008.pdf]
 
