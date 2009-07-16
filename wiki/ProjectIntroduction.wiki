@@ -17,17 +17,23 @@ MVC can be decomposed into observer design pattern in case of relation between M
 
 If you are interested in this subject, i recommend you this articles :
 
+== MVC & HMVC==
 [http://en.wikipedia.org/wiki/Model-view-controller]
 
 [http://martinfowler.com/eaaDev/uiArchs.html]
 
+[http://ooerabegins.wordpress.com/2009/05/29/hmvc-pattern1/]
+
 [http://robvanmaris.jteam.nl/2008/03/09/test-driven-development-for-gwt-ui-code/]
+
+== GWT TDD ==
 
 [http://danielwellman.com/publications/GWT-Test_First-Nov2008.pdf]
 
+[http://code.google.com/intl/fr-FR/webtoolkit/articles/testing_methodologies_using_gwt.html]
+
 [http://code.google.com/intl/fr-FR/events/io/sessions/GoogleWebToolkitBestPractices.html]
 
-[http://code.google.com/intl/fr-FR/webtoolkit/articles/testing_methodologies_using_gwt.html]
 
 = Other Projects =
 
