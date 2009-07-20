@@ -24,5 +24,5 @@ Please start a topic on the google group for new features, or start an issue on 
 || Use GWT 1.6 [http://code.google.com/intl/fr-FR/webtoolkit/doc/1.6/DevGuideUserInterface.html#DevGuideEventsAndHandlers Event System] || ? || ? ||
 || Help for a simple CRUD || ? || ? ||
 || Use GWT 1.6 [http://code.google.com/p/google-web-toolkit/wiki/CodeSplitting Code Splitting] for controller or subTree of controller || ? || ? ||
-|| Simple Exception Hadling || ? || ? ||
+|| Simple Exception Handling || ? || ? ||
 || ... || ?|| ? ||
