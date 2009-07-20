@@ -10,16 +10,16 @@ Please start a topic on the google group for new features, or start an issue on 
 || * Feature * || * Status * || * Version * ||
 || Create a demo/poc (many views, many rpcs, many models and menu) || Released || 0.0.1 ||
 || Hierachical controller (for Browser Event) || Released || 0.0.1 ||
-|| manage history and urls || Released || 0.0.1 ||
-|| enhance controller testability : ControllerTestCase|| Released || 0.0.1||
-|| enable block user for loading (optionnal on each action): Maskable || Released || 0.0.1 ||
-|| add standard 404 page when historyToken is unknown || Released || 0.2 ||
-|| manage simple form validation : form package || Released || 0.2 ||
-|| base the view on a lazy Panel instead of Composite || Released || 0.2 ||
+|| History and urls || Released || 0.0.1 ||
+|| Enhance controller testability : ControllerTestCase|| Released || 0.0.1||
+|| Enable block user for loading (optionnal on each action): Maskable || Released || 0.0.1 ||
+|| Add standard 404 page when historyToken is unknown || Released || 0.2 ||
+|| Simple form validation : form package || Released || 0.2 ||
+|| Base the view on a lazy Panel instead of Composite || Released || 0.2 ||
 || --> You are here <-- ||  ||  ||
 || Hierachical controller (for all Events) || TODO || 0.3 ||
-|| add normalized url arguments || TODO|| 0.3 ||
-|| enable decorator/layout pattern to structure multi-view screens [http://groups.google.com/group/gwt-mvc/browse_thread/thread/bba0671fb490bdb7 Post in Group]|| TODO || 0.3 ||
+|| Add normalized url arguments || TODO|| 0.3 ||
+|| Enable decorator/layout pattern to structure multi-view screens [http://groups.google.com/group/gwt-mvc/browse_thread/thread/bba0671fb490bdb7 Post in Group]|| TODO || 0.3 ||
 || replace the swith(event) in controllers by annotation like @handle(event=Actions.DO) || ? || ? || 
 || Use GWT 1.6 [http://code.google.com/intl/fr-FR/webtoolkit/doc/1.6/DevGuideUserInterface.html#DevGuideEventsAndHandlers Event System] || ? || ? ||
 || Help for a simple CRUD || ? || ? ||
