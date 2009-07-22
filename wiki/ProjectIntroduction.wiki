@@ -37,10 +37,15 @@ If you are interested in this subject, i recommend you this articles :
 
 = Other Projects =
 
-There is also an implementation existing in the middle of the 'gxt' framework.
+There is an implementation existing in the middle of the 'gxt' framework.
 
 [http://extjs.com/deploy/gxtdocs/com/extjs/gxt/ui/client/mvc/package-summary.html]
 
 Pure MVC is a project with different implementations/languages.
 
 [http://trac.puremvc.org/PureMVC_Java_MultiCore]
+
+
+[http://code.google.com/p/mvc4g/]
+
+[http://code.google.com/p/mvp4g/]
