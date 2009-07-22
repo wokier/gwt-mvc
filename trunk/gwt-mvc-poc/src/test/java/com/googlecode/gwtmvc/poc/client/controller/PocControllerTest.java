@@ -116,10 +116,10 @@ public class PocControllerTest extends ControllerTestCase {
 				currentValue);
 		mockery.checking(new Expectations() {
 			{
-				one(controller.modelA).init();
-				one(controller.modelB).init();
+				oneOf(controller.modelA).init();
+				oneOf(controller.modelB).init();
 
-				one(controller.modelA).plus(currentValue, event);
+				oneOf(controller.modelA).plus(currentValue, event);
 			}
 		});
 		controller.call(event);
@@ -132,10 +132,10 @@ public class PocControllerTest extends ControllerTestCase {
 				currentValue);
 		mockery.checking(new Expectations() {
 			{
-				one(controller.modelA).init();
-				one(controller.modelB).init();
+				oneOf(controller.modelA).init();
+				oneOf(controller.modelB).init();
 
-				one(controller.modelA).minus(currentValue, event);
+				oneOf(controller.modelA).minus(currentValue, event);
 			}
 		});
 		controller.call(event);
@@ -148,10 +148,10 @@ public class PocControllerTest extends ControllerTestCase {
 				currentValue);
 		mockery.checking(new Expectations() {
 			{
-				one(controller.modelA).init();
-				one(controller.modelB).init();
+				oneOf(controller.modelA).init();
+				oneOf(controller.modelB).init();
 
-				one(controller.modelB).plus(currentValue, event);
+				oneOf(controller.modelB).plus(currentValue, event);
 			}
 		});
 		controller.call(event);
@@ -164,10 +164,10 @@ public class PocControllerTest extends ControllerTestCase {
 				currentValue);
 		mockery.checking(new Expectations() {
 			{
-				one(controller.modelA).init();
-				one(controller.modelB).init();
+				oneOf(controller.modelA).init();
+				oneOf(controller.modelB).init();
 
-				one(controller.modelB).minus(currentValue, event);
+				oneOf(controller.modelB).minus(currentValue, event);
 			}
 		});
 		controller.call(event);
@@ -191,6 +191,29 @@ public class PocControllerTest extends ControllerTestCase {
 	@Test(expected = IllegalArgumentException.class)
 	public void testTryConvertBrowserEventToControllerEvent404() {
 		assertNull(controller.tryConvertBrowserEventToControllerEvent(new BrowserEvent("404")));
+	}
+	
+	public void testCallSHOW_URLPARAMS() throws Exception {
+		
+		final String modelAurlParamValue = "5";
+		controller.getUrlParamsMap().put("modelA",modelAurlParamValue);
+		
+		final Event event = new Event<Void, PocAction>(PocAction.SHOW_URLPARAMS);
+		mockery.checking(new Expectations() {
+			{
+				oneOf(controller.modelA).init();
+				oneOf(controller.modelB).init();
+
+				oneOf(controller.pocViewNumeric).render();
+				
+				oneOf(controller.modelA).update(Integer.valueOf(modelAurlParamValue), event);
+			}
+		});
+		controller.call(event);
+		
+		assertTrue(controller.isInitialised());
+		
+		mockery.assertIsSatisfied();
 	}
 
 }

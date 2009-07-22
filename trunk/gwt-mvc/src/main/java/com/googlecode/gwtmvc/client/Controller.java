@@ -2,7 +2,9 @@ package com.googlecode.gwtmvc.client;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * The controller acts as a coordinator. It responds to user gestures, call the
@@ -23,6 +25,8 @@ public abstract class Controller {
 	private boolean initialised;
 
 	private Enum[] actionEnumValues;
+
+	protected Map<String, String> urlParamsMap = new HashMap<String, String>();
 
 	/**
 	 * Constructor with action values
@@ -164,7 +168,8 @@ public abstract class Controller {
 	protected Event tryConvertBrowserEventToControllerEvent(BrowserEvent browserEvent) {
 		for (int i = 0; i < actionEnumValues.length; i++) {
 			Enum actionEnumValue = actionEnumValues[i];
-			if (browserEvent.getHistoryToken().equals(actionEnumValue.name())) {
+			if (browserEvent.getAction().equals(actionEnumValue.name())) {
+				urlParamsMap = browserEvent.getParams();
 				return new Event(actionEnumValue);
 			}
 		}
@@ -212,5 +217,24 @@ public abstract class Controller {
 	public boolean isInitialised() {
 		return initialised;
 	}
+	
+	/**
+	 * Give the url params used when the controller has been called by a browser event.
+	 * @see BrowserEvent
+	 * @return
+	 */
+	protected Map<String, String> getUrlParamsMap() {
+		return urlParamsMap;
+	}
 
+	/**
+	 * Give a specific param used when the controller has been called by a browser event.
+	 * @see BrowserEvent
+	 * @param param paramName (before the '=' character)
+	 * @return
+	 */
+	public String getUrlParam(String param) {
+		return urlParamsMap.get(param);
+	}
+	
 }
