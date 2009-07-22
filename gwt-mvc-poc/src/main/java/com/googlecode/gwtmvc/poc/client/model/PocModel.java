@@ -49,6 +49,11 @@ public class PocModel extends Model<Integer> {
 	}
 	
 	@Override
+	public void update(Integer value) {
+		super.update(value);
+	}
+	
+	@Override
 	public void update(Integer value, Event causeEvent) {
 		super.update(value, causeEvent);
 	}

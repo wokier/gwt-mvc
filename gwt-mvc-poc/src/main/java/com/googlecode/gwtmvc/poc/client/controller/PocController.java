@@ -1,5 +1,7 @@
 package com.googlecode.gwtmvc.poc.client.controller;
 
+import java.util.Map;
+
 import com.allen_sauer.gwt.log.client.Log;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.googlecode.gwtmvc.client.BrowserEvent;
@@ -17,7 +19,7 @@ import com.googlecode.gwtmvc.poc.client.view.PocViewNumericWithMasker;
 public class PocController extends Controller {
 
 	public enum PocAction {
-		SHOW_SIMPLE_1, SHOW_COMPLEX_2, SHOW_MASKER, SHOW_MASKABLE, DO_PLUS_A, DO_MINUS_A, DO_REINIT_A, DO_PLUS_B, DO_MINUS_B, DO_REINIT_B
+		SHOW_SIMPLE_1, SHOW_COMPLEX_2, SHOW_MASKER, SHOW_MASKABLE, DO_PLUS_A, DO_MINUS_A, DO_REINIT_A, DO_PLUS_B, DO_MINUS_B, DO_REINIT_B, SHOW_URLPARAMS
 	}
 
 	protected IView<Integer> pocViewNumeric;
@@ -37,7 +39,7 @@ public class PocController extends Controller {
 	@Override
 	public void init() {
 		Log.debug("Controller init");
-		
+
 		if (pocViewNumeric == null)
 			pocViewNumeric = new PocViewNumeric(this, modelA);
 		if (pocViewNumericB == null)
@@ -102,6 +104,12 @@ public class PocController extends Controller {
 		case DO_REINIT_B:
 			updateModel(modelB, 0, event);
 			break;
+		case SHOW_URLPARAMS:
+			clearContent(pocViewNumeric instanceof View);
+			renderView(pocViewNumeric);
+			Integer modelAParamValue = Integer.valueOf(getUrlParam("modelA"));
+			updateModel(modelA, modelAParamValue,event);
+			break;
 		default:
 			Log.debug("Unknown action");
 		}
@@ -122,10 +130,14 @@ public class PocController extends Controller {
 		}
 		view.render();
 	}
-	
+
 	@Override
 	protected Event tryConvertBrowserEventToControllerEvent(BrowserEvent browserEvent) {
 		return super.tryConvertBrowserEventToControllerEvent(browserEvent);
 	}
 
+	@Override
+	public Map<String, String> getUrlParamsMap() {
+		return super.getUrlParamsMap();
+	}
 }

@@ -5,12 +5,12 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.ClickListener;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.googlecode.gwtmvc.client.Controller;
 import com.googlecode.gwtmvc.client.Event;
 import com.googlecode.gwtmvc.client.Model;
 import com.googlecode.gwtmvc.client.ModelForView;
 import com.googlecode.gwtmvc.client.View;
 import com.googlecode.gwtmvc.poc.client.PocMasker;
-import com.googlecode.gwtmvc.poc.client.controller.PocController;
 import com.googlecode.gwtmvc.poc.client.controller.PocController.PocAction;
 import com.googlecode.gwtmvc.poc.client.view.components.PocIntegerLabel;
 
@@ -20,7 +20,7 @@ public class PocViewNumericWithMasker extends View<Integer, VerticalPanel> {
 
 	PocIntegerLabel component;
 
-	public PocViewNumericWithMasker(PocController controller, Model model) {
+	public PocViewNumericWithMasker(Controller controller, Model model) {
 		super(ID, controller, model);
 	}
 
