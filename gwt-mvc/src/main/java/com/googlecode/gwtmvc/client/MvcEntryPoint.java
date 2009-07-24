@@ -38,6 +38,7 @@ public abstract class MvcEntryPoint implements EntryPoint, HistoryListener {
 		} else {
 			rootController.showHomeView();
 		}
+		hideLoadingIndicator();
 	}
 
 	/**
@@ -60,5 +61,10 @@ public abstract class MvcEntryPoint implements EntryPoint, HistoryListener {
 				+ " is unknown. This is the home page.");
 		rootController.showHomeView();
 	}
+	
+	/**
+	 * Add the loading indicator, text or image placed in the initial html file
+	 */
+	protected abstract void hideLoadingIndicator();
 
 }

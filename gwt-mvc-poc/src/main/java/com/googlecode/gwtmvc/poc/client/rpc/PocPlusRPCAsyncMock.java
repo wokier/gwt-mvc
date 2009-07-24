@@ -7,13 +7,13 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 public class PocPlusRPCAsyncMock implements PocPlusRPCAsync {
 
 	public void plus(final Integer integer, final AsyncCallback<Integer> callback) {
-		Log.debug("waiting 3s");
+		Log.debug("waiting 2s");
 		new Timer() {
 			@Override
 			public void run() {
 				callback.onSuccess(integer + 1);
 			}
-		}.schedule(300);
+		}.schedule(2000);
 	}
 
 }

@@ -19,15 +19,18 @@ public class PocControllerFormTest extends ControllerTestCase {
 		controller.pocViewForm = mockView("pocForm");
 		
 		controller.formModel = mockModel(PocModel.class, "formModel");
+		
+		controller.content = mockDomPlacer("content");
 	}
 	
 	public void testCallSHOW_FORM() throws Exception {
 
 		mockery.checking(new Expectations() {
 			{
-				one(controller.formModel).init();
+				oneOf(controller.formModel).init();
 				
-				one(controller.pocViewForm).render();
+//				oneOf(controller.pocViewForm).render();
+				oneOf(controller.content).clearAndAdd(controller.pocViewForm);
 			}
 		});
 
@@ -41,9 +44,9 @@ public class PocControllerFormTest extends ControllerTestCase {
 		final Event<Integer, FormAction> event = new Event<Integer, FormAction>(FormAction.DO_ADDITION,5);
 		mockery.checking(new Expectations() {
 			{
-				one(controller.formModel).init();
+				oneOf(controller.formModel).init();
 				
-				one(controller.formModel).update(5, event);
+				oneOf(controller.formModel).update(5, event);
 			}
 		});
 

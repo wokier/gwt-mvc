@@ -1,25 +1,25 @@
 package com.googlecode.gwtmvc.poc.client;
 
-import com.allen_sauer.gwt.log.client.Log;
 import com.google.gwt.user.client.ui.RootPanel;
-import com.googlecode.gwtmvc.client.Masker;
+import com.googlecode.gwtmvc.client.mask.StyleMasker;
 
-public class PocMasker extends Masker {
+public class PocMasker extends StyleMasker {
 	
 	private static final String MASKER_STYLE_NAME = "masker";
 	public static final String MASK_STYLE_NAME = "mask";
 	
-	public void mask() {
-		Log.debug("masker mask");
-//		RootPanel.get("loading").setVisible(true);
-		RootPanel.get().addStyleName(MASKER_STYLE_NAME);
+	private static PocMasker instance;
+	
+	public static PocMasker getInstance() {
+		if(instance == null){
+			instance = new PocMasker();
+		}
+		return instance;
 	}
 	
-	public void unmask() {
-		Log.debug("masker unmask");
-		RootPanel.get().removeStyleName(MASKER_STYLE_NAME);
-//		RootPanel.get("loading").setVisible(false);
-	}
 	
+	private PocMasker() {
+		super(RootPanel.get(),MASKER_STYLE_NAME);
+	}
 	
 }

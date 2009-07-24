@@ -67,4 +67,10 @@ public class PocViewForm extends Form<Integer, VerticalPanel> {
 		Log.debug("form Value is "+formValue);
 		return formValue;
 	}
+	
+	@Override
+	public void render() {
+		Log.debug(toString()+" render");
+		super.render();
+	}
 }

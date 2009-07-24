@@ -1,5 +1,6 @@
 package com.googlecode.gwtmvc.poc.client.view;
 
+import com.allen_sauer.gwt.log.client.Log;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.Label;
 import com.googlecode.gwtmvc.client.Controller;
@@ -38,6 +39,12 @@ public class PocViewGraphical extends View<Integer, Label> {
 			bar.setWidth(value * -10 + "px");
 			DOM.setStyleAttribute(bar.getElement(), "background", "red");
 		}
+	}
+	
+	@Override
+	public void render() {
+		Log.debug(toString()+" render");
+		super.render();
 	}
 
 }

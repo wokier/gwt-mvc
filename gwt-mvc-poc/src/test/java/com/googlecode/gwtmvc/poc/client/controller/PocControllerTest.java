@@ -8,13 +8,8 @@ import org.junit.Test;
 import com.googlecode.gwtmvc.ControllerTestCase;
 import com.googlecode.gwtmvc.client.BrowserEvent;
 import com.googlecode.gwtmvc.client.Event;
-import com.googlecode.gwtmvc.client.IView;
-import com.googlecode.gwtmvc.poc.client.controller.PocController;
 import com.googlecode.gwtmvc.poc.client.controller.PocController.PocAction;
 import com.googlecode.gwtmvc.poc.client.model.PocModel;
-import com.googlecode.gwtmvc.poc.client.view.PocViewGraphical;
-import com.googlecode.gwtmvc.poc.client.view.PocViewNumeric;
-import com.googlecode.gwtmvc.poc.client.view.PocViewNumericB;
 
 public class PocControllerTest extends ControllerTestCase {
 
@@ -34,6 +29,8 @@ public class PocControllerTest extends ControllerTestCase {
 
 		controller.pocViewNumericWithMasker = mockView("pocViewNumericWithMaskerMock");
 		controller.pocViewNumericWithMaskable = mockView("pocViewNumericWithMaskableMock");
+		
+		controller.content = mockDomPlacer("content");
 	}
 
 	@After
@@ -49,7 +46,8 @@ public class PocControllerTest extends ControllerTestCase {
 
 				oneOf(controller.modelB).init();
 
-				oneOf(controller.pocViewNumeric).render();
+//				oneOf(controller.pocViewNumeric).render();
+				oneOf(controller.content).clearAndAdd(controller.pocViewNumeric);
 			}
 		});
 		controller.call(new Event<String, PocAction>(PocAction.SHOW_SIMPLE_1));
@@ -66,9 +64,12 @@ public class PocControllerTest extends ControllerTestCase {
 				oneOf(controller.modelA).init();
 				oneOf(controller.modelB).init();
 
-				oneOf(controller.pocViewNumeric).render();
-				oneOf(controller.pocViewNumericB).render();
-				oneOf(controller.pocViewGraphical).render();
+//				oneOf(controller.pocViewNumeric).render();
+				oneOf(controller.content).clearAndAdd(controller.pocViewNumeric);
+//				oneOf(controller.pocViewNumericB).render();
+				oneOf(controller.content).add(controller.pocViewNumericB);
+//				oneOf(controller.pocViewGraphical).render();
+				oneOf(controller.content).add(controller.pocViewGraphical);
 			}
 		});
 		controller.call(new Event<String, PocAction>(PocAction.SHOW_COMPLEX_2));
@@ -84,7 +85,8 @@ public class PocControllerTest extends ControllerTestCase {
 				oneOf(controller.modelA).init();
 				oneOf(controller.modelB).init();
 
-				oneOf(controller.pocViewNumericWithMasker).render();
+//				oneOf(controller.pocViewNumericWithMasker).render();
+				oneOf(controller.content).clearAndAdd(controller.pocViewNumericWithMasker);
 			}
 		});
 		controller.call(new Event<String, PocAction>(PocAction.SHOW_MASKER));
@@ -100,7 +102,8 @@ public class PocControllerTest extends ControllerTestCase {
 				oneOf(controller.modelA).init();
 				oneOf(controller.modelB).init();
 
-				oneOf(controller.pocViewNumericWithMaskable).render();
+//				oneOf(controller.pocViewNumericWithMaskable).render();
+				oneOf(controller.content).clearAndAdd(controller.pocViewNumericWithMaskable);
 			}
 		});
 		controller.call(new Event<String, PocAction>(PocAction.SHOW_MASKABLE));
@@ -204,7 +207,8 @@ public class PocControllerTest extends ControllerTestCase {
 				oneOf(controller.modelA).init();
 				oneOf(controller.modelB).init();
 
-				oneOf(controller.pocViewNumeric).render();
+//				oneOf(controller.pocViewNumeric).render();
+				oneOf(controller.content).clearAndAdd(controller.pocViewNumeric);
 				
 				oneOf(controller.modelA).update(Integer.valueOf(modelAurlParamValue), event);
 			}

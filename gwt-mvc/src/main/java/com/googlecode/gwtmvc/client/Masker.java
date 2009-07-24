@@ -5,7 +5,9 @@ import com.google.gwt.user.client.Element;
 /**
  * Allow to externally mask an element. <br />A masker will generally mask the entire
  * application and block any user action
+ * @deprecated Use StyleMasker and VisibleMasker instead
  */
+@Deprecated
 public abstract class Masker implements Maskable {
 
 	protected Element elementToMask;

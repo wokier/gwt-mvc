@@ -1,7 +1,6 @@
 package com.googlecode.gwtmvc.poc.client.view.components;
 
 import com.google.gwt.junit.client.GWTTestCase;
-import com.googlecode.gwtmvc.poc.client.view.components.PocIntegerLabel;
 
 //add src/test/java to class path to run the test, as gwt could find the sources
 public class PocIntegerLabelGwtTest extends GWTTestCase {

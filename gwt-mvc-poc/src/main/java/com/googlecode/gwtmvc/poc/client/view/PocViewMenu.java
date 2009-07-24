@@ -1,5 +1,6 @@
 package com.googlecode.gwtmvc.poc.client.view;
 
+import com.allen_sauer.gwt.log.client.Log;
 import com.google.gwt.user.client.ui.Hyperlink;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.googlecode.gwtmvc.client.Controller;
@@ -32,6 +33,12 @@ public class PocViewMenu extends View<Object,VerticalPanel> {
 	@Override
 	public void onModelChange(ModelForView model) {
 		
+	}
+	
+	@Override
+	public void render() {
+		Log.debug(toString()+" render");
+		super.render();
 	}
 }
 
