@@ -1,6 +1,6 @@
 package com.googlecode.gwtmvc.poc.client.view;
 
-import com.google.gwt.user.client.DOM;
+import com.allen_sauer.gwt.log.client.Log;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.ClickListener;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -59,15 +59,15 @@ public class PocViewNumericWithMasker extends View<Integer, VerticalPanel> {
 	}
 
 	protected void plusAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_PLUS_A, component.getValue(), new PocMasker()));
+		controller.call(new Event<Integer, PocAction>(PocAction.DO_PLUS_A, component.getValue(), PocMasker.getInstance()));
 	}
 
 	protected void minusAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_MINUS_A, component.getValue(), new PocMasker()));
+		controller.call(new Event<Integer, PocAction>(PocAction.DO_MINUS_A, component.getValue(), PocMasker.getInstance()));
 	}
 
 	protected void reinitAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_REINIT_A, 0, new PocMasker()));
+		controller.call(new Event<Integer, PocAction>(PocAction.DO_REINIT_A, 0, PocMasker.getInstance()));
 	}
 
 	@Override
@@ -76,4 +76,10 @@ public class PocViewNumericWithMasker extends View<Integer, VerticalPanel> {
 		component.setValue((Integer) model.getValue());
 	}
 
+	@Override
+	public void render() {
+		Log.debug(toString()+" render");
+		super.render();
+	}
+	
 }

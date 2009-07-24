@@ -2,12 +2,12 @@ package com.googlecode.gwtmvc.poc.client.controller;
 
 import com.allen_sauer.gwt.log.client.Log;
 import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.googlecode.gwtmvc.client.BrowserEvent;
 import com.googlecode.gwtmvc.client.Controller;
 import com.googlecode.gwtmvc.client.Event;
 import com.googlecode.gwtmvc.client.IView;
-import com.googlecode.gwtmvc.client.View;
+import com.googlecode.gwtmvc.client.place.DivWrapperPlacer;
+import com.googlecode.gwtmvc.client.place.DomPlacer;
 import com.googlecode.gwtmvc.poc.client.view.PocViewIntro;
 import com.googlecode.gwtmvc.poc.client.view.PocViewMenu;
 
@@ -18,38 +18,47 @@ public class PocControllerMenu extends Controller {
 		SHOW_INTRO;
 
 	}
-	
+
 	IView pocViewMenu;
 	IView pocViewIntro;
 
+	DomPlacer menu;
+	DomPlacer content;
+
 	public PocControllerMenu() {
-		super(PocMenuAction.values(),new PocController(), new PocControllerForm());
+		super(PocMenuAction.values(), new PocController(), new PocControllerForm());
 	}
 
 	@Override
 	public void init() {
 		Log.debug("Root controller init");
-		
+
 		if (pocViewIntro == null) {
 			pocViewIntro = new PocViewIntro(this);
-			RootPanel.get("loading").setVisible(false);
-			
 			pocViewMenu = new PocViewMenu(this);
-			RootPanel.get("menu").clear();
-			RootPanel.get("menu").add((View)pocViewMenu);
+
+			content = new DivWrapperPlacer("content"){
+				public void add(IView view) {
+					Log.debug(toString() + " add "+ view);
+					super.add(view);
+				}
+			};;
+			menu = new DivWrapperPlacer("menu"){
+				public void add(IView view) {
+					Log.debug(toString() + " add "+ view);
+					super.add(view);
+				}
+			};;
 		}
-		pocViewMenu.render();
-		
+		menu.clearAndAdd(pocViewMenu);
 	}
 
 	@Override
 	public void showHomeView() {
 		Log.debug("showHomeView");
-		if (pocViewIntro instanceof View) {
-			RootPanel.get("content").clear();
-			RootPanel.get("content").add(new Label("Welcome..."));
-		
-			Log.getDivLogger().moveTo(10, 400);
+		if(content instanceof DivWrapperPlacer){
+			content.clear();
+			((DivWrapperPlacer)content).getDivContainer().add(new Label("Welcome..."));
 		}
 	}
 
@@ -60,7 +69,7 @@ public class PocControllerMenu extends Controller {
 		PocMenuAction action = (PocMenuAction) event.getAction();
 		switch (action) {
 		case SHOW_INTRO:
-			renderView(pocViewIntro);
+			content.clearAndAdd(pocViewIntro);
 			break;
 		default:
 			break;
@@ -68,15 +77,10 @@ public class PocControllerMenu extends Controller {
 	}
 
 	@Override
+	@Deprecated
 	protected void renderView(IView view) {
-		Log.debug("Menu controller renderView " + view);
-		if (view instanceof View) {
-			RootPanel.get("content").clear();
-			RootPanel.get("content").add((View) view);
-		}
-		view.render();
 	}
-	
+
 	@Override
 	protected Event tryConvertBrowserEventToControllerEvent(BrowserEvent browserEvent) {
 		return super.tryConvertBrowserEventToControllerEvent(browserEvent);

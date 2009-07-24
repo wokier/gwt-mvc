@@ -1,12 +1,11 @@
 package com.googlecode.gwtmvc.poc.client.controller;
 
 import com.allen_sauer.gwt.log.client.Log;
-import com.google.gwt.user.client.ui.RootPanel;
-import com.googlecode.gwtmvc.client.BrowserEvent;
 import com.googlecode.gwtmvc.client.Controller;
 import com.googlecode.gwtmvc.client.Event;
 import com.googlecode.gwtmvc.client.IView;
-import com.googlecode.gwtmvc.client.View;
+import com.googlecode.gwtmvc.client.place.DivWrapperPlacer;
+import com.googlecode.gwtmvc.client.place.DomPlacer;
 import com.googlecode.gwtmvc.poc.client.model.PocModel;
 import com.googlecode.gwtmvc.poc.client.view.PocViewForm;
 
@@ -20,9 +19,29 @@ public class PocControllerForm extends Controller {
 
 	protected PocModel formModel;
 
+	protected DomPlacer content;
+
 	public PocControllerForm() {
 		super(FormAction.values());
 		formModel = new PocModel();
+	}
+
+	@Override
+	public void init() {
+		Log.debug("Form Controller init");
+		if (pocViewForm == null) {
+			pocViewForm = new PocViewForm(this, formModel);
+		}
+		initModel(formModel);
+
+		if (content == null) {
+			content = new DivWrapperPlacer("content"){
+				public void add(IView view) {
+					Log.debug(toString() + " add "+ view);
+					super.add(view);
+				}
+			};
+		}
 	}
 
 	@Override
@@ -31,7 +50,7 @@ public class PocControllerForm extends Controller {
 		FormAction action = (FormAction) event.getAction();
 		switch (action) {
 		case SHOW_FORM:
-			renderView(pocViewForm);
+			content.clearAndAdd(pocViewForm);
 			if (pocViewForm instanceof PocViewForm) {
 				((PocViewForm) pocViewForm).initForm(formModel.getValue());
 			}
@@ -42,22 +61,8 @@ public class PocControllerForm extends Controller {
 	}
 
 	@Override
-	public void init() {
-		Log.debug("Form Controller init");
-		if (pocViewForm == null) {
-			pocViewForm = new PocViewForm(this, formModel);
-		}
-		initModel(formModel);
-	}
-
-	@Override
+	@Deprecated
 	protected void renderView(IView view) {
-		Log.debug("Form Controller renderView "+view);
-		if (view instanceof View) {
-			RootPanel.get("content").clear();
-			RootPanel.get("content").add((View) view);
-		}
-		view.render();
 	}
 
 	@Override

@@ -8,11 +8,7 @@ import org.junit.Test;
 import com.googlecode.gwtmvc.ControllerTestCase;
 import com.googlecode.gwtmvc.client.BrowserEvent;
 import com.googlecode.gwtmvc.client.Event;
-import com.googlecode.gwtmvc.client.IView;
-import com.googlecode.gwtmvc.poc.client.controller.PocControllerMenu;
-import com.googlecode.gwtmvc.poc.client.controller.PocController.PocAction;
 import com.googlecode.gwtmvc.poc.client.controller.PocControllerMenu.PocMenuAction;
-import com.googlecode.gwtmvc.poc.client.view.PocViewIntro;
 
 public class PocControllerMenuTest extends ControllerTestCase {
 
@@ -25,6 +21,9 @@ public class PocControllerMenuTest extends ControllerTestCase {
 
 		controller.pocViewMenu = mockView("pocViewMenuMock");
 		controller.pocViewIntro = mockView("pocViewIntroMock");
+		
+		controller.content = mockDomPlacer("content");
+		controller.menu = mockDomPlacer("menu");
 	}
 
 	@After
@@ -36,7 +35,8 @@ public class PocControllerMenuTest extends ControllerTestCase {
 		mockery.checking(new Expectations() {
 			{
 
-				one(controller.pocViewMenu).render();
+//				oneOf(controller.pocViewMenu).render();
+				oneOf(controller.menu).clearAndAdd(controller.pocViewMenu);
 
 			}
 		});
@@ -56,8 +56,10 @@ public class PocControllerMenuTest extends ControllerTestCase {
 	public void testCall() {
 		mockery.checking(new Expectations() {
 			{
-				one(controller.pocViewMenu).render();
-				one(controller.pocViewIntro).render();
+//				oneOf(controller.pocViewMenu).render();
+				oneOf(controller.menu).clearAndAdd(controller.pocViewMenu);
+//				oneOf(controller.pocViewIntro).render();
+				oneOf(controller.content).clearAndAdd(controller.pocViewIntro);
 
 			}
 		});

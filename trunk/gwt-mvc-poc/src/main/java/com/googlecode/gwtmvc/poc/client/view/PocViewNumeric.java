@@ -1,6 +1,6 @@
 package com.googlecode.gwtmvc.poc.client.view;
 
-import com.google.gwt.user.client.DOM;
+import com.allen_sauer.gwt.log.client.Log;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.ClickListener;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -73,6 +73,12 @@ public class PocViewNumeric extends View<Integer, VerticalPanel> {
 	public void onModelChange(ModelForView model) {
 		ensureWidget();
 		component.setValue((Integer) model.getValue());
+	}
+	
+	@Override
+	public void render() {
+		Log.debug(toString()+" render");
+		super.render();
 	}
 
 }

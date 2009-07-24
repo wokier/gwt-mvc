@@ -6,6 +6,7 @@ import org.jmock.Mockery;
 import org.jmock.lib.legacy.ClassImposteriser;
 
 import com.googlecode.gwtmvc.client.IView;
+import com.googlecode.gwtmvc.client.place.DomPlacer;
 
 /**
  * This a an abstract test which helps you to test your controllers. It can test
@@ -47,25 +48,37 @@ public abstract class ControllerTestCase extends TestCase {
 		// Here is just a keyway
 		mockery.assertIsSatisfied();
 	}
-	
+
 	/**
 	 * Give a dynamic mock for a view
+	 * 
 	 * @param <T>
-	 * @param name
+	 * @param viewMockName
 	 * @return
 	 */
-	protected <T> IView<T> mockView(String name){
-		return mockery.mock(IView.class,name);
+	protected <T> IView<T> mockView(String viewMockName) {
+		return mockery.mock(IView.class, viewMockName);
 	}
-	
+
 	/**
 	 * Give a dynamic mock for a model
+	 * 
 	 * @param <M>
 	 * @param modelClass
-	 * @param name
+	 * @param modelMockName
 	 * @return
 	 */
-	protected <M> M mockModel(Class<M> modelClass, String name){
-		return mockery.mock(modelClass,name);
+	protected <M> M mockModel(Class<M> modelClass, String modelMockName) {
+		return mockery.mock(modelClass, modelMockName);
+	}
+
+	/**
+	 * Give a dynamic mock for a DomPlacer
+	 * 
+	 * @param containerId
+	 * @return
+	 */
+	protected DomPlacer mockDomPlacer(String containerId) {
+		return mockery.mock(DomPlacer.class, containerId);
 	}
 }

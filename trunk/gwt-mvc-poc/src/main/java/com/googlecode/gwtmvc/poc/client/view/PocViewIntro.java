@@ -1,5 +1,6 @@
 package com.googlecode.gwtmvc.poc.client.view;
 
+import com.allen_sauer.gwt.log.client.Log;
 import com.google.gwt.user.client.ui.HTML;
 import com.googlecode.gwtmvc.client.Controller;
 import com.googlecode.gwtmvc.client.ModelForView;
@@ -23,6 +24,12 @@ public class PocViewIntro extends View<Object, HTML> {
 	@Override
 	public void onModelChange(ModelForView model) {
 
+	}
+	
+	@Override
+	public void render() {
+		Log.debug(toString()+" render");
+		super.render();
 	}
 
 }

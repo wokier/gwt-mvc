@@ -3,12 +3,12 @@ package com.googlecode.gwtmvc.poc.client.controller;
 import java.util.Map;
 
 import com.allen_sauer.gwt.log.client.Log;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.googlecode.gwtmvc.client.BrowserEvent;
 import com.googlecode.gwtmvc.client.Controller;
 import com.googlecode.gwtmvc.client.Event;
 import com.googlecode.gwtmvc.client.IView;
-import com.googlecode.gwtmvc.client.View;
+import com.googlecode.gwtmvc.client.place.DivWrapperPlacer;
+import com.googlecode.gwtmvc.client.place.DomPlacer;
 import com.googlecode.gwtmvc.poc.client.model.PocModel;
 import com.googlecode.gwtmvc.poc.client.view.PocViewGraphical;
 import com.googlecode.gwtmvc.poc.client.view.PocViewNumeric;
@@ -29,6 +29,8 @@ public class PocController extends Controller {
 	protected IView<Integer> pocViewNumericWithMasker;
 
 	protected PocModel modelA, modelB;
+
+	protected DomPlacer content;
 
 	public PocController() {
 		super(PocAction.values());
@@ -54,6 +56,15 @@ public class PocController extends Controller {
 
 		initModel(modelA);
 		initModel(modelB);
+
+		if (content == null) {
+			content = new DivWrapperPlacer("content"){
+				public void add(IView view) {
+					Log.debug(toString() + " add "+ view);
+					super.add(view);
+				}
+			};
+		}
 	}
 
 	@Override
@@ -69,22 +80,18 @@ public class PocController extends Controller {
 
 		switch (action) {
 		case SHOW_SIMPLE_1:
-			clearContent(pocViewNumeric instanceof View);
-			renderView(pocViewNumeric);
+			content.clearAndAdd(pocViewNumeric);
 			break;
 		case SHOW_COMPLEX_2:
-			clearContent(pocViewNumeric instanceof View);
-			renderView(pocViewNumeric);
-			renderView(pocViewNumericB);
-			renderView(pocViewGraphical);
+			content.clearAndAdd(pocViewNumeric);
+			content.add(pocViewNumericB);
+			content.add(pocViewGraphical);
 			break;
 		case SHOW_MASKER:
-			clearContent(pocViewNumericWithMasker instanceof View);
-			renderView(pocViewNumericWithMasker);
+			content.clearAndAdd(pocViewNumericWithMasker);
 			break;
 		case SHOW_MASKABLE:
-			clearContent(pocViewNumericWithMaskable instanceof View);
-			renderView(pocViewNumericWithMaskable);
+			content.clearAndAdd(pocViewNumericWithMaskable);
 			break;
 		case DO_PLUS_A:
 			modelA.plus((Integer) event.getValue(), event);
@@ -105,30 +112,19 @@ public class PocController extends Controller {
 			updateModel(modelB, 0, event);
 			break;
 		case SHOW_URLPARAMS:
-			clearContent(pocViewNumeric instanceof View);
-			renderView(pocViewNumeric);
+			content.clearAndAdd(pocViewNumeric);
 			Integer modelAParamValue = Integer.valueOf(getUrlParam("modelA"));
-			updateModel(modelA, modelAParamValue,event);
+			updateModel(modelA, modelAParamValue, event);
 			break;
 		default:
 			Log.debug("Unknown action");
 		}
 	}
 
-	private void clearContent(boolean isTestMode) {
-		if (isTestMode) {
-			RootPanel.get("content").clear();
-		}
-	}
-
 	@Override
+	@Deprecated
 	protected void renderView(IView view) {
-		Log.debug("Controller renderView " + view);
-		if (view instanceof View) {// Enable testing without GWT.create() error
-			RootPanel.get("loading").setVisible(false);
-			RootPanel.get("content").add((View) view);
-		}
-		view.render();
+
 	}
 
 	@Override
