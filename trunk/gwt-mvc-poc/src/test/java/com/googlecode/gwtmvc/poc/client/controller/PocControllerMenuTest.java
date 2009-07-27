@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import com.googlecode.gwtmvc.ControllerTestCase;
 import com.googlecode.gwtmvc.client.BrowserEvent;
+import com.googlecode.gwtmvc.client.Controller;
 import com.googlecode.gwtmvc.client.Event;
 import com.googlecode.gwtmvc.poc.client.controller.PocControllerMenu.PocMenuAction;
 
@@ -83,4 +84,12 @@ public class PocControllerMenuTest extends ControllerTestCase {
 		assertNull(controller.tryConvertBrowserEventToControllerEvent(new BrowserEvent("unknown")));
 	}
 
+	public void testGetRootController()throws Exception {
+		PocControllerMenu rootController = new PocControllerMenu();
+		for (Controller child : rootController.getChildren()) {
+			assertEquals(rootController, child.getRootController());
+		}
+		assertEquals(rootController, rootController.getRootController());
+	}
+	
 }

@@ -20,7 +20,7 @@ import java.util.Map;
  */
 public abstract class Controller {
 
-//	protected Controller parent;
+	private Controller parent;
 	protected List<Controller> children = new ArrayList<Controller>();
 
 	private boolean initialised;
@@ -46,7 +46,7 @@ public abstract class Controller {
 	 */
 	public Controller(Controller... children) {
 		super();
-		this.children = Arrays.asList(children);
+		addChildren(children);
 	}
 
 	/**
@@ -56,9 +56,15 @@ public abstract class Controller {
 	 * @param children
 	 */
 	public Controller(Enum[] actionEnumValues, Controller... children) {
-		super();
-		this.actionEnumValues = Arrays.asList(actionEnumValues);
+		this(actionEnumValues);
+		addChildren(children);
+	}
+	
+	private void addChildren(Controller... children) {
 		this.children = Arrays.asList(children);
+		for (Controller child : children) {
+			child.parent = this;
+		}
 	}
 
 	/**
@@ -276,11 +282,23 @@ public abstract class Controller {
 	}
 	
 	/**
+	 * Give an acces to the root controller of this controllers tree
+	 * @return
+	 */
+	public Object getRootController() {
+		Controller rootController = this;
+		while (rootController.parent != null){
+			rootController = rootController.parent;
+		}
+		return rootController;
+	}
+	
+	/**
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "actions :"+actionEnumValues + " (children :"+ children+")";
+		return (actionEnumValues !=null ? "actions :"+actionEnumValues :"") + (!children.isEmpty() ? " (children :"+ children+")":"");
 	}
 
 }

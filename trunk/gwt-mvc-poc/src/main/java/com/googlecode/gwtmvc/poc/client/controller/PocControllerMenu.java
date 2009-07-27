@@ -1,5 +1,7 @@
 package com.googlecode.gwtmvc.poc.client.controller;
 
+import java.util.List;
+
 import com.allen_sauer.gwt.log.client.Log;
 import com.google.gwt.user.client.ui.Label;
 import com.googlecode.gwtmvc.client.BrowserEvent;
@@ -84,6 +86,10 @@ public class PocControllerMenu extends Controller {
 	@Override
 	protected Event tryConvertBrowserEventToControllerEvent(BrowserEvent browserEvent) {
 		return super.tryConvertBrowserEventToControllerEvent(browserEvent);
+	}
+	
+	public List<Controller> getChildren() {
+		return children;
 	}
 
 }
