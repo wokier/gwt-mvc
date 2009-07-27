@@ -47,7 +47,7 @@ public class PocViewNumeric extends View<Integer, VerticalPanel> {
 		});
 		panel.add(minusButton);
 
-		Button reinitButton = new Button("reinit");
+		Button reinitButton = new Button("reset");
 		reinitButton.addClickListener(new ClickListener() {
 			public void onClick(Widget sender) {
 				reinitAction();

@@ -5,6 +5,7 @@ import junit.framework.TestCase;
 import org.jmock.Mockery;
 import org.jmock.lib.legacy.ClassImposteriser;
 
+import com.googlecode.gwtmvc.client.Controller;
 import com.googlecode.gwtmvc.client.IView;
 import com.googlecode.gwtmvc.client.place.DomPlacer;
 
@@ -81,4 +82,23 @@ public abstract class ControllerTestCase extends TestCase {
 	protected DomPlacer mockDomPlacer(String containerId) {
 		return mockery.mock(DomPlacer.class, containerId);
 	}
+	
+	/**
+	 * 
+	 * @param childControllerName
+	 * @return
+	 */
+	protected Controller mockChildController(String childControllerName){
+		return mockery.mock(Controller.class, childControllerName);
+	}
+	
+	/**
+	 * 
+	 * @param controllerClass
+	 * @return
+	 */
+	protected <C> C mockChildController(Class<C> controllerClass){
+		return mockery.mock(controllerClass);
+	}
+	
 }
