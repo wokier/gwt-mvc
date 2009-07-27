@@ -20,11 +20,12 @@ import java.util.Map;
  */
 public abstract class Controller {
 
-	private List<Controller> children = new ArrayList<Controller>();
+//	protected Controller parent;
+	protected List<Controller> children = new ArrayList<Controller>();
 
 	private boolean initialised;
 
-	private Enum[] actionEnumValues;
+	private List<Enum> actionEnumValues;
 
 	protected Map<String, String> urlParamsMap = new HashMap<String, String>();
 
@@ -35,7 +36,7 @@ public abstract class Controller {
 	 */
 	public Controller(Enum[] actionEnumValues) {
 		super();
-		this.actionEnumValues = actionEnumValues;
+		this.actionEnumValues = Arrays.asList(actionEnumValues);
 	}
 
 	/**
@@ -45,7 +46,7 @@ public abstract class Controller {
 	 */
 	public Controller(Controller... children) {
 		super();
-		this.children = Arrays.asList(children); 
+		this.children = Arrays.asList(children);
 	}
 
 	/**
@@ -56,8 +57,8 @@ public abstract class Controller {
 	 */
 	public Controller(Enum[] actionEnumValues, Controller... children) {
 		super();
-		this.actionEnumValues = actionEnumValues;
-		this.children = Arrays.asList(children); 
+		this.actionEnumValues = Arrays.asList(actionEnumValues);
+		this.children = Arrays.asList(children);
 	}
 
 	/**
@@ -80,6 +81,31 @@ public abstract class Controller {
 	 * @param event
 	 */
 	public void call(Event event) {
+		if (couldHandleUserEvent(event)) {
+			handleUserEvent(event);
+		} else {
+			boolean eventHandledByAChild = handleUserActionByChildren(event);
+			if(!eventHandledByAChild){
+				throw new UnavailableActionException("You have tried to use an action anavailable at this level of the controller's tree :"+this+" with this event :"+event);
+			}
+		}
+	}
+
+	private boolean handleUserActionByChildren(Event event) {
+		for (Controller child : children) {
+			if (child.couldHandleUserEvent(event)) {
+				child.handleUserEvent(event);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	protected boolean couldHandleUserEvent(Event event) {
+		return actionEnumValues.contains(event.getAction());
+	}
+
+	protected void handleUserEvent(Event event) {
 		doInitIfNecessary();
 		beginWait(event);
 		handleEvent(event);
@@ -103,9 +129,9 @@ public abstract class Controller {
 	}
 
 	/**
-	 * Manages user gestures.<br /> This method should not be called directly, Use
-	 * call instead, to allow the controller to be initialised and to allow the
-	 * maskable system.
+	 * Manages user gestures.<br />
+	 * This method should not be called directly, Use call instead, to allow the
+	 * controller to be initialised and to allow the maskable system.
 	 * 
 	 * @param event
 	 */
@@ -166,11 +192,18 @@ public abstract class Controller {
 	 *         browser Event token dont match with any action.
 	 */
 	protected Event tryConvertBrowserEventToControllerEvent(BrowserEvent browserEvent) {
-		for (int i = 0; i < actionEnumValues.length; i++) {
-			Enum actionEnumValue = actionEnumValues[i];
-			if (browserEvent.getAction().equals(actionEnumValue.name())) {
-				urlParamsMap = browserEvent.getParams();
-				return new Event(actionEnumValue);
+		Enum actionEnumValue = actionEnumValueOf(browserEvent.getAction());
+		if (actionEnumValue == null) {
+			return null;
+		}
+		urlParamsMap = browserEvent.getParams();
+		return new Event(actionEnumValue);
+	}
+
+	private Enum actionEnumValueOf(String action) {
+		for (Enum actionEnumValue : actionEnumValues) {
+			if (actionEnumValue.name().equals(action)) {
+				return actionEnumValue;
 			}
 		}
 		return null;
@@ -217,9 +250,11 @@ public abstract class Controller {
 	public boolean isInitialised() {
 		return initialised;
 	}
-	
+
 	/**
-	 * Give the url params used when the controller has been called by a browser event.
+	 * Give the url params used when the controller has been called by a browser
+	 * event.
+	 * 
 	 * @see BrowserEvent
 	 * @return
 	 */
@@ -228,13 +263,24 @@ public abstract class Controller {
 	}
 
 	/**
-	 * Give a specific param used when the controller has been called by a browser event.
+	 * Give a specific param used when the controller has been called by a
+	 * browser event.
+	 * 
 	 * @see BrowserEvent
-	 * @param param paramName (before the '=' character)
+	 * @param param
+	 *            paramName (before the '=' character)
 	 * @return
 	 */
 	public String getUrlParam(String param) {
 		return urlParamsMap.get(param);
 	}
 	
+	/**
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "actions :"+actionEnumValues + " (children :"+ children+")";
+	}
+
 }

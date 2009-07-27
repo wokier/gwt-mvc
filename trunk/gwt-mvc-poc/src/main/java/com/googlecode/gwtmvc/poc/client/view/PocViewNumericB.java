@@ -11,6 +11,7 @@ import com.googlecode.gwtmvc.client.Model;
 import com.googlecode.gwtmvc.client.ModelForView;
 import com.googlecode.gwtmvc.client.View;
 import com.googlecode.gwtmvc.poc.client.controller.PocController.PocAction;
+import com.googlecode.gwtmvc.poc.client.controller.PocControllerChild.ChildAction;
 import com.googlecode.gwtmvc.poc.client.view.components.PocIntegerLabel;
 
 public class PocViewNumericB extends View<Integer, VerticalPanel> {
@@ -47,13 +48,22 @@ public class PocViewNumericB extends View<Integer, VerticalPanel> {
 		});
 		panel.add(minusButton);
 
-		Button reinitButton = new Button("reinit");
+		Button reinitButton = new Button("reset");
 		reinitButton.addClickListener(new ClickListener() {
 			public void onClick(Widget sender) {
 				reinitAction();
 			}
 		});
 		panel.add(reinitButton);
+		
+		
+		Button reinitAllButton = new Button("reset all");
+		reinitAllButton.addClickListener(new ClickListener() {
+			public void onClick(Widget sender) {
+				reinitAllAction();
+			}
+		});
+		panel.add(reinitAllButton);
 		return panel;
 	}
 
@@ -73,6 +83,10 @@ public class PocViewNumericB extends View<Integer, VerticalPanel> {
 	
 	protected void reinitAction() {
 		controller.call(new Event<Integer, PocAction>(PocAction.DO_REINIT_B, 0));
+	}
+	
+	protected void reinitAllAction() {
+		controller.call(new Event<Integer, ChildAction>(ChildAction.DO_REINIT_ALL,0));
 	}
 	
 	@Override

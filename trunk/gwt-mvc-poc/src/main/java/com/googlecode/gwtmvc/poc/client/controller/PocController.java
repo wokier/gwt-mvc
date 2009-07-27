@@ -1,5 +1,6 @@
 package com.googlecode.gwtmvc.poc.client.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import com.allen_sauer.gwt.log.client.Log;
@@ -33,10 +34,19 @@ public class PocController extends Controller {
 	protected DomPlacer content;
 
 	public PocController() {
-		super(PocAction.values());
-		modelA = new PocModel();
-		modelB = new PocModel();
+		this(new PocModel(), new PocModel());
 	}
+	
+	protected PocController(Controller child) {
+		super(PocAction.values(),child);
+	}
+	
+	protected PocController(PocModel modelA, PocModel modelB) {
+		this(new PocControllerChild(modelA, modelB));
+		this.modelA = modelA;
+		this.modelB = modelB;
+	}
+	
 
 	@Override
 	public void init() {
@@ -136,4 +146,5 @@ public class PocController extends Controller {
 	public Map<String, String> getUrlParamsMap() {
 		return super.getUrlParamsMap();
 	}
+
 }

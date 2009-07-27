@@ -92,6 +92,9 @@ public class Event<V, A extends Enum> {
 		return maskable;
 	}
 
+	/**
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return action + "-" + value;

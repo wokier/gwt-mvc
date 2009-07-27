@@ -74,6 +74,6 @@ public class BrowserEvent {
 	 */
 	@Override
 	public String toString() {
-		return getAction();
+		return getAction() + "-" +params;
 	}
 }

@@ -46,7 +46,7 @@ public class PocControllerForm extends Controller {
 
 	@Override
 	protected void handleEvent(Event event) {
-		Log.debug("Controller handleEvent " + event);
+		Log.debug("Form Controller handleEvent " + event);
 		FormAction action = (FormAction) event.getAction();
 		switch (action) {
 		case SHOW_FORM:
