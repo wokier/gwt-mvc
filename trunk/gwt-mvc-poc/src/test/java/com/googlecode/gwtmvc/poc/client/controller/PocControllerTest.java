@@ -11,7 +11,7 @@ import com.googlecode.gwtmvc.ControllerTestCase;
 import com.googlecode.gwtmvc.client.BrowserEvent;
 import com.googlecode.gwtmvc.client.Controller;
 import com.googlecode.gwtmvc.client.Event;
-import com.googlecode.gwtmvc.client.UnavailableActionException;
+import com.googlecode.gwtmvc.client.exception.UnavailableActionException;
 import com.googlecode.gwtmvc.poc.client.controller.PocController.PocAction;
 import com.googlecode.gwtmvc.poc.client.controller.PocControllerChild.ChildAction;
 import com.googlecode.gwtmvc.poc.client.model.PocModel;

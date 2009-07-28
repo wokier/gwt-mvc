@@ -3,7 +3,7 @@ package com.googlecode.gwtmvc.client;
 import com.google.gwt.user.client.Element;
 
 /**
- * The view is the graphical part of the application get datas from model use
+ * The view is the graphical part of the application, get datas from model use
  * controler to action on the system.
  * 
  * This interface dont use any GWT class, but View did.

@@ -52,7 +52,8 @@ public abstract class MvcEntryPoint implements EntryPoint, HistoryListener {
 
 	/**
 	 * Alert the user about a mistake in the url.<br />
-	 * This behavior could be overriden
+	 * It implies that the url page is correct, but with an unknown token.<br />
+	 * This behavior should be overriden.
 	 * 
 	 * @param historyToken
 	 */
@@ -63,7 +64,7 @@ public abstract class MvcEntryPoint implements EntryPoint, HistoryListener {
 	}
 	
 	/**
-	 * Add the loading indicator, text or image placed in the initial html file
+	 * Hide the loading indicator, text or image placed in the initial html file
 	 */
 	protected abstract void hideLoadingIndicator();
 

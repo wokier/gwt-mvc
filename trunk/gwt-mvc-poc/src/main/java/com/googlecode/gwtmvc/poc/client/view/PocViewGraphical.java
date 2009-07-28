@@ -40,11 +40,10 @@ public class PocViewGraphical extends View<Integer, Label> {
 			DOM.setStyleAttribute(bar.getElement(), "background", "red");
 		}
 	}
-	
+
 	@Override
-	public void render() {
+	public void onRender() {
 		Log.debug(toString()+" render");
-		super.render();
 	}
 
 }

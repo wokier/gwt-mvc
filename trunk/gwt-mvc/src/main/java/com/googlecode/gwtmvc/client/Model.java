@@ -6,8 +6,8 @@ import java.util.List;
 /**
  * Represent a data (or a collection of data) on the client side.
  * 
- * USAGE: Your model should have methods to load his datas by a RPC call, and
- * call update method.
+ * USAGE: Your model should have his own methods to load his datas by a RPC call, and
+ * then call update method.
  * 
  * @param <T>
  *            data type
@@ -26,9 +26,18 @@ public abstract class Model<T> implements ModelForView<T> {
 	public Model() {
 		super();
 	}
+	
+	/**
+	 * Constructor with an initial value
+	 */
+	public Model(T value) {
+		super();
+		this.value = value;
+	}
 
 	/**
-	 * Initialises the model. This initialisation must be made by a controller
+	 * Initialises the model. This initialisation must be made by a controller.
+	 * @see Controller#initModel(Model)
 	 */
 	protected abstract void init();
 
@@ -96,7 +105,8 @@ public abstract class Model<T> implements ModelForView<T> {
 	}
 
 	/**
-	 * Give wether the controller has been initialised or not
+	 * Give wether the controller has been initialised or not.<br />
+	 * The controller is initialised when it handle an event, or when the method doInitIfNecessary is called.
 	 * 
 	 * @return true if it had been initialised
 	 */

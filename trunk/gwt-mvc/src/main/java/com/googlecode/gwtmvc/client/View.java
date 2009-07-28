@@ -4,7 +4,7 @@ import com.google.gwt.user.client.ui.LazyPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
- * The view is the graphical part of the application get datas from model use
+ * The view is the graphical part of the application, get datas from model use
  * controler to action on the system. <br />A LazyPanel allows to lazy-build the view
  * only when the view is rendered.
  * There could be multiple Vew on the same page.
@@ -16,7 +16,7 @@ import com.google.gwt.user.client.ui.Widget;
  * @see Controller
  * 
  * @param <T>
- *            typex
+ *            type of the main object rendered by the view
  * @param <W>
  *            content widget
  */
@@ -27,8 +27,7 @@ public abstract class View<T, W extends Widget> extends LazyPanel implements IVi
 	protected Controller controller;
 
 	/**
-	 * Build an abstract view. The view listen to his controller changes. The
-	 * view listen to his models changes.
+	 * Build a view. The view has a controller to call and listen to his models changes.
 	 * 
 	 * @param id
 	 *            Unique id for this view
@@ -36,8 +35,6 @@ public abstract class View<T, W extends Widget> extends LazyPanel implements IVi
 	 *            the controler which manage the view
 	 * @param models
 	 *            The different models on which the view could get the value.
-	 * 
-	 * USAGE: just pass Model instance
 	 */
 	public View(String id, Controller controller, Model... models) {
 		super();
@@ -75,7 +72,13 @@ public abstract class View<T, W extends Widget> extends LazyPanel implements IVi
 	 */
 	public void render() {
 		setVisible(true);
+		onRender();
 	}
+	
+	/**
+	 * Allows to add a specific behavior when the view is rendered
+	 */
+	public abstract void onRender();
 
 	/**
 	 * @see com.google.gwt.user.client.ui.UIObject#toString()

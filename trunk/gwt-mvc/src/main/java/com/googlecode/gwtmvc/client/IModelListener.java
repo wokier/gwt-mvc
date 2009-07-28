@@ -1,7 +1,7 @@
 package com.googlecode.gwtmvc.client;
 
 /**
- * Model listener. Use Observer/ observer pattern.
+ * Model listener. Use Observer/ observable pattern.
  * 
  * @see Model
  * 

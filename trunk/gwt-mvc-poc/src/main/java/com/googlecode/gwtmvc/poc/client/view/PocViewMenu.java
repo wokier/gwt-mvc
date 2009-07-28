@@ -34,11 +34,10 @@ public class PocViewMenu extends View<Object,VerticalPanel> {
 	public void onModelChange(ModelForView model) {
 		
 	}
-	
+
 	@Override
-	public void render() {
+	public void onRender() {
 		Log.debug(toString()+" render");
-		super.render();
 	}
 }
 

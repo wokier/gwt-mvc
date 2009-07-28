@@ -9,8 +9,9 @@ import com.google.gwt.user.client.History;
  * Event sent by the browser to signal a new URL or historyToken.<br />
  * The GWT historyToken system allows to follow navigation history and to have
  * bookmarkable pages.<br />
- * The historyToken is decomposed into action and params.<br />
- * Ex: url#action?param1=value1&param2=value2
+ * The historyToken in gwt-mvc could be decomposed into action and params.<br />
+ * Ex: url#action?param1=value1&param2=value2<br />
+ * You could also use the action only.
  * 
  * @see History
  */
