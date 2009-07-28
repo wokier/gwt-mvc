@@ -5,7 +5,7 @@
 
 Here is our vision of the project.
 We have some ideas of what is possible to do, but you can tell us what you need inside.
-Please start a topic on the google group for new features, or start an issue on this site.
+Please start a topic on the [http://groups.google.com/group/gwt-mvc google group] for new features, or start an [http://code.google.com/p/gwt-mvc/issues/list issue].
 
 || * Feature * || * Status * || * Version * ||
 || Create a demo/poc (many views, many rpcs, many models and menu) || Released || 0.0.1 ||
