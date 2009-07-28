@@ -6,8 +6,8 @@ import java.util.List;
 /**
  * Represent a data (or a collection of data) on the client side.
  * 
- * USAGE: Your model should have his own methods to load his datas by a RPC call, and
- * then call update method.
+ * USAGE: Your model should have his own methods to load his datas by a RPC
+ * call, and then call update method.
  * 
  * @param <T>
  *            data type
@@ -20,13 +20,15 @@ public abstract class Model<T> implements ModelForView<T> {
 
 	protected boolean initialised;
 
+	private Throwable error;
+
 	/**
 	 * Constructor
 	 */
 	public Model() {
 		super();
 	}
-	
+
 	/**
 	 * Constructor with an initial value
 	 */
@@ -37,6 +39,7 @@ public abstract class Model<T> implements ModelForView<T> {
 
 	/**
 	 * Initialises the model. This initialisation must be made by a controller.
+	 * 
 	 * @see Controller#initModel(Model)
 	 */
 	protected abstract void init();
@@ -82,6 +85,7 @@ public abstract class Model<T> implements ModelForView<T> {
 	 */
 	protected void update(T value) {
 		this.value = value;
+		this.error = null;
 		onChange();
 	}
 
@@ -94,6 +98,60 @@ public abstract class Model<T> implements ModelForView<T> {
 	 */
 	protected void update(T value, Event causeEvent) {
 		this.value = value;
+		this.error = null;
+		endWait(causeEvent);
+		onChange();
+	}
+
+	/**
+	 * Update the model and notify the change to the views.
+	 * 
+	 * @param error
+	 */
+	protected void update(Throwable error) {
+		update(error, true);
+	}
+
+	/**
+	 * @see Model#update(Object) Update as the update method, plus notify the
+	 *      end of the asynchronous call by using the maskable in the causeEvent.
+	 * 
+	 * @param error
+	 * @param causeEvent
+	 */
+	protected void update(Throwable error, Event causeEvent) {
+		update(error, causeEvent, true);
+	}
+
+	/**
+	 * Update the model and notify the error to the views.
+	 * 
+	 * @param error
+	 * @param resetValue
+	 *            if the value is set to null (default is true)
+	 */
+	protected void update(Throwable error, boolean resetValue) {
+		if (resetValue) {
+			this.value = null;
+		}
+		this.error = error;
+		onChange();
+	}
+
+	/**
+	 * @see Model#update(Object) Update as the update method, plus notify the
+	 *      end of the asynchronous call by using the maskable in the causeEvent.
+	 * 
+	 * @param error
+	 * @param causeEvent
+	 * @param resetValue
+	 *            if the value is set to null (default is true)
+	 */
+	protected void update(Throwable error, Event causeEvent, boolean resetValue) {
+		if (resetValue) {
+			this.value = null;
+		}
+		this.error = error;
 		endWait(causeEvent);
 		onChange();
 	}
@@ -106,12 +164,27 @@ public abstract class Model<T> implements ModelForView<T> {
 
 	/**
 	 * Give wether the controller has been initialised or not.<br />
-	 * The controller is initialised when it handle an event, or when the method doInitIfNecessary is called.
+	 * The controller is initialised when it handle an event, or when the method
+	 * doInitIfNecessary is called.
 	 * 
 	 * @return true if it had been initialised
 	 */
 	public boolean isInitialised() {
 		return initialised;
+	}
+
+	/**
+	 * @see com.googlecode.gwtmvc.client.ModelForView#getError()
+	 */
+	public Throwable getError() {
+		return error;
+	}
+
+	/**
+	 * @see com.googlecode.gwtmvc.client.ModelForView#hasError()
+	 */
+	public boolean hasError() {
+		return error != null;
 	}
 
 	/**
