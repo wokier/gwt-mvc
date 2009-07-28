@@ -12,7 +12,7 @@
 	<description>GWT MVC POC</description>
 
 	<properties>
-		<gwt.version>1.6.4</gwt.version>
+		<gwt.version>1.7.0</gwt.version>
 	</properties>
 
 	<profiles>

@@ -1,10 +1,10 @@
 package com.googlecode.gwtmvc.poc.client.view;
 
 import com.allen_sauer.gwt.log.client.Log;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.ClickListener;
 import com.google.gwt.user.client.ui.VerticalPanel;
-import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.gwtmvc.client.Controller;
 import com.googlecode.gwtmvc.client.Event;
 import com.googlecode.gwtmvc.client.ModelForView;
@@ -30,8 +30,8 @@ public class PocViewForm extends Form<Integer, VerticalPanel> {
 		VerticalPanel verticalPanel = new VerticalPanel();
 		verticalPanel.add(textBox);
 		verticalPanel.add(listBox);
-		verticalPanel.add(new Button(" = ",new ClickListener(){
-			public void onClick(Widget sender) {
+		verticalPanel.add(new Button(" = ",new ClickHandler(){
+			public void onClick(ClickEvent event) {
 				FormValidationResult<Integer> result = getValidationResult();
 				if(result.isValid()){
 					controller.call(new Event<Integer,FormAction>(FormAction.DO_ADDITION,result.getValue(),textBox));

@@ -1,10 +1,10 @@
 package com.googlecode.gwtmvc.poc.client.view;
 
 import com.allen_sauer.gwt.log.client.Log;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.ClickListener;
 import com.google.gwt.user.client.ui.VerticalPanel;
-import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.gwtmvc.client.Controller;
 import com.googlecode.gwtmvc.client.Event;
 import com.googlecode.gwtmvc.client.Model;
@@ -32,25 +32,22 @@ public class PocViewNumericWithMasker extends View<Integer, VerticalPanel> {
 		component = new PocIntegerLabel("label");
 		panel.add(component);
 
-		Button plusButton = new Button("+1");
-		plusButton.addClickListener(new ClickListener() {
-			public void onClick(Widget sender) {
+		Button plusButton = new Button("+1",new ClickHandler() {
+			public void onClick(ClickEvent event) {
 				plusAction();
 			}
 		});
 		panel.add(plusButton);
 
-		Button minusButton = new Button("-1");
-		minusButton.addClickListener(new ClickListener() {
-			public void onClick(Widget sender) {
+		Button minusButton = new Button("-1",new ClickHandler() {
+			public void onClick(ClickEvent event) {
 				minusAction();
 			}
 		});
 		panel.add(minusButton);
 
-		Button reinitButton = new Button("reinit");
-		reinitButton.addClickListener(new ClickListener() {
-			public void onClick(Widget sender) {
+		Button reinitButton = new Button("reinit",new ClickHandler() {
+			public void onClick(ClickEvent event) {
 				reinitAction();
 			}
 		});
