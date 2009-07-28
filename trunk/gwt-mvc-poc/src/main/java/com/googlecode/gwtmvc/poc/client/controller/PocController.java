@@ -14,19 +14,21 @@ import com.googlecode.gwtmvc.poc.client.view.PocViewGraphical;
 import com.googlecode.gwtmvc.poc.client.view.PocViewNumeric;
 import com.googlecode.gwtmvc.poc.client.view.PocViewNumericB;
 import com.googlecode.gwtmvc.poc.client.view.PocViewNumericWithMaskable;
-import com.googlecode.gwtmvc.poc.client.view.PocViewNumericWithMasker;
+import com.googlecode.gwtmvc.poc.client.view.PocViewNumericWithStyleMasker;
+import com.googlecode.gwtmvc.poc.client.view.PocViewNumericWithVisibleMasker;
 
 public class PocController extends Controller {
 
 	public enum PocAction {
-		SHOW_SIMPLE_1, SHOW_COMPLEX_2, SHOW_MASKER, SHOW_MASKABLE, DO_PLUS_A, DO_MINUS_A, DO_REINIT_A, DO_PLUS_B, DO_MINUS_B, DO_REINIT_B, SHOW_URLPARAMS
+		SHOW_SIMPLE_1, SHOW_COMPLEX_2, SHOW_MASKABLE, SHOW_STYLE_MASKER, SHOW_VISIBLE_MASKER, DO_PLUS_A, DO_MINUS_A, DO_REINIT_A, DO_PLUS_B, DO_MINUS_B, DO_REINIT_B, SHOW_URLPARAMS
 	}
 
 	protected IView<Integer> pocViewNumeric;
 	protected IView<Integer> pocViewNumericB;
 	protected IView<Integer> pocViewGraphical;
 	protected IView<Integer> pocViewNumericWithMaskable;
-	protected IView<Integer> pocViewNumericWithMasker;
+	protected IView<Integer> pocViewNumericWithStyleMasker;
+	protected IView<Integer> pocViewNumericWithVisibleMasker;
 
 	protected PocModel modelA, modelB;
 
@@ -60,9 +62,12 @@ public class PocController extends Controller {
 
 		if (pocViewNumericWithMaskable == null)
 			pocViewNumericWithMaskable = new PocViewNumericWithMaskable(this, modelA);
-		if (pocViewNumericWithMasker == null)
-			pocViewNumericWithMasker = new PocViewNumericWithMasker(this, modelA);
+		if (pocViewNumericWithStyleMasker == null)
+			pocViewNumericWithStyleMasker = new PocViewNumericWithStyleMasker(this, modelA);
+		if (pocViewNumericWithVisibleMasker == null)
+			pocViewNumericWithVisibleMasker = new PocViewNumericWithVisibleMasker(this, modelA);
 
+		
 		initModel(modelA);
 		initModel(modelB);
 
@@ -96,11 +101,14 @@ public class PocController extends Controller {
 			content.add(pocViewNumericB);
 			content.add(pocViewGraphical);
 			break;
-		case SHOW_MASKER:
-			content.clearAndAdd(pocViewNumericWithMasker);
-			break;
 		case SHOW_MASKABLE:
 			content.clearAndAdd(pocViewNumericWithMaskable);
+			break;
+		case SHOW_STYLE_MASKER:
+			content.clearAndAdd(pocViewNumericWithStyleMasker);
+			break;
+		case SHOW_VISIBLE_MASKER:
+			content.clearAndAdd(pocViewNumericWithVisibleMasker);
 			break;
 		case DO_PLUS_A:
 			modelA.plus((Integer) event.getValue(), event);
@@ -115,10 +123,10 @@ public class PocController extends Controller {
 			modelB.minus((Integer) event.getValue(), event);
 			break;
 		case DO_REINIT_A:
-			updateModel(modelA, 0, event);
+			modelA.reinit(event);
 			break;
 		case DO_REINIT_B:
-			updateModel(modelB, 0, event);
+			modelB.reinit(event);
 			break;
 		case SHOW_URLPARAMS:
 			content.clearAndAdd(pocViewNumeric);

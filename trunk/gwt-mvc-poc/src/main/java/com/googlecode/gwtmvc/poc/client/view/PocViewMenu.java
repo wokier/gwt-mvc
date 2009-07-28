@@ -22,11 +22,12 @@ public class PocViewMenu extends View<Object,VerticalPanel> {
 		verticalPanel.add(new Hyperlink("Intro",PocMenuAction.SHOW_INTRO.name()));
 		verticalPanel.add(new Hyperlink("1 model - 1 view",PocAction.SHOW_SIMPLE_1.name()));
 		verticalPanel.add(new Hyperlink("2 models - 3 views",PocAction.SHOW_COMPLEX_2.name()));
-		verticalPanel.add(new Hyperlink("Masker",PocAction.SHOW_MASKER.name()));
 		verticalPanel.add(new Hyperlink("Maskable",PocAction.SHOW_MASKABLE.name()));
+		verticalPanel.add(new Hyperlink("Masker (StyleMasker)",PocAction.SHOW_STYLE_MASKER.name()));
+		verticalPanel.add(new Hyperlink("Masker (VisibleMasker)",PocAction.SHOW_VISIBLE_MASKER.name()));
 		verticalPanel.add(new Hyperlink("404 Error (Unknown history token)","invalidToken"));
 		verticalPanel.add(new Hyperlink("Form Validation",FormAction.SHOW_FORM.name()));
-		verticalPanel.add(new Hyperlink("Url parameters",PocAction.SHOW_URLPARAMS.name() +"?modelA=5"));
+		verticalPanel.add(new Hyperlink("Url parameters (value=5)",PocAction.SHOW_URLPARAMS.name() +"?modelA=5"));
 		return verticalPanel;
 	}
 	

@@ -34,8 +34,9 @@ public class PocControllerTest extends ControllerTestCase {
 		controller.pocViewNumericB = mockView("pocViewNumericBMock");
 		controller.pocViewGraphical = mockView("pocViewGraphicalMock");
 
-		controller.pocViewNumericWithMasker = mockView("pocViewNumericWithMaskerMock");
 		controller.pocViewNumericWithMaskable = mockView("pocViewNumericWithMaskableMock");
+		controller.pocViewNumericWithStyleMasker = mockView("pocViewNumericWithStyleMaskerMock");
+		controller.pocViewNumericWithVisibleMasker = mockView("pocViewNumericWithVisibleMaskerMock");
 
 		controller.content = mockDomPlacer("content");
 
@@ -87,17 +88,32 @@ public class PocControllerTest extends ControllerTestCase {
 	}
 
 	@Test
-	public void testCallSHOW_MASKER() {
+	public void testCallSHOW_STYLE_MASKER() {
 		mockery.checking(new Expectations() {
 			{
 				oneOf(controller.modelA).init();
 				oneOf(controller.modelB).init();
 
-				// oneOf(controller.pocViewNumericWithMasker).render();
-				oneOf(controller.content).clearAndAdd(controller.pocViewNumericWithMasker);
+				oneOf(controller.content).clearAndAdd(controller.pocViewNumericWithStyleMasker);
 			}
 		});
-		controller.call(new Event<String, PocAction>(PocAction.SHOW_MASKER));
+		controller.call(new Event<String, PocAction>(PocAction.SHOW_STYLE_MASKER));
+
+		assertTrue(controller.isInitialised());
+
+	}
+	
+	@Test
+	public void testCallSHOW_VISIBLE_MASKER() {
+		mockery.checking(new Expectations() {
+			{
+				oneOf(controller.modelA).init();
+				oneOf(controller.modelB).init();
+
+				oneOf(controller.content).clearAndAdd(controller.pocViewNumericWithVisibleMasker);
+			}
+		});
+		controller.call(new Event<String, PocAction>(PocAction.SHOW_VISIBLE_MASKER));
 
 		assertTrue(controller.isInitialised());
 

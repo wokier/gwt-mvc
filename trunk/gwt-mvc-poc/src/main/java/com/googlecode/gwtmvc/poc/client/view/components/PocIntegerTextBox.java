@@ -4,7 +4,7 @@ import com.allen_sauer.gwt.log.client.Log;
 import com.google.gwt.user.client.ui.TextBox;
 import com.googlecode.gwtmvc.client.Maskable;
 import com.googlecode.gwtmvc.client.form.FormValidationElement;
-import com.googlecode.gwtmvc.poc.client.PocMasker;
+import com.googlecode.gwtmvc.poc.client.PocStyleMasker;
 
 public class PocIntegerTextBox extends TextBox implements FormValidationElement, Maskable {
 	
@@ -43,11 +43,11 @@ public class PocIntegerTextBox extends TextBox implements FormValidationElement,
 	
 	public void mask() {
 		Log.debug("maskable mask");
-		addStyleName(PocMasker.MASK_STYLE_NAME);
+		addStyleName(PocStyleMasker.MASK_STYLE_NAME);
 	}
 	
 	public void unmask() {
 		Log.debug("maskable unmask");
-		removeStyleName(PocMasker.MASK_STYLE_NAME);
+		removeStyleName(PocStyleMasker.MASK_STYLE_NAME);
 	}	
 }
