@@ -10,17 +10,17 @@ import com.googlecode.gwtmvc.client.Event;
 import com.googlecode.gwtmvc.client.Model;
 import com.googlecode.gwtmvc.client.ModelForView;
 import com.googlecode.gwtmvc.client.View;
-import com.googlecode.gwtmvc.poc.client.PocMasker;
+import com.googlecode.gwtmvc.poc.client.PocStyleMasker;
 import com.googlecode.gwtmvc.poc.client.controller.PocController.PocAction;
 import com.googlecode.gwtmvc.poc.client.view.components.PocIntegerLabel;
 
-public class PocViewNumericWithMasker extends View<Integer, VerticalPanel> {
+public class PocViewNumericWithStyleMasker extends View<Integer, VerticalPanel> {
 
-	public static final String ID = "masker";
+	public static final String ID = "styleMasker";
 
 	PocIntegerLabel component;
 
-	public PocViewNumericWithMasker(Controller controller, Model model) {
+	public PocViewNumericWithStyleMasker(Controller controller, Model model) {
 		super(ID, controller, model);
 	}
 
@@ -56,15 +56,15 @@ public class PocViewNumericWithMasker extends View<Integer, VerticalPanel> {
 	}
 
 	protected void plusAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_PLUS_A, component.getValue(), PocMasker.getInstance()));
+		controller.call(new Event<Integer, PocAction>(PocAction.DO_PLUS_A, component.getValue(), PocStyleMasker.getInstance()));
 	}
 
 	protected void minusAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_MINUS_A, component.getValue(), PocMasker.getInstance()));
+		controller.call(new Event<Integer, PocAction>(PocAction.DO_MINUS_A, component.getValue(), PocStyleMasker.getInstance()));
 	}
 
 	protected void reinitAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_REINIT_A, 0, PocMasker.getInstance()));
+		controller.call(new Event<Integer, PocAction>(PocAction.DO_REINIT_A, 0, PocStyleMasker.getInstance()));
 	}
 
 	@Override

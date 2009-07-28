@@ -1,5 +1,7 @@
 package com.googlecode.gwtmvc.poc.client.model;
 
+import com.allen_sauer.gwt.log.client.Log;
+import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.googlecode.gwtmvc.client.Event;
@@ -46,6 +48,17 @@ public class PocModel extends Model<Integer> {
 			}
 		};
 		PocMinusRPC.Util.getInstance(useServerRPCCall).minus(integer, callback);
+	}
+	
+	public void reinit(final Event causeEvent) {
+		Log.debug("waiting 2s");
+		new Timer(){
+			@Override
+			public void run() {
+				update(0,causeEvent);
+			}
+		}
+		.schedule(2000);
 	}
 	
 	@Override
