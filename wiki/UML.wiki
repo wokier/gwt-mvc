@@ -8,15 +8,15 @@ It cannot be compared with a 'web 1' mvc.
 
 = Classes =
 
-http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/gwt-mvc.jpeg
+http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.2/gwt-mvc.jpeg
 
 
 = Sequences =
 
-http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/gwt-mvc-sequence-home.jpeg
+http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.2/gwt-mvc-sequence-home.jpeg
 
-http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/gwt-mvc-sequence-page.jpeg
+http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.2/gwt-mvc-sequence-page.jpeg
 
-http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/gwt-mvc-sequence-menu.jpeg
+http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.2/gwt-mvc-sequence-menu.jpeg
 
-http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/gwt-mvc-sequence-rpc.jpeg
+http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.2/gwt-mvc-sequence-rpc.jpeg
