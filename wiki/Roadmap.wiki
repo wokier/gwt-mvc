@@ -19,8 +19,8 @@ Please start a topic on the [http://groups.google.com/group/gwt-mvc google group
 || --> You are here <-- ||  ||  ||
 || Add normalized url arguments || Done || 0.3 ||
 || Enable decorator/layout pattern to structure multi-view screens [http://groups.google.com/group/gwt-mvc/browse_thread/thread/bba0671fb490bdb7 Post in Group]|| Done|| 0.3 ||
-|| Hierachical controller (for all Events) ? || Done || 0.3 ||
-|| Simple Exception Handling [http://groups.google.com/group/gwt-mvc/browse_thread/thread/a826a8b6b5a458fa Post in Group]|| TODO || 0.3 ||
+|| Hierachical controller (for all Events) || Done || 0.3 ||
+|| Simple Exception Handling [http://groups.google.com/group/gwt-mvc/browse_thread/thread/a826a8b6b5a458fa Post in Group]|| Done || 0.3 ||
 || replace the swith(event) in controllers by annotation like @handle(event=Actions.DO) || ? || ? || 
 || Use GWT 1.6 [http://code.google.com/intl/fr-FR/webtoolkit/doc/1.6/DevGuideUserInterface.html#DevGuideEventsAndHandlers Event System] || ? || ? ||
 || Help for a simple CRUD || ? || ? ||
