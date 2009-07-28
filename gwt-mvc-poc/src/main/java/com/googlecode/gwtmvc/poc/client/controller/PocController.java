@@ -1,6 +1,5 @@
 package com.googlecode.gwtmvc.poc.client.controller;
 
-import java.util.List;
 import java.util.Map;
 
 import com.allen_sauer.gwt.log.client.Log;
