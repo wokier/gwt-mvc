@@ -90,9 +90,7 @@ public class PocViewNumericB extends View<Integer, VerticalPanel> {
 	}
 	
 	@Override
-	public void render() {
+	public void onRender() {
 		Log.debug(toString()+" render");
-		super.render();
 	}
-	
 }

@@ -69,8 +69,7 @@ public class PocViewForm extends Form<Integer, VerticalPanel> {
 	}
 	
 	@Override
-	public void render() {
+	public void onRender() {
 		Log.debug(toString()+" render");
-		super.render();
 	}
 }

@@ -25,11 +25,9 @@ public class PocViewIntro extends View<Object, HTML> {
 	public void onModelChange(ModelForView model) {
 
 	}
-	
-	@Override
-	public void render() {
-		Log.debug(toString()+" render");
-		super.render();
-	}
 
+	@Override
+	public void onRender() {
+		Log.debug(toString()+" render");
+	}
 }

@@ -15,7 +15,9 @@ public abstract class Masker implements Maskable {
 	/**
 	 * Build a masker for the entire application. I allows to use a global wait
 	 * screen.
+	 * @deprecated
 	 */
+	@Deprecated
 	public Masker() {
 		super();
 	}
@@ -24,7 +26,9 @@ public abstract class Masker implements Maskable {
 	 * Build a masker for the element
 	 * 
 	 * @param elementToMask
+	 * @deprecated
 	 */
+	@Deprecated
 	public Masker(Element elementToMask) {
 		super();
 		this.elementToMask = elementToMask;
@@ -34,7 +38,9 @@ public abstract class Masker implements Maskable {
 	 * Give the element to mask
 	 * 
 	 * @return
+	 * @deprecated
 	 */
+	@Deprecated
 	public Element getElementToMask() {
 		return elementToMask;
 	}

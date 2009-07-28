@@ -22,7 +22,7 @@ public class Event<V, A extends Enum> {
 	private Maskable maskable;
 
 	/**
-	 * Builds an event
+	 * Builds an simple event
 	 * 
 	 * @param action
 	 */
@@ -43,7 +43,7 @@ public class Event<V, A extends Enum> {
 	}
 
 	/**
-	 * Builds an event with a value, and a maskable
+	 * Builds an event with a maskable
 	 * 
 	 * @param action
 	 * @param maskable

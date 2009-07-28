@@ -6,17 +6,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.googlecode.gwtmvc.client.exception.UnavailableActionException;
+import com.googlecode.gwtmvc.client.place.DomPlacer;
+
 /**
  * The controller acts as a coordinator. It responds to user gestures, call the
  * model and select the correct view to render.<br />
  * 
  * USAGE: The controller knows its models and can call their methods. The
  * controller knows its view and can render them.<br />
+ * To render the view, the controller could place them and render them himself, or use a DomPlacer. <br />
  * Create an inner Enum class of the possible actions, and pass its values in
  * the constructor to enable the event Handling.
  * 
  * @see Model
  * @see View
+ * @see DomPlacer
  */
 public abstract class Controller {
 
@@ -30,7 +35,7 @@ public abstract class Controller {
 	protected Map<String, String> urlParamsMap = new HashMap<String, String>();
 
 	/**
-	 * Constructor with action values
+	 * Constructor with action values, for a controller without children
 	 * 
 	 * @param actionEnumValues
 	 */
@@ -40,7 +45,7 @@ public abstract class Controller {
 	}
 
 	/**
-	 * Constructor with children
+	 * Constructor with children, for a controller that does not handle any event, but forward all to its children
 	 * 
 	 * @param children
 	 */
@@ -69,12 +74,14 @@ public abstract class Controller {
 
 	/**
 	 * Initialise the controller. This method is called at the first time the
-	 * controller handle an event.
+	 * controller handle an event. <br />Use doInitIfNecessary if you want the controller to be initialised in other cases.
 	 */
-	public abstract void init();
+	protected abstract void init();
 
 	/**
-	 * Show the default page for this controller
+	 * Show the default page for this controller.<br />
+	 * This could be the application Home Page, for the rootController,
+	 * or an intermedaite 'home' page for other controllers.
 	 */
 	public abstract void showHomeView();
 
@@ -137,24 +144,27 @@ public abstract class Controller {
 	/**
 	 * Manages user gestures.<br />
 	 * This method should not be called directly, Use call instead, to allow the
-	 * controller to be initialised and to allow the maskable system.
+	 * controller to be initialised and to allow the maskable system.<br />
+	 * Implements this method by 'switching' the different events available for this controller.
 	 * 
 	 * @param event
 	 */
 	protected abstract void handleEvent(Event event);
 
 	/**
-	 * Place the view on the dom tree, and 'render' it
+	 * Place the view on the dom tree, and 'render' it.
+	 * You could use a Dome Placer for that.
 	 * 
 	 * @see IView#render()
+	 * @see DomPlacer
 	 * 
 	 * @param view
 	 */
 	protected abstract void renderView(IView view);
 
 	/**
-	 * call the update method on the model, as the method update can only be
-	 * called by a controller.
+	 * Call the update method on the model, as the method update can only be
+	 * called by a controller, or the model itself.
 	 * 
 	 * @param <M>
 	 *            model data type
@@ -166,8 +176,8 @@ public abstract class Controller {
 	}
 
 	/**
-	 * call the update method on the model, as the method update can only be
-	 * called by a controller.
+	 * Call the update method on the model, as the method update can only be
+	 * called by a controller. Add the causeEvent allows to use the Maskable.
 	 * 
 	 * @param <M>
 	 *            model data type
@@ -180,7 +190,7 @@ public abstract class Controller {
 	}
 
 	/**
-	 * call the init method on the model, as the method init can only be called
+	 * Call the init method on the model, as the method init can only be called
 	 * by a controller.
 	 * 
 	 * @param model
@@ -217,7 +227,7 @@ public abstract class Controller {
 
 	/**
 	 * Manages history. use the controller itself or his childs to handle the
-	 * browser event
+	 * browser event. You should not call this method directly.
 	 * 
 	 * @param browserEvent
 	 * @return true if the historyToken match to an action on any controller
@@ -285,7 +295,7 @@ public abstract class Controller {
 	 * Give an acces to the root controller of this controllers tree
 	 * @return
 	 */
-	public Object getRootController() {
+	public Controller getRootController() {
 		Controller rootController = this;
 		while (rootController.parent != null){
 			rootController = rootController.parent;
