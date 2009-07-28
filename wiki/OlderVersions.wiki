@@ -7,7 +7,7 @@
  * [http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/javadoc/0.2/index.html Javadoc]
  * [http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/releases/gwt-mvc-0.2.0-gwt-1.5.jar Download gwt-mvc-0.2.0-gwt-1.5]
  * [http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/releases/gwt-mvc-0.2.1-gwt-1.6.jar Download gwt-mvc-0.2.1-gwt-1.6]
- * [http://code.google.com/p/gwt-mvc/source/browse/#svn/tags/0.2/gwt-mvc-poc/src/main/java/com/googlecode/gwtmvc/poc/client]
+ * [http://code.google.com/p/gwt-mvc/source/browse/#svn/tags/0.2/gwt-mvc-poc/src/main/java/com/googlecode/gwtmvc/poc/client Demo Source]
  * [http://code.google.com/p/gwt-mvc/source/browse/#svn/tags/0.2/gwt-mvc/src/main/java/com/googlecode/gwtmvc/client Code Source]
 
 == UML ==
