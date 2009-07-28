@@ -4,7 +4,7 @@
 = gwt-mvc 0.2=
 
 Follow this steps:
-  * Have a look at the Demo
+  * Have a look at the [http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc-poc/demo/0.2/com.googlecode.gwtmvc.poc.GwtMvcPoc/GwtMvcPoc.html Demo]
   * Download the library depending on your gwt version
   * Add it to the project classpath
   * Add the module to your '.gwt.xml' module file
@@ -67,9 +67,8 @@ public class PocViewNumeric extends View<Integer, VerticalPanel> {
 		component = new PocIntegerLabel("labelA");
 		panel.add(component);
 
-		Button plusButton = new Button("+1");
-		plusButton.addClickListener(new ClickListener() {
-			public void onClick(Widget sender) {
+		Button plusButton = new Button("+1",new ClickHandler() {
+			public void onClick(ClickEvent event) {
 				plusAction();
 			}
 		});
@@ -153,7 +152,6 @@ public class PocController extends Controller {
 
 	@Override
 	public void init() {
-		Log.debug("Controller init");
 		
 		if (pocViewNumeric == null)
 			pocViewNumeric = new PocViewNumeric(this, modelA);
@@ -163,12 +161,11 @@ public class PocController extends Controller {
 
 	@Override
 	public void showHomeView() {
-		Log.debug("Show Home View");
+		
 	}
 
 	@Override
 	protected void handleEvent(Event event) {
-		Log.debug("Controller handleEvent " + event);
 
 		PocAction action = (PocAction) event.getAction();
 
@@ -190,7 +187,6 @@ public class PocController extends Controller {
 
 	@Override
 	protected void renderView(IView view) {
-		Log.debug("Controller renderView " + view);
 		if (view instanceof View) {// Enable testing without GWT.create() error
 			RootPanel.get("loading").setVisible(false);
 			RootPanel.get("content").add((View) view);
