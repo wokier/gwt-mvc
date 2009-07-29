@@ -6,9 +6,9 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.googlecode.gwtmvc.client.Controller;
-import com.googlecode.gwtmvc.client.Event;
 import com.googlecode.gwtmvc.client.Model;
 import com.googlecode.gwtmvc.client.ModelForView;
+import com.googlecode.gwtmvc.client.MvcEvent;
 import com.googlecode.gwtmvc.client.View;
 import com.googlecode.gwtmvc.poc.client.controller.PocController.PocAction;
 import com.googlecode.gwtmvc.poc.client.controller.PocControllerChild.ChildAction;
@@ -70,19 +70,19 @@ public class PocViewNumericB extends View<Integer, VerticalPanel> {
 	}
 	
 	protected void plusAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_PLUS_B, component.getValue()));
+		controller.call(new MvcEvent<Integer>(PocAction.DO_PLUS_B, component.getValue()));
 	}
 	
 	protected void minusAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_MINUS_B, component.getValue()));
+		controller.call(new MvcEvent<Integer>(PocAction.DO_MINUS_B, component.getValue()));
 	}
 	
 	protected void reinitAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_REINIT_B, 0));
+		controller.call(new MvcEvent<Integer>(PocAction.DO_REINIT_B, 0));
 	}
 	
 	protected void reinitAllAction() {
-		controller.call(new Event<Integer, ChildAction>(ChildAction.DO_REINIT_ALL,0));
+		controller.call(new MvcEvent<Integer>(ChildAction.DO_REINIT_ALL,0));
 	}
 	
 	@Override

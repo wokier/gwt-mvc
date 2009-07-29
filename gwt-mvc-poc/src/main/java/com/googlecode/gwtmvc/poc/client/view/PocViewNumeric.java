@@ -9,6 +9,7 @@ import com.googlecode.gwtmvc.client.Controller;
 import com.googlecode.gwtmvc.client.Event;
 import com.googlecode.gwtmvc.client.Model;
 import com.googlecode.gwtmvc.client.ModelForView;
+import com.googlecode.gwtmvc.client.MvcEvent;
 import com.googlecode.gwtmvc.client.View;
 import com.googlecode.gwtmvc.poc.client.controller.PocController.PocAction;
 import com.googlecode.gwtmvc.poc.client.view.components.PocIntegerLabel;
@@ -55,15 +56,15 @@ public class PocViewNumeric extends View<Integer, VerticalPanel> {
 	}
 
 	protected void plusAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_PLUS_A, component.getValue()));
+		controller.call(new MvcEvent<Integer>(PocAction.DO_PLUS_A, component.getValue()));
 	}
 
 	protected void minusAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_MINUS_A, component.getValue()));
+		controller.call(new MvcEvent<Integer>(PocAction.DO_MINUS_A, component.getValue()));
 	}
 
 	protected void reinitAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_REINIT_A, 0));
+		controller.call(new MvcEvent<Integer>(PocAction.DO_REINIT_A, 0));
 	}
 
 	@Override
