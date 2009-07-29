@@ -6,8 +6,8 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.googlecode.gwtmvc.client.Controller;
-import com.googlecode.gwtmvc.client.Event;
 import com.googlecode.gwtmvc.client.ModelForView;
+import com.googlecode.gwtmvc.client.MvcEvent;
 import com.googlecode.gwtmvc.client.form.Form;
 import com.googlecode.gwtmvc.client.form.FormValidationBuilder;
 import com.googlecode.gwtmvc.client.form.FormValidationResult;
@@ -34,7 +34,7 @@ public class PocViewForm extends Form<Integer, VerticalPanel> {
 			public void onClick(ClickEvent event) {
 				FormValidationResult<Integer> result = getValidationResult();
 				if(result.isValid()){
-					controller.call(new Event<Integer,FormAction>(FormAction.DO_ADDITION,result.getValue(),textBox));
+					controller.call(new MvcEvent<Integer>(FormAction.DO_ADDITION,result.getValue(),textBox));
 				}
 			}
 		}));

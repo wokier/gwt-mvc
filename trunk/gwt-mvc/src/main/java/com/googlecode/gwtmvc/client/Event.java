@@ -13,7 +13,9 @@ package com.googlecode.gwtmvc.client;
  *            value
  * @param <A>
  *            action
+ * @deprecated use MvcEvent instead
  */
+@Deprecated
 public class Event<V, A extends Enum> {
 
 	private V value;

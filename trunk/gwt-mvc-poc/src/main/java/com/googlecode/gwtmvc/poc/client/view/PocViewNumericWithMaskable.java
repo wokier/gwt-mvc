@@ -6,9 +6,9 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.googlecode.gwtmvc.client.Controller;
-import com.googlecode.gwtmvc.client.Event;
 import com.googlecode.gwtmvc.client.Model;
 import com.googlecode.gwtmvc.client.ModelForView;
+import com.googlecode.gwtmvc.client.MvcEvent;
 import com.googlecode.gwtmvc.client.View;
 import com.googlecode.gwtmvc.poc.client.controller.PocController.PocAction;
 import com.googlecode.gwtmvc.poc.client.view.components.PocIntegerLabel;
@@ -55,15 +55,15 @@ public class PocViewNumericWithMaskable extends View<Integer, VerticalPanel> {
 	}
 
 	protected void plusAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_PLUS_A, component.getValue(),component));
+		controller.call(new MvcEvent<Integer>(PocAction.DO_PLUS_A, component.getValue(),component));
 	}
 
 	protected void minusAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_MINUS_A, component.getValue(),component));
+		controller.call(new MvcEvent<Integer>(PocAction.DO_MINUS_A, component.getValue(),component));
 	}
 
 	protected void reinitAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_REINIT_A, 0, component));
+		controller.call(new MvcEvent<Integer>(PocAction.DO_REINIT_A, 0, component));
 	}
 
 	@Override
