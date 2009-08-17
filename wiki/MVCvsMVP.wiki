@@ -11,6 +11,9 @@ Here is the main source of documentation :
 And the discussion following :
 [http://groups.google.fr/group/Google-Web-Toolkit/browse_thread/thread/8b0ae5eaf84d8bc2/60890e5e7e98be06?lnk=gst&q=eventbus#60890e5e7e98be06]
 
+Other links:
+http://www.ongwt.com/post/2009/08/16/GWT-MVP-(Model-View-Presenter)-Link-directory
+
 ==MVC==
 http://gwt-mvc.googlecode.com/svn/wiki/mvc.png
 
@@ -54,5 +57,4 @@ not fit to gwt. too much generic...
 gwt-mvc tries to offer a guide for the developer, that really fit to
 gwt (EntryPoint, historyTokens, ...), and that allows to develop in
 TDD.
-
-
+Plus gwt-mvc is really a framework, not an approach or an exemple.
