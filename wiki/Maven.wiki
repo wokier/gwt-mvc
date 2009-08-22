@@ -24,6 +24,10 @@ Add the gwt-mvc dependency in the dependencies part
 <dependency>
 	<groupId>gwt-mvc</groupId>
 	<artifactId>gwt-mvc</artifactId>
-	<version>0.2.1-gwt-1.6</version>
+	<version>0.3</version>
 </dependency>
 }}}
+
+Note: There is no more differents verision of gwt-mvc depending on your gwt version.
+gwt-mvc now cover all version since gwt 1.5
+(LazyPanel is now simply copied in the library)
