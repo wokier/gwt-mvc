@@ -1,22 +1,21 @@
 #summary Some UML diagrams explaining gwt-mvc
 #labels Phase-Design,Featured
 
-= Intro =
-
-The gwt-mvc is an mvc in a web client context with asynchronous calls.
-It cannot be compared with a 'web 1' mvc.
-
 = Classes =
 
-http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.2/gwt-mvc.jpeg
+http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.3/gwt-mvc.jpeg
 
 
 = Sequences =
 
-http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.2/gwt-mvc-sequence-home.jpeg
+http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.3/gwt-mvc-sequence-home.jpeg
 
-http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.2/gwt-mvc-sequence-page.jpeg
+http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.3/gwt-mvc-sequence-page.jpeg
 
-http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.2/gwt-mvc-sequence-menu.jpeg
+http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.3/gwt-mvc-sequence-page-domplacer.jpeg
 
-http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.2/gwt-mvc-sequence-rpc.jpeg
+http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.3/gwt-mvc-sequence-menu.jpeg
+
+http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.3/gwt-mvc-sequence-rpc.jpeg
+
+http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.3/gwt-mvc-sequence-rpc-maskable.jpeg
