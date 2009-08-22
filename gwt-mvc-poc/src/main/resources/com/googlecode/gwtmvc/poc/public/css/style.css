@@ -39,6 +39,10 @@
 	border: 1px solid #FF0000;
 	background: #FF4466;
 }
+.errorMessage {
+	color: red;
+	height: 1em;
+}
 
 #loading {
 	align: center;
