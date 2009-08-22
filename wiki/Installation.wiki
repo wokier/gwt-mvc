@@ -1,14 +1,15 @@
 #summary How-to use gwt-mvc in your gwt project
 #labels Phase-Deploy,Featured
 
-= gwt-mvc 0.2=
+= gwt-mvc 0.3=
 
 Follow this steps:
   * Have a look at the [http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc-poc/demo/0.2/com.googlecode.gwtmvc.poc.GwtMvcPoc/GwtMvcPoc.html Demo]
-  * Download the library depending on your gwt version
-  * Add it to the project classpath
+  * Download the library
+  * Add it to the project classpath (You can use [http://code.google.com/p/gwt-mvc/wiki/Maven Maven] to do it)
   * Add the module to your '.gwt.xml' module file
   * Have a look at the Demo Source
+  * Join the [http://groups.google.com/group/gwt-mvc group] to ask your questions
   * Enjoy
 
 == Add the module ==
@@ -43,6 +44,20 @@ public class PocEntryPoint extends MvcEntryPoint {
 	public PocEntryPoint() {
 		super(new PocControllerMenu());
 	}
+
+        @Override
+	protected void hideLoadingIndicator() {
+		RootPanel.get("loading").setVisible(false);
+	}
+
+	public void onUncaughtException(Throwable e) {
+		Window.alert(e.getMessage());
+	}
+	
+	@Override
+	protected void showPeripherals() {
+		RootPanel.get("menu").add(new MyMenu());
+	}
 	
 }
 }}}
@@ -69,16 +84,12 @@ public class PocViewNumeric extends View<Integer, VerticalPanel> {
 
 		Button plusButton = new Button("+1",new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				plusAction();
+				controller.call(new MvcEvent<Integer>(PocAction.DO_PLUS_A, component.getValue()));
 			}
 		});
 		panel.add(plusButton);
 
 		return panel;
-	}
-
-	protected void plusAction() {
-		controller.call(new Event<Integer, PocAction>(PocAction.DO_PLUS_A, component.getValue()));
 	}
 
 	@Override
@@ -105,6 +116,8 @@ public class PocControllerTest extends ControllerTestCase {
 		controller.modelA = mockModel(PocModel.class,"modelAMock");
 
 		controller.pocViewNumeric = mockView("pocViewNumericMock");
+
+                controller.content = mockDomPlacer("content");
 	}
 
 	@After
@@ -119,9 +132,11 @@ public class PocControllerTest extends ControllerTestCase {
 				oneOf(controller.modelA).init();
 
 				oneOf(controller.pocViewNumeric).render();
+
+                                oneOf(controller.contentDomPlacer). clearAndAdd(controller.pocViewNumeric);
 			}
 		});
-		controller.call(new Event<String, PocAction>(PocAction.SHOW_SIMPLE_1), component);
+		controller.call(new MvcEvent<String>(PocAction.SHOW_SIMPLE_1), component);
 
 		assertTrue(controller.isInitialised());
 
@@ -145,6 +160,9 @@ public class PocController extends Controller {
 	
 	protected PocModel modelA;
 
+        protected contentDomPlacer;
+
+
 	public PocController() {
 		super(PocAction.values());
 		modelA = new PocModel();
@@ -157,6 +175,8 @@ public class PocController extends Controller {
 			pocViewNumeric = new PocViewNumeric(this, modelA);
 		
 		initModel(modelA);
+
+                contentDomPlacer = new DivWrapperPlacer("content");
 	}
 
 	@Override
@@ -171,27 +191,16 @@ public class PocController extends Controller {
 
 		switch (action) {
 		case SHOW_SIMPLE_1:
-			clearContent(pocViewNumeric instanceof View);
 			renderView(pocViewNumeric);
 			break;
 		default:
-			Log.debug("Unknown action");
-		}
-	}
-
-	private void clearContent(boolean isTestMode) {
-		if (isTestMode) {
-			RootPanel.get("content").clear();
+			Window.alert("Unknown action");
 		}
 	}
 
 	@Override
 	protected void renderView(IView view) {
-		if (view instanceof View) {// Enable testing without GWT.create() error
-			RootPanel.get("loading").setVisible(false);
-			RootPanel.get("content").add((View) view);
-		}
-		view.render();
+                contentDomPlacer.clearAndAdd(view);
 	}
 
 }
