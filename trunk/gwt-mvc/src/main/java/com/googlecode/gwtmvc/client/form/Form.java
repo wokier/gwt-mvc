@@ -65,4 +65,15 @@ public abstract class Form<T, W extends Widget> extends View<T, W> {
 		return new FormValidationResult<T>();
 	}
 
+	/**
+	 * Display a validation error message for the global form, or a validation error concerning multiple fileds. 
+	 * @param text
+	 */
+	public abstract void setFormErrorMessage(String text);
+	
+	/**
+	 * Clear the global validation error message
+	 * @see #setFormErrorMessage(String)
+	 */
+	public abstract void clearFormErrorMessage();
 }

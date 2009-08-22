@@ -59,7 +59,7 @@ public class PocControllerTest extends ControllerTestCase {
 				oneOf(controller.content).clearAndAdd(controller.pocViewNumeric);
 			}
 		});
-		controller.call(new Event<String, PocAction>(PocAction.SHOW_SIMPLE_1));
+		controller.call(new Event<String, PocAction>(PocAction.SHOW_SIMPLE));
 
 		assertTrue(controller.isInitialised());
 
@@ -81,7 +81,7 @@ public class PocControllerTest extends ControllerTestCase {
 				oneOf(controller.content).add(controller.pocViewGraphical);
 			}
 		});
-		controller.call(new Event<String, PocAction>(PocAction.SHOW_COMPLEX_2));
+		controller.call(new Event<String, PocAction>(PocAction.SHOW_COMPLEX));
 
 		assertTrue(controller.isInitialised());
 
@@ -198,19 +198,19 @@ public class PocControllerTest extends ControllerTestCase {
 
 	@Test
 	public void testTryConvertBrowserEventToControllerEventSHOW_SIMPLE_1() {
-		assertEquals(PocAction.SHOW_SIMPLE_1, controller.tryConvertBrowserEventToControllerEvent(
+		assertEquals(PocAction.SHOW_SIMPLE, controller.tryConvertBrowserEventToControllerEvent(
 				new BrowserEvent("SHOW_SIMPLE_1")).getAction());
 	}
 
 	@Test
 	public void testTryConvertBrowserEventToControllerEventSHOW_SIMPLE_1_camelCase() {
-		assertEquals(PocAction.SHOW_SIMPLE_1, controller.tryConvertBrowserEventToControllerEvent(
+		assertEquals(PocAction.SHOW_SIMPLE, controller.tryConvertBrowserEventToControllerEvent(
 				new BrowserEvent("show_simple_1")).getAction());
 	}
 
 	@Test
 	public void testTryConvertBrowserEventToControllerEventSHOW_COMPLEX_2() {
-		assertEquals(PocAction.SHOW_COMPLEX_2, controller.tryConvertBrowserEventToControllerEvent(
+		assertEquals(PocAction.SHOW_COMPLEX, controller.tryConvertBrowserEventToControllerEvent(
 				new BrowserEvent("SHOW_COMPLEX_2")).getAction());
 	}
 

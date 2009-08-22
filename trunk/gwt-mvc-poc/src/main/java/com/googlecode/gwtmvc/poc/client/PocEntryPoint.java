@@ -18,4 +18,12 @@ public class PocEntryPoint extends MvcEntryPoint {
 		Log.getDivLogger().moveTo(10, 400);
 	}
 	
+	public void onUncaughtException(Throwable e) {
+		Log.error("Uncaught Exeption",e);
+	}
+	
+	@Override
+	protected void showPeripherals() {
+		
+	}
 }

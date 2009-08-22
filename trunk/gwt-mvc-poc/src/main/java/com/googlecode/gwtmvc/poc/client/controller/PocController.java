@@ -20,7 +20,7 @@ import com.googlecode.gwtmvc.poc.client.view.PocViewNumericWithVisibleMasker;
 public class PocController extends Controller {
 
 	public enum PocAction {
-		SHOW_SIMPLE_1, SHOW_COMPLEX_2, SHOW_MASKABLE, SHOW_STYLE_MASKER, SHOW_VISIBLE_MASKER, DO_PLUS_A, DO_MINUS_A, DO_REINIT_A, DO_PLUS_B, DO_MINUS_B, DO_REINIT_B, SHOW_URLPARAMS
+		SHOW_SIMPLE, SHOW_COMPLEX, SHOW_MASKABLE, SHOW_STYLE_MASKER, SHOW_VISIBLE_MASKER, DO_PLUS_A, DO_MINUS_A, DO_REINIT_A, DO_PLUS_B, DO_MINUS_B, DO_REINIT_B, SHOW_URLPARAMS
 	}
 
 	protected IView<Integer> pocViewNumeric;
@@ -93,10 +93,10 @@ public class PocController extends Controller {
 		PocAction action = (PocAction) event.getAction();
 
 		switch (action) {
-		case SHOW_SIMPLE_1:
+		case SHOW_SIMPLE:
 			content.clearAndAdd(pocViewNumeric);
 			break;
-		case SHOW_COMPLEX_2:
+		case SHOW_COMPLEX:
 			content.clearAndAdd(pocViewNumeric);
 			content.add(pocViewNumericB);
 			content.add(pocViewGraphical);

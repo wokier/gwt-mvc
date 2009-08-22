@@ -30,7 +30,7 @@ public abstract class Controller {
 
 	private boolean initialised;
 
-	private List<Enum> actionEnumValues;
+	private List<Enum> actionEnumValues = new ArrayList<Enum>();
 
 	protected Map<String, String> urlParamsMap = new HashMap<String, String>();
 

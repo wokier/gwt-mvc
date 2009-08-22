@@ -1,6 +1,8 @@
 package com.googlecode.gwtmvc.client;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.HistoryListener;
 import com.google.gwt.user.client.Window;
@@ -12,10 +14,10 @@ import com.google.gwt.user.client.Window;
  * 
  * @see EntryPoint
  */
-public abstract class MvcEntryPoint implements EntryPoint, HistoryListener {
+public abstract class MvcEntryPoint implements EntryPoint, HistoryListener, UncaughtExceptionHandler {
 
 	protected Controller rootController;
-
+	
 	/**
 	 * Build an EntryPoint with the specified controller as entry
 	 * 
@@ -24,12 +26,14 @@ public abstract class MvcEntryPoint implements EntryPoint, HistoryListener {
 	public MvcEntryPoint(Controller rootController) {
 		super();
 		this.rootController = rootController;
+		GWT.setUncaughtExceptionHandler(this);
 	}
 
 	/**
 	 * @see com.google.gwt.core.client.EntryPoint#onModuleLoad()
 	 */
 	public void onModuleLoad() {
+		showPeripherals();
 		rootController.init();
 		History.addHistoryListener(this);
 		String historyToken = History.getToken();
@@ -62,6 +66,12 @@ public abstract class MvcEntryPoint implements EntryPoint, HistoryListener {
 				+ " is unknown. This is the home page.");
 		rootController.showHomeView();
 	}
+
+	/**
+	 * Show peripheral elements as header and menu.<br />
+	 * This will always be called, wether the home page or a specific page is requested.
+	 */
+	protected abstract void showPeripherals();
 	
 	/**
 	 * Hide the loading indicator, text or image placed in the initial html file
