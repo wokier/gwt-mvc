@@ -1,6 +1,20 @@
 #summary Different versions release Notes
 #labels Featured
 
+== v0.3 ==
+2009-08-24
+
+== New Features ==
+
+ * Add normalized url arguments
+ * Enable decorator/layout pattern to structure multi-view screens [http://groups.google.com/group/gwt-mvc/browse_thread/thread/bba0671fb490bdb7 Post in Group]: DomPlacer
+ * Hierachical controller (for all Events, not only browser events)
+ * Simple Exception Handling [http://groups.google.com/group/gwt-mvc/browse_thread/thread/a826a8b6b5a458fa Post in Group]
+ * Distinction between StyleMasker and VisibleMasker
+
+There is only one version for all gwt versions from gwt-1.5 to gwt-1.7
+The lazyPanel class is just copied into gwt-mvc library.
+
 == v0.2.1-gwt1.6 ==
 2009-06-09
 
