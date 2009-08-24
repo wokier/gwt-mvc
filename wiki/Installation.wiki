@@ -131,8 +131,6 @@ public class PocControllerTest extends ControllerTestCase {
 			{
 				oneOf(controller.modelA).init();
 
-				oneOf(controller.pocViewNumeric).render();
-
                                 oneOf(controller.contentDomPlacer). clearAndAdd(controller.pocViewNumeric);
 			}
 		});
