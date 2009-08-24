@@ -17,7 +17,7 @@ Please start a topic on the [http://groups.google.com/group/gwt-mvc google group
 || Simple form validation : form package || Released || 0.2 ||
 || Base the view on a lazy Panel instead of Composite || Released || 0.2 ||
 || Add normalized url arguments || Released || 0.3 ||
-|| Enable decorator/layout pattern to structure multi-view screens [http://groups.google.com/group/gwt-mvc/browse_thread/thread/bba0671fb490bdb7 Post in Group]|| Released || 0.3 ||
+|| Enable decorator/layout pattern to structure multi-view screens [http://groups.google.com/group/gwt-mvc/browse_thread/thread/bba0671fb490bdb7 Post in Group] : DomPlacer|| Released || 0.3 ||
 || Hierachical controller (for all Events) || Released || 0.3 ||
 || Simple Exception Handling [http://groups.google.com/group/gwt-mvc/browse_thread/thread/a826a8b6b5a458fa Post in Group]|| Released || 0.3 ||
 || --> You are here <-- ||  ||  ||
