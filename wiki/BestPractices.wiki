@@ -1,14 +1,14 @@
 #summary Best Practices
 #labels Phase-Implementation
 
-= Best Practices 'auto' provided by gwt-mvc =
+== Best Practices 'auto' provided by gwt-mvc ==
  * LazyPanel : a view is only built when it became visible
  * Bookmarkability
  * Separation of concerns
  * Keep References : By having references on different views, the controller could place each of them multiple times, but only instanciate them once.
 
 
-= Best Practices when using gwt-mvc =
+== Best Practices when using gwt-mvc ==
  * Display the maximum of elements in the initial html page
  * Notify each asynchronous call by using a maskable
  * Notify each form validation error with a visible sign and an error text
