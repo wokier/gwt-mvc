@@ -5,7 +5,7 @@
  * LazyPanel : a view is only built when it became visible
  * Bookmarkability
  * Separation of concerns
- * Keep References : By having references on different views, the controller could place each of them multiple times, but only instanciate them once.
+ * Keep References : By having references on different views, a controller could place each of them multiple times, but only instanciate them once
 
 
 == Best Practices when using gwt-mvc ==
@@ -14,3 +14,4 @@
  * Notify each form validation error with a visible sign and an error text
  * Use a controller hierarchy
  * Make a singleton for a shared model
+ * Follow Usablity best practices...
