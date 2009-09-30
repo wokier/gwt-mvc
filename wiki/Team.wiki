@@ -11,6 +11,7 @@ igor.mihalic@gmail.com Igor Mihàlik
 == How to join us ? ==
 
 To join the project, you should :
-* Be a member of the [http://groups.google.fr/group/gwt-mvc google group] (active or not)
-* Propose a class or a piece of code that works, to be integrated in the project
-* Be accepted by all the members of the team
+
+ * Be a member of the [http://groups.google.fr/group/gwt-mvc google group] (active or not)
+ * Propose a class or a piece of code that works, to be integrated in the project
+ * Be accepted by all the members of the team
