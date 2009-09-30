@@ -1,9 +1,16 @@
 #summary Project members
 
+== Members ==
+
 wokier@gmail.com [http://francois.wauquier.fr François Wauquier] Developer at [http://www.sfeir.com/ Sfeir]
 
 pierre.mage@gmail.com Pierre Mage Developer at [http://www.sfeir.com/ Sfeir]
 
-igor.mihalic@gmail.com Igor Miàlik 
+igor.mihalic@gmail.com Igor Mihàlik 
 
-Interested? Join Us !
+== How to join us ? ==
+
+To join the project, you should :
+* Be a member of the [http://groups.google.fr/group/gwt-mvc google group] (active or not)
+* Propose a class or a piece of code that works, to be integrated in the project
+* Be accepted by all the members of the team
