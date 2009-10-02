@@ -6,6 +6,7 @@
  * Bookmarkability
  * Separation of concerns
  * Keep References : By having references on different views, a controller could place each of them multiple times, but only instanciate them once
+ * Controller lazy init: The controller is only initialized at its first call
 
 
 == Best Practices when using gwt-mvc ==
@@ -14,4 +15,5 @@
  * Notify each form validation error with a visible sign and an error text
  * Use a controller hierarchy
  * Make a singleton for a shared model
- * Follow Usablity best practices...
+ * Put ALL the design in CSS, just place the widget with GWT
+ * Follow Usability best practices...
