@@ -30,8 +30,6 @@ The View use the controller.
 The Controller use the model and wait for the callback, then place, render the views and give datas from the model to the views.
 The Model calls the server, wait for the asynchronous callback, and notify the controller.
 
-The more serious framework that implements MVP is [http://code.google.com/p/mvp4g/ mvp4g]
-
 With MVP, the controller, here called presenter, pushed the
 datas of the model to the view, instead of (in mvc), that the view
 read the model as it renders.
@@ -54,7 +52,10 @@ generic solution, that could be applied to any language/technology.
 But the promise was to big, and a was disappointed, because it does
 not fit to gwt. too much generic...
 
+== Conclusion ==
+
 gwt-mvc tries to offer a guide for the developer, that really fit to
 gwt (EntryPoint, historyTokens, ...), and that allows to develop in
 TDD.
+
 Plus gwt-mvc is really a framework, not an approach or an exemple.
