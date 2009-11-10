@@ -1,0 +1,24 @@
+-classpath
+'c:/GWT-MVC/workspace/gwt-mvc/target/classes;C:/maven-repository/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar;C:/maven-repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar;C:/maven-repository/org/jmock/jmock/2.5.0/jmock-2.5.0.jar;C:/maven-repository/org/hamcrest/hamcrest-library/1.1/hamcrest-library-1.1.jar;C:/maven-repository/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar;C:/maven-repository/com/google/gwt/gwt-user/1.6.4/gwt-user-1.6.4.jar;C:/maven-repository/org/jmock/jmock-legacy/2.5.0/jmock-legacy-2.5.0.jar;C:/maven-repository/junit/junit/4.5/junit-4.5.jar'
+-encoding
+'Cp1252'
+-protected
+-sourcepath
+'c:/GWT-MVC/workspace/gwt-mvc/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2009. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'c:/GWT-MVC/workspace/gwt-mvc/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'gwt-mvc 0.3 API'
+-link
+'http://java.sun.com/j2se/1.5.0/docs/api'
+-use
+-version
+-windowtitle
+'gwt-mvc 0.3 API'

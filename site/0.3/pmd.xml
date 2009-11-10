@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="4.2.2" timestamp="2009-11-10T17:56:43.687">
+<file name="c:\GWT-MVC\workspace\gwt-mvc\src\main\java\com\googlecode\gwtmvc\ControllerTestCase.java">
+<violation beginline="37" endline="39" begincolumn="19" endcolumn="9" rule="UselessOverridingMethod" ruleset="Basic Rules" package="com.googlecode.gwtmvc" class="ControllerTestCase" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#UselessOverridingMethod" priority="3">
+Overriding method merely calls super
+</violation>
+</file>
+</pmd>
