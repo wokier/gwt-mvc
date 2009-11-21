@@ -12,8 +12,10 @@
  * [http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.3/gwt-mvc.jpeg Classes]
  * [http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.3/gwt-mvc-sequence-home.jpeg Sequence Home]
  * [http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.3/gwt-mvc-sequence-page.jpeg Sequence Page]
+ * [http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.3/gwt-mvc-sequence-page-domplacer.jpeg Sequence Page with DomPlacer]
  * [http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.3/gwt-mvc-sequence-menu.jpeg Sequence Menu]
  * [http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.3/gwt-mvc-sequence-rpc.jpeg Sequence RPC call]
+ * [http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.3/gwt-mvc-sequence-rpc-maskable.jpeg Sequence RPC call with Maskable]
 
 = 0.2 =
 == Documentation ==
