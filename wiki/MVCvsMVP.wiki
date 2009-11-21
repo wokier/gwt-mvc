@@ -1,5 +1,5 @@
 #summary Comparison of 2 approaches
-#labels Phase-Requirements,Featured
+#labels Phase-Requirements
 
 = MVC vs MVP =
 
