@@ -7,11 +7,11 @@ package com.googlecode.gwtmvc.client.form;
 public interface FormValidationElement {
 
 	/**
-	 * Validate what the user had taped or selected.<br />
+	 * Validate what the user had taped or selected.<br>
 	 * Error notification could be done at the same time
 	 * 
 	 * @return
 	 */
-	public boolean validate();
+	boolean validate();
 
 }

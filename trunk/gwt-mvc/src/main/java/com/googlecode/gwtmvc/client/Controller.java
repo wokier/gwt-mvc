@@ -11,11 +11,11 @@ import com.googlecode.gwtmvc.client.place.DomPlacer;
 
 /**
  * The controller acts as a coordinator. It responds to user gestures, call the
- * model and select the correct view to render.<br />
+ * model and select the correct view to render.<br>
  * 
  * USAGE: The controller knows its models and can call their methods. The
- * controller knows its view and can render them.<br />
- * To render the view, the controller could place them and render them himself, or use a DomPlacer. <br />
+ * controller knows its view and can render them.<br>
+ * To render the view, the controller could place them and render them himself, or use a DomPlacer. <br>
  * Create an inner Enum class of the possible actions, and pass its values in
  * the constructor to enable the event Handling.
  * 
@@ -74,12 +74,12 @@ public abstract class Controller {
 
 	/**
 	 * Initialise the controller. This method is called at the first time the
-	 * controller handle an event. <br />Use doInitIfNecessary if you want the controller to be initialised in other cases.
+	 * controller handle an event. <br>Use doInitIfNecessary if you want the controller to be initialised in other cases.
 	 */
 	protected abstract void init();
 
 	/**
-	 * Show the default page for this controller.<br />
+	 * Show the default page for this controller.<br>
 	 * This could be the application Home Page, for the rootController,
 	 * or an intermedaite 'home' page for other controllers.
 	 */
@@ -93,18 +93,18 @@ public abstract class Controller {
 	 * 
 	 * @param event
 	 */
-	public void call(Event event) {
+	public void call(MvcEvent event) {
 		if (couldHandleUserEvent(event)) {
 			handleUserEvent(event);
 		} else {
-			boolean eventHandledByAChild = handleUserActionByChildren(event);
-			if(!eventHandledByAChild){
+			boolean eventHandledByChild = handleUserActionByChildren(event);
+			if(!eventHandledByChild){
 				throw new UnavailableActionException("You have tried to use an action anavailable at this level of the controller's tree :"+this+" with this event :"+event);
 			}
 		}
 	}
 
-	private boolean handleUserActionByChildren(Event event) {
+	private boolean handleUserActionByChildren(MvcEvent event) {
 		for (Controller child : children) {
 			if (child.couldHandleUserEvent(event)) {
 				child.handleUserEvent(event);
@@ -114,11 +114,11 @@ public abstract class Controller {
 		return false;
 	}
 
-	protected boolean couldHandleUserEvent(Event event) {
+	protected boolean couldHandleUserEvent(MvcEvent event) {
 		return actionEnumValues.contains(event.getAction());
 	}
 
-	protected void handleUserEvent(Event event) {
+	protected void handleUserEvent(MvcEvent event) {
 		doInitIfNecessary();
 		beginWait(event);
 		handleEvent(event);
@@ -135,25 +135,25 @@ public abstract class Controller {
 		}
 	}
 
-	private void beginWait(Event event) {
+	private void beginWait(MvcEvent event) {
 		if (event.getMaskable() != null) {
 			event.getMaskable().mask();
 		}
 	}
 
 	/**
-	 * Manages user gestures.<br />
+	 * Manages user gestures.<br>
 	 * This method should not be called directly, Use call instead, to allow the
-	 * controller to be initialised and to allow the maskable system.<br />
+	 * controller to be initialised and to allow the maskable system.<br>
 	 * Implements this method by 'switching' the different events available for this controller.
 	 * 
 	 * @param event
 	 */
-	protected abstract void handleEvent(Event event);
+	protected abstract void handleEvent(MvcEvent event);
 
 	/**
 	 * Place the view on the dom tree, and 'render' it.
-	 * You could use a Dome Placer for that.
+	 * You could use a Dom Placer for that.
 	 * 
 	 * @see IView#render()
 	 * @see DomPlacer
@@ -185,7 +185,7 @@ public abstract class Controller {
 	 * @param value
 	 * @param causeEvent
 	 */
-	protected <M> void updateModel(Model<M> model, M value, Event causeEvent) {
+	protected <M> void updateModel(Model<M> model, M value, MvcEvent causeEvent) {
 		model.update(value, causeEvent);
 	}
 
@@ -207,13 +207,13 @@ public abstract class Controller {
 	 * @return a new event if the controller could handle it, null if the
 	 *         browser Event token dont match with any action.
 	 */
-	protected Event tryConvertBrowserEventToControllerEvent(BrowserEvent browserEvent) {
+	protected MvcEvent tryConvertBrowserEventToControllerEvent(BrowserEvent browserEvent) {
 		Enum actionEnumValue = actionEnumValueOf(browserEvent.getAction());
 		if (actionEnumValue == null) {
 			return null;
 		}
 		urlParamsMap = browserEvent.getParams();
-		return new Event(actionEnumValue);
+		return new MvcEvent(actionEnumValue);
 	}
 
 	private Enum actionEnumValueOf(String action) {
@@ -233,14 +233,15 @@ public abstract class Controller {
 	 * @return true if the historyToken match to an action on any controller
 	 */
 	protected boolean handleBrowserEvent(BrowserEvent browserEvent) {
-		if (handleBrowserEventMyself(browserEvent))
+		if (handleBrowserEventMyself(browserEvent)){
 			return true;
+		}
 		return handleBrowserEventByChildren(browserEvent);
 	}
 
 	private boolean handleBrowserEventByChildren(BrowserEvent browserEvent) {
 		for (Controller child : children) {
-			Event event = child.tryConvertBrowserEventToControllerEvent(browserEvent);
+			MvcEvent event = child.tryConvertBrowserEventToControllerEvent(browserEvent);
 			if (event != null) {
 				child.call(event);
 				return true;
@@ -250,7 +251,7 @@ public abstract class Controller {
 	}
 
 	private boolean handleBrowserEventMyself(BrowserEvent browserEvent) {
-		Event event = tryConvertBrowserEventToControllerEvent(browserEvent);
+		MvcEvent event = tryConvertBrowserEventToControllerEvent(browserEvent);
 		if (event != null) {
 			call(event);
 			return true;

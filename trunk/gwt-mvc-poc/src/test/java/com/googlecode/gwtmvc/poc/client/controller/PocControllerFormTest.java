@@ -3,7 +3,7 @@ package com.googlecode.gwtmvc.poc.client.controller;
 import org.jmock.Expectations;
 
 import com.googlecode.gwtmvc.ControllerTestCase;
-import com.googlecode.gwtmvc.client.Event;
+import com.googlecode.gwtmvc.client.MvcEvent;
 import com.googlecode.gwtmvc.poc.client.controller.PocControllerForm.FormAction;
 import com.googlecode.gwtmvc.poc.client.model.PocModel;
 
@@ -11,6 +11,7 @@ public class PocControllerFormTest extends ControllerTestCase {
 
 	PocControllerForm controller;
 
+	
 	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
@@ -34,14 +35,14 @@ public class PocControllerFormTest extends ControllerTestCase {
 			}
 		});
 
-		controller.call(new Event<Object, FormAction>(FormAction.SHOW_FORM));
+		controller.call(new MvcEvent<Object>(FormAction.SHOW_FORM));
 
 		assertTrue(controller.isInitialised());
 	}
 
 	public void testCallDO_ADDITION() throws Exception {
 
-		final Event<Integer, FormAction> event = new Event<Integer, FormAction>(FormAction.DO_ADDITION,5);
+		final MvcEvent<Integer> event = new MvcEvent<Integer>(FormAction.DO_ADDITION,5);
 		mockery.checking(new Expectations() {
 			{
 				oneOf(controller.formModel).init();

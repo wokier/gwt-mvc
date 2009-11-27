@@ -1,4 +1,5 @@
 package com.googlecode.gwtmvc.client;
+
 /**
  * Represents an event on the gui.
  * 
@@ -11,15 +12,21 @@ package com.googlecode.gwtmvc.client;
  * @param <V>
  *            value
  */
-public class MvcEvent<V> extends Event {
-	
+public class MvcEvent<V> {
+
+	private V value;
+	private Enum action;
+
+	private Maskable maskable;
+
 	/**
 	 * Builds an simple event
 	 * 
 	 * @param action
 	 */
 	public MvcEvent(Enum action) {
-		super(action);
+		super();
+		this.action = action;
 	}
 
 	/**
@@ -29,7 +36,8 @@ public class MvcEvent<V> extends Event {
 	 * @param value
 	 */
 	public MvcEvent(Enum action, V value) {
-		super(action, value);
+		this(action);
+		this.value = value;
 	}
 
 	/**
@@ -39,7 +47,8 @@ public class MvcEvent<V> extends Event {
 	 * @param maskable
 	 */
 	public MvcEvent(Enum action, Maskable maskable) {
-		super(action, maskable);
+		this(action);
+		this.maskable = maskable;
 	}
 
 	/**
@@ -50,8 +59,42 @@ public class MvcEvent<V> extends Event {
 	 * @param maskable
 	 */
 	public MvcEvent(Enum action, V value, Maskable maskable) {
-		super(action, value, maskable);
+		this(action, value);
+		this.maskable = maskable;
 	}
 
-	
+	/**
+	 * Give the event action
+	 * 
+	 * @return
+	 */
+	public Enum getAction() {
+		return action;
+	}
+
+	/**
+	 * Give the event value
+	 * 
+	 * @return
+	 */
+	public V getValue() {
+		return value;
+	}
+
+	/**
+	 * Give the optional maskable
+	 * 
+	 * @return
+	 */
+	public Maskable getMaskable() {
+		return maskable;
+	}
+
+	/**
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return action + "-" + value;
+	}
 }

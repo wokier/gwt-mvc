@@ -18,7 +18,7 @@ public class ControllerTest extends TestCase{
 		@Override
 		protected void init() {}
 		@Override
-		protected void handleEvent(Event event) {}
+		protected void handleEvent(MvcEvent event) {}
 		@Override
 		protected void renderView(IView view) {}
 		@Override
@@ -27,6 +27,7 @@ public class ControllerTest extends TestCase{
 	
 	enum Action {DO}
 	
+	@Test
 	public void testCall() {
 		try{
 			Controller controller = new NoActionsController();

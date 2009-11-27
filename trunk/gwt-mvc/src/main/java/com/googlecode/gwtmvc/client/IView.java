@@ -19,7 +19,7 @@ public interface IView<D> extends IModelListener<D> {
 	 * @see Element#getId()
 	 * @return
 	 */
-	public abstract String getId();
+	abstract String getId();
 
 	/**
 	 * Render the view after it has been placed.
@@ -27,11 +27,11 @@ public interface IView<D> extends IModelListener<D> {
 	 * 
 	 * @see Controller#renderView(IView)
 	 */
-	public abstract void render();
+	abstract void render();
 
 	/**
 	 * @see com.google.gwt.user.client.ui.UIObject#isVisible()
 	 */
-	public boolean isVisible();
+	boolean isVisible();
 
 }

@@ -11,7 +11,7 @@
    <rule ref="rulesets/braces.xml/ForLoopsMustUseBraces"/>
    <rule ref="rulesets/controversial.xml/UnnecessaryConstructor"/>
    <rule ref="rulesets/controversial.xml/NullAssignment"/>
-   <rule ref="rulesets/controversial.xml/OnlyOneReturn"/>
+   <!-- <rule ref="rulesets/controversial.xml/OnlyOneReturn"/> -->
    <rule ref="rulesets/controversial.xml/UnusedModifier"/>
    <rule ref="rulesets/controversial.xml/AssignmentInOperand"/>
    <rule ref="rulesets/controversial.xml/AtLeastOneConstructor"/>
@@ -149,8 +149,8 @@
    <rule ref="rulesets/j2ee.xml/DoNotCallSystemExit"/>
    <rule ref="rulesets/j2ee.xml/StaticEJBFieldShouldBeFinal"/>
    <rule ref="rulesets/j2ee.xml/DoNotUseThreads"/>
-   <rule ref="rulesets/optimizations.xml/LocalVariableCouldBeFinal"/>
-   <rule ref="rulesets/optimizations.xml/MethodArgumentCouldBeFinal"/>
+   <!-- <rule ref="rulesets/optimizations.xml/LocalVariableCouldBeFinal"/> -->
+   <!-- <rule ref="rulesets/optimizations.xml/MethodArgumentCouldBeFinal"/> -->
    <rule ref="rulesets/optimizations.xml/AvoidInstantiatingObjectsInLoops"/>
    <rule ref="rulesets/optimizations.xml/UseArrayListInsteadOfVector"/>
    <rule ref="rulesets/optimizations.xml/SimplifyStartsWith"/>
@@ -171,7 +171,7 @@
    <rule ref="rulesets/imports.xml/TooManyStaticImports"/>
    <rule ref="rulesets/junit.xml/JUnitStaticSuite"/>
    <rule ref="rulesets/junit.xml/JUnitSpelling"/>
-   <rule ref="rulesets/junit.xml/JUnitAssertionsShouldIncludeMessage"/>
+   <!-- <rule ref="rulesets/junit.xml/JUnitAssertionsShouldIncludeMessage"/> -->
    <rule ref="rulesets/junit.xml/JUnitTestsShouldIncludeAssert"/>
    <rule ref="rulesets/junit.xml/TestClassWithoutTestCases"/>
    <rule ref="rulesets/junit.xml/UnnecessaryBooleanAssertion"/>
@@ -185,7 +185,7 @@
    <rule ref="rulesets/naming.xml/VariableNamingConventions"/>
    <rule ref="rulesets/naming.xml/MethodNamingConventions"/>
    <rule ref="rulesets/naming.xml/ClassNamingConventions"/>
-   <rule ref="rulesets/naming.xml/AbstractNaming"/>
+   <!-- <rule ref="rulesets/naming.xml/AbstractNaming"/> -->
    <rule ref="rulesets/naming.xml/AvoidDollarSigns"/>
    <rule ref="rulesets/naming.xml/MethodWithSameNameAsEnclosingClass"/>
    <rule ref="rulesets/naming.xml/SuspiciousHashcodeMethodName"/>
@@ -216,7 +216,7 @@
    <rule ref="rulesets/finalizers.xml/AvoidCallingFinalize"/>
    <rule ref="rulesets/logging-jakarta-commons.xml/UseCorrectExceptionLogging"/>
    <rule ref="rulesets/logging-jakarta-commons.xml/ProperLogger"/>
-   <rule ref="rulesets/javabeans.xml/BeanMembersShouldSerialize"/>
+   <!-- <rule ref="rulesets/javabeans.xml/BeanMembersShouldSerialize"/> -->
    <rule ref="rulesets/javabeans.xml/MissingSerialVersionUID"/>
    <rule ref="rulesets/clone.xml/ProperCloneImplementation"/>
    <rule ref="rulesets/clone.xml/CloneThrowsCloneNotSupportedException"/>

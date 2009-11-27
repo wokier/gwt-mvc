@@ -11,7 +11,9 @@ import java.util.List;
  * 
  * @param <T>
  *            data type
+ * @deprecated Use ModelProxy instead
  */
+@Deprecated
 public abstract class Model<T> implements ModelForView<T> {
 
 	protected T value;
@@ -82,7 +84,10 @@ public abstract class Model<T> implements ModelForView<T> {
 	 * Update the model and notify the change to the views.
 	 * 
 	 * @param value
+	 * @deprecated
+	 * @see Model#update(Object, MvcEvent)
 	 */
+	@Deprecated
 	protected void update(T value) {
 		this.value = value;
 		this.error = null;
@@ -96,7 +101,7 @@ public abstract class Model<T> implements ModelForView<T> {
 	 * @param value
 	 * @param causeEvent
 	 */
-	protected void update(T value, Event causeEvent) {
+	protected void update(T value, MvcEvent causeEvent) {
 		this.value = value;
 		this.error = null;
 		endWait(causeEvent);
@@ -119,7 +124,7 @@ public abstract class Model<T> implements ModelForView<T> {
 	 * @param error
 	 * @param causeEvent
 	 */
-	protected void update(Throwable error, Event causeEvent) {
+	protected void update(Throwable error, MvcEvent causeEvent) {
 		update(error, causeEvent, true);
 	}
 
@@ -129,6 +134,8 @@ public abstract class Model<T> implements ModelForView<T> {
 	 * @param error
 	 * @param resetValue
 	 *            if the value is set to null (default is true)
+	 * @deprecated
+	 * @see Model#update(Throwable, MvcEvent, boolean)
 	 */
 	protected void update(Throwable error, boolean resetValue) {
 		if (resetValue) {
@@ -147,7 +154,7 @@ public abstract class Model<T> implements ModelForView<T> {
 	 * @param resetValue
 	 *            if the value is set to null (default is true)
 	 */
-	protected void update(Throwable error, Event causeEvent, boolean resetValue) {
+	protected void update(Throwable error, MvcEvent causeEvent, boolean resetValue) {
 		if (resetValue) {
 			this.value = null;
 		}
@@ -156,14 +163,14 @@ public abstract class Model<T> implements ModelForView<T> {
 		onChange();
 	}
 
-	private void endWait(Event causeEvent) {
+	private void endWait(MvcEvent causeEvent) {
 		if (causeEvent.getMaskable() != null) {
 			causeEvent.getMaskable().unmask();
 		}
 	}
 
 	/**
-	 * Give wether the controller has been initialised or not.<br />
+	 * Give wether the controller has been initialised or not.<br>
 	 * The controller is initialised when it handle an event, or when the method
 	 * doInitIfNecessary is called.
 	 * 

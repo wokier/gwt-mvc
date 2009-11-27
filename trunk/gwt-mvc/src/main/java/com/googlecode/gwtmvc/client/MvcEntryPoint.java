@@ -8,7 +8,7 @@ import com.google.gwt.user.client.HistoryListener;
 import com.google.gwt.user.client.Window;
 
 /**
- * Implements GWT entry point.<br />
+ * Implements GWT entry point.<br>
  * 
  * USAGE : configure your module with a concrete class extending this one
  * 
@@ -55,8 +55,8 @@ public abstract class MvcEntryPoint implements EntryPoint, HistoryListener, Unca
 	}
 
 	/**
-	 * Alert the user about a mistake in the url.<br />
-	 * It implies that the url page is correct, but with an unknown token.<br />
+	 * Alert the user about a mistake in the url.<br>
+	 * It implies that the url page is correct, but with an unknown token.<br>
 	 * This behavior should be overriden.
 	 * 
 	 * @param historyToken
@@ -68,7 +68,7 @@ public abstract class MvcEntryPoint implements EntryPoint, HistoryListener, Unca
 	}
 
 	/**
-	 * Show peripheral elements as header and menu.<br />
+	 * Show peripheral elements as header and menu.<br>
 	 * This will always be called, wether the home page or a specific page is requested.
 	 */
 	protected abstract void showPeripherals();

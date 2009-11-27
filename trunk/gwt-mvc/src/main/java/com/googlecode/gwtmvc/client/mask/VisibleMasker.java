@@ -3,7 +3,7 @@ package com.googlecode.gwtmvc.client.mask;
 import com.google.gwt.user.client.ui.UIObject;
 import com.googlecode.gwtmvc.client.Maskable;
 /**
- * Allow to externally mask an element. <br />A masker will generally mask the entire
+ * Allow to externally mask an element. <br>A masker will generally mask the entire
  * application and block any user action
  */
 public class VisibleMasker implements Maskable {

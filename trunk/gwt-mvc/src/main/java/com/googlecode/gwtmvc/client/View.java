@@ -5,7 +5,7 @@ import com.google.gwt.user.client.ui.Widget;
 
 /**
  * The view is the graphical part of the application, get datas from model use
- * controler to action on the system. <br />A LazyPanel allows to lazy-build the view
+ * controler to action on the system. <br>A LazyPanel allows to lazy-build the view
  * only when the view is rendered.
  * There could be multiple Vew on the same page.
  * 
@@ -60,7 +60,7 @@ public abstract class View<T, W extends Widget> extends LazyPanel implements IVi
 	public abstract W createWidget();
 
 	/**
-	 * Update the view with one of the models it listen.<br />
+	 * Update the view with one of the models it listen.<br>
 	 * use ensureWidget to force the lazy panel to build up
 	 * 
 	 * @see com.googlecode.gwtmvc.client.IModelListener#onModelChange(com.googlecode.gwtmvc.client.ModelForView)

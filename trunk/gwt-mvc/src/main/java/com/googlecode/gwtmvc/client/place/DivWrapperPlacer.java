@@ -4,8 +4,8 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.googlecode.gwtmvc.client.IView;
 import com.googlecode.gwtmvc.client.View;
 /**
- * A DivWrapperPlacer is a DomPlacer based on the initial html file.<br />
- * This html file must contain some div with unique id. <br />
+ * A DivWrapperPlacer is a DomPlacer based on the initial html file.<br>
+ * This html file must contain some div with unique id. <br>
  * The html file acts as a decorator. It first place all static content, then different views are placed in the page.
  * @see RootPanel  
  */
