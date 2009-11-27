@@ -8,6 +8,6 @@ package com.googlecode.gwtmvc.client;
  * @param <T>
  *            data type
  */
-public abstract class ModelProxy extends Model {
+public abstract class ModelProxy<T> extends Model<T> {
 
 }

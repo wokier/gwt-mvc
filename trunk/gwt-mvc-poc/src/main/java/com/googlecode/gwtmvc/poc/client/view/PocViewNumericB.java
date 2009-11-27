@@ -6,8 +6,8 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.googlecode.gwtmvc.client.Controller;
-import com.googlecode.gwtmvc.client.Model;
 import com.googlecode.gwtmvc.client.ModelForView;
+import com.googlecode.gwtmvc.client.ModelProxy;
 import com.googlecode.gwtmvc.client.MvcEvent;
 import com.googlecode.gwtmvc.client.View;
 import com.googlecode.gwtmvc.poc.client.controller.PocController.PocAction;
@@ -20,7 +20,7 @@ public class PocViewNumericB extends View<Integer, VerticalPanel> {
 
 	PocIntegerLabel component;
 
-	public PocViewNumericB(Controller controller, Model model) {
+	public PocViewNumericB(Controller controller, ModelProxy model) {
 		super(ID, controller, model);
 	}
 

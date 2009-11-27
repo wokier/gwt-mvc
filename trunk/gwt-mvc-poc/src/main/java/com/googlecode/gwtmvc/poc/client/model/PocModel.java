@@ -4,12 +4,12 @@ import com.allen_sauer.gwt.log.client.Log;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.googlecode.gwtmvc.client.Model;
+import com.googlecode.gwtmvc.client.ModelProxy;
 import com.googlecode.gwtmvc.client.MvcEvent;
 import com.googlecode.gwtmvc.poc.client.rpc.PocMinusRPC;
 import com.googlecode.gwtmvc.poc.client.rpc.PocPlusRPC;
 
-public class PocModel extends Model<Integer> {
+public class PocModel extends ModelProxy<Integer> {
 
 	protected static final int INITIAL_VALUE_10 = 10;
 
