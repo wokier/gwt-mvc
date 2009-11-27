@@ -136,7 +136,6 @@
 			<plugin>
 			<artifactId>maven-eclipse-plugin</artifactId>
 			<configuration>
-			<buildOutputDirectory>target-eclipe</buildOutputDirectory>
 			<downloadJavadocs>true</downloadJavadocs>
 			<downloadSources>true</downloadSources>
 			</configuration>

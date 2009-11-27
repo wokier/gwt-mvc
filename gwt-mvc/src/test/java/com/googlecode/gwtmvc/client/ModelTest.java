@@ -1,8 +1,8 @@
 package com.googlecode.gwtmvc.client;
 
-import org.junit.Test;
-
 import junit.framework.TestCase;
+
+import org.junit.Test;
 
 public class ModelTest extends TestCase {
 

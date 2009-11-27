@@ -1,10 +1,7 @@
 package com.googlecode.gwtmvc.client;
 
-import static org.junit.Assert.*;
 import junit.framework.TestCase;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import com.googlecode.gwtmvc.client.exception.UnavailableActionException;

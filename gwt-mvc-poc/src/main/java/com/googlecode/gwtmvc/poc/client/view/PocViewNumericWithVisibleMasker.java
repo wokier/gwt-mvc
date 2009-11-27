@@ -6,8 +6,8 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.googlecode.gwtmvc.client.Controller;
-import com.googlecode.gwtmvc.client.Model;
 import com.googlecode.gwtmvc.client.ModelForView;
+import com.googlecode.gwtmvc.client.ModelProxy;
 import com.googlecode.gwtmvc.client.MvcEvent;
 import com.googlecode.gwtmvc.client.View;
 import com.googlecode.gwtmvc.poc.client.PocVisibleMasker;
@@ -20,7 +20,7 @@ public class PocViewNumericWithVisibleMasker extends View<Integer, VerticalPanel
 
 	PocIntegerLabel component;
 
-	public PocViewNumericWithVisibleMasker(Controller controller, Model model) {
+	public PocViewNumericWithVisibleMasker(Controller controller, ModelProxy model) {
 		super(ID, controller, model);
 	}
 
