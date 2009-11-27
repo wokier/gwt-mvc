@@ -6,8 +6,8 @@ import com.allen_sauer.gwt.log.client.Log;
 import com.google.gwt.user.client.ui.Label;
 import com.googlecode.gwtmvc.client.BrowserEvent;
 import com.googlecode.gwtmvc.client.Controller;
-import com.googlecode.gwtmvc.client.Event;
 import com.googlecode.gwtmvc.client.IView;
+import com.googlecode.gwtmvc.client.MvcEvent;
 import com.googlecode.gwtmvc.client.place.DivWrapperPlacer;
 import com.googlecode.gwtmvc.client.place.DomPlacer;
 import com.googlecode.gwtmvc.poc.client.view.PocViewIntro;
@@ -65,7 +65,7 @@ public class PocControllerMenu extends Controller {
 	}
 
 	@Override
-	public void handleEvent(Event event) {
+	public void handleEvent(MvcEvent event) {
 		Log.debug("Menu controller handleEvent " + event);
 
 		PocMenuAction action = (PocMenuAction) event.getAction();
@@ -84,7 +84,7 @@ public class PocControllerMenu extends Controller {
 	}
 
 	@Override
-	protected Event tryConvertBrowserEventToControllerEvent(BrowserEvent browserEvent) {
+	protected MvcEvent tryConvertBrowserEventToControllerEvent(BrowserEvent browserEvent) {
 		return super.tryConvertBrowserEventToControllerEvent(browserEvent);
 	}
 	

@@ -28,8 +28,8 @@ public abstract class Form<T, W extends Widget> extends View<T, W> {
 	}
 
 	/**
-	 * Initialise the form with the value.<br />
-	 * Clear the errors.<br />
+	 * Initialise the form with the value.<br>
+	 * Clear the errors.<br>
 	 * Keep value instance to avoid creating new instance and keep non displayed
 	 * value (like an id)
 	 * 
@@ -38,7 +38,7 @@ public abstract class Form<T, W extends Widget> extends View<T, W> {
 	public abstract void initForm(T value);
 
 	/**
-	 * Validate each field element of the form<br />
+	 * Validate each field element of the form<br>
 	 * Errors are displayed at each field element, or at a top level with an
 	 * alert.
 	 * 

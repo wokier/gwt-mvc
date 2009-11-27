@@ -15,6 +15,6 @@ public interface IModelListener<D> {
 	 * 
 	 * @param model
 	 */
-	public abstract void onModelChange(ModelForView<D> model);
+	abstract void onModelChange(ModelForView<D> model);
 
 }

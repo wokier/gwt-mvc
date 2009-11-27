@@ -2,8 +2,8 @@ package com.googlecode.gwtmvc.poc.client.controller;
 
 import com.allen_sauer.gwt.log.client.Log;
 import com.googlecode.gwtmvc.client.Controller;
-import com.googlecode.gwtmvc.client.Event;
 import com.googlecode.gwtmvc.client.IView;
+import com.googlecode.gwtmvc.client.MvcEvent;
 import com.googlecode.gwtmvc.client.place.DivWrapperPlacer;
 import com.googlecode.gwtmvc.client.place.DomPlacer;
 import com.googlecode.gwtmvc.poc.client.model.PocModel;
@@ -45,7 +45,7 @@ public class PocControllerForm extends Controller {
 	}
 
 	@Override
-	protected void handleEvent(Event event) {
+	protected void handleEvent(MvcEvent event) {
 		Log.debug("Form Controller handleEvent " + event);
 		FormAction action = (FormAction) event.getAction();
 		switch (action) {

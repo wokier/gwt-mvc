@@ -1,7 +1,5 @@
 package com.googlecode.gwtmvc.poc.client.controller;
 
-import java.awt.Color;
-
 import org.jmock.Expectations;
 import org.junit.After;
 import org.junit.Before;
@@ -9,8 +7,7 @@ import org.junit.Test;
 
 import com.googlecode.gwtmvc.ControllerTestCase;
 import com.googlecode.gwtmvc.client.BrowserEvent;
-import com.googlecode.gwtmvc.client.Controller;
-import com.googlecode.gwtmvc.client.Event;
+import com.googlecode.gwtmvc.client.MvcEvent;
 import com.googlecode.gwtmvc.client.exception.UnavailableActionException;
 import com.googlecode.gwtmvc.poc.client.controller.PocController.PocAction;
 import com.googlecode.gwtmvc.poc.client.controller.PocControllerChild.ChildAction;
@@ -59,7 +56,7 @@ public class PocControllerTest extends ControllerTestCase {
 				oneOf(controller.content).clearAndAdd(controller.pocViewNumeric);
 			}
 		});
-		controller.call(new Event<String, PocAction>(PocAction.SHOW_SIMPLE));
+		controller.call(new MvcEvent<String>(PocAction.SHOW_SIMPLE));
 
 		assertTrue(controller.isInitialised());
 
@@ -81,7 +78,7 @@ public class PocControllerTest extends ControllerTestCase {
 				oneOf(controller.content).add(controller.pocViewGraphical);
 			}
 		});
-		controller.call(new Event<String, PocAction>(PocAction.SHOW_COMPLEX));
+		controller.call(new MvcEvent<String>(PocAction.SHOW_COMPLEX));
 
 		assertTrue(controller.isInitialised());
 
@@ -97,7 +94,7 @@ public class PocControllerTest extends ControllerTestCase {
 				oneOf(controller.content).clearAndAdd(controller.pocViewNumericWithStyleMasker);
 			}
 		});
-		controller.call(new Event<String, PocAction>(PocAction.SHOW_STYLE_MASKER));
+		controller.call(new MvcEvent<String>(PocAction.SHOW_STYLE_MASKER));
 
 		assertTrue(controller.isInitialised());
 
@@ -113,7 +110,7 @@ public class PocControllerTest extends ControllerTestCase {
 				oneOf(controller.content).clearAndAdd(controller.pocViewNumericWithVisibleMasker);
 			}
 		});
-		controller.call(new Event<String, PocAction>(PocAction.SHOW_VISIBLE_MASKER));
+		controller.call(new MvcEvent<String>(PocAction.SHOW_VISIBLE_MASKER));
 
 		assertTrue(controller.isInitialised());
 
@@ -130,7 +127,7 @@ public class PocControllerTest extends ControllerTestCase {
 				oneOf(controller.content).clearAndAdd(controller.pocViewNumericWithMaskable);
 			}
 		});
-		controller.call(new Event<String, PocAction>(PocAction.SHOW_MASKABLE));
+		controller.call(new MvcEvent<String>(PocAction.SHOW_MASKABLE));
 
 		assertTrue(controller.isInitialised());
 
@@ -139,7 +136,7 @@ public class PocControllerTest extends ControllerTestCase {
 	@Test
 	public void testCallDO_PLUS_A() {
 		final int currentValue = 1;
-		final Event<Integer, PocAction> event = new Event<Integer, PocAction>(PocAction.DO_PLUS_A, currentValue);
+		final MvcEvent<Integer> event = new MvcEvent<Integer>(PocAction.DO_PLUS_A, currentValue);
 		mockery.checking(new Expectations() {
 			{
 				oneOf(controller.modelA).init();
@@ -154,7 +151,7 @@ public class PocControllerTest extends ControllerTestCase {
 	@Test
 	public void testCallDO_MINUS_A() {
 		final int currentValue = 2;
-		final Event<Integer, PocAction> event = new Event<Integer, PocAction>(PocAction.DO_MINUS_A, currentValue);
+		final MvcEvent<Integer> event = new MvcEvent<Integer>(PocAction.DO_MINUS_A, currentValue);
 		mockery.checking(new Expectations() {
 			{
 				oneOf(controller.modelA).init();
@@ -169,7 +166,7 @@ public class PocControllerTest extends ControllerTestCase {
 	@Test
 	public void testCallDO_PLUS_B() {
 		final int currentValue = 3;
-		final Event<Integer, PocAction> event = new Event<Integer, PocAction>(PocAction.DO_PLUS_B, currentValue);
+		final MvcEvent<Integer> event = new MvcEvent<Integer>(PocAction.DO_PLUS_B, currentValue);
 		mockery.checking(new Expectations() {
 			{
 				oneOf(controller.modelA).init();
@@ -184,7 +181,7 @@ public class PocControllerTest extends ControllerTestCase {
 	@Test
 	public void testCallDO_MINUS_B() {
 		final int currentValue = 4;
-		final Event<Integer, PocAction> event = new Event<Integer, PocAction>(PocAction.DO_MINUS_B, currentValue);
+		final MvcEvent<Integer> event = new MvcEvent<Integer>(PocAction.DO_MINUS_B, currentValue);
 		mockery.checking(new Expectations() {
 			{
 				oneOf(controller.modelA).init();
@@ -197,21 +194,21 @@ public class PocControllerTest extends ControllerTestCase {
 	}
 
 	@Test
-	public void testTryConvertBrowserEventToControllerEventSHOW_SIMPLE_1() {
+	public void testTryConvertBrowserEventToControllerEventSHOW_SIMPLE() {
 		assertEquals(PocAction.SHOW_SIMPLE, controller.tryConvertBrowserEventToControllerEvent(
-				new BrowserEvent("SHOW_SIMPLE_1")).getAction());
+				new BrowserEvent("SHOW_SIMPLE")).getAction());
 	}
 
 	@Test
-	public void testTryConvertBrowserEventToControllerEventSHOW_SIMPLE_1_camelCase() {
+	public void testTryConvertBrowserEventToControllerEventSHOW_SIMPLE_camelCase() {
 		assertEquals(PocAction.SHOW_SIMPLE, controller.tryConvertBrowserEventToControllerEvent(
-				new BrowserEvent("show_simple_1")).getAction());
+				new BrowserEvent("show_simple")).getAction());
 	}
 
 	@Test
-	public void testTryConvertBrowserEventToControllerEventSHOW_COMPLEX_2() {
+	public void testTryConvertBrowserEventToControllerEventSHOW_COMPLEX() {
 		assertEquals(PocAction.SHOW_COMPLEX, controller.tryConvertBrowserEventToControllerEvent(
-				new BrowserEvent("SHOW_COMPLEX_2")).getAction());
+				new BrowserEvent("SHOW_COMPLEX")).getAction());
 	}
 
 	@Test(expected = IllegalArgumentException.class)
@@ -224,7 +221,7 @@ public class PocControllerTest extends ControllerTestCase {
 		final String modelAurlParamValue = "5";
 		controller.getUrlParamsMap().put("modelA", modelAurlParamValue);
 
-		final Event event = new Event<Void, PocAction>(PocAction.SHOW_URLPARAMS);
+		final MvcEvent event = new MvcEvent<Void>(PocAction.SHOW_URLPARAMS);
 		mockery.checking(new Expectations() {
 			{
 				oneOf(controller.modelA).init();
@@ -245,7 +242,7 @@ public class PocControllerTest extends ControllerTestCase {
 
 	public void testControllersHierarchy() throws Exception {
 
-		final Event event = new Event(ChildAction.DO_REINIT_ALL);
+		final MvcEvent event = new MvcEvent(ChildAction.DO_REINIT_ALL);
 
 		mockery.checking(new Expectations() {
 			{
@@ -270,7 +267,7 @@ public class PocControllerTest extends ControllerTestCase {
 
 	public void testControllersHierarchyUnavailableAction() throws Exception {
 
-		final Event event = new Event(MyEnum.UNKNOWN);
+		final MvcEvent event = new MvcEvent(MyEnum.UNKNOWN);
 
 		mockery.checking(new Expectations() {
 			{

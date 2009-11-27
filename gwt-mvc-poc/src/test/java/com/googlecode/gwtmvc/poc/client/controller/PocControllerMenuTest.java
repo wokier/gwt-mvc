@@ -8,7 +8,7 @@ import org.junit.Test;
 import com.googlecode.gwtmvc.ControllerTestCase;
 import com.googlecode.gwtmvc.client.BrowserEvent;
 import com.googlecode.gwtmvc.client.Controller;
-import com.googlecode.gwtmvc.client.Event;
+import com.googlecode.gwtmvc.client.MvcEvent;
 import com.googlecode.gwtmvc.poc.client.controller.PocControllerMenu.PocMenuAction;
 
 public class PocControllerMenuTest extends ControllerTestCase {
@@ -64,7 +64,7 @@ public class PocControllerMenuTest extends ControllerTestCase {
 
 			}
 		});
-		controller.call(new Event<String, PocMenuAction>(PocMenuAction.SHOW_INTRO));
+		controller.call(new MvcEvent<String>(PocMenuAction.SHOW_INTRO));
 
 		assertTrue(controller.isInitialised());
 	}

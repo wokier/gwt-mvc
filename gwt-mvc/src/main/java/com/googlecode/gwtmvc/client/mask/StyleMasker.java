@@ -4,7 +4,7 @@ import com.google.gwt.user.client.ui.UIObject;
 import com.googlecode.gwtmvc.client.Maskable;
 
 /**
- * Allow to externally mask an element. <br />
+ * Allow to externally mask an element. <br>
  * A masker will generally mask the entire application and block any user action
  */
 public class StyleMasker implements Maskable {
@@ -15,7 +15,7 @@ public class StyleMasker implements Maskable {
 	/**
 	 * Build a masker for the element
 	 * 
-	 * @param elementToMask
+	 * @param uiobjectToStyleMask
 	 * @param style
 	 */
 	public StyleMasker(UIObject uiobjectToStyleMask, String style) {

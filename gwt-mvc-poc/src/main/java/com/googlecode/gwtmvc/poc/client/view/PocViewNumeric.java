@@ -6,7 +6,6 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.googlecode.gwtmvc.client.Controller;
-import com.googlecode.gwtmvc.client.Event;
 import com.googlecode.gwtmvc.client.Model;
 import com.googlecode.gwtmvc.client.ModelForView;
 import com.googlecode.gwtmvc.client.MvcEvent;

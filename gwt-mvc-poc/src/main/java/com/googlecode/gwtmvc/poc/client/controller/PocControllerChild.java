@@ -5,8 +5,8 @@ import java.util.List;
 
 import com.allen_sauer.gwt.log.client.Log;
 import com.googlecode.gwtmvc.client.Controller;
-import com.googlecode.gwtmvc.client.Event;
 import com.googlecode.gwtmvc.client.IView;
+import com.googlecode.gwtmvc.client.MvcEvent;
 import com.googlecode.gwtmvc.poc.client.model.PocModel;
 
 public class PocControllerChild extends Controller {
@@ -31,7 +31,7 @@ public class PocControllerChild extends Controller {
 	}
 	
 	@Override
-	protected void handleEvent(Event event) {
+	protected void handleEvent(MvcEvent event) {
 		Log.debug("Child Controller handleEvent "+event);
 		ChildAction action = (ChildAction)event.getAction();
 		switch (action) {
@@ -51,7 +51,7 @@ public class PocControllerChild extends Controller {
 	}
 	
 	@Override
-	public boolean couldHandleUserEvent(Event event) {
+	public boolean couldHandleUserEvent(MvcEvent event) {
 		return super.couldHandleUserEvent(event);
 	}
 	
@@ -61,7 +61,7 @@ public class PocControllerChild extends Controller {
 	}
 	
 	@Override
-	public void handleUserEvent(Event event) {
+	public void handleUserEvent(MvcEvent event) {
 		super.handleUserEvent(event);
 	}
 	
