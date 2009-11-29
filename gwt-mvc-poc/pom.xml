@@ -104,7 +104,7 @@
 		</dependency>
 
 	</dependencies>
-	
+
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
 		<testSourceDirectory>src/test/java</testSourceDirectory>
@@ -134,13 +134,26 @@
 				</configuration>
 			</plugin>
 			<plugin>
-			<artifactId>maven-eclipse-plugin</artifactId>
-			<configuration>
-			<downloadJavadocs>true</downloadJavadocs>
-			<downloadSources>true</downloadSources>
-			</configuration>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<configuration>
+					<downloadJavadocs>true</downloadJavadocs>
+					<downloadSources>true</downloadSources>
+				</configuration>
 			</plugin>
-			
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>tomcat</directory>
+						</fileset>
+						<fileset>
+							<directory>.gwt</directory>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
