@@ -34,7 +34,7 @@ public abstract class MvcEntryPoint implements EntryPoint, HistoryListener, Unca
 	 */
 	public void onModuleLoad() {
 		showPeripherals();
-		rootController.init();
+		rootController.doInitIfNecessary();
 		History.addHistoryListener(this);
 		String historyToken = History.getToken();
 		if (historyToken != null && !historyToken.equals("")) {
