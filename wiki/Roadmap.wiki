@@ -22,8 +22,10 @@ Please start a topic on the [http://groups.google.com/group/gwt-mvc google group
 || Simple Exception Handling [http://groups.google.com/group/gwt-mvc/browse_thread/thread/a826a8b6b5a458fa Post in Group]|| Released || 0.3 ||
 || --> You are here <-- ||  ||  ||
 || Help for a simple CRUD || In Progress || 0.4 ||
+|| Form validation with messages || In Progress || 0.4 ||
 || replace the swith(event) in controllers by annotation like @handle(event=Actions.DO) || ? || ? || 
 || Use GWT 1.6 [http://code.google.com/intl/fr-FR/webtoolkit/doc/1.6/DevGuideUserInterface.html#DevGuideEventsAndHandlers Event System] || ? || ? ||
 || Use GWT 1.6 [http://code.google.com/p/google-web-toolkit/wiki/CodeSplitting Code Splitting] for controller or subTree of controller || ? || ? ||
-||Facilitate Dependency Injection with [http://code.google.com/p/google-gin/ gin]|| ? || ? ||
+||Facilitate Dependency Injection with [http://code.google.com/p/google-gin/ gin]|| ? || ? 
+|| Pass to gwt 2.0 || In Progress || ? || ? ||
 || ... || ?|| ? ||
