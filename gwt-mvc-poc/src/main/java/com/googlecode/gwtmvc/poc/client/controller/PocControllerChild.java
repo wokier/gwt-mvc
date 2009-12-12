@@ -7,15 +7,15 @@ import com.allen_sauer.gwt.log.client.Log;
 import com.googlecode.gwtmvc.client.Controller;
 import com.googlecode.gwtmvc.client.IView;
 import com.googlecode.gwtmvc.client.MvcEvent;
-import com.googlecode.gwtmvc.poc.client.model.PocModel;
+import com.googlecode.gwtmvc.poc.client.model.PocModelProxy;
 
 public class PocControllerChild extends Controller {
 
 	public enum ChildAction{DO_REINIT_ALL}
 	
-	List<PocModel> models;
+	List<PocModelProxy> models;
 	
-	public PocControllerChild(PocModel... models) {
+	public PocControllerChild(PocModelProxy... models) {
 		super(ChildAction.values());
 		this.models = Arrays.asList(models); 
 	}
@@ -36,7 +36,7 @@ public class PocControllerChild extends Controller {
 		ChildAction action = (ChildAction)event.getAction();
 		switch (action) {
 		case DO_REINIT_ALL:
-			for (PocModel model : models) {
+			for (PocModelProxy model : models) {
 				model.update((Integer)event.getValue(),event);
 			}
 			break;

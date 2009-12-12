@@ -6,7 +6,7 @@ import com.google.gwt.user.client.ui.Label;
 import com.googlecode.gwtmvc.client.Controller;
 import com.googlecode.gwtmvc.client.ModelForView;
 import com.googlecode.gwtmvc.client.View;
-import com.googlecode.gwtmvc.poc.client.model.PocModel;
+import com.googlecode.gwtmvc.poc.client.model.PocModelProxy;
 
 public class PocViewGraphical extends View<Integer, Label> {
 
@@ -16,7 +16,7 @@ public class PocViewGraphical extends View<Integer, Label> {
 
 	ModelForView<Integer> modelA, modelB;
 
-	public PocViewGraphical(Controller controller, PocModel modelA, PocModel modelB) {
+	public PocViewGraphical(Controller controller, PocModelProxy modelA, PocModelProxy modelB) {
 		super(ID, controller, modelA, modelB);
 		this.modelA = modelA;
 		this.modelB = modelB;

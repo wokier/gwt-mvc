@@ -11,7 +11,7 @@ import com.googlecode.gwtmvc.client.MvcEvent;
 import com.googlecode.gwtmvc.client.exception.UnavailableActionException;
 import com.googlecode.gwtmvc.poc.client.controller.PocController.PocAction;
 import com.googlecode.gwtmvc.poc.client.controller.PocControllerChild.ChildAction;
-import com.googlecode.gwtmvc.poc.client.model.PocModel;
+import com.googlecode.gwtmvc.poc.client.model.PocModelProxy;
 
 public class PocControllerTest extends ControllerTestCase {
 
@@ -24,8 +24,8 @@ public class PocControllerTest extends ControllerTestCase {
 		childControllerMock = mockChildController(PocControllerChild.class);
 		controller = new PocController(childControllerMock);
 
-		controller.modelA = mockModel(PocModel.class, "modelAMock");
-		controller.modelB = mockModel(PocModel.class, "modelBMock");
+		controller.modelA = mockModel(PocModelProxy.class, "modelAMock");
+		controller.modelB = mockModel(PocModelProxy.class, "modelBMock");
 
 		controller.pocViewNumeric = mockView("pocViewNumericMock");
 		controller.pocViewNumericB = mockView("pocViewNumericBMock");
@@ -192,7 +192,7 @@ public class PocControllerTest extends ControllerTestCase {
 		});
 		controller.call(event);
 	}
-
+	
 	@Test
 	public void testTryConvertBrowserEventToControllerEventSHOW_SIMPLE() {
 		assertEquals(PocAction.SHOW_SIMPLE, controller.tryConvertBrowserEventToControllerEvent(

@@ -9,13 +9,13 @@ import com.googlecode.gwtmvc.client.MvcEvent;
 import com.googlecode.gwtmvc.poc.client.rpc.PocMinusRPC;
 import com.googlecode.gwtmvc.poc.client.rpc.PocPlusRPC;
 
-public class PocModel extends ModelProxy<Integer> {
+public class PocModelProxy extends ModelProxy<Integer> {
 
 	protected static final int INITIAL_VALUE_10 = 10;
 
 	private boolean useServerRPCCall = false;
 	
-	public PocModel() {
+	public PocModelProxy() {
 		super();
 	}
 
