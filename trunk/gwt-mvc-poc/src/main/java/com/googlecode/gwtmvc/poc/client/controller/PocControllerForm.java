@@ -6,24 +6,26 @@ import com.googlecode.gwtmvc.client.IView;
 import com.googlecode.gwtmvc.client.MvcEvent;
 import com.googlecode.gwtmvc.client.place.DivWrapperPlacer;
 import com.googlecode.gwtmvc.client.place.DomPlacer;
-import com.googlecode.gwtmvc.poc.client.model.PocModel;
+import com.googlecode.gwtmvc.poc.client.model.PocModelProxy;
 import com.googlecode.gwtmvc.poc.client.view.PocViewForm;
+import com.googlecode.gwtmvc.poc.client.view.PocViewFormWithMessages;
 
 public class PocControllerForm extends Controller {
 
 	public enum FormAction {
-		SHOW_FORM, DO_ADDITION
+		SHOW_FORM, DO_ADDITION, SHOW_FORM_MESSAGES
 	}
 
 	protected IView<Integer> pocViewForm;
+	protected IView<Integer> pocViewFormMessages;
 
-	protected PocModel formModel;
+	protected PocModelProxy formModel;
 
 	protected DomPlacer content;
 
 	public PocControllerForm() {
 		super(FormAction.values());
-		formModel = new PocModel();
+		formModel = new PocModelProxy();
 	}
 
 	@Override
@@ -31,6 +33,9 @@ public class PocControllerForm extends Controller {
 		Log.debug("Form Controller init");
 		if (pocViewForm == null) {
 			pocViewForm = new PocViewForm(this, formModel);
+		}
+		if (pocViewFormMessages == null) {
+			pocViewFormMessages = new PocViewFormWithMessages(this, formModel);
 		}
 		initModel(formModel);
 
@@ -53,6 +58,12 @@ public class PocControllerForm extends Controller {
 			content.clearAndAdd(pocViewForm);
 			if (pocViewForm instanceof PocViewForm) {
 				((PocViewForm) pocViewForm).initForm(formModel.getValue());
+			}
+			break;
+		case SHOW_FORM_MESSAGES:
+			content.clearAndAdd(pocViewFormMessages);
+			if (pocViewFormMessages instanceof PocViewFormWithMessages) {
+				((PocViewFormWithMessages) pocViewFormMessages).initForm(formModel.getValue());
 			}
 			break;
 		case DO_ADDITION:

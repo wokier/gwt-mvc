@@ -41,6 +41,10 @@ public class PocIntegerTextBox extends TextBox implements FormValidationElement,
 		}
 	}
 	
+	public String getErrorMessage() {
+		return "You must enter a valid number";
+	}
+	
 	public void mask() {
 		Log.debug("maskable mask");
 		addStyleName(PocStyleMasker.MASK_STYLE_NAME);

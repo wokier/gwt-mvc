@@ -65,6 +65,9 @@ public class PocIntegerListBox extends ListBox implements FormValidationElement,
 		Log.debug("ListBox validation KO");
 		return false;
 	}
+	public String getErrorMessage() {
+		return "You must select one";
+	}
 
 	public void mask() {
 		Log.debug("maskable mask");

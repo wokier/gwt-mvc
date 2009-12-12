@@ -14,17 +14,20 @@ import com.googlecode.gwtmvc.client.form.FormValidationBuilder;
 import com.googlecode.gwtmvc.client.form.FormValidationResult;
 import com.googlecode.gwtmvc.poc.client.controller.PocControllerForm.FormAction;
 import com.googlecode.gwtmvc.poc.client.model.PocModelProxy;
+import com.googlecode.gwtmvc.poc.client.view.components.PocFormElement;
 import com.googlecode.gwtmvc.poc.client.view.components.PocIntegerListBox;
 import com.googlecode.gwtmvc.poc.client.view.components.PocIntegerTextBox;
 
-public class PocViewForm extends Form<Integer, VerticalPanel> {
+public class PocViewFormWithMessages extends Form<Integer, VerticalPanel> {
 
 	private PocIntegerTextBox textBox;
 	private PocIntegerListBox listBox;
 
 	private Label errorLabel;
+	private PocFormElement textBoxElement;
+	private PocFormElement listBoxElement;
 	
-	public PocViewForm(Controller controller, PocModelProxy model) {
+	public PocViewFormWithMessages(Controller controller, PocModelProxy model) {
 		super("form", controller, model);
 	}
 
@@ -32,9 +35,11 @@ public class PocViewForm extends Form<Integer, VerticalPanel> {
 	public VerticalPanel createWidget() {
 		VerticalPanel verticalPanel = new VerticalPanel();
 		textBox = new PocIntegerTextBox("text");
-		verticalPanel.add(textBox);
+		textBoxElement = new PocFormElement(" ", textBox);
+		verticalPanel.add(textBoxElement);
 		listBox= new PocIntegerListBox("list",5,10);
-		verticalPanel.add(listBox);
+		listBoxElement = new PocFormElement(" ",listBox);
+		verticalPanel.add(listBoxElement);
 		errorLabel = new Label();
 		errorLabel.addStyleName("errorMessage");
 		verticalPanel.add(errorLabel);
@@ -66,7 +71,7 @@ public class PocViewForm extends Form<Integer, VerticalPanel> {
 	@Override
 	protected boolean validateForm() {
 		clearFormErrorMessage();
-		boolean formValidation = new FormValidationBuilder(false).append(textBox).append(listBox).getResult();
+		boolean formValidation = new FormValidationBuilder(false).append(textBoxElement).append(listBoxElement).getResult();
 		Log.debug("Form validation is "+formValidation);
 		if(!formValidation){
 			setFormErrorMessage("Error");

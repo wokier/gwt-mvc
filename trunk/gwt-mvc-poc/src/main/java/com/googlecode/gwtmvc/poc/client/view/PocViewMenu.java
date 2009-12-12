@@ -30,6 +30,7 @@ public class PocViewMenu extends View<Object,VerticalPanel> {
 		verticalPanel.add(new MvcHyperlink("Maskable C (VisibleMasker)",PocAction.SHOW_VISIBLE_MASKER));
 		verticalPanel.add(new Hyperlink("404 Error (Unknown history token)","invalidToken"));
 		verticalPanel.add(new MvcHyperlink("Form Validation",FormAction.SHOW_FORM));
+		verticalPanel.add(new MvcHyperlink("Form Validation with messages",FormAction.SHOW_FORM_MESSAGES));
 		verticalPanel.add(new MvcHyperlink("Url parameters (value=5)",PocAction.SHOW_URLPARAMS , new MvcHyperlinkEntry("modelA","5")));
 		return verticalPanel;
 	}

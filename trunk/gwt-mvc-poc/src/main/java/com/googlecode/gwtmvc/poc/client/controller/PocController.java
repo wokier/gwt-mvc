@@ -9,7 +9,7 @@ import com.googlecode.gwtmvc.client.IView;
 import com.googlecode.gwtmvc.client.MvcEvent;
 import com.googlecode.gwtmvc.client.place.DivWrapperPlacer;
 import com.googlecode.gwtmvc.client.place.DomPlacer;
-import com.googlecode.gwtmvc.poc.client.model.PocModel;
+import com.googlecode.gwtmvc.poc.client.model.PocModelProxy;
 import com.googlecode.gwtmvc.poc.client.view.PocViewGraphical;
 import com.googlecode.gwtmvc.poc.client.view.PocViewNumeric;
 import com.googlecode.gwtmvc.poc.client.view.PocViewNumericB;
@@ -30,19 +30,19 @@ public class PocController extends Controller {
 	protected IView<Integer> pocViewNumericWithStyleMasker;
 	protected IView<Integer> pocViewNumericWithVisibleMasker;
 
-	protected PocModel modelA, modelB;
+	protected PocModelProxy modelA, modelB;
 
 	protected DomPlacer content;
 
 	public PocController() {
-		this(new PocModel(), new PocModel());
+		this(new PocModelProxy(), new PocModelProxy());
 	}
 	
 	protected PocController(Controller child) {
 		super(PocAction.values(),child);
 	}
 	
-	protected PocController(PocModel modelA, PocModel modelB) {
+	protected PocController(PocModelProxy modelA, PocModelProxy modelB) {
 		this(new PocControllerChild(modelA, modelB));
 		this.modelA = modelA;
 		this.modelB = modelB;

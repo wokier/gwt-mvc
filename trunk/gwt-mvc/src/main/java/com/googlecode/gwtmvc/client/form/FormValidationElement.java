@@ -14,4 +14,11 @@ public interface FormValidationElement {
 	 */
 	boolean validate();
 
+	/**
+	 * Give the las error message corresponding to an uncorrect validation
+	 * Only use it after the validate method
+	 * @return
+	 */
+	String getErrorMessage();
+	
 }
