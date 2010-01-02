@@ -9,7 +9,8 @@ This page explain how it works, based on gwt 2.0 Contacts sample.
 [http://code.google.com/webtoolkit/doc/latest/tutorial/mvp-architecture.html MVP architecture]
 
 You could also read :
-[http://code.google.com/intl/fr-FR/events/io/sessions/GoogleWebToolkitBestPractices.html]
+[http://code.google.com/intl/fr-FR/events/io/sessions/GoogleWebToolkitBestPractices.html GWT Best Practices]
+
 [http://www.ongwt.com/post/2009/08/16/GWT-MVP-(Model-View-Presenter)-Link-directory onGwt MVP links]
 
 ==MVC==
