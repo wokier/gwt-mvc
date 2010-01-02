@@ -3,16 +3,14 @@
 
 = MVC vs MVP =
 
-There is an important volume of discussion about how to use a particular variation of MVC called MVP (Model View Presenter), and since GWT 1.6 a general approach of implementation called "Event Bus".
+It exists particular variation of MVC called MVP (Model View Presenter), and since GWT 1.6 a general approach of implementation called "Event Bus".
 
-Here is the main source of documentation :
+This page explain how it works, based on gwt 2.0 Contacts sample.
+[http://code.google.com/webtoolkit/doc/latest/tutorial/mvp-architecture.html MVP architecture]
+
+You could also read :
 [http://code.google.com/intl/fr-FR/events/io/sessions/GoogleWebToolkitBestPractices.html]
-
-And the discussion following :
-[http://groups.google.fr/group/Google-Web-Toolkit/browse_thread/thread/8b0ae5eaf84d8bc2/60890e5e7e98be06?lnk=gst&q=eventbus#60890e5e7e98be06]
-
-Other links:
-http://www.ongwt.com/post/2009/08/16/GWT-MVP-(Model-View-Presenter)-Link-directory
+[http://www.ongwt.com/post/2009/08/16/GWT-MVP-(Model-View-Presenter)-Link-directory onGwt MVP links]
 
 ==MVC==
 http://gwt-mvc.googlecode.com/svn/wiki/mvc.png
@@ -34,7 +32,7 @@ With MVP, the controller, here called presenter, pushed the
 datas of the model to the view, instead of (in mvc), that the view
 read the model as it renders.
 gwt-mvc does not fit to MVP because the model changes are directly
-listen by the view, without passing throught the controller.
+listen by the view, without passing throught the controller/presenter.
 
 ==gwt-mvc==
 The problem we are facing with MVC for GWT, is that we (java
