@@ -31,7 +31,7 @@ public class PocViewGraphical extends View<Integer, Label> {
 
 	public void onModelChange(ModelForView model) {
 		ensureWidget();
-		int value = modelA.getValue() + (modelB.getValue() == null ? 0 : modelB.getValue());
+		int value = (modelA.getValue() == null ? 0 : modelA.getValue()) + (modelB.getValue() == null ? 0 : modelB.getValue());
 		if (value >= 0) {
 			bar.setWidth(value * 10 + "px");
 			DOM.setStyleAttribute(bar.getElement(), "background", "lightsteelblue");

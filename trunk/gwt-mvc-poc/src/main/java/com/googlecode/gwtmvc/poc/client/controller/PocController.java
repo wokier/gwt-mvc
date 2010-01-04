@@ -10,6 +10,7 @@ import com.googlecode.gwtmvc.client.MvcEvent;
 import com.googlecode.gwtmvc.client.place.DivWrapperPlacer;
 import com.googlecode.gwtmvc.client.place.DomPlacer;
 import com.googlecode.gwtmvc.poc.client.model.PocModelProxy;
+import com.googlecode.gwtmvc.poc.client.view.PocViewException;
 import com.googlecode.gwtmvc.poc.client.view.PocViewGraphical;
 import com.googlecode.gwtmvc.poc.client.view.PocViewNumeric;
 import com.googlecode.gwtmvc.poc.client.view.PocViewNumericB;
@@ -20,7 +21,7 @@ import com.googlecode.gwtmvc.poc.client.view.PocViewNumericWithVisibleMasker;
 public class PocController extends Controller {
 
 	public enum PocAction {
-		SHOW_SIMPLE, SHOW_COMPLEX, SHOW_MASKABLE, SHOW_STYLE_MASKER, SHOW_VISIBLE_MASKER, DO_PLUS_A, DO_MINUS_A, DO_REINIT_A, DO_PLUS_B, DO_MINUS_B, DO_REINIT_B, SHOW_URLPARAMS
+		SHOW_SIMPLE, SHOW_COMPLEX, SHOW_MASKABLE, SHOW_STYLE_MASKER, SHOW_VISIBLE_MASKER, DO_PLUS_A, DO_MINUS_A, DO_REINIT_A, DO_PLUS_B, DO_MINUS_B, DO_REINIT_B, SHOW_URLPARAMS, SHOW_EXCEPTION, DO_CHECKED_EXCEPTION, DO_UNCHECKED_EXCEPTION
 	}
 
 	protected IView<Integer> pocViewNumeric;
@@ -29,6 +30,7 @@ public class PocController extends Controller {
 	protected IView<Integer> pocViewNumericWithMaskable;
 	protected IView<Integer> pocViewNumericWithStyleMasker;
 	protected IView<Integer> pocViewNumericWithVisibleMasker;
+	protected IView<String> pocViewException;
 
 	protected PocModelProxy modelA, modelB;
 
@@ -37,17 +39,16 @@ public class PocController extends Controller {
 	public PocController() {
 		this(new PocModelProxy(), new PocModelProxy());
 	}
-	
+
 	protected PocController(Controller child) {
-		super(PocAction.values(),child);
+		super(PocAction.values(), child);
 	}
-	
+
 	protected PocController(PocModelProxy modelA, PocModelProxy modelB) {
 		this(new PocControllerChild(modelA, modelB));
 		this.modelA = modelA;
 		this.modelB = modelB;
 	}
-	
 
 	@Override
 	public void init() {
@@ -66,15 +67,16 @@ public class PocController extends Controller {
 			pocViewNumericWithStyleMasker = new PocViewNumericWithStyleMasker(this, modelA);
 		if (pocViewNumericWithVisibleMasker == null)
 			pocViewNumericWithVisibleMasker = new PocViewNumericWithVisibleMasker(this, modelA);
+		if (pocViewException == null)
+			pocViewException = new PocViewException(this, modelA);
 
-		
 		initModel(modelA);
 		initModel(modelB);
 
 		if (content == null) {
-			content = new DivWrapperPlacer("content"){
+			content = new DivWrapperPlacer("content") {
 				public void add(IView view) {
-					Log.debug(toString() + " add "+ view);
+					Log.debug(toString() + " add " + view);
 					super.add(view);
 				}
 			};
@@ -132,6 +134,15 @@ public class PocController extends Controller {
 			content.clearAndAdd(pocViewNumeric);
 			Integer modelAParamValue = Integer.valueOf(getUrlParam("modelA"));
 			updateModel(modelA, modelAParamValue, event);
+			break;
+		case SHOW_EXCEPTION:
+			content.clearAndAdd(pocViewException);
+			break;
+		case DO_CHECKED_EXCEPTION:
+			modelA.throwCheckedException(event);
+			break;
+		case DO_UNCHECKED_EXCEPTION:
+			modelA.throwUncheckedException(event);
 			break;
 		default:
 			Log.debug("Unknown action");
