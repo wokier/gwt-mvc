@@ -10,7 +10,7 @@ import com.googlecode.gwtmvc.client.widget.MvcHyperlink;
 import com.googlecode.gwtmvc.client.widget.MvcHyperlinkEntry;
 import com.googlecode.gwtmvc.poc.client.controller.PocController.PocAction;
 import com.googlecode.gwtmvc.poc.client.controller.PocControllerForm.FormAction;
-import com.googlecode.gwtmvc.poc.client.controller.PocControllerMenu.PocMenuAction;
+import com.googlecode.gwtmvc.poc.client.controller.PocControllerRoot.PocRootAction;
 
 public class PocViewMenu extends View<Object,VerticalPanel> {
 
@@ -22,7 +22,7 @@ public class PocViewMenu extends View<Object,VerticalPanel> {
 	@Override
 	public VerticalPanel createWidget() {
 		VerticalPanel verticalPanel = new VerticalPanel();
-		verticalPanel.add(new MvcHyperlink("Intro",PocMenuAction.SHOW_INTRO));
+		verticalPanel.add(new MvcHyperlink("Intro",PocRootAction.SHOW_INTRO));
 		verticalPanel.add(new MvcHyperlink("1 model - 1 view",PocAction.SHOW_SIMPLE));
 		verticalPanel.add(new MvcHyperlink("2 models - 3 views",PocAction.SHOW_COMPLEX));
 		verticalPanel.add(new MvcHyperlink("Maskable A",PocAction.SHOW_MASKABLE));
@@ -33,6 +33,7 @@ public class PocViewMenu extends View<Object,VerticalPanel> {
 		verticalPanel.add(new MvcHyperlink("Form Validation with messages",FormAction.SHOW_FORM_MESSAGES));
 		verticalPanel.add(new MvcHyperlink("Url parameters (value=5)",PocAction.SHOW_URLPARAMS , new MvcHyperlinkEntry("modelA","5")));
 		verticalPanel.add(new MvcHyperlink("Exceptions",PocAction.SHOW_EXCEPTION));
+		verticalPanel.add(new MvcHyperlink("Hierarchical MVC",PocRootAction.SHOW_HIERARCHY));
 		return verticalPanel;
 	}
 	

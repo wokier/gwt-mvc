@@ -4,12 +4,11 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.allen_sauer.gwt.log.client.Log;
-import com.googlecode.gwtmvc.client.Controller;
 import com.googlecode.gwtmvc.client.IView;
 import com.googlecode.gwtmvc.client.MvcEvent;
 import com.googlecode.gwtmvc.poc.client.model.PocModelProxy;
 
-public class PocControllerChild extends Controller {
+public class PocControllerChild extends PocBrowsableController {
 
 	public enum ChildAction{DO_REINIT_ALL}
 	

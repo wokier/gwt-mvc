@@ -18,7 +18,7 @@ import com.googlecode.gwtmvc.poc.client.view.PocViewNumericWithMaskable;
 import com.googlecode.gwtmvc.poc.client.view.PocViewNumericWithStyleMasker;
 import com.googlecode.gwtmvc.poc.client.view.PocViewNumericWithVisibleMasker;
 
-public class PocController extends Controller {
+public class PocController extends PocBrowsableController {
 
 	public enum PocAction {
 		SHOW_SIMPLE, SHOW_COMPLEX, SHOW_MASKABLE, SHOW_STYLE_MASKER, SHOW_VISIBLE_MASKER, DO_PLUS_A, DO_MINUS_A, DO_REINIT_A, DO_PLUS_B, DO_MINUS_B, DO_REINIT_B, SHOW_URLPARAMS, SHOW_EXCEPTION, DO_CHECKED_EXCEPTION, DO_UNCHECKED_EXCEPTION

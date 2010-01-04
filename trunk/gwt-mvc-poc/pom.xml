@@ -151,6 +151,9 @@
 						<fileset>
 							<directory>.gwt</directory>
 						</fileset>
+						<fileset>
+							<directory>target-hostedMode</directory>
+						</fileset>
 					</filesets>
 				</configuration>
 			</plugin>

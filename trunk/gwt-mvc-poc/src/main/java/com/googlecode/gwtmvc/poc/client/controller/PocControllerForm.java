@@ -1,7 +1,6 @@
 package com.googlecode.gwtmvc.poc.client.controller;
 
 import com.allen_sauer.gwt.log.client.Log;
-import com.googlecode.gwtmvc.client.Controller;
 import com.googlecode.gwtmvc.client.IView;
 import com.googlecode.gwtmvc.client.MvcEvent;
 import com.googlecode.gwtmvc.client.place.DivWrapperPlacer;
@@ -10,7 +9,7 @@ import com.googlecode.gwtmvc.poc.client.model.PocModelProxy;
 import com.googlecode.gwtmvc.poc.client.view.PocViewForm;
 import com.googlecode.gwtmvc.poc.client.view.PocViewFormWithMessages;
 
-public class PocControllerForm extends Controller {
+public class PocControllerForm extends PocBrowsableController {
 
 	public enum FormAction {
 		SHOW_FORM, DO_ADDITION, SHOW_FORM_MESSAGES
