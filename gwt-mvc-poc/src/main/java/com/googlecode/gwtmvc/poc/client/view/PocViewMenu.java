@@ -32,6 +32,7 @@ public class PocViewMenu extends View<Object,VerticalPanel> {
 		verticalPanel.add(new MvcHyperlink("Form Validation",FormAction.SHOW_FORM));
 		verticalPanel.add(new MvcHyperlink("Form Validation with messages",FormAction.SHOW_FORM_MESSAGES));
 		verticalPanel.add(new MvcHyperlink("Url parameters (value=5)",PocAction.SHOW_URLPARAMS , new MvcHyperlinkEntry("modelA","5")));
+		verticalPanel.add(new MvcHyperlink("Exceptions",PocAction.SHOW_EXCEPTION));
 		return verticalPanel;
 	}
 	

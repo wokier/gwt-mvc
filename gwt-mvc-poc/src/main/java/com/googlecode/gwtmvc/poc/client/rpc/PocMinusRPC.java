@@ -3,6 +3,7 @@ package com.googlecode.gwtmvc.poc.client.rpc;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.ServiceDefTarget;
+import com.googlecode.gwtmvc.poc.client.exception.PocCheckedException;
 
 public interface PocMinusRPC extends RemoteService {
 
@@ -24,11 +25,23 @@ public interface PocMinusRPC extends RemoteService {
 	}
 
 	/**
-	 * Adds 1 to input
+	 * Subtract 1 to input
 	 * 
 	 * @param integer
 	 * @return
 	 */
 	public Integer minus(Integer integer);
 
+	/**
+	 * Throws a checked exception
+	 * @throws PocCheckedException
+	 */
+	public void throwCheckedException() throws PocCheckedException;
+	
+	/**
+	 * Throws an unchecked exception
+	 * @throws PocCheckedException
+	 */
+	public void throwUncheckedException();
+	
 }

@@ -1,6 +1,7 @@
 package com.googlecode.gwtmvc.poc.client;
 
 import com.allen_sauer.gwt.log.client.Log;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.googlecode.gwtmvc.client.MvcEntryPoint;
 import com.googlecode.gwtmvc.poc.client.controller.PocControllerMenu;
@@ -20,6 +21,10 @@ public class PocEntryPoint extends MvcEntryPoint {
 	
 	public void onUncaughtException(Throwable e) {
 		Log.error("Uncaught Exeption",e);
+		RootPanel.get("error").clear();
+		Label globalErrorLabel = new Label(e.getMessage());
+		globalErrorLabel.addStyleName("error");
+		RootPanel.get("error").add(globalErrorLabel);
 	}
 	
 	@Override

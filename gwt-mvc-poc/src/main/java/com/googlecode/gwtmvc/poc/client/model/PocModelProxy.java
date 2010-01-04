@@ -61,6 +61,28 @@ public class PocModelProxy extends ModelProxy<Integer> {
 		.schedule(2000);
 	}
 	
+	public void throwCheckedException(final MvcEvent causeEvent) {
+		PocMinusRPC.Util.getInstance(useServerRPCCall).throwCheckedException(new AsyncCallback<Void>(){
+			public void onSuccess(Void result) {
+				
+			}
+			public void onFailure(Throwable caught) {
+				update(caught);
+			}
+		});
+	}
+	
+	public void throwUncheckedException(final MvcEvent causeEvent) {
+		PocMinusRPC.Util.getInstance(useServerRPCCall).throwUncheckedException(new AsyncCallback<Void>(){
+			public void onSuccess(Void result) {
+				
+			}
+			public void onFailure(Throwable caught) {
+				update(caught);
+			}
+		});
+	}
+	
 	@Override
 	public void update(Integer value) {
 		super.update(value);
