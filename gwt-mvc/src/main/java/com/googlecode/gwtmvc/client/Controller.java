@@ -15,7 +15,8 @@ import com.googlecode.gwtmvc.client.place.DomPlacer;
  * 
  * USAGE: The controller knows its models and can call their methods. The
  * controller knows its view and can render them.<br>
- * To render the view, the controller could place them and render them himself, or use a DomPlacer. <br>
+ * To render the view, the controller could place them and render them himself,
+ * or use a DomPlacer. <br>
  * Create an inner Enum class of the possible actions, and pass its values in
  * the constructor to enable the event Handling.
  * 
@@ -25,6 +26,9 @@ import com.googlecode.gwtmvc.client.place.DomPlacer;
  */
 public abstract class Controller {
 
+	private static final char DOT = '.';
+	private static final String LEAF = "-<>";
+	
 	private Controller parent;
 	protected List<Controller> children = new ArrayList<Controller>();
 
@@ -45,7 +49,8 @@ public abstract class Controller {
 	}
 
 	/**
-	 * Constructor with children, for a controller that does not handle any event, but forward all to its children
+	 * Constructor with children, for a controller that does not handle any
+	 * event, but forward all to its children
 	 * 
 	 * @param children
 	 */
@@ -64,7 +69,7 @@ public abstract class Controller {
 		this(actionEnumValues);
 		addChildren(children);
 	}
-	
+
 	private void addChildren(Controller... children) {
 		this.children = Arrays.asList(children);
 		for (Controller child : children) {
@@ -74,14 +79,16 @@ public abstract class Controller {
 
 	/**
 	 * Initialise the controller. This method is called at the first time the
-	 * controller handle an event. <br>Use doInitIfNecessary if you want the controller to be initialised in other cases.
+	 * controller handle an event. <br>
+	 * Use doInitIfNecessary if you want the controller to be initialised in
+	 * other cases.
 	 */
 	protected abstract void init();
 
 	/**
 	 * Show the default page for this controller.<br>
-	 * This could be the application Home Page, for the rootController,
-	 * or an intermedaite 'home' page for other controllers.
+	 * This could be the application Home Page, for the rootController, or an
+	 * intermedaite 'home' page for other controllers.
 	 */
 	public abstract void showHomeView();
 
@@ -98,8 +105,10 @@ public abstract class Controller {
 			handleUserEvent(event);
 		} else {
 			boolean eventHandledByChild = handleUserActionByChildren(event);
-			if(!eventHandledByChild){
-				throw new UnavailableActionException("You have tried to use an action anavailable at this level of the controller's tree :"+this+" with this event :"+event);
+			if (!eventHandledByChild) {
+				throw new UnavailableActionException(
+						"You have tried to use an action anavailable at this level of the controller's tree :" + this
+								+ " with this event :" + event);
 			}
 		}
 	}
@@ -145,15 +154,16 @@ public abstract class Controller {
 	 * Manages user gestures.<br>
 	 * This method should not be called directly, Use call instead, to allow the
 	 * controller to be initialised and to allow the maskable system.<br>
-	 * Implements this method by 'switching' the different events available for this controller.
+	 * Implements this method by 'switching' the different events available for
+	 * this controller.
 	 * 
 	 * @param event
 	 */
 	protected abstract void handleEvent(MvcEvent event);
 
 	/**
-	 * Place the view on the dom tree, and 'render' it.
-	 * You could use a Dom Placer for that.
+	 * Place the view on the dom tree, and 'render' it. You could use a Dom
+	 * Placer for that.
 	 * 
 	 * @see IView#render()
 	 * @see DomPlacer
@@ -233,7 +243,7 @@ public abstract class Controller {
 	 * @return true if the historyToken match to an action on any controller
 	 */
 	protected boolean handleBrowserEvent(BrowserEvent browserEvent) {
-		if (handleBrowserEventMyself(browserEvent)){
+		if (handleBrowserEventMyself(browserEvent)) {
 			return true;
 		}
 		return handleBrowserEventByChildren(browserEvent);
@@ -291,25 +301,50 @@ public abstract class Controller {
 	public String getUrlParam(String param) {
 		return urlParamsMap.get(param);
 	}
-	
+
 	/**
 	 * Give an acces to the root controller of this controllers tree
+	 * 
 	 * @return
 	 */
 	public Controller getRootController() {
 		Controller rootController = this;
-		while (rootController.parent != null){
+		while (rootController.parent != null) {
 			rootController = rootController.parent;
 		}
 		return rootController;
 	}
-	
+
+	/**
+	 * Give the list of possible actions on this controller.<br>
+	 * Those actions was defined at the controller's contruction
+	 * 
+	 * @return
+	 */
+	protected List<Enum> getActionEnumValues() {
+		return actionEnumValues;
+	}
+
+	/**
+	 * Give the controller's children. All controller must be part of a tree.<br>
+	 * The top parent controller is called root controller.
+	 * 
+	 * @return
+	 */
+	protected List<Controller> getChildren() {
+		return children;
+	}
+
 	/**
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return (actionEnumValues !=null ? "actions :"+actionEnumValues :"") + (!children.isEmpty() ? " (children :"+ children+")":"");
+		return getClassShortName() + actionEnumValues;
+	}
+
+	private String getClassShortName() {
+		return getClass().getName().substring(getClass().getName().lastIndexOf(DOT) + 1);
 	}
 
 }

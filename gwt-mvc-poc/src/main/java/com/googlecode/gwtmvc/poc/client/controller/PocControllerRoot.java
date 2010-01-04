@@ -1,34 +1,33 @@
 package com.googlecode.gwtmvc.poc.client.controller;
 
-import java.util.List;
-
 import com.allen_sauer.gwt.log.client.Log;
 import com.google.gwt.user.client.ui.Label;
 import com.googlecode.gwtmvc.client.BrowserEvent;
-import com.googlecode.gwtmvc.client.Controller;
 import com.googlecode.gwtmvc.client.IView;
 import com.googlecode.gwtmvc.client.MvcEvent;
 import com.googlecode.gwtmvc.client.place.DivWrapperPlacer;
 import com.googlecode.gwtmvc.client.place.DomPlacer;
+import com.googlecode.gwtmvc.poc.client.view.PocViewHierarchy;
 import com.googlecode.gwtmvc.poc.client.view.PocViewIntro;
 import com.googlecode.gwtmvc.poc.client.view.PocViewMenu;
 
-public class PocControllerMenu extends Controller {
+public class PocControllerRoot extends PocBrowsableController {
 
-	public enum PocMenuAction {
+	public enum PocRootAction {
 
-		SHOW_INTRO;
+		SHOW_INTRO, SHOW_HIERARCHY;
 
 	}
 
 	IView pocViewMenu;
 	IView pocViewIntro;
+	IView pocViewHierarchy;
 
 	DomPlacer menu;
 	DomPlacer content;
 
-	public PocControllerMenu() {
-		super(PocMenuAction.values(), new PocController(), new PocControllerForm());
+	public PocControllerRoot() {
+		super(PocRootAction.values(), new PocController(), new PocControllerForm());
 	}
 
 	@Override
@@ -38,7 +37,8 @@ public class PocControllerMenu extends Controller {
 		if (pocViewIntro == null) {
 			pocViewIntro = new PocViewIntro(this);
 			pocViewMenu = new PocViewMenu(this);
-
+			pocViewHierarchy = new PocViewHierarchy(this);
+			
 			content = new DivWrapperPlacer("content"){
 				public void add(IView view) {
 					Log.debug(toString() + " add "+ view);
@@ -68,13 +68,16 @@ public class PocControllerMenu extends Controller {
 	public void handleEvent(MvcEvent event) {
 		Log.debug("Menu controller handleEvent " + event);
 
-		PocMenuAction action = (PocMenuAction) event.getAction();
+		PocRootAction action = (PocRootAction) event.getAction();
 		switch (action) {
 		case SHOW_INTRO:
 			content.clearAndAdd(pocViewIntro);
 			break;
-		default:
+		case SHOW_HIERARCHY:
+			content.clearAndAdd(pocViewHierarchy);
 			break;
+		default:
+			throw new RuntimeException("Unknown action");
 		}
 	}
 
@@ -88,8 +91,4 @@ public class PocControllerMenu extends Controller {
 		return super.tryConvertBrowserEventToControllerEvent(browserEvent);
 	}
 	
-	public List<Controller> getChildren() {
-		return children;
-	}
-
 }

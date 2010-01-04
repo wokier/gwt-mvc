@@ -9,16 +9,16 @@ import com.googlecode.gwtmvc.ControllerTestCase;
 import com.googlecode.gwtmvc.client.BrowserEvent;
 import com.googlecode.gwtmvc.client.Controller;
 import com.googlecode.gwtmvc.client.MvcEvent;
-import com.googlecode.gwtmvc.poc.client.controller.PocControllerMenu.PocMenuAction;
+import com.googlecode.gwtmvc.poc.client.controller.PocControllerRoot.PocRootAction;
 
 public class PocControllerMenuTest extends ControllerTestCase {
 
-	PocControllerMenu controller;
+	PocControllerRoot controller;
 
 	@Before
 	public void setUp() throws Exception {
 		super.setUp();
-		controller = new PocControllerMenu();
+		controller = new PocControllerRoot();
 
 		controller.pocViewMenu = mockView("pocViewMenuMock");
 		controller.pocViewIntro = mockView("pocViewIntroMock");
@@ -64,19 +64,19 @@ public class PocControllerMenuTest extends ControllerTestCase {
 
 			}
 		});
-		controller.call(new MvcEvent<String>(PocMenuAction.SHOW_INTRO));
+		controller.call(new MvcEvent<String>(PocRootAction.SHOW_INTRO));
 
 		assertTrue(controller.isInitialised());
 	}
 
 	@Test
 	public void testTryConvertBrowserEventToControllerEvent() {
-		assertEquals(PocMenuAction.SHOW_INTRO,controller.tryConvertBrowserEventToControllerEvent(new BrowserEvent("SHOW_INTRO")).getAction());
+		assertEquals(PocRootAction.SHOW_INTRO,controller.tryConvertBrowserEventToControllerEvent(new BrowserEvent("SHOW_INTRO")).getAction());
 	}
 
 	@Test
 	public void testTryConvertBrowserEventToControllerEventCase() {
-		assertEquals(PocMenuAction.SHOW_INTRO,controller.tryConvertBrowserEventToControllerEvent(new BrowserEvent("show_intro")).getAction());
+		assertEquals(PocRootAction.SHOW_INTRO,controller.tryConvertBrowserEventToControllerEvent(new BrowserEvent("show_intro")).getAction());
 	}
 
 	@Test
@@ -85,7 +85,7 @@ public class PocControllerMenuTest extends ControllerTestCase {
 	}
 
 	public void testGetRootController()throws Exception {
-		PocControllerMenu rootController = new PocControllerMenu();
+		PocControllerRoot rootController = new PocControllerRoot();
 		for (Controller child : rootController.getChildren()) {
 			assertEquals(rootController, child.getRootController());
 		}

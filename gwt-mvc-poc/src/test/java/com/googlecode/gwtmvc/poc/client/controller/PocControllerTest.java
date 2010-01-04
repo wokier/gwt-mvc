@@ -35,6 +35,8 @@ public class PocControllerTest extends ControllerTestCase {
 		controller.pocViewNumericWithStyleMasker = mockView("pocViewNumericWithStyleMaskerMock");
 		controller.pocViewNumericWithVisibleMasker = mockView("pocViewNumericWithVisibleMaskerMock");
 
+		controller.pocViewException =mockView("pocViewExceptionMock");
+		
 		controller.content = mockDomPlacer("content");
 
 	}
