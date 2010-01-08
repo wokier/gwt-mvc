@@ -16,4 +16,5 @@
  * Use a controller hierarchy
  * Make a singleton for a shared model
  * Put ALL the design in CSS, just place the widget with GWT
+ * Divide your css file into (at least) 3 files, 1 for html, 1 for gwt widgets, 1 for your widgets
  * Follow Usability best practices...
