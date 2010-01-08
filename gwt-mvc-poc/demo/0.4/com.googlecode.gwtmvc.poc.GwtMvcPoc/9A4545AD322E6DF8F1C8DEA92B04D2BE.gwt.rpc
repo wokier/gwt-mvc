@@ -1,0 +1,8 @@
+com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException, true
+com.googlecode.gwtmvc.poc.client.exception.PocCheckedException, true
+java.lang.Exception, false
+java.lang.Integer, true
+java.lang.Number, false
+java.lang.RuntimeException, false
+java.lang.String, true
+java.lang.Throwable, false

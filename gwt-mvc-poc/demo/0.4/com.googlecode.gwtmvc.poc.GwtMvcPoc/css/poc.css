@@ -1,0 +1,28 @@
+/* HTML style */
+
+#container {
+	width: 100%;
+	margin: 0px;	
+}
+
+#menu {
+	padding: 5px;
+}
+
+#content {
+	padding: 10px;
+	background: url(../img/gwt-mvc.png) center no-repeat;
+	min-height: 150px;
+	height: 150px;
+}
+
+#loading {
+	align: center;
+	font-weight: bold;
+}
+
+#project {
+	position:absolute;
+	right:0px;
+	bottom:0px;
+}
