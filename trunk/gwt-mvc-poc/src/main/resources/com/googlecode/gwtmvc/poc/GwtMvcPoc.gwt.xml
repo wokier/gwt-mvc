@@ -28,8 +28,9 @@
 	<entry-point class="com.googlecode.gwtmvc.poc.client.PocEntryPoint" />
 
 	<!-- Styles -->
-	<stylesheet src="css/reset.css" />
-	<stylesheet src="css/style.css" />
+	<stylesheet src="css/poc.css" />
+	<stylesheet src="css/poc-gwt.css" />
+	<stylesheet src="css/poc-widget.css" />
 
 	<servlet path="/PocPlusRPC"
 		class="com.googlecode.gwtmvc.poc.server.PocPlusRPCImpl" />

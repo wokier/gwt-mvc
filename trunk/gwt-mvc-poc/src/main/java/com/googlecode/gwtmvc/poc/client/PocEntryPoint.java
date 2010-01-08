@@ -16,7 +16,7 @@ public class PocEntryPoint extends MvcEntryPoint {
 	@Override
 	protected void hideLoadingIndicator() {
 		RootPanel.get("loading").setVisible(false);
-		Log.getDivLogger().moveTo(10, 420);
+		Log.getDivLogger().moveTo(400, 20);
 	}
 	
 	public void onUncaughtException(Throwable e) {
