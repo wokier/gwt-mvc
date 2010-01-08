@@ -17,6 +17,7 @@
  * [http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.3/gwt-mvc-sequence-rpc.jpeg Sequence RPC call]
  * [http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.3/gwt-mvc-sequence-rpc-maskable.jpeg Sequence RPC call with Maskable]
 
+
 = 0.2 =
 == Documentation ==
  * [http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc-poc/demo/0.2/com.googlecode.gwtmvc.poc.GwtMvcPoc/GwtMvcPoc.html Demo]
@@ -32,6 +33,7 @@
  * [http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.2/gwt-mvc-sequence-page.jpeg Sequence Page]
  * [http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.2/gwt-mvc-sequence-menu.jpeg Sequence Menu]
  * [http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc/uml/0.2/gwt-mvc-sequence-rpc.jpeg Sequence RPC call]
+
 
 = 0.0.1 =
 
