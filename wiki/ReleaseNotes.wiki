@@ -1,6 +1,22 @@
 #summary Different versions release Notes
 #labels Featured
 
+== v0.4 ==
+2010-01-08
+
+== New Features ==
+
+ * Form validation with messages on each field
+ * Create a MVCHyperlink widget
+ * Fix of [http://code.google.com/p/gwt-mvc/issues/detail?id=8&can=1 Issue 8]
+
+== Demo ==
+
+ * Form validation with messages on each field
+ * Exception Handling
+ * Hierachical MVC
+
+
 == v0.3 ==
 2009-08-24
 
