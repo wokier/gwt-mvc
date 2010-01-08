@@ -1,0 +1,32 @@
+/* poc widgets style */
+
+.numeric {
+	border: solid thin green;	
+}
+
+.masker {
+	background: url(../img/loader-indicator-big.gif) center no-repeat;
+	cursor: wait;
+	opacity: .5;
+	moz-opacity: .5;
+	filter: alpha(opacity =       50);
+	z-index: 20001;
+}
+
+.maskable {
+	min-height: 20px;
+	padding-right: 18px;
+}
+.mask {
+	background: url(../img/loader-indicator.gif) right no-repeat;
+	cursor: wait;
+}
+
+.error {
+	border: 1px solid #FF0000;
+	background: #FF4466;
+}
+.errorMessage {
+	color: red;
+	height: 1em;
+}
