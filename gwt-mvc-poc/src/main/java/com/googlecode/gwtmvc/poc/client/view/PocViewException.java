@@ -58,8 +58,8 @@ public class PocViewException extends View<String,VerticalPanel> {
 
 	@Override
 	public void onModelChange(ModelForView model) {
-		Log.error("onModelChange", model.getError());
 		if(model.getError() != null){
+			Log.error("onModelChange error", model.getError());
 			label.setText(model.getError().getMessage());
 		}
 	}
