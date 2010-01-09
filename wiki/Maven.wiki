@@ -1,12 +1,13 @@
 #summary How-to add maven2 gwt-mvc dependency
 #labels Phase-Implementation
 
-= Introduction =
+Add maven2 gwt-mvc dependency
 
-How add maven2 gwt-mvc dependency
+== Repository ==
+gwt-mvc has its own repository.
+[http://gwt-mvc.googlecode.com/svn/repository]
 
-
-= Details =
+== Declare gwt-mvc dependency ==
 
 Change your pom.xml as follow
 
@@ -22,12 +23,23 @@ Add the gwt-mvc repository in the repositories part
 Add the gwt-mvc dependency in the dependencies part
 {{{
 <dependency>
-	<groupId>gwt-mvc</groupId>
+	<groupId>com.googlecode.gwt-mvc</groupId>
 	<artifactId>gwt-mvc</artifactId>
-	<version>0.3</version>
+	<version>0.4</version>
 </dependency>
 }}}
 
-Note: There is no more differents verision of gwt-mvc depending on your gwt version.
+Note 1: The groupId has changed between version 0.3 and 0.4 from gwt-mvc to com.googlecode.gwt-mvc
+
+Note 2: There is no more differents verision of gwt-mvc depending on your gwt version.
 gwt-mvc now cover all version since gwt 1.5
 (LazyPanel is now simply copied in the library)
+
+== Declare gwt-mvc module ==
+Just follow the [http://code.google.com/p/gwt-mvc/wiki/Installation Installation Guide]
+
+== Mavenise your gwt project ==
+I recommend this project to help you
+[http://code.google.com/p/gwt-maven/]
+The demo will be converted to it.
+(The old version totsp was used before)
