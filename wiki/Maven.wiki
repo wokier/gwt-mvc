@@ -41,5 +41,6 @@ Just follow the [http://code.google.com/p/gwt-mvc/wiki/Installation Installation
 == Mavenise your gwt project ==
 I recommend this project to help you
 [http://code.google.com/p/gwt-maven/]
+
 The demo will be converted to it.
 (The old version totsp was used before)
