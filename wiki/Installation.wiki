@@ -1,7 +1,7 @@
 #summary How-to use gwt-mvc in your gwt project
 #labels Phase-Deploy,Featured
 
-= gwt-mvc 0.3=
+= gwt-mvc 0.4=
 
 Follow this steps:
   * Have a look at the [http://gwt-mvc.googlecode.com/svn/trunk/gwt-mvc-poc/demo/0.2/com.googlecode.gwtmvc.poc.GwtMvcPoc/GwtMvcPoc.html Demo]
