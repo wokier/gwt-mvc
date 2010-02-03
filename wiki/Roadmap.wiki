@@ -23,10 +23,10 @@ Please start a topic on the [http://groups.google.com/group/gwt-mvc google group
 || Form validation with messages || Released || 0.4 ||
 || Create a MVCHyperlink widget || Released || 0.4 ||
 || --> You are here <-- ||  ||  ||
-|| Help for a simple CRUD || ? || ? ||
+|| Pass to gwt 2.0 ||  ? || 0.5 ||
+|| Use [http://mojo.codehaus.org/gwt-maven-plugin/ gwt-maven-plugin] ||  ? || 0.5 ||
 || replace the swith(event) in controllers by annotation like @handle(event=Actions.DO) || ? || ? || 
-|| Use GWT 1.6 [http://code.google.com/intl/fr-FR/webtoolkit/doc/1.6/DevGuideUserInterface.html#DevGuideEventsAndHandlers Event System] || ? || ? ||
-|| Use GWT 1.6 [http://code.google.com/p/google-web-toolkit/wiki/CodeSplitting Code Splitting] for controller or subTree of controller || ? || ? ||
+|| Help for a simple CRUD || ? || ? ||
+|| Use GWT [http://code.google.com/p/google-web-toolkit/wiki/CodeSplitting Code Splitting] for controller or subTree of controller || ? || ? ||
 || Facilitate Dependency Injection with [http://code.google.com/p/google-gin/ gin] || ? || ? ||
-|| Pass to gwt 2.0 ||  ? || ? ||
 || ... || ?|| ? ||
