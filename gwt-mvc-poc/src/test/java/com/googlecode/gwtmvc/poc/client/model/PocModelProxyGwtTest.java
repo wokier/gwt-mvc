@@ -5,7 +5,7 @@ import com.googlecode.gwtmvc.client.MvcEvent;
 import com.googlecode.gwtmvc.poc.client.PocGWTTestCase;
 import com.googlecode.gwtmvc.poc.client.controller.PocController.PocAction;
 
-public class PocModelProxyTest extends PocGWTTestCase {
+public class PocModelProxyGwtTest extends PocGWTTestCase {
 
 	PocModelProxy pocModelProxy = new PocModelProxy();
 

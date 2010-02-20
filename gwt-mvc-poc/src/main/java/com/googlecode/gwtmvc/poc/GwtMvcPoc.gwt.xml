@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to="gwtmvcpoc">
+
+	<!-- Inherit the core Web Toolkit stuff. -->
+	<inherits name='com.google.gwt.user.User' />
+	<inherits name="com.google.gwt.user.theme.chrome.Chrome" />
+
+	<!-- GWT MVC -->
+	<inherits name="com.googlecode.gwtmvc.GwtMvc" />
+
+	<!-- gwt-log support, default level `OFF` -->
+	<!-- http://code.google.com/p/gwt-log/ -->
+	<inherits name="com.allen_sauer.gwt.log.gwt-log-DEBUG" />
+
+	<set-property name="log_ConsoleLogger" value="DISABLED" />
+	<set-property name="log_DivLogger" value="ENABLED" />
+	<set-property name="log_FirebugLogger" value="DISABLED" />
+	<set-property name="log_GWTLogger" value="ENABLED" />
+	<set-property name="log_SystemLogger" value="DISABLED" />
+
+	<!-- Remote Logger cause an enoying 'authentication required' popup on the demo -->
+	<set-property name="log_RemoteLogger" value="DISABLED" />
+
+
+	<!-- Add the `DEBUG` compile time log level -->
+	<extend-property name="log_level" values="DEBUG" />
+	<!-- <extend-property name="log_level" values="OFF"/>-->
+
+	<!-- EntryPoint -->
+	<entry-point class="com.googlecode.gwtmvc.poc.client.PocEntryPoint" />
+
+	<!-- Styles -->
+<!--	<stylesheet src="css/poc.css" />-->
+<!--	<stylesheet src="css/poc-gwt.css" />-->
+<!--	<stylesheet src="css/poc-widget.css" />-->
+
+<!-- Defined in web.xml -->
+<!--	<servlet path="/PocPlusRPC"-->
+<!--		class="com.googlecode.gwtmvc.poc.server.PocPlusRPCImpl" />-->
+<!--	<servlet path="/PocMinusRPC"-->
+<!--		class="com.googlecode.gwtmvc.poc.server.PocMinusRPCImpl" />-->
+
+	<!-- Specify the paths for translatable code                    -->
+	<source path='client' />
+
+</module>
