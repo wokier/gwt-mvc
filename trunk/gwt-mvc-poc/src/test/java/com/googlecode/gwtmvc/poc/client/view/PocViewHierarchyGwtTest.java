@@ -4,7 +4,7 @@ import com.google.gwt.user.client.ui.Tree;
 import com.googlecode.gwtmvc.poc.client.PocGWTTestCase;
 import com.googlecode.gwtmvc.poc.client.controller.PocControllerRoot;
 
-public class PocViewHierarchyTest extends PocGWTTestCase {
+public class PocViewHierarchyGwtTest extends PocGWTTestCase {
 
 	public void testEnsureWidget() {
 		PocViewHierarchy pocViewHierarchy = new PocViewHierarchy(new PocControllerRoot());
