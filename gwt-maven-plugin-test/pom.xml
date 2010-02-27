@@ -8,6 +8,11 @@
 
 	<properties>
 		<gwt.version>2.0.2</gwt.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<gwt-test.includes>**/*GwtTest.java</gwt-test.includes>
+		<maven-surefire.includes>**/*Test.java</maven-surefire.includes>
+<!--		<gwt-test.excludes>None</gwt-test.excludes>-->
+		<maven-surefire.excludes>**/*GwtTest.java</maven-surefire.excludes>
 	</properties>
 
 	<dependencies>
@@ -24,13 +29,6 @@
 			<artifactId>gwt-user</artifactId>
 			<version>${gwt.version}</version>
 			<scope>provided</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>com.google.gwt</groupId>
-			<artifactId>gwt-dev</artifactId>
-			<version>${gwt.version}</version>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -115,7 +113,16 @@
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.4.3</version>
+				<configuration>
+					<includes>
+						<include>${maven-surefire.includes}</include>
+					</includes>
+					<excludes>
+						<exclude>${maven-surefire.excludes}</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
+			
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -138,11 +145,21 @@
 							<goal>compile</goal>
 							<goal>test</goal>
 						</goals>
-						<phase>compile</phase>
+						<phase>pre-package</phase>
 					</execution>
+						<execution>
+						<id>gwt-test-site</id>
+						<goals>
+							<goal>compile</goal>
+							<goal>test</goal>
+						</goals>
+						<phase>site</phase> 
+					</execution>
+					
 				</executions>
 				<configuration>
 					<module>fr.wokier.Gwt_maven_plugin_test</module>
+					<includes>${gwt-test.includes}</includes>
 				</configuration>
 			</plugin>
 
@@ -164,5 +181,18 @@
 		</plugins>
 
 	</reporting>
+
+	<profiles>
+		<profile>
+			<id>site</id>
+			<properties>
+				<gwt-test.includes>**/*Test.java</gwt-test.includes>
+				<maven-surefire.includes>None</maven-surefire.includes>
+<!--				<gwt-test.excludes>None</gwt-test.excludes>-->
+				<maven-surefire.excludes>**/*Test.java</maven-surefire.excludes>
+			</properties>
+		</profile>
+
+	</profiles>
 
 </project>

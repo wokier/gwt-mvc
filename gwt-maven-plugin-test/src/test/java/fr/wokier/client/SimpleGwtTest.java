@@ -15,12 +15,12 @@ public class SimpleGwtTest extends GWTTestCase {
 		return "fr.wokier.Gwt_maven_plugin_test";
 	}
 
-//	@Test
-//	public void testWidget() throws Exception {
-//		System.out.println("GWTTESTCASE");
-//		new Widget();
-//		Assert.assertTrue(true);
-//	}
+	@Test
+	public void testWidget() throws Exception {
+		System.out.println("GWTTESTCASE");
+		new Widget();
+		Assert.assertTrue(true);
+	}
 
 	@Test
 	public void testGreetingService() throws Exception {
