@@ -25,7 +25,7 @@ and you can define links with MvcHyperlink.
 
 === Use the token ===
 
-The params are available with get getUrlParam in each controller.
+The params are available with the method getUrlParam in each controller.
 {{{
 content.clearAndAdd(pocViewNumeric);
 Integer modelAParamValue = Integer.valueOf(getUrlParam("modelA"));
