@@ -22,6 +22,7 @@ Le token is composed like this: #ACTION?param1=value1&param2=value2
 
 You can use your browser or a bookmark to reach a known page.
 and you can define links with MvcHyperlink.
+http://gwt-mvc.googlecode.com/svn/site/0.4/apidocs/com/googlecode/gwtmvc/client/widget/MvcHyperlink.html
 {{{
 verticalPanel.add(new MvcHyperlink("Url parameters (value=5)",PocAction.SHOW_URLPARAMS , new MvcHyperlinkEntry("modelA","5")));
 }}}
