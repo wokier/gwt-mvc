@@ -17,11 +17,12 @@ import com.googlecode.gwtmvc.poc.client.view.PocViewNumericB;
 import com.googlecode.gwtmvc.poc.client.view.PocViewNumericWithMaskable;
 import com.googlecode.gwtmvc.poc.client.view.PocViewNumericWithStyleMasker;
 import com.googlecode.gwtmvc.poc.client.view.PocViewNumericWithVisibleMasker;
+import com.googlecode.gwtmvc.poc.client.view.PocViewUIBinder;
 
 public class PocController extends PocBrowsableController {
 
 	public enum PocAction {
-		SHOW_SIMPLE, SHOW_COMPLEX, SHOW_MASKABLE, SHOW_STYLE_MASKER, SHOW_VISIBLE_MASKER, DO_PLUS_A, DO_MINUS_A, DO_REINIT_A, DO_PLUS_B, DO_MINUS_B, DO_REINIT_B, SHOW_URLPARAMS, SHOW_EXCEPTION, DO_CHECKED_EXCEPTION, DO_UNCHECKED_EXCEPTION
+		SHOW_SIMPLE, SHOW_COMPLEX, SHOW_MASKABLE, SHOW_STYLE_MASKER, SHOW_VISIBLE_MASKER, DO_PLUS_A, DO_MINUS_A, DO_REINIT_A, DO_PLUS_B, DO_MINUS_B, DO_REINIT_B, SHOW_URLPARAMS, SHOW_EXCEPTION, DO_CHECKED_EXCEPTION, DO_UNCHECKED_EXCEPTION, SHOW_UIBINDER
 	}
 
 	protected IView<Integer> pocViewNumeric;
@@ -31,6 +32,7 @@ public class PocController extends PocBrowsableController {
 	protected IView<Integer> pocViewNumericWithStyleMasker;
 	protected IView<Integer> pocViewNumericWithVisibleMasker;
 	protected IView<String> pocViewException;
+	protected IView pocViewUIBinder;
 
 	protected PocModelProxy modelA, modelB;
 
@@ -69,7 +71,7 @@ public class PocController extends PocBrowsableController {
 			pocViewNumericWithVisibleMasker = new PocViewNumericWithVisibleMasker(this, modelA);
 		if (pocViewException == null)
 			pocViewException = new PocViewException(this, modelA);
-
+		
 		initModel(modelA);
 		initModel(modelB);
 
@@ -143,6 +145,13 @@ public class PocController extends PocBrowsableController {
 			break;
 		case DO_UNCHECKED_EXCEPTION:
 			modelA.throwUncheckedException(event);
+			break;
+		case SHOW_UIBINDER:
+			//lazy loading must be done here with UIBinder, not in the init method 
+			if(pocViewUIBinder == null){
+				pocViewUIBinder = new PocViewUIBinder(this, modelA);
+			}
+			content.clearAndAdd(pocViewUIBinder);
 			break;
 		default:
 			Log.debug("Unknown action");

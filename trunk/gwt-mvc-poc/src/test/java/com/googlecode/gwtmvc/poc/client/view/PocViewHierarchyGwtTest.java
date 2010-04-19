@@ -13,10 +13,10 @@ public class PocViewHierarchyGwtTest extends PocGWTTestCase {
 		//PocControllerRoot
 		assertEquals(1, tree.getItemCount());
 		assertEquals(1+2+2, tree.getItem(0).getChildCount());
-		//-PocController (showHomeView + 2 SHOW actions + 2 children)
-		assertEquals(1+7+1, tree.getItem(0).getChild(3).getChildCount());
+		//-PocController (showHomeView + 8 actions + 2 children)
+		assertEquals(1+8+1, tree.getItem(0).getChild(3).getChildCount());
 		//--PocControllerChild
-		assertEquals(1+0+0, tree.getItem(0).getChild(3).getChild(8).getChildCount());
+		assertEquals(1+0+0, tree.getItem(0).getChild(3).getChild(9).getChildCount());
 		//-PocControllerForm
 		assertEquals(1+2+0, tree.getItem(0).getChild(4).getChildCount());
 		

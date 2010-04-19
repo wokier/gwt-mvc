@@ -33,6 +33,7 @@ public class PocViewMenu extends View<Object,VerticalPanel> {
 		verticalPanel.add(new MvcHyperlink("Url parameters (value=5)",PocAction.SHOW_URLPARAMS , new MvcHyperlinkEntry("modelA","5")));
 		verticalPanel.add(new MvcHyperlink("Exceptions Handling",PocAction.SHOW_EXCEPTION));
 		verticalPanel.add(new MvcHyperlink("Hierarchical MVC",PocRootAction.SHOW_HIERARCHY));
+		verticalPanel.add(new MvcHyperlink("UIBinder View",PocAction.SHOW_UIBINDER));
 		return verticalPanel;
 	}
 	
