@@ -37,6 +37,8 @@ public class PocControllerTest extends ControllerTestCase {
 
 		controller.pocViewException =mockView("pocViewExceptionMock");
 		
+		controller.pocViewUIBinder = mockView("pocViewUIBinder");
+		
 		controller.content = mockDomPlacer("content");
 
 	}

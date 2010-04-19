@@ -14,7 +14,7 @@
 	<properties>
 		<gwt-mvc.version>0.4</gwt-mvc.version>
 		<gwt-log.version>3.0.1</gwt-log.version>
-		<gwt.version>2.0.1</gwt.version>
+		<gwt.version>2.0.3</gwt.version>
 	</properties>
 
 	<repositories>
@@ -29,13 +29,14 @@
 			<groupId>com.googlecode.gwt-mvc</groupId>
 			<artifactId>gwt-mvc</artifactId>
 			<version>${gwt-mvc.version}</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-servlet</artifactId>
 			<version>${gwt.version}</version>
-			<!--			<scope>runtime</scope>-->
+<!--			<scope>runtime</scope>-->
 		</dependency>
 
 		<dependency>
@@ -60,13 +61,13 @@
 		<dependency>
 			<groupId>org.jmock</groupId>
 			<artifactId>jmock</artifactId>
-			<version>2.5.0</version>
+			<version>2.5.1</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.jmock</groupId>
 			<artifactId>jmock-legacy</artifactId>
-			<version>2.5.0</version>
+			<version>2.5.1</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -152,17 +153,23 @@
 							<goal>compile</goal>
 							<goal>test</goal>
 						</goals>
-						<phase>prepare-package</phase> <!-- after test, in order to fail-fast AND before package, to pass all tests --> 
+						<phase>prepare-package</phase>
+						<!--
+							after test, in order to fail-fast AND before package, to pass all
+							tests
+						-->
 					</execution>
 					<!-- TODO : provide full test coverage -->
-<!--					<execution>-->
-<!--						<id>gwt-test-site</id>-->
-<!--						<goals>-->
-<!--							<goal>compile</goal>-->
-<!--							<goal>test</goal>-->
-<!--						</goals>-->
-<!--						<phase>site</phase> to provide full test execution and coverage -->
-<!--					</execution>-->
+					<!--					<execution>-->
+					<!--						<id>gwt-test-site</id>-->
+					<!--						<goals>-->
+					<!--							<goal>compile</goal>-->
+					<!--							<goal>test</goal>-->
+					<!--						</goals>-->
+					<!--
+						<phase>site</phase> to provide full test execution and coverage
+					-->
+					<!--					</execution>-->
 				</executions>
 				<configuration>
 					<module>com.googlecode.gwtmvc.poc.GwtMvcPoc</module>
