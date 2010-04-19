@@ -23,7 +23,7 @@ Please start a topic on the [http://groups.google.com/group/gwt-mvc google group
 || Form validation with messages || Released || 0.4 ||
 || Create a MVCHyperlink widget || Released || 0.4 ||
 || --> You are here <-- ||  ||  ||
-|| Pass to gwt 2.0 ||  Done || 0.5 ||
+|| Pass to gwt 2.0 [http://code.google.com/p/gwt-mvc/issues/detail?id=9 Issue] ||  Done || 0.5 ||
 || Use [http://mojo.codehaus.org/gwt-maven-plugin/ gwt-maven-plugin] ||  Done || 0.5 ||
 || replace the swith(event) in controllers by annotation like @handle(event=Actions.DO) || ? || ? || 
 || Help for a simple CRUD || ? || ? ||
