@@ -2,11 +2,11 @@
 
 == Members ==
 
-wokier@gmail.com [http://francois.wauquier.fr François Wauquier] Developer at [http://www.sfeir.com/ Sfeir]
+[http://francois.wauquier.fr François 'wokier' Wauquier] [http://twitter.com/wokier] Developer at [http://www.sfeir.com/ Sfeir]
 
-pierre.mage@gmail.com Pierre Mage Developer at [http://www.sfeir.com/ Sfeir]
+Pierre Mage pierre.mage@gmail.com [http://twitter.com/PierreMage] Developer at [http://www.sfeir.com/ Sfeir] 
 
-igor.mihalic@gmail.com Igor Mihàlik 
+Igor Mihàlik igor.mihalic@gmail.com [http://twitter.com/igormihalik]
 
 == How to join us ? ==
 
