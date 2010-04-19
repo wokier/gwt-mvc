@@ -27,6 +27,9 @@ Please start a topic on the [http://groups.google.com/group/gwt-mvc google group
 || Use [http://mojo.codehaus.org/gwt-maven-plugin/ gwt-maven-plugin] ||  Done || 0.5 ||
 || replace the swith(event) in controllers by annotation like @handle(event=Actions.DO) || ? || ? || 
 || Help for a simple CRUD || ? || ? ||
+|| Table loading exemple || ? || ? ||
+|| Paged Table loading example || ? || ? ||
+|| streaming rpc Table loading example || ? || ? ||
 || Use GWT [http://code.google.com/p/google-web-toolkit/wiki/CodeSplitting Code Splitting] for controller or subTree of controller || ? || ? ||
 || Facilitate Dependency Injection with [http://code.google.com/p/google-gin/ gin] || ? || ? ||
 || ... || ?|| ? ||
