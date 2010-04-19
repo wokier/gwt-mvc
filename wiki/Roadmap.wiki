@@ -25,6 +25,7 @@ Please start a topic on the [http://groups.google.com/group/gwt-mvc google group
 || --> You are here <-- ||  ||  ||
 || Pass to gwt 2.0 [http://code.google.com/p/gwt-mvc/issues/detail?id=9 Issue] ||  Done || 0.5 ||
 || Use [http://mojo.codehaus.org/gwt-maven-plugin/ gwt-maven-plugin] ||  Done || 0.5 ||
+|| Allowing to add the source (gwt) event to the MvcEvent || ? || 0.5 ||
 || replace the swith(event) in controllers by annotation like @handle(event=Actions.DO) || ? || ? || 
 || Help for a simple CRUD || ? || ? ||
 || Table loading exemple || ? || ? ||
