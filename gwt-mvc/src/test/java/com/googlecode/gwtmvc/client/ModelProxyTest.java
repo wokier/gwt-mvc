@@ -4,9 +4,9 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-public class ModelTest extends TestCase {
+public class ModelProxyTest extends TestCase {
 
-	private class StringModel extends Model<String> {
+	private class StringModel extends ModelProxy<String> {
 		public StringModel(String value) {
 			super(value);
 		}
