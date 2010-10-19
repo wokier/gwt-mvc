@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.google.gwt.core.client.GWT;
 import com.googlecode.gwtmvc.client.exception.UnavailableActionException;
 import com.googlecode.gwtmvc.client.place.DomPlacer;
 
@@ -182,7 +181,7 @@ public abstract class Controller {
 	 * @param model
 	 * @param value
 	 */
-	protected <M> void updateModel(Model<M> model, M value) {
+	protected <M> void updateModel(ModelProxy<M> model, M value) {
 		model.update(value);
 	}
 
@@ -196,7 +195,7 @@ public abstract class Controller {
 	 * @param value
 	 * @param causeEvent
 	 */
-	protected <M> void updateModel(Model<M> model, M value, MvcEvent causeEvent) {
+	protected <M> void updateModel(ModelProxy<M> model, M value, MvcEvent causeEvent) {
 		model.update(value, causeEvent);
 	}
 
@@ -206,7 +205,7 @@ public abstract class Controller {
 	 * 
 	 * @param model
 	 */
-	protected void initModel(Model model) {
+	protected void initModel(ModelProxy model) {
 		model.init();
 		model.initialised = true;
 	}

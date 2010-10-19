@@ -2,7 +2,7 @@ package com.googlecode.gwtmvc.client.form;
 
 import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.gwtmvc.client.Controller;
-import com.googlecode.gwtmvc.client.Model;
+import com.googlecode.gwtmvc.client.ModelProxy;
 import com.googlecode.gwtmvc.client.View;
 
 /**
@@ -23,7 +23,7 @@ public abstract class Form<T, W extends Widget> extends View<T, W> {
 	 * @param controller
 	 * @param models
 	 */
-	public Form(String id, Controller controller, Model... models) {
+	public Form(String id, Controller controller, ModelProxy... models) {
 		super(id, controller, models);
 	}
 

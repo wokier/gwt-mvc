@@ -36,12 +36,12 @@ public abstract class View<T, W extends Widget> extends LazyPanel implements IVi
 	 * @param models
 	 *            The different models on which the view could get the value.
 	 */
-	public View(String id, Controller controller, Model... models) {
+	public View(String id, Controller controller, ModelProxy... models) {
 		super();
 		this.id = id;
 		getElement().setId(id);
 		this.controller = controller;
-		for (Model model : models) {
+		for (ModelProxy model : models) {
 			model.addListener(this);
 		}
 	}
