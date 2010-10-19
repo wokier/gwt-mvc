@@ -12,8 +12,6 @@ public class PocViewGraphical extends View<Integer, Label> {
 
 	public static final String ID = "graphical";
 
-	Label bar;
-
 	ModelForView<Integer> modelA, modelB;
 
 	public PocViewGraphical(Controller controller, PocModelProxy modelA, PocModelProxy modelB) {
@@ -24,7 +22,7 @@ public class PocViewGraphical extends View<Integer, Label> {
 
 	@Override
 	public Label createWidget() {
-		bar = new Label(" ");
+		Label bar = new Label(" ");
 		bar.setHeight("20px");
 		return bar;
 	}
@@ -33,11 +31,11 @@ public class PocViewGraphical extends View<Integer, Label> {
 		ensureWidget();
 		int value = (modelA.getValue() == null ? 0 : modelA.getValue()) + (modelB.getValue() == null ? 0 : modelB.getValue());
 		if (value >= 0) {
-			bar.setWidth(value * 10 + "px");
-			DOM.setStyleAttribute(bar.getElement(), "background", "lightsteelblue");
+			getCreatedWidget().setWidth(value * 10 + "px");
+			DOM.setStyleAttribute(getCreatedWidget().getElement(), "background", "lightsteelblue");
 		} else {
-			bar.setWidth(value * -10 + "px");
-			DOM.setStyleAttribute(bar.getElement(), "background", "red");
+			getCreatedWidget().setWidth(value * -10 + "px");
+			DOM.setStyleAttribute(getCreatedWidget().getElement(), "background", "red");
 		}
 	}
 
