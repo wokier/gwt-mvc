@@ -1,6 +1,7 @@
 package com.googlecode.gwtmvc.client;
 
 import com.google.gwt.user.client.ui.LazyPanel;
+import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
@@ -80,6 +81,15 @@ public abstract class View<T, W extends Widget> extends LazyPanel implements IVi
 	 */
 	public abstract void onRender();
 
+	/**
+	 * Accessor to the created widget
+	 * @return
+	 * @see SimplePanel#getWidget()
+	 */
+	public W getCreatedWidget(){
+		return (W)getWidget();
+	}
+	
 	/**
 	 * @see com.google.gwt.user.client.ui.UIObject#toString()
 	 */
