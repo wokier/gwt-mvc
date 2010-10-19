@@ -3,7 +3,7 @@ package com.googlecode.gwtmvc.poc.client.model;
 import com.allen_sauer.gwt.log.client.Log;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.googlecode.gwtmvc.client.ModelAutoCallback;
 import com.googlecode.gwtmvc.client.ModelProxy;
 import com.googlecode.gwtmvc.client.MvcEvent;
 import com.googlecode.gwtmvc.poc.client.rpc.PocMinusRPC;
@@ -25,29 +25,19 @@ public class PocModelProxy extends ModelProxy<Integer> {
 	}
 	
 	public void plus(Integer integer,final MvcEvent causeEvent) {
-		AsyncCallback<Integer> callback = new AsyncCallback<Integer>() {
+		PocPlusRPC.Factory.getInstance(useServerRPCCall).plus(integer, new ModelAutoCallback<Integer>(this,causeEvent){
 			public void onFailure(Throwable caught) {
 				Window.alert("plus failed : " + caught);
 			}
-
-			public void onSuccess(Integer result) {
-				update(result, causeEvent);
-			}
-		};
-		PocPlusRPC.Factory.getInstance(useServerRPCCall).plus(integer, callback);
+		});
 	}
 
 	public void minus(Integer integer,final MvcEvent causeEvent) {
-		AsyncCallback<Integer> callback = new AsyncCallback<Integer>() {
+		PocMinusRPC.Util.getInstance(useServerRPCCall).minus(integer, new ModelAutoCallback<Integer>(this,causeEvent){
 			public void onFailure(Throwable caught) {
 				Window.alert("minus failed : " + caught);
 			}
-
-			public void onSuccess(Integer result) {
-				update(result, causeEvent);
-			}
-		};
-		PocMinusRPC.Util.getInstance(useServerRPCCall).minus(integer, callback);
+		});
 	}
 	
 	public void reinit(final MvcEvent causeEvent) {
@@ -62,25 +52,11 @@ public class PocModelProxy extends ModelProxy<Integer> {
 	}
 	
 	public void throwCheckedException(final MvcEvent causeEvent) {
-		PocMinusRPC.Util.getInstance(useServerRPCCall).throwCheckedException(new AsyncCallback<Void>(){
-			public void onSuccess(Void result) {
-				
-			}
-			public void onFailure(Throwable caught) {
-				update(caught);
-			}
-		});
+		PocMinusRPC.Util.getInstance(useServerRPCCall).throwCheckedException(new ModelAutoCallback(this));
 	}
 	
 	public void throwUncheckedException(final MvcEvent causeEvent) {
-		PocMinusRPC.Util.getInstance(useServerRPCCall).throwUncheckedException(new AsyncCallback<Void>(){
-			public void onSuccess(Void result) {
-				
-			}
-			public void onFailure(Throwable caught) {
-				update(caught);
-			}
-		});
+		PocMinusRPC.Util.getInstance(useServerRPCCall).throwUncheckedException(new ModelAutoCallback(this));
 	}
 	
 	@Override
