@@ -6,10 +6,10 @@
 <stringAttribute key="com.google.gwt.eclipse.core.STYLE" value="OBFUSCATED"/>
 <stringAttribute key="com.google.gwt.eclipse.core.WEB_MODE" value="false"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/gwt-mvc-poc gwt2"/>
+<listEntry value="/gwt-mvc-poc/src/test/java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
-<listEntry value="4"/>
+<listEntry value="2"/>
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.junit.CONTAINER" value="=gwt-mvc-poc/src\/test\/java"/>
 <booleanAttribute key="org.eclipse.jdt.junit.KEEPRUNNING_ATTR" value="false"/>
@@ -17,5 +17,5 @@
 <stringAttribute key="org.eclipse.jdt.junit.TEST_KIND" value="org.eclipse.jdt.junit.loader.junit4"/>
 <stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="com.google.gwt.eclipse.core.moduleClasspathProvider"/>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value=""/>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="gwt-mvc-poc gwt2"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="gwt-mvc-poc"/>
 </launchConfiguration>

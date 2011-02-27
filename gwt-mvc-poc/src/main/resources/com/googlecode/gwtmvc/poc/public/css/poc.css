@@ -9,6 +9,25 @@
 	padding: 5px;
 }
 
+#title {
+	height: 101px;
+}
+#title h1{
+	height: 101px;
+}
+
+#gwt2 {
+	background: url(../img/badge-grey.png) center no-repeat;
+	width: 105px;
+	height: 101px;
+	-webkit-transform: rotate(-10deg); 
+	-moz-transform: rotate(-10deg);
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 101px;
+	font-size: 0.9em;
+}
+
 #content {
 	padding: 10px;
 	background: url(../img/gwt-mvc.png) center no-repeat;
@@ -26,3 +45,4 @@
 	right:0px;
 	bottom:0px;
 }
+
