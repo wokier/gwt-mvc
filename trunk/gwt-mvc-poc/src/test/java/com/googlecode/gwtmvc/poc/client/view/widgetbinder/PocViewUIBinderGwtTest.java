@@ -1,10 +1,11 @@
-package com.googlecode.gwtmvc.poc.client.view;
+package com.googlecode.gwtmvc.poc.client.view.widgetbinder;
 
 import com.googlecode.gwtmvc.client.Controller;
 import com.googlecode.gwtmvc.client.IView;
 import com.googlecode.gwtmvc.client.MvcEvent;
 import com.googlecode.gwtmvc.poc.client.PocGWTTestCase;
 import com.googlecode.gwtmvc.poc.client.model.PocModelProxy;
+import com.googlecode.gwtmvc.poc.client.view.widgetbinder.PocViewUIBinder;
 
 public class PocViewUIBinderGwtTest extends PocGWTTestCase {
 

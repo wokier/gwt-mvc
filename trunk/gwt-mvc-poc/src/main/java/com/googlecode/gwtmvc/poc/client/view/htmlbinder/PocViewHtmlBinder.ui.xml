@@ -1,0 +1,19 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+	<ui:style>
+		.myStyle {
+			background: lightsteelblue;
+			font-weight: bold;
+			padding: 3px;
+		}
+	</ui:style>
+		<div>
+			<h3>UI Binder Html View</h3>
+			With UIBinder, you write HTML and apply
+			<span class="{style.myStyle}">Style</span>
+			<br />
+			Model value is:
+			<span ui:field='uiBinderSpan' />
+		</div>
+</ui:UiBinder>

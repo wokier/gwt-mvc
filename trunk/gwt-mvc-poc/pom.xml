@@ -13,8 +13,8 @@
 
 	<properties>
 		<gwt-mvc.version>0.4</gwt-mvc.version>
-		<gwt-log.version>3.0.1</gwt-log.version>
-		<gwt.version>2.0.3</gwt.version>
+		<gwt-log.version>2.6.2</gwt-log.version>
+		<gwt.version>2.0.4</gwt.version>
 	</properties>
 
 	<repositories>
@@ -47,7 +47,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.googlecode.gwt-log</groupId>
+			<groupId>com.google.code.gwt-log</groupId>
 			<artifactId>gwt-log</artifactId>
 			<version>${gwt-log.version}</version>
 		</dependency>
@@ -71,6 +71,7 @@
 			<scope>test</scope>
 		</dependency>
 
+		
 	</dependencies>
 
 	<build>

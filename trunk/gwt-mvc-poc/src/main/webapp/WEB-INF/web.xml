@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+
+	<!-- Servlets -->
+	<servlet>
+		<servlet-name>PocPlusRPC</servlet-name>
+		<servlet-class>com.googlecode.gwtmvc.poc.server.PocPlusRPCImpl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PocPlusRPC</servlet-name>
+		<url-pattern>/PocPlusRPC</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>PocMinusRPC</servlet-name>
+		<servlet-class>com.googlecode.gwtmvc.poc.server.PocMinusRPCImpl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PocMinusRPC</servlet-name>
+		<url-pattern>/PocMinusRPC</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>remoteLoggerServiceImpl</servlet-name>
+		<servlet-class>com.allen_sauer.gwt.log.server.RemoteLoggerServiceImpl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>remoteLoggerServiceImpl</servlet-name>
+		<url-pattern>/gwtmvcpoc/gwt-log</url-pattern>
+	</servlet-mapping>
+
+	<!-- Default page to serve -->
+	<welcome-file-list>
+		<welcome-file>GwtMvcPoc.html</welcome-file>
+	</welcome-file-list>
+
+</web-app>
